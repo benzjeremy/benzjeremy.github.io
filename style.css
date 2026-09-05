@@ -817,6 +817,9 @@ body {
   padding: 6px 12px;
   color: #38bdf8;
   display: inline-block;
+  margin-top: 4px;
+}
+
 .ext-links-row {
   display: flex;
   gap: 10px;
