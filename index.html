@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeremy Benz</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #21262d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .card {
+      max-width: 640px;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem 2.5rem 2rem;
+    }
+
+    .header {
+      margin-bottom: 2rem;
+    }
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .handle {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .handle a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .handle a:hover { text-decoration: underline; }
+
+    .bio {
+      font-size: 0.975rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .bio strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .project {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.15s;
+    }
+    .project:hover { border-color: var(--accent); }
+
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      background: #21262d;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.2rem 0.65rem;
+    }
+
+    .footer {
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer a:hover { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      .card { padding: 1.75rem 1.25rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="name">Jeremy Benz</div>
+      <div class="handle">
+        <a href="https://github.com/benzjeremy" target="_blank">@benzjeremy</a>
+        &nbsp;·&nbsp; 17 y/o &nbsp;·&nbsp; Germany
+      </div>
+    </div>
+
+    <p class="bio">
+      Ich schreibe Code, weil ich Dinge bauen will, die ich selbst benutzen würde.<br><br>
+      Ich vibeCode viel — aber nicht so, dass danach etwas Kaputtes rauskommt.
+      <strong>Security, Architektur</strong> und saubere Abstraktion sind mir wichtig,
+      auch wenn der erste Draft in 20 Minuten stand.<br><br>
+      Meistens in <strong>Go</strong>. Immer Open Source.
+    </p>
+
+    <div class="section-label">Projekte</div>
+
+    <a class="project" href="https://benzjeremy.github.io/untis-go/" target="_blank">
+      <div class="project-name">untis-go</div>
+      <div class="project-desc">
+        Nativer Go Desktop-Client für WebUntis. Kein Electron, kein Browser-Wrapper —
+        GTK3, WebKitGTK, lokale SQLite-Datenbank, Microsoft OneDrive Sync mit AES-256-GCM
+        und OAuth2. Alles in einer einzigen Binary.
+      </div>
+      <div class="tags">
+        <span class="tag">Go</span>
+        <span class="tag">GTK3</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">OAuth2</span>
+        <span class="tag">AES-256-GCM</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Windows</span>
+      </div>
+    </a>
+
+    <div class="footer">
+      <span>© 2026 Jeremy Benz</span>
+      <span>
+        <a href="https://github.com/benzjeremy" target="_blank">GitHub</a>
+      </span>
+    </div>
+  </div>
+</body>
+</html>
