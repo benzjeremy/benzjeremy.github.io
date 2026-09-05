@@ -37,9 +37,32 @@
       padding: 2.5rem 2.5rem 2rem;
     }
 
-    .header {
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
       margin-bottom: 2rem;
     }
+    .lang-btn {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0d1117;
+    }
+
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+
+    .header { margin-bottom: 2rem; }
 
     .name {
       font-size: 1.5rem;
@@ -53,11 +76,7 @@
       font-size: 0.9rem;
       color: var(--muted);
     }
-
-    .handle a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .handle a { color: var(--accent); text-decoration: none; }
     .handle a:hover { text-decoration: underline; }
 
     .bio {
@@ -66,11 +85,7 @@
       line-height: 1.75;
       margin-bottom: 2rem;
     }
-
-    .bio strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+    .bio strong { color: var(--text); font-weight: 500; }
 
     .section-label {
       font-size: 0.75rem;
@@ -86,7 +101,7 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1rem 1.25rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       text-decoration: none;
       display: block;
       transition: border-color 0.15s;
@@ -112,7 +127,6 @@
       flex-wrap: wrap;
       gap: 0.4rem;
     }
-
     .tag {
       font-size: 0.75rem;
       background: #21262d;
@@ -120,6 +134,35 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 0.2rem 0.65rem;
+    }
+
+    .contact-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .contact-box strong { color: var(--text); font-weight: 500; }
+    .contact-box a { color: var(--accent); text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+    .contact-box code {
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.8rem;
+      background: #21262d;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.15rem 0.45rem;
+      color: var(--text);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.5rem 0;
     }
 
     .footer {
@@ -133,12 +176,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-
-    .footer a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
+    .footer a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .footer a:hover { color: var(--accent); }
 
     @media (max-width: 480px) {
@@ -148,6 +186,12 @@
 </head>
 <body>
   <div class="card">
+
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
     <div class="header">
       <div class="name">Jeremy Benz</div>
       <div class="handle">
@@ -156,40 +200,101 @@
       </div>
     </div>
 
-    <p class="bio">
-      Ich schreibe Code, weil ich Dinge bauen will, die ich selbst benutzen würde.<br><br>
-      Ich vibeCode viel — aber nicht so, dass danach etwas Kaputtes rauskommt.
-      <strong>Security, Architektur</strong> und saubere Abstraktion sind mir wichtig,
-      auch wenn der erste Draft in 20 Minuten stand.<br><br>
-      Meistens in <strong>Go</strong>. Immer Open Source.
-    </p>
+    <!-- DE -->
+    <div data-lang="de" class="visible">
+      <p class="bio">
+        Ich schreibe Code, weil ich Dinge bauen will, die ich selbst benutzen würde.<br><br>
+        Ich vibeCode viel — aber nicht so, dass danach etwas Kaputtes rauskommt.
+        <strong>Security, Architektur</strong> und saubere Abstraktion sind mir wichtig,
+        auch wenn der erste Draft in 20 Minuten stand.<br><br>
+        Meistens in <strong>Go</strong>. Immer Open Source.
+      </p>
 
-    <div class="section-label">Projekte</div>
+      <div class="section-label">Projekte</div>
+      <a class="project" href="https://benzjeremy.github.io/untis-go/" target="_blank">
+        <div class="project-name">untis-go</div>
+        <div class="project-desc">
+          Nativer Go Desktop-Client für WebUntis. Kein Electron, kein Browser-Wrapper —
+          GTK3, WebKitGTK, SQLite, OneDrive Sync mit AES-256-GCM, OAuth2. Eine Binary.
+        </div>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">GTK3</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">OAuth2</span>
+          <span class="tag">AES-256-GCM</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Windows</span>
+        </div>
+      </a>
 
-    <a class="project" href="https://benzjeremy.github.io/untis-go/" target="_blank">
-      <div class="project-name">untis-go</div>
-      <div class="project-desc">
-        Nativer Go Desktop-Client für WebUntis. Kein Electron, kein Browser-Wrapper —
-        GTK3, WebKitGTK, lokale SQLite-Datenbank, Microsoft OneDrive Sync mit AES-256-GCM
-        und OAuth2. Alles in einer einzigen Binary.
+      <div class="section-label">Kontakt</div>
+      <div class="contact-box">
+        Wenn du einen Bug oder ein Sicherheitsproblem findest:<br><br>
+        <strong>1.</strong> Erstelle zuerst eine <a href="https://github.com/benzjeremy" target="_blank">GitHub Issue</a> im jeweiligen Repo.<br>
+        <strong>2.</strong> Optional kannst du mich danach auch per E-Mail erreichen:<br>
+        &nbsp;&nbsp;&nbsp;<a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br><br>
+        Betreff bitte in diesem Format:<br>
+        <code>[GITHUB] [PROJEKTNAME] [ISSUE ID]</code><br><br>
+        Beispiel: <code>[GITHUB] [untis-go] [#42]</code>
       </div>
-      <div class="tags">
-        <span class="tag">Go</span>
-        <span class="tag">GTK3</span>
-        <span class="tag">SQLite</span>
-        <span class="tag">OAuth2</span>
-        <span class="tag">AES-256-GCM</span>
-        <span class="tag">Linux</span>
-        <span class="tag">Windows</span>
+    </div>
+
+    <!-- EN -->
+    <div data-lang="en">
+      <p class="bio">
+        I write code because I want to build things I'd actually use myself.<br><br>
+        I vibecode a lot — but not the kind that ships broken.
+        <strong>Security, architecture</strong> and clean abstractions matter to me,
+        even if the first draft took 20 minutes.<br><br>
+        Mostly <strong>Go</strong>. Always open source.
+      </p>
+
+      <div class="section-label">Projects</div>
+      <a class="project" href="https://benzjeremy.github.io/untis-go/" target="_blank">
+        <div class="project-name">untis-go</div>
+        <div class="project-desc">
+          Native Go desktop client for WebUntis. No Electron, no browser wrapper —
+          GTK3, WebKitGTK, SQLite, OneDrive sync with AES-256-GCM, OAuth2. One binary.
+        </div>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">GTK3</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">OAuth2</span>
+          <span class="tag">AES-256-GCM</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Windows</span>
+        </div>
+      </a>
+
+      <div class="section-label">Contact</div>
+      <div class="contact-box">
+        If you find a bug or a security issue:<br><br>
+        <strong>1.</strong> First open a <a href="https://github.com/benzjeremy" target="_blank">GitHub Issue</a> in the relevant repository.<br>
+        <strong>2.</strong> Optionally, you can then also reach me by email:<br>
+        &nbsp;&nbsp;&nbsp;<a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br><br>
+        Please use the following subject format:<br>
+        <code>[GITHUB] [PROJECT] [ISSUE ID]</code><br><br>
+        Example: <code>[GITHUB] [untis-go] [#42]</code>
       </div>
-    </a>
+    </div>
 
     <div class="footer">
       <span>© 2026 Jeremy Benz</span>
-      <span>
-        <a href="https://github.com/benzjeremy" target="_blank">GitHub</a>
-      </span>
+      <a href="https://github.com/benzjeremy" target="_blank">GitHub</a>
     </div>
   </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.classList.toggle('visible', el.dataset.lang === lang);
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+      });
+    }
+  </script>
 </body>
 </html>
