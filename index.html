@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeremy Benz</title>
+  <title>Jeremy Benz – Profil, Philosophie & Projekte</title>
+  <meta name="description" content="17-jähriger Go-Entwickler aus Deutschland. VibeCoding mit echten Standards, Sicherheit von Grund auf und ohne Electron-Ballast. Creator von untis-go und docklite." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2358a6ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>" />
   <style>
     :root {
       --bg: #0d1117;
       --surface: #161b22;
+      --surface-subtle: #0f141c;
       --border: #21262d;
+      --border-accent: #30363d;
       --text: #e6edf3;
       --muted: #8b949e;
       --accent: #58a6ff;
+      --accent-glow: rgba(88, 166, 255, 0.15);
+      --success: #3fb950;
+      --warning: #d29922;
+      --danger: #f85149;
+      --tag-bg: #21262d;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,131 +33,329 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.25rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 740px;
+      width: 100%;
     }
 
     .card {
-      max-width: 640px;
-      width: 100%;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2.5rem 2.5rem 2rem;
+      border-radius: 14px;
+      padding: 2.5rem 2.25rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .site-tag::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
     }
 
     .lang-switch {
       display: flex;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
+      gap: 0.35rem;
+      background: var(--bg);
+      padding: 0.2rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
     }
+
     .lang-btn {
       font-size: 0.75rem;
       font-weight: 600;
       padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      border: 1px solid var(--border);
+      border-radius: 16px;
+      border: none;
       background: transparent;
       color: var(--muted);
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.15s ease;
     }
+
     .lang-btn.active {
       background: var(--accent);
-      border-color: var(--accent);
       color: #0d1117;
+      font-weight: 700;
     }
 
     [data-lang] { display: none; }
     [data-lang].visible { display: block; }
 
-    .header { margin-bottom: 2rem; }
+    /* Header Profile */
+    .header {
+      margin-bottom: 2.25rem;
+    }
 
     .name {
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-    }
-
-    .handle {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .handle a { color: var(--accent); text-decoration: none; }
-    .handle a:hover { text-decoration: underline; }
-
-    .bio {
-      font-size: 0.975rem;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 2rem;
-    }
-    .bio strong { color: var(--text); font-weight: 500; }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .project {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.5rem;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.15s;
-    }
-    .project:hover { border-color: var(--accent); }
-
-    .project-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
       margin-bottom: 0.35rem;
     }
 
-    .project-desc {
-      font-size: 0.875rem;
+    .handle {
+      font-size: 0.95rem;
       color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .handle a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .handle a:hover { text-decoration: underline; }
+
+    .badge-pill {
+      font-size: 0.75rem;
+      background: #1f293d;
+      color: #79c0ff;
+      border: 1px solid #388bfd40;
+      padding: 0.15rem 0.55rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* Typography & Sections */
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 2.25rem 0 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #c9d1d9;
+      line-height: 1.7;
+      margin-bottom: 1.15rem;
+    }
+
+    p strong, li strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .highlight-box {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-accent);
+      border-radius: 10px;
+      padding: 1.15rem 1.4rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .highlight-box::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      border-radius: 10px 0 0 10px;
+    }
+
+    ul.feature-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    ul.feature-list li {
+      font-size: 0.925rem;
+      color: #c9d1d9;
+      padding-left: 1.4rem;
+      position: relative;
       line-height: 1.6;
-      margin-bottom: 0.75rem;
+    }
+
+    ul.feature-list li::before {
+      content: "✦";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-size: 0.85rem;
+      top: 0.1rem;
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.35rem 1.45rem;
+      margin-bottom: 1.25rem;
+      transition: all 0.2s ease;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .project-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
     }
+
     .tag {
-      font-size: 0.75rem;
-      background: #21262d;
+      font-size: 0.72rem;
+      background: var(--tag-bg);
       color: var(--muted);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 0.2rem 0.65rem;
+      padding: 0.15rem 0.55rem;
+      font-weight: 500;
     }
 
-    .contact-box {
-      background: var(--bg);
+    .project-links {
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      padding-top: 0.5rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .project-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .skill-card {
+      background: var(--surface-subtle);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 2rem;
-      font-size: 0.875rem;
+      padding: 0.85rem 1rem;
+    }
+
+    .skill-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .skill-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* Contact Box */
+    .contact-box {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.35rem 1.45rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.7;
     }
-    .contact-box strong { color: var(--text); font-weight: 500; }
+
+    .contact-box strong { color: #fff; }
     .contact-box a { color: var(--accent); text-decoration: none; }
     .contact-box a:hover { text-decoration: underline; }
+
     .contact-box code {
       font-family: "JetBrains Mono", "Fira Code", monospace;
       font-size: 0.8rem;
@@ -156,255 +363,436 @@
       border: 1px solid var(--border);
       border-radius: 4px;
       padding: 0.15rem 0.45rem;
-      color: var(--text);
+      color: #e6edf3;
     }
 
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1.5rem 0;
-    }
-
+    /* Footer */
     .footer {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--muted);
-      border-top: 1px solid var(--border);
+      margin-top: 2.25rem;
       padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
-    .footer a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
     .footer a:hover { color: var(--accent); }
 
-    @media (max-width: 480px) {
-      .card { padding: 1.75rem 1.25rem 1.25rem; }
+    @media (max-width: 540px) {
+      .card { padding: 1.75rem 1.25rem; }
+      .name { font-size: 1.6rem; }
+      .top-bar { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="container">
+    <div class="card">
 
-    <div class="lang-switch">
-      <button class="lang-btn active" onclick="setLang('de')">DE</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-    </div>
-
-    <div class="header">
-      <div class="name">
-      <a href="https://benzjeremy.github.io/benzjeremy" target="_blank">Jeremy Benz</a>
+      <div class="top-bar">
+        <div class="site-tag">benzjeremy.github.io · Offizielle Detailseite</div>
+        <div class="lang-switch">
+          <button class="lang-btn active" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
       </div>
-      <div class="handle">
-        <a href="https://github.com/benzjeremy" target="_blank">@benzjeremy</a>
-        &nbsp;·&nbsp; 17 y/o &nbsp;·&nbsp; Germany
+
+      <div class="header">
+        <h1 class="name">Jeremy Benz</h1>
+        <div class="handle">
+          <a href="https://github.com/benzjeremy" target="_blank">@benzjeremy</a>
+          <span>·</span>
+          <span>17 Jahre alt</span>
+          <span>·</span>
+          <span>Deutschland</span>
+          <span class="badge-pill">Go & Systems Developer</span>
+        </div>
       </div>
-    </div>
 
-    <!-- DE -->
-    <div data-lang="de" class="visible">
-      <p class="bio">
-        Ich schreibe Code, weil ich Dinge bauen will, die ich selbst benutzen würde.<br><br>
-        Ich vibeCode viel — aber nicht so, dass danach etwas Kaputtes rauskommt.
-        <strong>Security, Architektur</strong> und saubere Abstraktion sind mir wichtig,
-        auch wenn der erste Draft in 20 Minuten stand.<br><br>
-        Meistens in <strong>Go</strong>. Immer Open Source.<br><br>
-        📖 <a href="/details" style="color:var(--accent);text-decoration:none;font-weight:500;">Mehr Details zu mir & meinen Projekten →</a>
-      </p>
+      <!-- DEUTSCH -->
+      <div data-lang="de" class="visible">
+        <div class="highlight-box">
+          <p style="margin-bottom: 0;">
+            Ich entwickle Software aus echter Leidenschaft – mit dem Anspruch, Anwendungen zu bauen, die ich selbst jeden Tag gerne und produktiv nutze. Keine künstlich aufgeblasenen Framework-Schlachten, kein Electron-Ballast, sondern <strong>native Performance, kompromisslose Sicherheit und durchdachte Architektur</strong> in <strong>Go</strong>.
+          </p>
+        </div>
 
-      <div class="section-label">Hauptprojekt</div>
-      <a class="project" href="https://benzjeremy.github.io/untis-go/" target="_blank">
-        <div class="project-name">untis-go</div>
-        <div class="project-desc">
-          Nativer Go Desktop-Client für WebUntis. Kein Electron, kein Browser-Wrapper —
-          GTK3, WebKitGTK, SQLite, OneDrive Sync mit AES-256-GCM, OAuth2. Eine Binary.
-        </div>
-        <div class="tags">
-          <span class="tag">Go</span>
-          <span class="tag">GTK3</span>
-          <span class="tag">SQLite</span>
-          <span class="tag">OAuth2</span>
-          <span class="tag">AES-256-GCM</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Windows</span>
-        </div>
-      </a>
+        <h2>💡 Über mich & meine Philosophie: VibeCoding mit echten Standards</h2>
+        <p>
+          Der Begriff <em>VibeCoding</em> beschreibt meinen extrem schnellen, fokussierten Entwicklungsflow – oft unterstützt durch moderne KI-Agenten (wie Claude Code oder Google Antigravity). Aber im fundamentalen Gegensatz zu schlampigem "AI Slop" steht bei mir technische Exzellenz und echte Produktionsreife an allererster Stelle:
+        </p>
 
-      <div class="section-label">System & Cloud Tools</div>
-      <a class="project" href="https://benzjeremy.github.io/docklite/" target="_blank">
-        <div class="project-name">docklite</div>
-        <div class="project-desc">
-          Radikal schlanke Portainer-Alternative in Go & Astro. Direkte docker.sock-Kommunikation,
-          nur 10–15 MB RAM, Echtzeit-Monitoring via SSE, demuxte Logs & REST API. Eine Single-Binary.
-        </div>
-        <div class="tags">
-          <span class="tag">Go</span>
-          <span class="tag">Astro</span>
-          <span class="tag">Docker</span>
-          <span class="tag">docker.sock</span>
-          <span class="tag">REST API</span>
-          <span class="tag">SSE</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Windows</span>
-        </div>
-      </a>
+        <ul class="feature-list">
+          <li>
+            <strong>🛡️ Echte Sicherheit aus dem Effeff (Zero-Dummy-Security):</strong><br>
+            Sicherheit ist kein Nachgedanke. Echte kryptografische Verfahren (AES-256-GCM, PBKDF2 mit 100.000 Iterationen), strikter Schutz lokaler Schnittstellen (Anti-DNS-Rebinding, Anti-CSRF-Prüfung) und manipulationssichere Token-Authentifizierung ab Werk.
+          </li>
+          <li>
+            <strong>⚡ Schlank & Nativ (Kein Electron-Overhead):</strong><br>
+            Desktop-Anwendungen gehören nicht in schwere Browser-Hüllen, die 300 MB RAM fressen. Stattdessen setze ich auf native Linux-Bibliotheken (GTK3 & WebKitGTK), native Windows-APIs und blitzschnelle Single-Binaries.
+          </li>
+          <li>
+            <strong>🎯 Zero-Bug-Standard & Reproduzierbarkeit:</strong><br>
+            Saubere Paketstrukturen, verifizierbare Git-Commits, offene Open-Source-Lizenzen (GPL-3.0) und strikte SemVer-Versionierung ohne unnötige Nuller (z. B. <code>v1.6</code>, <code>v2.1</code>).
+          </li>
+        </ul>
 
-      <div class="section-label">Websites</div>
-      <a class="project" href="https://benzjeremy.github.io/binchrii/" target="_blank">
-        <div class="project-name">binchrii</div>
-        <div class="project-desc">
-          Offizielle Web-Präsenz & Streamer-Hub für den Twitch-Streamer binchrii. Reines semantisches HTML5,
-          Cyberpunk/Neon Gaming-Ästhetik in modernem CSS3, interaktive Twitch-Integration, Sendeplan und Chat-Commands.
+        <h2>🛠️ Technische Schwerpunkte</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-title">⚡ Go (Golang)</div>
+            <div class="skill-desc">Systemprogrammierung, REST APIs, Socket-Dialer, Concurrency</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">🖥️ Desktop Native</div>
+            <div class="skill-desc">GTK3, WebKitGTK, Win32 Named Pipes, SQLite, CGo</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">🛡️ Security & Crypto</div>
+            <div class="skill-desc">AES-256-GCM, PBKDF2, Anti-CSRF, DNS-Rebinding-Schutz</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">🌐 Web & Frontend</div>
+            <div class="skill-desc">Astro 7, Modernes CSS3/HTML5, Vanilla JS, Single-Binary Embedding</div>
+          </div>
         </div>
-        <div class="tags">
-          <span class="tag">Website</span>
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Twitch</span>
-          <span class="tag">Cyberpunk</span>
-          <span class="tag">GitHub Pages</span>
-        </div>
-      </a>
-      <a class="project" href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank">
-        <div class="project-name">ItsBenzo_TV</div>
-        <div class="project-desc">
-          Offizielle Web-Präsenz & Chaos-Control-Center für den Twitch-Streamer ItsBenzo_TV. Minecraft Modpacks (Create & Mekanism),
-          Special Friends Showcase, DSGVO-konformer Live-Stream-Player, Sendeplan und All-in-One Link-Hub.
-        </div>
-        <div class="tags">
-          <span class="tag">Website</span>
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Twitch</span>
-          <span class="tag">Minecraft</span>
-          <span class="tag">GitHub Pages</span>
-        </div>
-      </a>
 
-      <div class="section-label">Kontakt</div>
-      <div class="contact-box">
-        Wenn du einen Bug oder ein Sicherheitsproblem findest:<br><br>
-        <strong>1.</strong> Erstelle zuerst eine <a href="https://github.com/benzjeremy" target="_blank">GitHub Issue</a> im jeweiligen Repo.<br>
-        <strong>2.</strong> Optional kannst du mich danach auch per E-Mail erreichen:<br>
-        &nbsp;&nbsp;&nbsp;<a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br><br>
-        Betreff bitte in diesem Format:<br>
-        <code>[GITHUB] [PROJEKTNAME] [ISSUE ID]</code><br><br>
-        Beispiel: <code>[GITHUB] [untis-go] [#42]</code>
+        <h2>🚀 Meine Projekte</h2>
+
+        <!-- docklite -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">
+              <span>⚡</span> docklite <span style="font-size:0.75rem; color:#38bdf8; font-family:monospace; background:#111a2c; padding:0.1rem 0.4rem; border-radius:4px;">v1.2</span>
+            </div>
+            <span class="badge-pill" style="background:rgba(56, 189, 248, 0.12); color:#38bdf8; border-color:rgba(56, 189, 248, 0.3);">System & Cloud</span>
+          </div>
+          <div class="project-desc">
+            Radikal schlanke Portainer-Alternative in Go und Astro. Löst das Bloat-Problem von Tools, die 250+ MB RAM fressen: Docklite benötigt lediglich ca. 12 MB RAM, kommuniziert nativ direkt mit <code>/var/run/docker.sock</code> (oder Windows Named Pipe), bietet einen interaktiven HTML/CSS-Inspector, colorierte Logs mit Sofort-Download, Image-Pulling, Live-Prozessanzeige (top) und Container-Lifecycle-Steuerung. Als Single-Binary für Linux und Windows ausgeliefert.
+          </div>
+          <div class="tags">
+            <span class="tag">Go</span>
+            <span class="tag">Astro</span>
+            <span class="tag">docker.sock</span>
+            <span class="tag">REST API</span>
+            <span class="tag">SSE Stream</span>
+            <span class="tag">~12 MB RAM</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">GPL-3.0</span>
+          </div>
+          <div class="project-links">
+            🔗 <a href="https://benzjeremy.github.io/docklite/" target="_blank">Website</a> · 
+            📖 <a href="https://benzjeremy.github.io/docklite/wiki/" target="_blank">Wiki & Dokumentation</a> · 
+            📦 <a href="https://github.com/benzjeremy/docklite/releases" target="_blank">Releases</a> · 
+            💻 <a href="https://github.com/benzjeremy/docklite" target="_blank">Quellcode (GitHub)</a>
+          </div>
+        </div>
+
+        <!-- untis-go -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">
+              <span>🔭</span> untis-go <span style="font-size:0.75rem; color:#3fb950; font-family:monospace; background:#112217; padding:0.1rem 0.4rem; border-radius:4px;">Main Project</span>
+            </div>
+            <span class="badge-pill" style="background:rgba(63, 185, 80, 0.12); color:#3fb950; border-color:rgba(63, 185, 80, 0.3);">Native Desktop</span>
+          </div>
+          <div class="project-desc">
+            Vollwertiger, blitzschneller nativer WebUntis Desktop-Client für Schüler und Lehrkräfte. Komplett in nativem Go geschrieben – ohne Electron oder Browser-Schachtelung. Nutzt GTK3 und WebKitGTK, einen lokalen SQLite-Cache, Microsoft 365 & OneDrive Sync mit echter AES-256-GCM Verschlüsselung und synchrones Zeitraster.
+          </div>
+          <div class="tags">
+            <span class="tag">Go</span>
+            <span class="tag">GTK3</span>
+            <span class="tag">WebKitGTK</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">OAuth2</span>
+            <span class="tag">AES-256-GCM</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">GPL-3.0</span>
+          </div>
+          <div class="project-links">
+            🔗 <a href="https://benzjeremy.github.io/untis-go/" target="_blank">Website</a> · 
+            📖 <a href="https://benzjeremy.github.io/untis-go/wiki/" target="_blank">Wiki & Dokumentation</a> · 
+            📦 <a href="https://github.com/benzjeremy/untis-go/releases" target="_blank">Releases</a> · 
+            💻 <a href="https://github.com/benzjeremy/untis-go" target="_blank">Quellcode (GitHub)</a>
+          </div>
+        </div>
+
+        <!-- binchrii -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">
+              <span>🎮</span> binchrii
+            </div>
+            <span class="badge-pill" style="background:rgba(210, 153, 34, 0.12); color:#d29922; border-color:rgba(210, 153, 34, 0.3);">Web Presence</span>
+          </div>
+          <div class="project-desc">
+            Offizielle Web-Präsenz und interaktiver Community-Hub für die Twitch-Streamerin binchrii. Entwickelt mit reinem semantischem HTML5, modernem CSS3 im Cyberpunk/Neon-Stil und schlankem Vanilla JavaScript (100% Framework-frei). Bietet einen Sendeplan, Chat-Befehle-Verzeichnis mit 1-Klick-Kopieren, Social-Media-Übersicht und DSGVO-konforme Twitch-Stream-Einbindung.
+          </div>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Vanilla JS</span>
+            <span class="tag">Twitch</span>
+            <span class="tag">Cyberpunk</span>
+            <span class="tag">GPL-3.0</span>
+          </div>
+          <div class="project-links">
+            🔗 <a href="https://benzjeremy.github.io/binchrii/" target="_blank">Website</a> · 
+            💻 <a href="https://github.com/benzjeremy/binchrii" target="_blank">Quellcode (GitHub)</a>
+          </div>
+        </div>
+
+        <!-- itsbenzo-tv -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">
+              <span>📺</span> ItsBenzo_TV
+            </div>
+            <span class="badge-pill" style="background:rgba(210, 153, 34, 0.12); color:#d29922; border-color:rgba(210, 153, 34, 0.3);">Web Presence</span>
+          </div>
+          <div class="project-desc">
+            Offizielle Web-Präsenz & Chaos-Control-Center für den Twitch-Streamer ItsBenzo_TV. Minecraft Modpacks Showcase (Create & Mekanism), Special Friends Showcase, DSGVO-konformer Live-Stream-Player, Sendeplan und All-in-One Link-Hub.
+          </div>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Vanilla JS</span>
+            <span class="tag">Twitch</span>
+            <span class="tag">Minecraft</span>
+            <span class="tag">GPL-3.0</span>
+          </div>
+          <div class="project-links">
+            🔗 <a href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank">Website</a> · 
+            💻 <a href="https://github.com/benzjeremy/itsbenzo-tv" target="_blank">Quellcode (GitHub)</a>
+          </div>
+        </div>
+
+        <h2>📬 Kontakt & Bug-Reporting</h2>
+        <div class="contact-box">
+          Wenn du einen Fehler, einen Bug oder ein potenzielles Sicherheitsproblem in einem meiner Projekte findest:<br><br>
+          <strong>1.</strong> Erstelle bitte zuerst eine <a href="https://github.com/benzjeremy" target="_blank">GitHub Issue</a> im jeweiligen Repository.<br>
+          <strong>2.</strong> Bei vertraulichen Sicherheitsfragen erreichst du mich per E-Mail:<br>
+          &nbsp;&nbsp;&nbsp;👉 <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br><br>
+          <strong>Betreff-Format für E-Mails:</strong><br>
+          <code>[GITHUB] [PROJEKTNAME] [ISSUE ID]</code><br>
+          <em>(Beispiel: <code>[GITHUB] [docklite] [#12]</code>)</em>
+        </div>
       </div>
-    </div>
 
-    <!-- EN -->
-    <div data-lang="en">
-      <p class="bio">
-        I write code because I want to build things I'd actually use myself.<br><br>
-        I vibecode a lot — but not the kind that ships broken.
-        <strong>Security, architecture</strong> and clean abstractions matter to me,
-        even if the first draft took 20 minutes.<br><br>
-        Mostly <strong>Go</strong>. Always open source.<br><br>
-        📖 <a href="/details" style="color:var(--accent);text-decoration:none;font-weight:500;">More details about me & my projects →</a>
-      </p>
+      <!-- ENGLISH -->
+      <div data-lang="en">
+        <div class="highlight-box">
+          <p style="margin-bottom: 0;">
+            I build software out of genuine passion — creating tools I love using myself every single day. No bloated framework madness, no Electron memory hogging, but <strong>native performance, uncompromising security, and clean architecture</strong> in <strong>Go</strong>.
+          </p>
+        </div>
 
-      <div class="section-label">Main Project</div>
-      <a class="project" href="https://benzjeremy.github.io/untis-go/" target="_blank">
-        <div class="project-name">untis-go</div>
-        <div class="project-desc">
-          Native Go desktop client for WebUntis. No Electron, no browser wrapper —
-          GTK3, WebKitGTK, SQLite, OneDrive sync with AES-256-GCM, OAuth2. One binary.
-        </div>
-        <div class="tags">
-          <span class="tag">Go</span>
-          <span class="tag">GTK3</span>
-          <span class="tag">SQLite</span>
-          <span class="tag">OAuth2</span>
-          <span class="tag">AES-256-GCM</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Windows</span>
-        </div>
-      </a>
+        <h2>💡 About Me & Philosophy: VibeCoding with Real Standards</h2>
+        <p>
+          <em>VibeCoding</em> describes my fast, highly focused development flow — often accelerated by modern autonomous AI agents (Claude Code, Google Antigravity). But unlike sloppy "AI Slop", technical excellence and production readiness always come first:
+        </p>
 
-      <div class="section-label">System & Cloud Tools</div>
-      <a class="project" href="https://benzjeremy.github.io/docklite/" target="_blank">
-        <div class="project-name">docklite</div>
-        <div class="project-desc">
-          Ultra-lightweight Portainer alternative in Go & Astro. Direct docker.sock communication,
-          ~10–15 MB RAM footprint, real-time metrics via SSE, demuxed logs & REST API. Single binary.
-        </div>
-        <div class="tags">
-          <span class="tag">Go</span>
-          <span class="tag">Astro</span>
-          <span class="tag">Docker</span>
-          <span class="tag">docker.sock</span>
-          <span class="tag">REST API</span>
-          <span class="tag">SSE</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Windows</span>
-        </div>
-      </a>
+        <ul class="feature-list">
+          <li>
+            <strong>🛡️ Genuine Security from the Ground Up (Zero Dummy Security):</strong><br>
+            Security is never an afterthought. Real cryptography (AES-256-GCM, PBKDF2 with 100,000 iterations), strict local API protections (Anti-DNS-Rebinding, Anti-CSRF checks), and tamper-proof token authentication by default.
+          </li>
+          <li>
+            <strong>⚡ Lightweight & Native (Zero Electron Bloat):</strong><br>
+            Desktop apps don't belong in heavy 300 MB browser containers. I build with native Linux libraries (GTK3 & WebKitGTK), native Windows APIs, and lightning-fast standalone binaries.
+          </li>
+          <li>
+            <strong>🎯 Zero Bug Standard & Reproducibility:</strong><br>
+            Clean package modularity, verifiable Git commits, open-source licensing (GPL-3.0), and strict SemVer versioning without trailing zeros (e.g. <code>v1.6</code>, <code>v2.1</code>).
+          </li>
+        </ul>
 
-      <div class="section-label">Websites</div>
-      <a class="project" href="https://benzjeremy.github.io/binchrii/" target="_blank">
-        <div class="project-name">binchrii</div>
-        <div class="project-desc">
-          Official web presence & streamer hub for Twitch streamer binchrii. Pure semantic HTML5,
-          cyberpunk/neon gaming aesthetics in modern CSS3, interactive Twitch integration, schedule, and chat commands.
+        <h2>🛠️ Core Technical Focus</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-title">⚡ Go (Golang)</div>
+            <div class="skill-desc">Systems programming, REST APIs, socket dialers, concurrency</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">🖥️ Desktop Native</div>
+            <div class="skill-desc">GTK3, WebKitGTK, Win32 Named Pipes, SQLite, CGo</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">🛡️ Security & Crypto</div>
+            <div class="skill-desc">AES-256-GCM, PBKDF2, Anti-CSRF, Anti-DNS Rebinding</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">🌐 Web & Frontend</div>
+            <div class="skill-desc">Astro 7, Modern CSS3/HTML5, Vanilla JS, single-binary embed</div>
+          </div>
         </div>
-        <div class="tags">
-          <span class="tag">Website</span>
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Twitch</span>
-          <span class="tag">Cyberpunk</span>
-          <span class="tag">GitHub Pages</span>
-        </div>
-      </a>
-      <a class="project" href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank">
-        <div class="project-name">ItsBenzo_TV</div>
-        <div class="project-desc">
-          Official web presence & Chaos Control Center for Twitch streamer ItsBenzo_TV. Minecraft modpacks (Create & Mekanism),
-          Special Friends showcase, privacy-conscious live stream player, schedule, and all-in-one link hub.
-        </div>
-        <div class="tags">
-          <span class="tag">Website</span>
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Twitch</span>
-          <span class="tag">Minecraft</span>
-          <span class="tag">GitHub Pages</span>
-        </div>
-      </a>
 
-      <div class="section-label">Contact</div>
-      <div class="contact-box">
-        If you find a bug or a security issue:<br><br>
-        <strong>1.</strong> First open a <a href="https://github.com/benzjeremy" target="_blank">GitHub Issue</a> in the relevant repository.<br>
-        <strong>2.</strong> Optionally, you can then also reach me by email:<br>
-        &nbsp;&nbsp;&nbsp;<a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br><br>
-        Please use the following subject format:<br>
-        <code>[GITHUB] [PROJECT] [ISSUE ID]</code><br><br>
-        Example: <code>[GITHUB] [untis-go] [#42]</code>
+        <h2>🚀 Featured Projects</h2>
+
+        <!-- docklite EN -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">
+              <span>⚡</span> docklite <span style="font-size:0.75rem; color:#38bdf8; font-family:monospace; background:#111a2c; padding:0.1rem 0.4rem; border-radius:4px;">v1.2</span>
+            </div>
+            <span class="badge-pill" style="background:rgba(56, 189, 248, 0.12); color:#38bdf8; border-color:rgba(56, 189, 248, 0.3);">System & Cloud</span>
+          </div>
+          <div class="project-desc">
+            Radically ultra-lightweight Portainer alternative in Go and Astro. Solves the bloat problem of traditional container tools that consume 250+ MB RAM: Docklite runs with just ~12 MB RAM, speaks directly to <code>/var/run/docker.sock</code> (or Windows Named Pipe), features an interactive HTML/CSS inspector, colorized logs with instant download, image pulling, live container processes (top), and full lifecycle control. Delivered as a single binary for Linux and Windows.
+          </div>
+          <div class="tags">
+            <span class="tag">Go</span>
+            <span class="tag">Astro</span>
+            <span class="tag">docker.sock</span>
+            <span class="tag">REST API</span>
+            <span class="tag">SSE Stream</span>
+            <span class="tag">~12 MB RAM</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">GPL-3.0</span>
+          </div>
+          <div class="project-links">
+            🔗 <a href="https://benzjeremy.github.io/docklite/" target="_blank">Website</a> · 
+            📖 <a href="https://benzjeremy.github.io/docklite/wiki/" target="_blank">Wiki & Documentation</a> · 
+            📦 <a href="https://github.com/benzjeremy/docklite/releases" target="_blank">Releases</a> · 
+            💻 <a href="https://github.com/benzjeremy/docklite" target="_blank">Source Code (GitHub)</a>
+          </div>
+        </div>
+
+        <!-- untis-go EN -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">
+              <span>🔭</span> untis-go <span style="font-size:0.75rem; color:#3fb950; font-family:monospace; background:#112217; padding:0.1rem 0.4rem; border-radius:4px;">Main Project</span>
+            </div>
+            <span class="badge-pill" style="background:rgba(63, 185, 80, 0.12); color:#3fb950; border-color:rgba(63, 185, 80, 0.3);">Native Desktop</span>
+          </div>
+          <div class="project-desc">
+            Fully featured, blazingly fast native WebUntis desktop client for students and teachers. Written in pure Go with GTK3/WebKitGTK shell, SQLite cache, Microsoft 365 & OneDrive sync encrypted via AES-256-GCM, and synchronous school timetable grids.
+          </div>
+          <div class="tags">
+            <span class="tag">Go</span>
+            <span class="tag">GTK3</span>
+            <span class="tag">WebKitGTK</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">OAuth2</span>
+            <span class="tag">AES-256-GCM</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">GPL-3.0</span>
+          </div>
+          <div class="project-links">
+            🔗 <a href="https://benzjeremy.github.io/untis-go/" target="_blank">Website</a> · 
+            📖 <a href="https://benzjeremy.github.io/untis-go/wiki/" target="_blank">Wiki & Documentation</a> · 
+            📦 <a href="https://github.com/benzjeremy/untis-go/releases" target="_blank">Releases</a> · 
+            💻 <a href="https://github.com/benzjeremy/untis-go" target="_blank">Source Code (GitHub)</a>
+          </div>
+        </div>
+
+        <!-- binchrii EN -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">
+              <span>🎮</span> binchrii
+            </div>
+            <span class="badge-pill" style="background:rgba(210, 153, 34, 0.12); color:#d29922; border-color:rgba(210, 153, 34, 0.3);">Web Presence</span>
+          </div>
+          <div class="project-desc">
+            Official web presence and interactive community hub for Twitch streamer binchrii. Built with pure semantic HTML5, modern cyberpunk/neon CSS3, and lightweight vanilla JavaScript (100% framework-free). Features stream schedule, 1-click copy chat commands, and privacy-conscious Twitch embed.
+          </div>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Vanilla JS</span>
+            <span class="tag">Twitch</span>
+            <span class="tag">Cyberpunk</span>
+            <span class="tag">GPL-3.0</span>
+          </div>
+          <div class="project-links">
+            🔗 <a href="https://benzjeremy.github.io/binchrii/" target="_blank">Website</a> · 
+            💻 <a href="https://github.com/benzjeremy/binchrii" target="_blank">Source Code (GitHub)</a>
+          </div>
+        </div>
+
+        <!-- itsbenzo-tv EN -->
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">
+              <span>📺</span> ItsBenzo_TV
+            </div>
+            <span class="badge-pill" style="background:rgba(210, 153, 34, 0.12); color:#d29922; border-color:rgba(210, 153, 34, 0.3);">Web Presence</span>
+          </div>
+          <div class="project-desc">
+            Official web presence & Chaos Control Center for Twitch streamer ItsBenzo_TV. Minecraft Modpacks Showcase, Special Friends matrix, GDPR-compliant live player, schedule, and all-in-one link hub.
+          </div>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Vanilla JS</span>
+            <span class="tag">Twitch</span>
+            <span class="tag">Minecraft</span>
+            <span class="tag">GPL-3.0</span>
+          </div>
+          <div class="project-links">
+            🔗 <a href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank">Website</a> · 
+            💻 <a href="https://github.com/benzjeremy/itsbenzo-tv" target="_blank">Source Code (GitHub)</a>
+          </div>
+        </div>
+
+        <h2>📬 Contact & Responsible Disclosure</h2>
+        <div class="contact-box">
+          If you discover a bug, vulnerability, or issue in any of my projects:<br><br>
+          <strong>1.</strong> Please open a <a href="https://github.com/benzjeremy" target="_blank">GitHub Issue</a> in the respective repository first.<br>
+          <strong>2.</strong> For confidential security disclosures, contact me via email:<br>
+          &nbsp;&nbsp;&nbsp;👉 <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br><br>
+          <strong>Email Subject Format:</strong><br>
+          <code>[GITHUB] [PROJECT] [#ID]</code><br>
+          <em>(Example: <code>[GITHUB] [docklite] [#12]</code>)</em>
+        </div>
       </div>
-    </div>
 
-    <div class="footer">
-      <span>© 2026 Jeremy Benz</span>
-      <a href="https://github.com/benzjeremy" target="_blank">GitHub</a>
+      <div class="footer">
+        <div>Jeremy Benz (@benzjeremy) · Open Source unter GPL-3.0</div>
+        <div>
+          <a href="https://github.com/benzjeremy" target="_blank">GitHub</a> · 
+          <a href="mailto:benzjeremy@pm.me">E-Mail</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <script>
     function setLang(lang) {
       document.querySelectorAll('[data-lang]').forEach(el => {
-        el.classList.toggle('visible', el.dataset.lang === lang);
+        el.classList.toggle('visible', el.getAttribute('data-lang') === lang);
       });
       document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
       });
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('pref_lang', lang); } catch(e) {}
     }
+
+    // Restore language preference
+    try {
+      const saved = localStorage.getItem('pref_lang');
+      if (saved && (saved === 'de' || saved === 'en')) {
+        setLang(saved);
+      }
+    } catch(e) {}
   </script>
 </body>
 </html>
