@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Datenschutzerklärung – Jeremy Benz (@benzjeremy)</title>
-  <meta name="description" content="Datenschutzerklärung für benzjeremy.github.io und alle zugehörigen Open-Source-Projekte." />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2358a6ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>" />
+  <meta name="description" content="Datenschutzerklärung für benzjeremy.github.io und alle zugehörigen Open-Source-Projekte gemäß DSGVO und TDDDG." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>" />
   <style>
     :root {
       --bg: #0a0c10;
@@ -37,16 +40,16 @@
     }
 
     .container {
-      max-width: 740px;
+      max-width: 760px;
       width: 100%;
     }
 
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 2.5rem 2.25rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      padding: 2.75rem 2.25rem;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
     }
 
     .top-bar {
@@ -54,7 +57,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
-      padding-bottom: 1rem;
+      padding-bottom: 1.2rem;
       border-bottom: 1px solid var(--border);
     }
 
@@ -87,27 +90,30 @@
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
-      transition: opacity 0.15s ease;
+      transition: all 0.15s ease;
+      padding: 4px 8px;
+      border-radius: 6px;
     }
 
     .back-link:hover {
       text-decoration: underline;
-      opacity: 0.85;
+      background: rgba(56, 189, 248, 0.1);
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
       margin-bottom: 1.25rem;
       color: #fff;
+      letter-spacing: -0.5px;
     }
 
     h2 {
       font-size: 1.15rem;
       font-weight: 700;
       color: #fff;
-      margin-top: 1.75rem;
-      margin-bottom: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -130,10 +136,12 @@
     a {
       color: var(--accent);
       text-decoration: none;
+      transition: color 0.15s ease;
     }
 
     a:hover {
       text-decoration: underline;
+      color: #7dd3fc;
     }
 
     .info-box {
@@ -141,19 +149,42 @@
       border: 1px solid var(--border);
       border-left: 3px solid var(--accent);
       border-radius: 8px;
-      padding: 1rem 1.2rem;
+      padding: 1.1rem 1.3rem;
       margin: 1rem 0 1.5rem;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .badge-sec {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 0.82rem;
+      background: rgba(110, 118, 129, 0.2);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: #79c0ff;
     }
 
     .footer {
-      margin-top: 2rem;
-      padding-top: 1.2rem;
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--muted);
       flex-wrap: wrap;
       gap: 0.75rem;
@@ -168,87 +199,108 @@
         <a href="index.html" class="back-link">← Zurück zur Startseite</a>
       </div>
 
+      <span class="badge-sec">DSGVO &amp; TDDDG Konform</span>
       <h1>Datenschutzerklärung</h1>
 
       <h2>1. Datenschutz auf einen Blick</h2>
       <p>
-        Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Diese Webpräsenz ist rein statisch aufgebaut und verzichtet vollständig auf Tracker, Marketing-Tools, Werbenetzwerke oder Analyse-Cookies.
+        Der Schutz Ihrer personenbezogenen Daten hat für uns höchste Priorität. Diese Webpräsenz ist radikal auf Datensparsamkeit und technische Integrität ausgelegt. Wir verzichten ausnahmslos auf Tracking-Pixel, externe Werbenetzwerke, Analyse-Cookies und kommerzielle Drittanbieter-Scripte.
       </p>
 
-      <h2>2. Verantwortliche Stelle</h2>
+      <h2>2. Verantwortliche Stelle (Art. 4 Nr. 7 DSGVO)</h2>
       <div class="info-box">
         <strong>Jeremy Benz</strong><br>
-        Software-Entwickler & Open-Source Maintainer<br>
+        Software-Entwickler &amp; Open-Source Maintainer<br>
         Deutschland<br><br>
         E-Mail: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br>
-        Web: <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a>
+        Web-Präsenz: <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a>
       </div>
 
-      <h2>3. Bereitstellung der Website & Server-Logfiles (GitHub Pages)</h2>
+      <h2>3. Hosting &amp; Server-Logfiles (GitHub Pages &amp; DPF)</h2>
       <p>
-        Diese Website wird über den Dienst <strong>GitHub Pages</strong> gehostet, bereitgestellt durch die GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
+        Diese Website wird als statische Webpräsenz über den Dienst <strong>GitHub Pages</strong> gehostet. Anbieter ist die <strong>GitHub, Inc.</strong>, 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (ein Tochterunternehmen der Microsoft Corporation).
       </p>
       <p>
-        Beim Aufruf dieser Seiten erfasst GitHub technisch notwendige Zugriffsdaten in sogenannten Server-Logfiles:
+        Beim Aufruf dieser Seiten werden durch GitHub technisch notwendige Zugriffsdaten in standardisierten Server-Logfiles verarbeitet:
       </p>
       <ul>
         <li>IP-Adresse des anfragenden Geräts</li>
-        <li>Datum und Uhrzeit des Zugriffs</li>
-        <li>Name und URL der abgerufenen Datei</li>
-        <li>Referrer URL (zuvor besuchte Website)</li>
-        <li>Verwendeter Browser und Betriebssystem</li>
+        <li>Datum, Uhrzeit und Zeitzone des Seitenaufrufs</li>
+        <li>Aufgerufene URL und Ressource</li>
+        <li>HTTP-Statuscode und übertragene Datenmenge</li>
+        <li>Referrer URL (die zuvor besuchte Website)</li>
+        <li>User-Agent (Browsertyp, Version und Betriebssystem)</li>
       </ul>
       <p>
-        Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO zur Gewährleistung eines störungsfreien Betriebs, der Sicherheit der Infrastruktur und des Schutzes vor Missbrauch. Weitere Informationen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Datenschutzerklärung</a>.
+        <strong>Rechtsgrundlage:</strong> Die temporäre Speicherung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der technischen Stabilität, DDoS-Abwehr und Ausfallsicherheit der Web-Infrastruktur).
+      </p>
+      <p>
+        <strong>Drittlandübermittlung (USA):</strong> GitHub bzw. der Mutterkonzern Microsoft Corporation ist unter dem <strong>EU-U.S. Data Privacy Framework (DPF)</strong> zertifiziert. Auf Grundlage des Angemessenheitsbeschlusses der Europäischen Kommission vom 10. Juli 2023 (Art. 45 Abs. 1 DSGVO) gilt für zertifizierte US-Unternehmen ein angemessenes Datenschutzniveau. Ergänzend gelten die Standardvertragsklauseln der EU-Kommission (SCC, Art. 46 Abs. 2 lit. c DSGVO). Weitere Details finden Sie im <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
       </p>
 
-      <h2>4. Keine Tracking-Cookies & Lokale Speicherung</h2>
+      <h2>4. Lokale Speicherung ohne Cookies (§ 25 Abs. 2 Nr. 2 TDDDG)</h2>
       <p>
-        Auf dieser Website werden <strong>keine Tracking- oder Marketing-Cookies</strong> eingesetzt.
+        Auf dieser Website werden <strong>keine Tracking-Cookies oder Werbe-Cookies</strong> eingesetzt.
       </p>
       <p>
-        Zur Verbesserung der Benutzerfreundlichkeit wird lediglich Ihre Sprachauswahl (Deutsch/Englisch) über den lokalen Speicher des Browsers (<code>localStorage.getItem('pref_lang')</code>) rein clientseitig auf Ihrem Endgerät hinterlegt. Diese Information verlässt Ihren Browser zu keinem Zeitpunkt.
+        Zur Wahrung des Nutzungskomforts wird die vom Nutzer gewählte Spracheinstellung (Deutsch/Englisch) im lokalen Speicher Ihres Browsers hinterlegt (<code>localStorage.setItem('pref_lang', ...)</code>).
+      </p>
+      <p>
+        <strong>Rechtsgrundlage:</strong> Der Zugriff auf die Speichereinheit des Endgeräts ist nach <strong>§ 25 Abs. 2 Nr. 2 TDDDG</strong> (Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz, vormals TTDSG) ohne vorherige Einwilligung zulässig, da er technisch zwingend erforderlich ist, um den vom Nutzer ausdrücklich gewünschten Telemediendienst mit der gewählten Spracheinstellung bereitzustellen. Es werden keinerlei personenbezogene Daten oder geräteübergreifende Identifikatoren erfasst.
       </p>
 
-      <h2>5. Standortbasierte Dienste & Geodaten (wetter-site)</h2>
+      <h2>5. Geodaten &amp; Wetter-Telemetrie (wetter-site)</h2>
       <p>
-        Auf der Projektseite <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener">wetter-site</a> wird eine interaktive Wetterabfrage angeboten. Hierbei können Nutzer entweder manuell einen Ortsnamen eingeben oder die automatische Standortermittlung ihres Browsers nutzen (HTML5 Geolocation API).
+        Im Rahmen der Open-Source-Showcase-App <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener noreferrer">wetter-site</a> wird eine interaktive Wettervisualisierung angeboten:
       </p>
       <ul>
-        <li><strong>Einwilligung:</strong> Die Standortabfrage erfolgt ausschließlich nach ausdrücklicher Bestätigung der Browser-Berechtigung durch Sie (Art. 6 Abs. 1 lit. a DSGVO).</li>
-        <li><strong>Keine Speicherung / Kein Tracking:</strong> Es werden zu keinem Zeitpunkt Koordinaten, Ortsangaben, Bewegungsprofile oder IP-Adressen auf Servern von Jeremy Benz gespeichert oder protokolliert.</li>
-        <li><strong>Clientseitige Abfrage:</strong> Die Datenverarbeitung erfolgt rein clientseitig im Browser. Zur Bereitstellung der Wettervorhersage und Temperatur-Graphen werden die Koordinaten direkt und verschlüsselt an die datenschutzfreundliche API von <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> übertragen (keine Registrierung oder Erfassung personenbezogener Profile).</li>
+        <li><strong>Freiwillige Standortermittlung:</strong> Die Abfrage der Koordinaten über die HTML5 Geolocation API erfolgt ausschließlich nach Ihrer ausdrücklichen und informierten Freigabe im Browser (Art. 6 Abs. 1 lit. a DSGVO). Alternativ steht eine manuelle Suche ohne GPS-Zugriff zur Verfügung.</li>
+        <li><strong>Kein Server-Tracking:</strong> Es erfolgt zu keinem Zeitpunkt eine serverseitige Erfassung, Protokollierung oder Speicherung Ihrer Geokoordinaten oder Bewegungsprofile durch Jeremy Benz.</li>
+        <li><strong>Verschlüsselte API-Abfrage:</strong> Die Wetterabfrage erfolgt rein clientseitig aus Ihrem Browser direkt an die datenschutzfreundliche API von <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer">Open-Meteo</a> (Open-Meteo GmbH, Deutschland) über verschlüsseltes HTTPS. Die API verlangt keine Registrierung und erzeugt keine Verhaltensprofile.</li>
       </ul>
 
-      <h2>6. Externe Schriftarten & Ressourcen</h2>
+      <h2>6. Verzicht auf externe Schriftarten (Google Fonts) &amp; CDNs</h2>
       <p>
-        Auf dieser Hauptseite sowie in den gehärteten Projektbereichen werden <strong>keine externen Webfonts (wie Google Fonts)</strong> geladen. Es werden ausschließlich systemeigene System-Fonts Ihres Geräts (z.&nbsp;B. San Francisco, Segoe UI, system-ui) verwendet, wodurch keine IP-Adressen an externe Dritte übertragen werden.
+        Diese Website verwendet bewusst <strong>keine externen Google Fonts oder ungeschützten Fremd-CDNs</strong>. Es werden ausnahmslos systemeigene Schriftarten Ihres Endgeräts (System UI, San Francisco, Segoe UI, Roboto) geladen. Dadurch wird verhindert, dass Ihre IP-Adresse beim Rendern der Schriften an Drittanbieter wie Google LLC übertragen wird.
       </p>
 
-      <h2>7. Kontaktaufnahme per E-Mail & GitHub</h2>
+      <h2>7. Kontaktaufnahme per E-Mail &amp; GitHub Issues</h2>
       <p>
-        Wenn Sie per E-Mail (<a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>) oder über GitHub Issues Kontakt mit mir aufnehmen, werden Ihre angegebenen Daten zur Bearbeitung der Anfrage und für den Fall von Anschlussfragen verarbeitet (Art. 6 Abs. 1 lit. b bzw. f DSGVO). Diese Daten werden ohne Ihre Einwilligung nicht an Dritte weitergegeben.
+        Wenn Sie per verschlüsselter E-Mail (<a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>) oder über ein öffentliches GitHub Issue Kontakt aufnehmen, werden die von Ihnen mitgeteilten Angaben ausschließlich zum Zweck der Bearbeitung Ihres Anliegens und für eventuelle Rückfragen verarbeitet (Rechtsgrundlage: Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO). Eine Weitergabe an Dritte erfolgt nicht.
       </p>
 
-      <h2>8. Ihre Rechte als betroffene Person</h2>
+      <h2>8. Betroffenenrechte nach der DSGVO (Art. 15–22)</h2>
       <p>
-        Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen (DSGVO) jederzeit das Recht auf:
+        Ihnen stehen nach der Datenschutz-Grundverordnung umfassende Schutzrechte zu:
       </p>
       <ul>
-        <li>Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten (Art. 15 DSGVO)</li>
-        <li>Berichtigung unrichtiger oder Vervollständigung unvollständiger Daten (Art. 16 DSGVO)</li>
-        <li>Löschung Ihrer gespeicherten Daten (Art. 17 DSGVO)</li>
-        <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-        <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
-        <li>Beschwerderecht bei einer zuständigen Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO)</li>
+        <li><strong>Auskunftsrecht (Art. 15 DSGVO):</strong> Sie können Auskunft über Ihre verarbeiteten Daten verlangen.</li>
+        <li><strong>Berichtigungsrecht (Art. 16 DSGVO):</strong> Sie haben das Recht auf Berichtigung unrichtiger Daten.</li>
+        <li><strong>Löschungsrecht (Art. 17 DSGVO):</strong> Sie können die Löschung Ihrer Daten fordern, soweit keine gesetzliche Aufbewahrungspflicht entgegensteht.</li>
+        <li><strong>Einschränkung der Verarbeitung (Art. 18 DSGVO):</strong> Sie können die Einschränkung der Datenverarbeitung verlangen.</li>
+        <li><strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Recht auf Erhalt Ihrer Daten in einem strukturierten, maschinenlesbaren Format.</li>
+        <li><strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Recht auf Widerspruch gegen Verarbeitungen auf Basis berechtigter Interessen.</li>
+        <li><strong>Widerruf von Einwilligungen (Art. 7 Abs. 3 DSGVO):</strong> Einmal erteilte Einwilligungen können Sie jederzeit für die Zukunft widerrufen.</li>
       </ul>
+
+      <h2>9. Beschwerderecht bei der Aufsichtsbehörde (Art. 77 DSGVO)</h2>
+      <p>
+        Sie haben unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, insbesondere in dem Mitgliedstaat Ihres gewöhnlichen Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes.
+      </p>
+      <p>
+        Die für den Betreiber zuständige Aufsichtsbehörde ist:<br>
+        <strong>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg (LfDI BW)</strong><br>
+        Lautenschlagerstraße 20, 70173 Stuttgart<br>
+        Web: <a href="https://www.baden-wuerttemberg.datenschutz.de/" target="_blank" rel="noopener noreferrer">baden-wuerttemberg.datenschutz.de</a><br>
+        <em>(Eine Gesamtübersicht aller Landesdatenschutzbeauftragten finden Sie auf der Website des <a href="https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html" target="_blank" rel="noopener noreferrer">BfDI</a>).</em>
+      </p>
 
       <div class="footer">
-        <div>Jeremy Benz (@benzjeremy) · Open Source unter GPL-3.0</div>
+        <div>Jeremy Benz (@benzjeremy) · Stand: September 2026</div>
         <div>
           <a href="index.html">Startseite</a> · 
           <a href="impressum.html">Impressum</a> · 
-          <a href="https://github.com/benzjeremy" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
     </div>
