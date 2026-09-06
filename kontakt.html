@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Kontakt &amp; Responsible Disclosure – Jeremy Benz (@benzjeremy)</title>
+  <meta name="description" content="Direkter Kontakt zu Jeremy Benz, koordinierte Sicherheitsmeldungen (Responsible Disclosure), E-Mail benzjeremy@pm.me und GitHub Issue-Workflows.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kontakt &amp; Responsible Disclosure – Jeremy Benz">
+  <meta property="og:description" content="Direkter Kontakt und koordinierte Schwachstellenmeldung für Open-Source-Projekte von Jeremy Benz.">
+  <meta property="og:url" content="https://benzjeremy.github.io/kontakt.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" aria-label="Jeremy Benz Startseite">
+        <div class="brand-avatar">JB</div>
+        <div class="brand-info">
+          <span class="brand-name">Jeremy Benz</span>
+          <span class="brand-ver">Go Systems Dev</span>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html">
+          <span class="lang-de">Startseite</span>
+          <span class="lang-en" style="display:none;">Home</span>
+        </a>
+        <a href="about.html">
+          <span class="lang-de">Über mich</span>
+          <span class="lang-en" style="display:none;">About</span>
+        </a>
+        <a href="kontakt.html" class="active">
+          <span class="lang-de">Kontakt</span>
+          <span class="lang-en" style="display:none;">Contact</span>
+        </a>
+
+        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+          <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
+          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+        </div>
+
+        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="page-header">
+      <span class="page-tag">
+        <span class="lang-de">Kommunikation &amp; Vertraulichkeit</span>
+        <span class="lang-en" style="display:none;">Communication &amp; Privacy</span>
+      </span>
+      <h1 class="page-title">
+        <span class="lang-de">Kontakt &amp; Responsible Disclosure</span>
+        <span class="lang-en" style="display:none;">Contact &amp; Responsible Disclosure</span>
+      </h1>
+      <p class="page-intro">
+        <span class="lang-de">Direkter Kommunikationskanal zu Jeremy Benz für Projektanfragen, Code-Austausch sowie koordinierte Meldung von Sicherheitslücken.</span>
+        <span class="lang-en" style="display:none;">Direct communication channel with Jeremy Benz for project inquiries, technical collaboration, and coordinated vulnerability disclosure.</span>
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Box 1: Direkte E-Mail -->
+      <div class="contact-box">
+        <div>
+          <div class="contact-box-header">
+            <span>✉️</span>
+            <span class="lang-de">Direkte E-Mail</span>
+            <span class="lang-en" style="display:none;">Direct E-Mail</span>
+          </div>
+
+          <div data-lang="de" class="visible">
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px;">
+              Für direkte Anfragen, Feedback oder Kooperationen. Proton Mail garantiert native Ende-zu-Ende-Verschlüsselung mit PGP-Kompatibilität.
+            </p>
+          </div>
+          <div data-lang="en">
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px;">
+              For inquiries, architecture feedback, or technical queries. Hosted on Proton Mail with native end-to-end encryption and OpenPGP support.
+            </p>
+          </div>
+
+          <!-- 1-Click Copy Button -->
+          <button type="button" class="copy-pill-btn" id="copy-email-btn" title="E-Mail-Adresse in die Zwischenablage kopieren">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span id="copy-email-text">benzjeremy@pm.me</span>
+          </button>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <a href="mailto:benzjeremy@pm.me" class="btn-card highlight" style="width: 100%; justify-content: center;">
+            <span>📬 E-Mail-Programm öffnen</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Box 2: Responsible Disclosure (Sicherheit) -->
+      <div class="contact-box">
+        <div>
+          <div class="contact-box-header">
+            <span>🛡️</span>
+            <span class="lang-de">Responsible Disclosure</span>
+            <span class="lang-en" style="display:none;">Responsible Disclosure</span>
+          </div>
+
+          <div data-lang="de" class="visible">
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+              Hast du eine potenzielle Sicherheitslücke in einem meiner Open-Source-Projekte gefunden?
+            </p>
+            <ul style="font-size: 13px; color: var(--text-secondary); padding-left: 18px; line-height: 1.6; margin-bottom: 14px;">
+              <li><strong>Kein öffentliches Issue:</strong> Bitte eröffne niemals ein öffentliches GitHub-Issue für Zero-Day-Lücken.</li>
+              <li><strong>Format:</strong> Sende die Details an <code>benzjeremy@pm.me</code> mit dem Betreff:<br><code>[SECURITY] [PROJEKTNAME] [KURZBESCHREIBUNG]</code></li>
+              <li><strong>Reaktionszeit:</strong> Erste Sichtung und Rückmeldung innerhalb von 48 Stunden garantiert.</li>
+            </ul>
+          </div>
+          <div data-lang="en">
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+              Discovered a vulnerability in any of my open-source projects?
+            </p>
+            <ul style="font-size: 13px; color: var(--text-secondary); padding-left: 18px; line-height: 1.6; margin-bottom: 14px;">
+              <li><strong>No Public Issues:</strong> Never disclose zero-days or sensitive flaws via public GitHub issues.</li>
+              <li><strong>Subject Format:</strong> Send findings directly to <code>benzjeremy@pm.me</code> with subject:<br><code>[SECURITY] [PROJECT] [BRIEF SUMMARY]</code></li>
+              <li><strong>Response Guarantee:</strong> Initial triage and confirmation within 48 hours.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 10px;">
+          <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">Safe Harbor: Good-faith research is always respected.</span>
+        </div>
+      </div>
+
+      <!-- Box 3: GitHub Issues & Bug Reports -->
+      <div class="contact-box">
+        <div>
+          <div class="contact-box-header">
+            <span>🐛</span>
+            <span class="lang-de">Bugs &amp; Feature-Requests</span>
+            <span class="lang-en" style="display:none;">Bugs &amp; Feature Requests</span>
+          </div>
+
+          <div data-lang="de" class="visible">
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px;">
+              Reguläre Softwarefehler, Fragen zur Dokumentation oder Anregungen für neue Features werden transparent über GitHub Issues abgewickelt.
+            </p>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              Bitte füge bei Fehlermeldungen Betriebssystem, Go-Version und reproduzierbare Schritte bei.
+            </p>
+          </div>
+          <div data-lang="en">
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px;">
+              Standard bug reports, documentation clarifications, and feature enhancements are tracked transparently via GitHub Issues.
+            </p>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              Please specify your operating system, Go runtime version, and a minimal reproducible step sequence.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card" style="width: 100%; justify-content: center;">
+            <span>GitHub Repositories öffnen</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Box 4: Rechtliche Hinweise & Transparenz -->
+      <div class="contact-box">
+        <div>
+          <div class="contact-box-header">
+            <span>⚖️</span>
+            <span class="lang-de">Rechtliche Angaben &amp; DSA</span>
+            <span class="lang-en" style="display:none;">Legal Notices &amp; DSA</span>
+          </div>
+
+          <div data-lang="de" class="visible">
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px;">
+              Vollständige Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG) und DSGVO-Auskünfte findest du in unseren rechtlichen Sektionen.
+            </p>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              Zuständige Aufsichtsbehörde für Datenschutzbeschwerden: Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW).
+            </p>
+          </div>
+          <div data-lang="en">
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px;">
+              Statutory operator information pursuant to § 5 DDG and GDPR disclosure details are available on our dedicated legal pages.
+            </p>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              Supervisory data protection authority: State Commissioner for Data Protection and Freedom of Information North Rhine-Westphalia (LDI NRW).
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; display: flex; gap: 10px;">
+          <a href="impressum.html" class="btn-card" style="flex: 1; justify-content: center;">Impressum</a>
+          <a href="datenschutz.html" class="btn-card" style="flex: 1; justify-content: center;">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span>© 2026 Jeremy Benz (@benzjeremy) · Nordrhein-Westfalen, Deutschland</span>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über mich</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html">Impressum (§ 5 DDG)</a>
+        <a href="datenschutz.html">Datenschutz (DSGVO)</a>
+        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Drawer Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mainNav = document.getElementById('main-nav');
+    if (mobileToggle && mainNav) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        mobileToggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    // Language Toggle (DE / EN)
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+      document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+      
+      const btnDe = document.getElementById('btn-lang-de');
+      const btnEn = document.getElementById('btn-lang-en');
+      if (btnDe && btnEn) {
+        btnDe.classList.toggle('active', lang === 'de');
+        btnEn.classList.toggle('active', lang === 'en');
+      }
+      try { localStorage.setItem('site_lang', lang); } catch (e) {}
+    }
+
+    // Init Language from Storage
+    try {
+      const savedLang = localStorage.getItem('site_lang');
+      if (savedLang === 'en' || savedLang === 'de') setLang(savedLang);
+    } catch (e) {}
+
+    // Copy E-Mail to Clipboard
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-email-text');
+    if (copyBtn && copyText) {
+      copyBtn.addEventListener('click', () => {
+        const email = 'benzjeremy@pm.me';
+        navigator.clipboard.writeText(email).then(() => {
+          const originalText = copyText.textContent;
+          copyText.textContent = 'Kopiert! ✓ (benzjeremy@pm.me)';
+          copyBtn.classList.add('copied');
+          setTimeout(() => {
+            copyText.textContent = originalText;
+            copyBtn.classList.remove('copied');
+          }, 2500);
+        }).catch(() => {
+          // Fallback
+          window.location.href = 'mailto:' + email;
+        });
+      });
+    }
+  </script>
+</body>
+</html>

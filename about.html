@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Über mich – Jeremy Benz (@benzjeremy) · Go Systems Developer</title>
+  <meta name="description" content="17-jähriger Go Systems Developer aus Nordrhein-Westfalen (NRW), Deutschland. Erfahre mehr über meine Philosophie, VibeCoding mit Ingenieursdisziplin, native Desktop-Architektur und verifizierte Sicherheit.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Über mich – Jeremy Benz (@benzjeremy)">
+  <meta property="og:description" content="17-jähriger Entwickler aus NRW. High-Velocity VibeCoding mit kompromissloser Systemsicherheit in Go.">
+  <meta property="og:url" content="https://benzjeremy.github.io/about.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" aria-label="Jeremy Benz Startseite">
+        <div class="brand-avatar">JB</div>
+        <div class="brand-info">
+          <span class="brand-name">Jeremy Benz</span>
+          <span class="brand-ver">Go Systems Dev</span>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html">
+          <span class="lang-de">Startseite</span>
+          <span class="lang-en" style="display:none;">Home</span>
+        </a>
+        <a href="about.html" class="active">
+          <span class="lang-de">Über mich</span>
+          <span class="lang-en" style="display:none;">About</span>
+        </a>
+        <a href="kontakt.html">
+          <span class="lang-de">Kontakt</span>
+          <span class="lang-en" style="display:none;">Contact</span>
+        </a>
+
+        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+          <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
+          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+        </div>
+
+        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="page-header">
+      <span class="page-tag">
+        <span class="lang-de">Profil &amp; Biografie</span>
+        <span class="lang-en" style="display:none;">Profile &amp; Biography</span>
+      </span>
+      <h1 class="page-title">
+        <span class="lang-de">Über mich — Jeremy Benz</span>
+        <span class="lang-en" style="display:none;">About Me — Jeremy Benz</span>
+      </h1>
+      <p class="page-intro">
+        <span class="lang-de">17-jähriger Go Systems Developer aus Nordrhein-Westfalen (NRW), Deutschland. Erschaffer von <code>untis-go</code>, <code>docklite</code> und <code>spotify-screensaver</code>.</span>
+        <span class="lang-en" style="display:none;">17-year-old Go Systems Developer from North Rhine-Westphalia (NRW), Germany. Creator of <code>untis-go</code>, <code>docklite</code>, and <code>spotify-screensaver</code>.</span>
+      </p>
+    </div>
+
+    <!-- Profile Overview Card -->
+    <article class="about-card">
+      <div class="author-profile-row">
+        <div class="author-profile-avatar">JB</div>
+        <div class="author-profile-meta">
+          <h2>Jeremy Benz</h2>
+          <p>Go Systems Developer · Open-Source Maintainer · Nordrhein-Westfalen, Deutschland</p>
+        </div>
+      </div>
+
+      <!-- Quick Facts / Steckbrief -->
+      <div class="spec-list">
+        <div class="spec-item">
+          <div class="spec-label">
+            <span class="lang-de">Alter</span>
+            <span class="lang-en" style="display:none;">Age</span>
+          </div>
+          <div class="spec-val">17 Jahre</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">
+            <span class="lang-de">Herkunft &amp; Standort</span>
+            <span class="lang-en" style="display:none;">Location</span>
+          </div>
+          <div class="spec-val">Nordrhein-Westfalen (NRW), DE</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">
+            <span class="lang-de">Kernsprache</span>
+            <span class="lang-en" style="display:none;">Primary Stack</span>
+          </div>
+          <div class="spec-val">Go (Golang) · WebKitGTK · SQLite</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">
+            <span class="lang-de">Awesome-Go Listungen</span>
+            <span class="lang-en" style="display:none;">Awesome-Go Listed</span>
+          </div>
+          <div class="spec-val">3 Flaggschiff-Projekte (★)</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">
+            <span class="lang-de">Lizenz-Standard</span>
+            <span class="lang-en" style="display:none;">Licensing</span>
+          </div>
+          <div class="spec-val">GNU General Public License v3.0</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">
+            <span class="lang-de">Sicherheitsprinzip</span>
+            <span class="lang-en" style="display:none;">Security Principle</span>
+          </div>
+          <div class="spec-val">Zero-Dummy-Security (AES-256-GCM)</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Wer ich bin & VibeCoding Philosophie -->
+    <article class="about-card">
+      <div data-lang="de" class="visible">
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">
+          🚀 Wer ich bin: High-Velocity VibeCoding mit echter Ingenieursdisziplin
+        </h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+          Ich bin Jeremy Benz, ein 17-jähriger Entwickler aus <strong>Nordrhein-Westfalen (NRW)</strong>. Mein Fokus liegt auf der Entwicklung von extrem schnellen, nativen Desktop-Systemen und Werkzeugen in <strong>Go</strong>.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+          Während die moderne Tech-Welt in zwei Lager zerfällt – die einen, die an veralteten, bürokratischen Prozessen ersticken, und die anderen, die ungetesteten AI-Code blind in Produktion schieben –, verbinde ich das Beste aus beiden Welten: <strong>High-Velocity VibeCoding</strong> trifft auf <strong>kompromisslose Ingenieursstandards</strong>.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75;">
+          Ich nutze künstliche Intelligenz als Katalysator für maximale Umsetzungsgeschwindigkeit, akzeptiere jedoch <strong>niemals</strong> generierten Dummy-Code, halbgare Security-Mocks oder ungetestete Logik. Jedes Byte wird formal auditiert, kompiliert und gegen reale Benchmarks gemessen.
+        </p>
+      </div>
+
+      <div data-lang="en">
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">
+          🚀 Who I Am: High-Velocity VibeCoding with Real Engineering Rigor
+        </h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+          I am Jeremy Benz, a 17-year-old systems developer from <strong>North Rhine-Westphalia (NRW), Germany</strong>. My obsession is crafting ultra-fast, native desktop systems and engineering tools using <strong>Go</strong>.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+          Modern development is split between bureaucratic paralysis and reckless AI-driven copy-paste engineering. I bridge this divide through <strong>High-Velocity VibeCoding</strong> backed by <strong>rigorous engineering discipline</strong>.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75;">
+          I harness cutting-edge AI for velocity, but <strong>never</strong> accept fake security placeholders, unverified abstractions, or untested code. Every release is audited, compiled, and benchmarked against real-world production metrics.
+        </p>
+      </div>
+    </article>
+
+    <!-- Der radikale Abschied von Electron -->
+    <article class="about-card">
+      <div data-lang="de" class="visible">
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">
+          ⚡ Der radikale Abschied von Electron
+        </h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+          Fast die gesamte moderne Desktop-Software ist träge, aufgebläht und speicherhungrig geworden. Einfache Utilities verpacken eine komplette Kopie von Google Chromium und Node.js, verbrauchen 300 bis 800 MB RAM im Leerlauf und wiegen Hunderte Megabyte.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75;">
+          In meinen Projekten gehe ich den entgegengesetzten Weg: Ein kompilierter, statischer <strong>Go-Kern</strong> kommuniziert direkt mit den nativen Webview-Bibliotheken des Betriebssystems (<strong>WebKitGTK</strong> unter Linux, <strong>Win32 Webview2</strong> unter Windows). Das Ergebnis: Instant-Start, winzige Binaries und ein RAM-Verbrauch von nur <strong>15 bis 40 MB</strong>.
+        </p>
+      </div>
+
+      <div data-lang="en">
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">
+          ⚡ Radically Moving Away From Electron
+        </h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+          Modern desktop software has surrendered to bloat. Trivial utilities ship entire bundled copies of Chromium and Node.js, consuming 300 to 800 MB of RAM at idle and weighing hundreds of megabytes.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75;">
+          My architecture takes the opposite route: A lean, compiled <strong>Go core</strong> hooks directly into native system webview engines (<strong>WebKitGTK</strong> on Linux, <strong>Win32 Webview2</strong> on Windows). The payoff: Instant startup, compact standalone binaries, and an idle footprint of just <strong>15 to 40 MB RAM</strong>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Technische Kompetenz-Matrix -->
+    <article class="about-card">
+      <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 18px; color: var(--text-primary);">
+        <span class="lang-de">🛠️ Technische Kompetenzmatrix</span>
+        <span class="lang-en" style="display:none;">🛠️ Technical Competence Matrix</span>
+      </h2>
+
+      <div class="spec-list">
+        <div class="spec-item">
+          <div class="spec-label">Go Systems Engineering</div>
+          <div class="spec-val">Goroutines, Channel Architecture, Low-Allocation Buffers, Unix Sockets, OS Interop</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">Native Desktop GUI</div>
+          <div class="spec-val">WebKitGTK (Linux), Win32 Webview2 (Windows), System Tray Interop, 60fps Canvas</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">Zero-Dummy Kryptografie</div>
+          <div class="spec-val">AES-256-GCM, PBKDF2 (≥100k Iterationen), CSP Level 3, Constant-Time Comparison</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">Local-First Storage</div>
+          <div class="spec-val">Embedded SQLite (WAL-Mode, Prepared Statements), Atomic File I/O, Zero Remote Dependencies</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">Compiler &amp; AST Analysis</div>
+          <div class="spec-val">Go AST Parsing, Deterministische Reasoner, Formale Grammatiken, Kausalitätsgraphen</div>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-label">Web &amp; UI Architecture</div>
+          <div class="spec-val">Semantisches HTML5, Modern CSS3 (Cubic-Bezier Springs), Dependency-Free Vanilla JS</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Werte & Freiheit -->
+    <article class="about-card">
+      <div data-lang="de" class="visible">
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">
+          ⚖️ Open-Source unter GNU GPL-3.0
+        </h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+          Software ist Macht über Daten, Zeit und Arbeitsabläufe. Deshalb veröffentliche ich alle meine Projekte unter der <strong>GNU General Public License v3.0 (GPL-3.0)</strong>. Die GPL-3.0 garantiert, dass die Freiheit des Quellcodes und die Rechte der Nutzer dauerhaft gewahrt bleiben und Software nicht in proprietären Silos verschwindet.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75;">
+          Du kannst den Quellcode jederzeit einsehen, auditieren, lokal kompilieren und für deine Zwecke weiterentwickeln. Keine versteckten Telemetrie-Pakete, keine Cloud-Abhängigkeiten, keine Kompromisse.
+        </p>
+      </div>
+
+      <div data-lang="en">
+        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">
+          ⚖️ Open-Source Under GNU GPL-3.0
+        </h2>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+          Software wields power over data, time, and user autonomy. That is why I release my software under the <strong>GNU General Public License v3.0 (GPL-3.0)</strong>. The copyleft clause ensures user freedoms remain inviolable and cannot be swallowed into proprietary silos.
+        </p>
+        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.75;">
+          You can inspect, audit, modify, and self-compile every repository. No hidden telemetry phone-homes, no artificial cloud subscriptions, and zero compromises.
+        </p>
+      </div>
+    </article>
+
+    <!-- Navigation Weiterleitung -->
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="kontakt.html" class="btn-card highlight" style="font-size: 14px; padding: 12px 24px; border-radius: 30px;">
+        <span class="lang-de">💬 Kontakt aufnehmen &amp; Sicherheitsfragen melden →</span>
+        <span class="lang-en" style="display:none;">💬 Get in Touch &amp; Responsible Disclosure →</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span>© 2026 Jeremy Benz (@benzjeremy) · Nordrhein-Westfalen, Deutschland</span>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über mich</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html">Impressum (§ 5 DDG)</a>
+        <a href="datenschutz.html">Datenschutz (DSGVO)</a>
+        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Drawer Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mainNav = document.getElementById('main-nav');
+    if (mobileToggle && mainNav) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        mobileToggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    // Language Toggle (DE / EN)
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+      document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+      
+      const btnDe = document.getElementById('btn-lang-de');
+      const btnEn = document.getElementById('btn-lang-en');
+      if (btnDe && btnEn) {
+        btnDe.classList.toggle('active', lang === 'de');
+        btnEn.classList.toggle('active', lang === 'en');
+      }
+      try { localStorage.setItem('site_lang', lang); } catch (e) {}
+    }
+
+    // Init Language from Storage
+    try {
+      const savedLang = localStorage.getItem('site_lang');
+      if (savedLang === 'en' || savedLang === 'de') setLang(savedLang);
+    } catch (e) {}
+  </script>
+</body>
+</html>

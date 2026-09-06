@@ -6,41 +6,24 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>Jeremy Benz – Go Systems Developer · Scroll-World &amp; Ökosystem</title>
-  <meta name="description" content="17-jähriger Go-Entwickler aus Deutschland. High-Velocity VibeCoding mit kompromisslosen Ingenieursstandards, echter Kryptografie (AES-256-GCM, PBKDF2) und ohne Electron-Ballast. Creator von untis-go, spotify-screensaver, docklite und pokemon-app.">
+  <title>Jeremy Benz – Go Systems Developer · Werte &amp; Open-Source Ökosystem</title>
+  <meta name="description" content="17-jähriger Go-Entwickler aus Nordrhein-Westfalen (NRW), Deutschland. Native Desktop-Systeme (Go + WebKitGTK), echte Kryptografie (AES-256-GCM, PBKDF2), 100% Local-First und dreifach in Awesome-Go gelistet.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Jeremy Benz – Go Systems Developer · Scroll-World &amp; Ökosystem">
-  <meta property="og:description" content="17-jähriger Go-Entwickler aus Deutschland. Native Desktop-Systeme, verifizierte Sicherheit und echte Open-Source-Software.">
+  <meta property="og:title" content="Jeremy Benz – Go Systems Developer">
+  <meta property="og:description" content="Native Desktop-Systeme, verifizierte Sicherheit und echte Open-Source-Software nach GNU GPL-3.0.">
   <meta property="og:url" content="https://benzjeremy.github.io/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Jeremy Benz – Go Systems Developer">
-  <meta name="twitter:description" content="17-jähriger Go-Entwickler aus Deutschland. Native Systeme, Scroll-World Architektur und verifizierte Sicherheit.">
+  <meta name="twitter:description" content="Native Systeme, verifizierte Kryptografie und kompromisslose Open-Source-Standards.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Flight Progress Bar (Scroll World Top Meter) -->
-  <div class="flight-progress-bar" id="flight-bar"></div>
-
-  <!-- Interactive 3D/Canvas Flight Engine Background -->
-  <canvas id="world-canvas"></canvas>
-
-  <!-- Scroll-World Mission Control HUD Rail -->
-  <nav class="sw-hud-rail" aria-label="Scroll-World Navigator">
-    <div class="sw-rail-dot active" data-target="#hero" data-tooltip="Orbit: Start"></div>
-    <div class="sw-rail-dot" data-target="#sector-systems" data-tooltip="Sector 01: Core Systems"></div>
-    <div class="sw-rail-dot" data-target="#sector-desktop" data-tooltip="Sector 02: Native Desktop"></div>
-    <div class="sw-rail-dot" data-target="#sector-containers" data-tooltip="Sector 03: Micro Containers"></div>
-    <div class="sw-rail-dot" data-target="#sector-mobile" data-tooltip="Sector 04: Mobile Vault"></div>
-    <div class="sw-rail-dot" data-target="#sector-ai" data-tooltip="Sector 05: Deterministic AI"></div>
-    <div class="sw-rail-dot" data-target="#projekte" data-tooltip="Station: Flagship Showcase"></div>
-  </nav>
-
   <!-- Site Navigation -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="https://benzjeremy.github.io/" class="brand-link">
+      <a href="index.html" class="brand-link" aria-label="Jeremy Benz Startseite">
         <div class="brand-avatar">JB</div>
         <div class="brand-info">
           <span class="brand-name">Jeremy Benz</span>
@@ -48,1151 +31,615 @@
         </div>
       </a>
 
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menü umschalten" aria-expanded="false">☰</button>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">☰</button>
 
       <nav class="main-nav" id="main-nav">
-        <a href="#world-corridor"><span class="lang-de">Scroll-World</span><span class="lang-en" style="display:none;">World Flight</span></a>
-        <a href="#benchmarks"><span class="lang-de">Benchmarks</span><span class="lang-en" style="display:none;">Benchmarks</span></a>
-        <a href="#projekte"><span class="lang-de">Projekte</span><span class="lang-en" style="display:none;">Projects</span></a>
-        <a href="#philosophie"><span class="lang-de">Philosophie</span><span class="lang-en" style="display:none;">Philosophy</span></a>
-        <a href="#about"><span class="lang-de">Über mich</span><span class="lang-en" style="display:none;">About</span></a>
-        <a href="#kontakt"><span class="lang-de">Kontakt</span><span class="lang-en" style="display:none;">Contact</span></a>
+        <a href="index.html" class="active">
+          <span class="lang-de">Startseite</span>
+          <span class="lang-en" style="display:none;">Home</span>
+        </a>
+        <a href="about.html">
+          <span class="lang-de">Über mich</span>
+          <span class="lang-en" style="display:none;">About</span>
+        </a>
+        <a href="kontakt.html">
+          <span class="lang-de">Kontakt</span>
+          <span class="lang-en" style="display:none;">Contact</span>
+        </a>
 
-        <div class="lang-switch">
-          <button type="button" class="lang-btn active" onclick="setLang('de')">DE</button>
-          <button type="button" class="lang-btn" onclick="setLang('en')">EN</button>
+        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+          <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
+          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
         </div>
 
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="github-nav-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="nav-btn-icon"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           <span>GitHub</span>
         </a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-container">
-      <div class="hero-badges">
-        <span class="hero-badge role-badge">🚀 17 y/o Go Systems Developer</span>
-        <a href="https://github.com/avelino/awesome-go#other-software" target="_blank" rel="noopener noreferrer" class="hero-badge awesome-badge" title="Dreifach in Awesome-Go gelistet (docklite, untis-go, spotify-screensaver)">
-          In Awesome-Go gelistet (3x)
-        </a>
-        <span class="hero-badge security-badge">🛡️ Zero-AI Bloat · Local-First</span>
-        <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener noreferrer" class="hero-badge license-pill" title="Lizenz: GNU General Public License v3.0 (GPL-3.0)">GPL-3.0</a>
-      </div>
-
-      <!-- DE Hero Title -->
-      <div data-lang="de" class="visible">
-        <h1 class="hero-title">
-          Native Systeme. Radikal schlank.<br>
-          <span class="gradient-text">Echte Ingenieursstandards statt AI-Hype.</span>
-        </h1>
-        <p class="hero-subtitle">
-          17-jähriger Entwickler aus Deutschland. High-Velocity <strong>VibeCoding</strong> mit kompromissloser Systemsicherheit in <strong>Go</strong> — keine Electron-Container, kein künstlicher Ballast, verifizierte Kryptografie (AES-256-GCM, PBKDF2 ≥100k) und 100% verifizierbarer Open-Source-Code.
-        </p>
-      </div>
-
-      <!-- EN Hero Title -->
-      <div data-lang="en">
-        <h1 class="hero-title">
-          Native Systems. Radically Lean.<br>
-          <span class="gradient-text">Real Engineering over AI Hype.</span>
-        </h1>
-        <p class="hero-subtitle">
-          17-year-old developer from Germany. High-velocity <strong>VibeCoding</strong> grounded in uncompromising systems security in <strong>Go</strong> — zero Electron containers, zero artificial bloat, verified cryptography (AES-256-GCM, PBKDF2 ≥100k), and 100% verifiable Open Source code.
-        </p>
-      </div>
-
-      <div class="hero-cta-group">
-        <a href="#world-corridor" class="btn-primary">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-          <span class="lang-de">Scroll-World Flug starten</span>
-          <span class="lang-en" style="display:none;">Launch World Flight</span>
-        </a>
-        <a href="#projekte" class="btn-secondary">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          <span class="lang-de">Projekte direkt ansehen</span>
-          <span class="lang-en" style="display:none;">View All Projects</span>
-        </a>
-      </div>
-
-      <div class="scroll-hint-pill">
-        <span>↓</span>
-        <span class="lang-de">Scrolle, um nahtlos durch die 5 Sektoren des Ökosystems zu fliegen</span>
-        <span class="lang-en" style="display:none;">Scroll to fly seamlessly through the 5 ecosystem sectors</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCROLL-WORLD 3D FLIGHT CORRIDOR (5 Connected Scenes) -->
-  <section class="scroll-world-section" id="world-corridor">
-    <div class="sw-flight-path">
-
-      <!-- Scene 1: Systems Core -->
-      <article class="sw-scene-card" id="sector-systems" style="--scene-accent: #38bdf8;">
-        <div class="sw-scene-header">
-          <div class="sw-scene-step"><span>01 / 05</span> · Sector Alpha</div>
-          <span class="p-badge p-badge-server">Systems &amp; Daemons</span>
+  <main>
+    <!-- HERO SECTION MIT "WOFÜR ICH STEHE" ZUERST -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-container">
+        <div class="hero-badges">
+          <span class="hero-badge role-badge">🚀 17 y/o Go Systems Developer · NRW</span>
+          <a href="https://github.com/avelino/awesome-go#other-software" target="_blank" rel="noopener noreferrer" class="hero-badge awesome-badge" title="Dreifach in Awesome-Go gelistet">
+            ★ In Awesome-Go gelistet (3x)
+          </a>
+          <span class="hero-badge security-badge">🛡️ Zero Dummy Security · Local-First</span>
+          <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener noreferrer" class="hero-badge license-pill" title="Lizenz: GNU General Public License v3.0 (GPL-3.0)">GNU GPL-3.0</a>
         </div>
-        <h2 class="sw-scene-title">
-          <span class="lang-de">Go Core Systems &amp; Hardened IPC</span>
-          <span class="lang-en" style="display:none;">Go Core Systems &amp; Hardened IPC</span>
-        </h2>
-        <p class="sw-scene-body">
-          <span class="lang-de">Das Fundament: Radikal schlanke Netzwerk- und Systemschnittstellen. Direkte Anbindung über UNIX Domain Sockets (`/var/run/docker.sock`) und Win32 Named Pipes. Jeder interne Server bindet sich strikt an `127.0.0.1` mit kryptografischer 256-Bit Token-Authentifizierung, Anti-CSRF Validierung und DNS-Rebinding-Schutz.</span>
-          <span class="lang-en" style="display:none;">The foundation: Radically lightweight network and IPC interfaces. Direct bindings to UNIX Domain Sockets and Win32 Named Pipes. Every internal daemon strictly binds to `127.0.0.1` protected by 256-bit cryptographic session tokens, anti-CSRF headers, and DNS rebinding defense.</span>
-        </p>
-        <div class="sw-telemetry-grid">
-          <div class="sw-telem-item"><span class="sw-telem-k">IPC Interface</span><span class="sw-telem-v">UNIX / Win32 Pipe</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Encryption</span><span class="sw-telem-v">AES-256-GCM</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Key Derivation</span><span class="sw-telem-v">PBKDF2 ≥100k It.</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Telemetry</span><span class="sw-telem-v">0% Cloud / Local-First</span></div>
-        </div>
-      </article>
 
-      <!-- Scene 2: Native Desktop -->
-      <article class="sw-scene-card" id="sector-desktop" style="--scene-accent: #10b981;">
-        <div class="sw-scene-header">
-          <div class="sw-scene-step"><span>02 / 05</span> · Sector Beta</div>
-          <span class="p-badge p-badge-desktop">Native Desktop</span>
+        <!-- DE Hero Content -->
+        <div data-lang="de" class="visible">
+          <h1 class="hero-title">
+            Native Systeme. Radikal schlank.<br>
+            <span class="gradient-text">Echte Ingenieursstandards statt Hype.</span>
+          </h1>
+          <p class="hero-subtitle">
+            17-jähriger Entwickler aus <strong>Nordrhein-Westfalen, Deutschland</strong>. High-Velocity <strong>VibeCoding</strong> kombiniert mit unnachgiebiger Ingenieursdisziplin in <strong>Go</strong> — kompromisslose Sicherheit, kein Electron-Ballast, 100% verifizierbarer Code und echte Werte.
+          </p>
         </div>
-        <h2 class="sw-scene-title">
-          <span class="lang-de">Native Desktop Shells (WebKitGTK &amp; Canvas Visualizer)</span>
-          <span class="lang-en" style="display:none;">Native Desktop Shells (WebKitGTK &amp; Canvas Visualizer)</span>
-        </h2>
-        <p class="sw-scene-body">
-          <span class="lang-de">Befreiung von Electron: <code>untis-go</code> und <code>spotify-screensaver</code> nutzen naitve Linux GTK3/WebKitGTK-Fenster mit DMABUF-Compositor-Fix und Windows App-Mode. 60 FPS Hardware-Compositing, interaktive HTML5 Canvas Audio-Visualizer und SQLite Cache-First Synchronisation bei nur ~80 MB RAM-Bedarf.</span>
-          <span class="lang-en" style="display:none;">Liberation from Electron: <code>untis-go</code> and <code>spotify-screensaver</code> run native Linux GTK3/WebKitGTK shells with DMABUF compositor fixes and Windows App-Mode. 60 FPS hardware compositing, interactive HTML5 Canvas visualizers, and SQLite cache-first sync with only ~80 MB RAM.</span>
-        </p>
-        <div class="sw-telemetry-grid">
-          <div class="sw-telem-item"><span class="sw-telem-k">Window Shell</span><span class="sw-telem-v">WebKitGTK 4.1 / GTK3</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Frame Rate</span><span class="sw-telem-v">60 FPS Hardware</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Cache Engine</span><span class="sw-telem-v">SQLite Local-First</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Awesome-Go</span><span class="sw-telem-v">Curated (3x)</span></div>
-        </div>
-      </article>
 
-      <!-- Scene 3: Micro Containers -->
-      <article class="sw-scene-card" id="sector-containers" style="--scene-accent: #38bdf8;">
-        <div class="sw-scene-header">
-          <div class="sw-scene-step"><span>03 / 05</span> · Sector Gamma</div>
-          <span class="p-badge p-badge-server">~12 MB RAM</span>
+        <!-- EN Hero Content -->
+        <div data-lang="en">
+          <h1 class="hero-title">
+            Native Systems. Radically Lean.<br>
+            <span class="gradient-text">True Engineering Standards Over Hype.</span>
+          </h1>
+          <p class="hero-subtitle">
+            17-year-old developer from <strong>North Rhine-Westphalia, Germany</strong>. High-velocity <strong>VibeCoding</strong> paired with uncompromising engineering rigor in <strong>Go</strong> — verified security, zero Electron bloat, 100% local-first ownership, and free software.
+          </p>
         </div>
-        <h2 class="sw-scene-title">
-          <span class="lang-de">Micro-Container Management (Docklite) &amp; Telemetrie</span>
-          <span class="lang-en" style="display:none;">Micro-Container Management (Docklite) &amp; Telemetry</span>
-        </h2>
-        <p class="sw-scene-body">
-          <span class="lang-de">Schlanke Container-Verwaltung neu gedacht: <code>docklite</code> benötigt lediglich ~12 MB Arbeitsspeicher statt hunderter Megabyte von Portainer. Direkte SSE-Streaming-Logs, Container-Lifecycle-Steuerung, Image-Pulling und Prozess-Monitoring als kompakte Single-Binary. Ergänzt durch die trackerfreie Telemetrie von <code>wetter-site</code>.</span>
-          <span class="lang-en" style="display:none;">Container tooling reimagined: <code>docklite</code> operates with a mere ~12 MB memory footprint instead of hundreds of MBs in traditional solutions. Real-time SSE streaming logs, container lifecycle management, image pulling, and live top processes as a single binary.</span>
-        </p>
-        <div class="sw-telemetry-grid">
-          <div class="sw-telem-item"><span class="sw-telem-k">Memory Footprint</span><span class="sw-telem-v">~12 MB RAM</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Streaming</span><span class="sw-telem-v">Server-Sent Events (SSE)</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Daemon Binding</span><span class="sw-telem-v">/var/run/docker.sock</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Distribution</span><span class="sw-telem-v">Single Binary (go:embed)</span></div>
-        </div>
-      </article>
 
-      <!-- Scene 4: Mobile Card Vault -->
-      <article class="sw-scene-card" id="sector-mobile" style="--scene-accent: #a855f7;">
-        <div class="sw-scene-header">
-          <div class="sw-scene-step"><span>04 / 05</span> · Sector Delta</div>
-          <span class="p-badge p-badge-mobile">Clean Architecture</span>
-        </div>
-        <h2 class="sw-scene-title">
-          <span class="lang-de">Mobile Clean Architecture &amp; SQLCipher Vault (pokemon-app)</span>
-          <span class="lang-en" style="display:none;">Mobile Clean Architecture &amp; SQLCipher Vault (pokemon-app)</span>
-        </h2>
-        <p class="sw-scene-body">
-          <span class="lang-de">Militärisch gehärtete Mobilentwicklung: <code>pokemon-app</code> trennt Geschäftslogik und Persistenz nach strikter Clean Architecture in unabhängige Gradle-Module (<code>:core</code>, <code>:domain</code>, <code>:data</code>, <code>:presentation</code>). Kartendaten und Portfolio-Werte werden lokal in einer SQLCipher-verschlüsselten Room-Datenbank (AES-256) abgelegt – 100% offline-fähig und privatsphärensicher.</span>
-          <span class="lang-en" style="display:none;">Hardened mobile engineering: <code>pokemon-app</code> isolates business logic and storage via strict Clean Architecture across independent Gradle modules. Card collections and market values are secured inside a local SQLCipher-encrypted Room database (AES-256) – 100% offline-ready and privacy-focused.</span>
-        </p>
-        <div class="sw-telemetry-grid">
-          <div class="sw-telem-item"><span class="sw-telem-k">UI Stack</span><span class="sw-telem-v">Jetpack Compose (Kotlin 2.0)</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">DB Encryption</span><span class="sw-telem-v">SQLCipher AES-256</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Architecture</span><span class="sw-telem-v">Multi-Module Clean Arch</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Target OS</span><span class="sw-telem-v">Android 8.0+ (API 26+)</span></div>
-        </div>
-      </article>
-
-      <!-- Scene 5: Deterministic AI -->
-      <article class="sw-scene-card" id="sector-ai" style="--scene-accent: #6366f1;">
-        <div class="sw-scene-header">
-          <div class="sw-scene-step"><span>05 / 05</span> · Sector Epsilon</div>
-          <span class="p-badge" style="color:#818cf8; background:rgba(99, 102, 241, 0.12); border:1px solid rgba(99, 102, 241, 0.35);">13/13 Passed</span>
-        </div>
-        <h2 class="sw-scene-title">
-          <span class="lang-de">Deterministische AI &amp; Neuro-Symbolische AST-Verifikation</span>
-          <span class="lang-en" style="display:none;">Deterministic AI &amp; Neuro-Symbolic AST Verification</span>
-        </h2>
-        <p class="sw-scene-body">
-          <span class="lang-de">Forschung jenseits von stochastischem Halluzinieren: <code>AGI Research</code> implementiert Self-Evolving Agent Networks (SEAN) mit formaler AST-Verifikation und Pearl Kausalität Level 3. Alle 13 deterministischen Benchmarks bestanden, reproduzierbare Kausal-Graphen und rekursive Selbstverbesserung (+759% Effizienzgewinn).</span>
-          <span class="lang-en" style="display:none;">Research beyond stochastic hallucination: <code>AGI Research</code> implements Self-Evolving Agent Networks (SEAN) with formal AST verification and Pearl Level 3 causality DAGs. 13/13 deterministic benchmarks passed with recursive self-improvement (+759% speedup).</span>
-        </p>
-        <div class="sw-telemetry-grid">
-          <div class="sw-telem-item"><span class="sw-telem-k">Reasoning</span><span class="sw-telem-v">Pearl Level 3 DAGs</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Verification</span><span class="sw-telem-v">Neuro-Symbolic AST</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Benchmarks</span><span class="sw-telem-v">13/13 Passed (100%)</span></div>
-          <div class="sw-telem-item"><span class="sw-telem-k">Optimization</span><span class="sw-telem-v">+759% Recursive Gain</span></div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- UI UX PRO MAX INTERACTIVE BENCHMARK MATRIX -->
-  <section class="benchmark-section" id="benchmarks">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">UI UX Pro Max · Performance Telemetrie</span>
-        <h2 class="section-title">
-          <span class="lang-de">Empirische Ingenieurs-Vergleiche</span>
-          <span class="lang-en" style="display:none;">Empirical Engineering Benchmarks</span>
-        </h2>
-        <p class="section-sub">
-          <span class="lang-de">Fakten statt Framework-Marketing: Tatsächlicher Ressourcenverbrauch in Produktion.</span>
-          <span class="lang-en" style="display:none;">Facts over framework hype: Real-world resource consumption in production.</span>
-        </p>
-      </div>
-
-      <div class="bench-grid">
-        <!-- Metric 1: Docker UI RAM -->
-        <div class="bench-card">
-          <div class="bench-title">⚡ Docker UI Memory Footprint</div>
-          <div class="bench-bars">
-            <div class="bench-row">
-              <div class="bench-meta"><span>Docklite (Go + Astro)</span><span>~12 MB RAM</span></div>
-              <div class="bench-track"><div class="bench-fill fill-docklite"></div></div>
-            </div>
-            <div class="bench-row">
-              <div class="bench-meta"><span>Portainer (Traditional)</span><span>~480 MB RAM</span></div>
-              <div class="bench-track"><div class="bench-fill fill-portainer"></div></div>
-            </div>
+        <!-- WOFÜR ICH STEHE — 4 KERN-PRINZIPIEN -->
+        <div class="values-container" id="werte">
+          <div class="values-title">
+            <span>🛡️</span>
+            <span class="lang-de">Wofür ich stehe · Unverhandelbare Prinzipien</span>
+            <span class="lang-en" style="display:none;">What I Stand For · Non-Negotiable Principles</span>
           </div>
-          <div class="bench-verdict">✓ 97.5% weniger RAM-Bedarf</div>
-        </div>
 
-        <!-- Metric 2: Desktop Client RAM -->
-        <div class="bench-card">
-          <div class="bench-title">🖥️ Native Desktop Shell vs. Electron</div>
-          <div class="bench-bars">
-            <div class="bench-row">
-              <div class="bench-meta"><span>untis-go (WebKitGTK 4.1)</span><span>~85 MB RAM</span></div>
-              <div class="bench-track"><div class="bench-fill fill-untis"></div></div>
-            </div>
-            <div class="bench-row">
-              <div class="bench-meta"><span>Electron Client (Chromium Wrapper)</span><span>~920 MB RAM</span></div>
-              <div class="bench-track"><div class="bench-fill fill-electron"></div></div>
-            </div>
+          <div class="values-grid">
+            <!-- Wert 1: Zero Dummy Security -->
+            <article class="value-card" style="--card-accent: #38bdf8;">
+              <span class="value-icon">🔐</span>
+              <div data-lang="de" class="visible">
+                <h3>Zero-Dummy-Security</h3>
+                <p>Niemals unsichere Placeholders, <code>TODO</code>-Security oder gefälschte Authentifizierungs-Token. Industriestandard-Kryptografie (AES-256-GCM, PBKDF2 ≥100.000 Runden, CSP Level 3) ist in jedem Release Pflicht.</p>
+              </div>
+              <div data-lang="en">
+                <h3>Zero-Dummy Security</h3>
+                <p>Never accept insecure placeholders or mocked auth tokens. Full industrial cryptographic standards (AES-256-GCM, PBKDF2 ≥100,000 iterations, CSP Level 3) are mandatory in every single release.</p>
+              </div>
+            </article>
+
+            <!-- Wert 2: Radikal Native Architektur -->
+            <article class="value-card" style="--card-accent: #10b981;">
+              <span class="value-icon">⚡</span>
+              <div data-lang="de" class="visible">
+                <h3>Radikal Native Desktop-Systeme</h3>
+                <p>Kein Electron-Container-Ballast (300MB+ RAM verschwendet). Stattdessen hochoptimiertes Go mit nativen Webviews (WebKitGTK auf Linux, Win32 Webview2 auf Windows) für 15–40 MB RAM und sofortigen Start.</p>
+              </div>
+              <div data-lang="en">
+                <h3>Radically Native Desktop</h3>
+                <p>No bloated Electron bundles wasting hundreds of megabytes of RAM. Highly tuned Go backends paired with native OS engines (WebKitGTK on Linux, Win32 Webview2 on Windows) running smoothly at 15–40 MB RAM.</p>
+              </div>
+            </article>
+
+            <!-- Wert 3: Local-First & Zero Telemetrie -->
+            <article class="value-card" style="--card-accent: #f59e0b;">
+              <span class="value-icon">💾</span>
+              <div data-lang="de" class="visible">
+                <h3>100% Local-First &amp; Zero Tracking</h3>
+                <p>Deine Daten gehören dir allein. Lokale SQLite-/JSON-Speicherung, kein heimliches Tracking, keine erzwungenen Cloud-Zertifikate und vollständige Offline-Autonomie vom ersten Start an.</p>
+              </div>
+              <div data-lang="en">
+                <h3>100% Local-First &amp; Zero Tracking</h3>
+                <p>Your data remains entirely yours. Local SQLite and JSON storage, zero clandestine telemetry, no forced cloud accounts, and seamless offline functionality out of the box.</p>
+              </div>
+            </article>
+
+            <!-- Wert 4: Freie Software GPL-3.0 & SemVer -->
+            <article class="value-card" style="--card-accent: #a855f7;">
+              <span class="value-icon">⚖️</span>
+              <div data-lang="de" class="visible">
+                <h3>GNU GPL-3.0 &amp; Echte SemVer</h3>
+                <p>Konsequente Freiheit für Nutzer und Entwickler. Vollständige Transparenz, Multi-Platform Binaries und strikte semantische Versionierung ohne Trailing Zeros (<code>v1.0</code>, <code>v2.1</code>).</p>
+              </div>
+              <div data-lang="en">
+                <h3>GNU GPL-3.0 &amp; Strict SemVer</h3>
+                <p>Uncompromising freedom for users and developers. Full transparency, reproducible multi-platform builds, and clean semantic versioning without trailing zeros (<code>v1.0</code>, <code>v2.1</code>).</p>
+              </div>
+            </article>
           </div>
-          <div class="bench-verdict">✓ 90.8% schlanker · Sofortiger Kaltstart</div>
         </div>
 
-        <!-- Metric 3: Search Latency -->
-        <div class="bench-card">
-          <div class="bench-title">🔍 Local BM25 Engine Latency</div>
-          <div class="bench-bars">
-            <div class="bench-row">
-              <div class="bench-meta"><span>search (Go Okapi BM25 Index)</span><span>&lt; 100 µs</span></div>
-              <div class="bench-track"><div class="bench-fill" style="background:#38bdf8; width:2%;"></div></div>
-            </div>
-            <div class="bench-row">
-              <div class="bench-meta"><span>Cloud REST Search API</span><span>~240,000 µs (240 ms)</span></div>
-              <div class="bench-track"><div class="bench-fill" style="background:#64748b; width:98%;"></div></div>
-            </div>
-          </div>
-          <div class="bench-verdict">✓ 2400x schnellere Antwortzeit · 100% Offline</div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS SECTION (Search + Category Filter + Grid) -->
-  <section class="projects-section" id="projekte">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Ökosystem &amp; Repositories</span>
-        <h2 class="section-title">
-          <span class="lang-de">Veröffentlichte Flagship-Software</span>
-          <span class="lang-en" style="display:none;">Featured Flagship Software</span>
-        </h2>
-        <p class="section-sub">
-          <span class="lang-de">9 vollwertige Open-Source-Projekte – jedes Werkzeug folgt strikten Sicherheits- und Architekturstandards.</span>
-          <span class="lang-en" style="display:none;">9 fully featured open source projects – each tool adhering to uncompromising engineering standards.</span>
-        </p>
-      </div>
-
-      <!-- Live Search & Filter Bar -->
-      <div class="filter-search-wrap">
-        <div class="project-search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon-abs"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="project-search" class="project-search-input" placeholder="Projekte durchsuchen (z.B. Go, Docker, WebKit, SQLCipher)..." aria-label="Projekte durchsuchen">
-        </div>
-
-        <div class="filter-bar" role="tablist" aria-label="Projekt-Kategorien">
-          <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
-            <span>✨</span> <span class="lang-de">Alle (9)</span><span class="lang-en" style="display:none;">All (9)</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="desktop" role="tab" aria-selected="false">
-            <span>🖥️</span> <span class="lang-de">Go &amp; Desktop</span><span class="lang-en" style="display:none;">Go &amp; Desktop</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="web" role="tab" aria-selected="false">
-            <span>🌐</span> <span class="lang-de">Web &amp; Services</span><span class="lang-en" style="display:none;">Web &amp; Services</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="mobile" role="tab" aria-selected="false">
-            <span>📱</span> <span class="lang-de">Android &amp; Mobile</span><span class="lang-en" style="display:none;">Android &amp; Mobile</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="research" role="tab" aria-selected="false">
-            <span>🧠</span> <span class="lang-de">Forschung &amp; AI</span><span class="lang-en" style="display:none;">Research &amp; AI</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="projects-grid" id="projects-grid">
+    <!-- PROJECTS SHOWCASE SECTION (NUR AUF GITHUB VERÖFFENTLICHTE PROJEKTE) -->
+    <section class="projects-section" id="projekte">
+      <div class="section-container">
         
-        <!-- 1: spotify-screensaver -->
-        <div class="project-card" data-category="desktop">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">🌌</span>
-                <span class="p-card-title">spotify-screensaver</span>
-                <span class="p-card-ver ver-spotify">v1.2.1</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge p-badge-awesome">In Awesome-Go</span>
-                <span class="p-badge p-badge-desktop">Native Desktop</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Eleganter, ressourcenschonender Desktop-Bildschirmschoner mit gestochen scharfer OLED-Digitaluhr, Live-Spotify-Metadaten via MPRIS/D-Bus, hardwarebeschleunigtem HTML5 Canvas Audio-Visualizer (Bars, Wave, Mirrored) und Musiksteuerung. Bietet Zero-Config Linux-Erkennung (WebKitGTK mit gelöstem DMABUF-Compositor-Bug), Windows App-Mode, 4 Farbakzente und gehärtete Token-Verschlüsselung via <strong>AES-256-GCM und PBKDF2 (100.000 Iterationen) – 100% Local-First ohne KI-Ballast</strong>.
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Elegant, ultra-lightweight desktop screensaver featuring a crisp OLED digital clock, live Spotify song metadata via MPRIS/D-Bus, hardware-accelerated HTML5 Canvas audio spectrum visualizer (Bars, Wave, Mirrored), and media controls. Built in pure Go with WebKitGTK (Linux with DMABUF compositor fix) and Windows App-Mode, 4 color themes, and hardened with <strong>AES-256-GCM + PBKDF2 (100k iterations) encrypted token storage – 100% Local-First with zero AI bloat</strong>.
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">Go</span>
-              <span class="tag">WebKitGTK</span>
-              <span class="tag">Spotify MPRIS</span>
-              <span class="tag">Hardware Canvas</span>
-              <span class="tag">AES-256-GCM</span>
-              <span class="tag">PBKDF2</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://github.com/avelino/awesome-go#other-software" target="_blank" rel="noopener noreferrer" class="btn-card awesome-link">Awesome-Go Eintrag</a>
-            <a href="https://benzjeremy.github.io/spotify-screensaver/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">🔗 Website &amp; Demo</a>
-            <a href="https://benzjeremy.github.io/spotify-screensaver/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">📖 Web-Wiki</a>
-            <a href="https://github.com/benzjeremy/spotify-screensaver/releases/tag/v1.2.1" target="_blank" rel="noopener noreferrer" class="btn-card">📦 Release v1.2.1</a>
-            <a href="https://github.com/benzjeremy/spotify-screensaver" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-        <!-- 2: untis-go -->
-        <div class="project-card" data-category="desktop">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">🔭</span>
-                <span class="p-card-title">untis-go</span>
-                <span class="p-card-ver ver-untis">v2.1</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge p-badge-awesome">In Awesome-Go</span>
-                <span class="p-badge p-badge-desktop">Native Desktop</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Vollwertiger, blitzschneller nativer WebUntis Desktop-Client für Schüler und Lehrkräfte. Komplett in nativem Go geschrieben – ohne Electron oder Browser-Schachtelung. Nutzt GTK3 und WebKitGTK, einen lokalen SQLite-Cache, Microsoft 365 &amp; OneDrive Sync mit echter <strong>AES-256-GCM Verschlüsselung</strong>, synchrones Einzelstunden-Zeitraster, Live-Countdown und nativer 60 FPS Performance.
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Fully featured, blazingly fast native WebUntis desktop client for students and teachers. Written in pure Go with GTK3/WebKitGTK shell — zero Electron, zero browser nesting. Utilizes local SQLite cache-first storage, Microsoft 365 &amp; OneDrive sync encrypted via <strong>AES-256-GCM</strong>, synchronous school timetable grid, live countdown timer, and native 60 FPS responsiveness.
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">Go</span>
-              <span class="tag">GTK3</span>
-              <span class="tag">WebKitGTK</span>
-              <span class="tag">SQLite</span>
-              <span class="tag">OAuth2</span>
-              <span class="tag">AES-256-GCM</span>
-              <span class="tag">Linux</span>
-              <span class="tag">Windows</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://github.com/avelino/awesome-go#other-software" target="_blank" rel="noopener noreferrer" class="btn-card awesome-link">Awesome-Go Eintrag</a>
-            <a href="https://benzjeremy.github.io/untis-go/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">🔗 Website &amp; Demo</a>
-            <a href="https://benzjeremy.github.io/untis-go/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">📖 Web-Wiki</a>
-            <a href="https://github.com/benzjeremy/untis-go/releases/tag/v2.1" target="_blank" rel="noopener noreferrer" class="btn-card">📦 Release v2.1</a>
-            <a href="https://github.com/benzjeremy/untis-go" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-        <!-- 3: docklite -->
-        <div class="project-card" data-category="desktop">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">⚡</span>
-                <span class="p-card-title">docklite</span>
-                <span class="p-card-ver ver-docklite">v1.2.1</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge p-badge-awesome">In Awesome-Go</span>
-                <span class="p-badge p-badge-server">~12 MB RAM</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Radikal schlanke Portainer-Alternative in Go und Astro. Löst das Bloat-Problem traditioneller Container-Tools: Docklite benötigt lediglich <strong>ca. 12 MB RAM</strong>, kommuniziert direkt mit <code>/var/run/docker.sock</code> (oder Windows Named Pipe), bietet einen interaktiven Inspector, colorierte Logs mit Sofort-Download, Image-Pulling, Live-Prozesse (top) und Container-Lifecycle-Steuerung als Single-Binary.
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Radically ultra-lightweight Portainer alternative in Go and Astro. Eliminates container management bloat: Docklite operates with just <strong>~12 MB RAM</strong>, connects directly to <code>/var/run/docker.sock</code> (or Windows Named Pipe), features an interactive inspector, colorized logs with instant download, image pulling, live container top processes, and full lifecycle control as a standalone single binary.
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">Go</span>
-              <span class="tag">Astro</span>
-              <span class="tag">docker.sock</span>
-              <span class="tag">REST API</span>
-              <span class="tag">SSE Stream</span>
-              <span class="tag">~12 MB RAM</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://github.com/avelino/awesome-go#other-software" target="_blank" rel="noopener noreferrer" class="btn-card awesome-link">Awesome-Go Eintrag</a>
-            <a href="https://benzjeremy.github.io/docklite/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">🔗 Website</a>
-            <a href="https://benzjeremy.github.io/docklite/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">📖 Web-Wiki</a>
-            <a href="https://github.com/benzjeremy/docklite/releases/tag/v1.2.1" target="_blank" rel="noopener noreferrer" class="btn-card">📦 Release v1.2.1</a>
-            <a href="https://github.com/benzjeremy/docklite" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-        <!-- 4: search -->
-        <div class="project-card" data-category="desktop">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">🔍</span>
-                <span class="p-card-title">search</span>
-                <span class="p-card-ver" style="color:#38bdf8; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.3);">v1.0</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge" style="color:#34d399; background:rgba(16, 185, 129, 0.12); border:1px solid rgba(16, 185, 129, 0.3);">&lt; 100 µs</span>
-                <span class="p-badge p-badge-server">Local-First</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Ultra-schnelle, privacy-orientierte Volltext-Suchmaschine in Go für lokale Verzeichnisse und das Jeremy-Benz-Ökosystem. Invertierter Index mit Okapi BM25 Ranking, Levenshtein Fuzzy-Matching, multilinearem Stopwort-Filter, integriertem Filesystem-Crawler und gehärtetem HTTP-Daemon (127.0.0.1, DNS-Rebinding-Schutz, 256-Bit Token-Auth).
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Ultra-fast, privacy-first full-text search engine in pure Go for local filesystems and the Jeremy Benz ecosystem. Inverted index with Okapi BM25 ranking, Levenshtein fuzzy matching, multilinear stopword filter, built-in filesystem crawler, and hardened local HTTP daemon (127.0.0.1, DNS rebinding protection, 256-bit token auth).
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">Go</span>
-              <span class="tag">BM25</span>
-              <span class="tag">Inverted Index</span>
-              <span class="tag">REST API</span>
-              <span class="tag">Zero Telemetry</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://benzjeremy.github.io/search/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">🔗 Live Suche</a>
-            <a href="https://github.com/benzjeremy/search/releases/tag/v1.0" target="_blank" rel="noopener noreferrer" class="btn-card">📦 Release v1.0</a>
-            <a href="https://github.com/benzjeremy/search" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-        <!-- 5: pokemon-app -->
-        <div class="project-card" data-category="mobile">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">🎴</span>
-                <span class="p-card-title">pokemon-app</span>
-                <span class="p-card-ver ver-pokemon">v0.1 [Architektur]</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge p-badge-mobile">Clean Architecture</span>
-                <span class="p-badge" style="color:#f59e0b; background:rgba(245, 158, 11, 0.12); border:1px solid rgba(245, 158, 11, 0.3);">SQLCipher AES-256</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Moderne, native Android-App für Pokémon-Sammelkarten mit Jetpack Compose, strikter Multi-Modul Clean Architecture (App, Domain, Data, Presentation, Design-System), lokaler Room-Datenbank mit <strong>SQLCipher-Verschlüsselung (AES-256)</strong>, Offline-Katalog und Live-Preisanalyse via Pokémon TCG API – 100% ohne Cloud-Zwang.
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Modern, native Android app for Pokémon card collectors built with Jetpack Compose, strict multi-module clean architecture (App, Domain, Data, Presentation, Design-System), local Room database with <strong>SQLCipher encryption (AES-256)</strong>, offline-first set catalog, and live market pricing via Pokémon TCG API – 100% without forced cloud accounts.
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">Android 8.0+</span>
-              <span class="tag">Kotlin 2.0</span>
-              <span class="tag">Jetpack Compose</span>
-              <span class="tag">Clean Architecture</span>
-              <span class="tag">Room + SQLCipher</span>
-              <span class="tag">AES-256</span>
-              <span class="tag">Coroutines &amp; Flow</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://github.com/benzjeremy/pokemon-app" target="_blank" rel="noopener noreferrer" class="btn-card highlight">📖 Repository &amp; Specs</a>
-            <a href="https://github.com/benzjeremy/pokemon-app" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-        <!-- 6: wetter-site -->
-        <div class="project-card" data-category="web">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">☀️</span>
-                <span class="p-card-title">wetter-site</span>
-                <span class="p-card-ver" style="color:#38bdf8; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.3);">v1.0</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge p-badge-web">Web App</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Blitzschnelle, datenschutzfreundliche Wetter-Station &amp; Analyse-Dashboard. Weltweites Geocoding, clientseitige Standortermittlung, interaktive 24h-Temperaturgraphen (stufenlos in °C, °F und Kelvin K), 7-Tage-Trend sowie detaillierte Atmosphärendaten via Open-Meteo API. 100% tracker- und datenbankfrei.
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Ultra-fast, privacy-first weather analytics dashboard. Features global geocoding, client-side geolocation, interactive 24h temperature graphs across all scales (°C Celsius, °F Fahrenheit, K Kelvin), 7-day forecast matrix, and atmospheric telemetry powered by Open-Meteo. Completely tracker-free.
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">HTML5 Canvas</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">Vanilla JS</span>
-              <span class="tag">Open-Meteo API</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">🔗 Live App</a>
-            <a href="https://github.com/benzjeremy/wetter-site" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-        <!-- 7: binchrii -->
-        <div class="project-card" data-category="web">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">🎮</span>
-                <span class="p-card-title">binchrii</span>
-                <span class="p-card-ver" style="color:#d29922; background:rgba(210, 153, 34, 0.12); border:1px solid rgba(210, 153, 34, 0.3);">Web Hub</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge p-badge-web">Community</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Offizielle Web-Präsenz &amp; interaktiver Community-Hub für die Twitch-Streamerin binchrii. Entwickelt mit reinem HTML5, modernem Cyberpunk/Neon-CSS3 und schlankem Vanilla JS (100% Framework-frei). Bietet Sendeplan, Chat-Befehle mit 1-Klick-Kopieren und DSGVO-konformen Live-Player.
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Official web presence and interactive community hub for Twitch streamer binchrii. Built with semantic HTML5, modern cyberpunk/neon CSS3, and lightweight vanilla JavaScript (100% framework-free). Features stream schedule, 1-click copy chat commands, and GDPR-compliant live player.
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">Vanilla JS</span>
-              <span class="tag">Twitch</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://benzjeremy.github.io/binchrii/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">🔗 Website</a>
-            <a href="https://github.com/benzjeremy/binchrii" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-        <!-- 8: itsbenzo-tv -->
-        <div class="project-card" data-category="web">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">📺</span>
-                <span class="p-card-title">ItsBenzo_TV</span>
-                <span class="p-card-ver" style="color:#d29922; background:rgba(210, 153, 34, 0.12); border:1px solid rgba(210, 153, 34, 0.3);">Web Hub</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge p-badge-web">Community</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Offizielle Web-Präsenz &amp; Chaos-Control-Center für den Twitch-Streamer ItsBenzo_TV. Minecraft Modpack Showcase (Create &amp; Mekanism), Special Friends Showcase, DSGVO-konformer Live-Stream-Player, Sendeplan und All-in-One Link-Hub.
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Official web presence &amp; Chaos Control Center for Twitch streamer ItsBenzo_TV. Minecraft modpack showcases (Create &amp; Mekanism), special friends matrix, GDPR-compliant live stream embed, schedule, and all-in-one link hub.
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">Vanilla JS</span>
-              <span class="tag">Minecraft</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">🔗 Website</a>
-            <a href="https://github.com/benzjeremy/itsbenzo-tv" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-        <!-- 9: AGI Research -->
-        <div class="project-card" data-category="research">
-          <div class="p-card-top">
-            <div class="p-card-header">
-              <div class="p-card-title-group">
-                <span style="font-size:22px;">🧠</span>
-                <span class="p-card-title">AGI Research</span>
-                <span class="p-card-ver" style="color:#a78bfa; background:rgba(139, 92, 246, 0.12); border:1px solid rgba(139, 92, 246, 0.3);">v1.0</span>
-              </div>
-              <div class="p-card-badges">
-                <span class="p-badge" style="color:#38bdf8; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.3);">Research</span>
-                <span class="p-badge" style="color:#34d399; background:rgba(16, 185, 129, 0.12); border:1px solid rgba(16, 185, 129, 0.3);">13/13 Passed</span>
-              </div>
-            </div>
-
-            <div data-lang="de" class="visible">
-              <p class="p-card-desc">
-                Wissenschaftliches Forschungspapier und empirische Benchmark-Suite zum Nachweis funktioneller künstlicher Allgemeinintelligenz (F-AGI). Widerlegt Skeptiker-Mythen durch Self-Evolving Agent Networks (SEAN) mit 13 deterministischen Benchmarks: Neuro-Symbolische AST-Verifikation, Pearl Kausalität Level 3 und rekursive Selbstverbesserung (+759% Effizienz).
-              </p>
-            </div>
-            <div data-lang="en">
-              <p class="p-card-desc">
-                Scientific research paper &amp; empirical benchmark suite demonstrating Functional Artificial General Intelligence (F-AGI). Debunks skeptic dogmas via Self-Evolving Agent Networks (SEAN) with 13 deterministic benchmarks: neuro-symbolic AST verification, Pearl Level 3 counterfactual reasoning, and recursive self-improvement (+759% speedup).
-              </p>
-            </div>
-
-            <div class="tags">
-              <span class="tag">Python 3.11+</span>
-              <span class="tag">AST Engine</span>
-              <span class="tag">Causal DAGs</span>
-              <span class="tag">Neuro-Symbolic</span>
-              <span class="tag">GPL-3.0</span>
-            </div>
-          </div>
-
-          <div class="p-card-actions">
-            <a href="https://benzjeremy.github.io/agi-research/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">🔗 Website &amp; Demo</a>
-            <a href="https://github.com/benzjeremy/agi-research/blob/main/docs/ZERTIFIZIERTER_AGI_FORSCHUNGSBERICHT_PAPER.md" target="_blank" rel="noopener noreferrer" class="btn-card">📖 Paper</a>
-            <a href="https://github.com/benzjeremy/agi-research" target="_blank" rel="noopener noreferrer" class="btn-card">💻 GitHub</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PHILOSOPHY SECTION -->
-  <section class="features-section" id="philosophie">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Architektur &amp; Haltung</span>
-        <h2 class="section-title">
-          <span class="lang-de">VibeCoding mit kompromisslosen Standards</span>
-          <span class="lang-en" style="display:none;">VibeCoding with Uncompromising Standards</span>
-        </h2>
-        <p class="section-sub">
-          <span class="lang-de">Warum hoher Entwicklungsflow und höchste Ingenieursdisziplin sich perfekt ergänzen.</span>
-          <span class="lang-en" style="display:none;">Why extreme development velocity and rigorous engineering discipline elevate each other.</span>
-        </p>
-      </div>
-
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="f-card-icon blue">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-          </div>
-          <h3>
-            <span class="lang-de">🛡️ Echte Sicherheit aus dem Effeff</span>
-            <span class="lang-en" style="display:none;">🛡️ Verified Security from Ground Up</span>
-          </h3>
-          <p>
-            <span class="lang-de">Keine Dummy-Sicherheit: Standardmäßig <strong>AES-256-GCM</strong> mit zufälligem Nonce, Schlüsselableitung über <strong>PBKDF2 mit ≥100.000 Iterationen</strong>, automatischer Anti-CSRF Header-Check, Anti-DNS-Rebinding und strikte Bindung an <code>127.0.0.1</code>.</span>
-            <span class="lang-en" style="display:none;">No dummy security: standard <strong>AES-256-GCM</strong> with unique nonces, key derivation via <strong>PBKDF2 (≥100,000 iterations)</strong>, automated Anti-CSRF origin checks, Anti-DNS-Rebinding, and strict binding to <code>127.0.0.1</code>.</span>
+        <div class="section-header">
+          <span class="section-tag">
+            <span class="lang-de">Portfolio &amp; Ökosystem</span>
+            <span class="lang-en" style="display:none;">Portfolio &amp; Ecosystem</span>
+          </span>
+          <h2 class="section-title">
+            <span class="lang-de">Veröffentlichte Open-Source-Projekte</span>
+            <span class="lang-en" style="display:none;">Published Open-Source Projects</span>
+          </h2>
+          <p class="section-sub">
+            <span class="lang-de">Verifizierte Software mit Fokus auf Performance, Sicherheit und Unabhängigkeit. Ausnahmslos mit vollwertigen Web-Präsenzen und Live-Dokumentation.</span>
+            <span class="lang-en" style="display:none;">Verified software engineered for performance, security, and user autonomy. Complete with live documentation and web showcases.</span>
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="f-card-icon green">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.45-1.45C16.2 18.06 14.23 19 12 19z"/></svg>
+        <!-- Live Search & Filter Bar -->
+        <div class="filter-search-wrap">
+          <div class="project-search-box">
+            <svg class="search-icon-abs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="project-search-input" class="project-search-input" placeholder="Projekt suchen (z. B. Untis, Docker, Spotify, Go)..." aria-label="Projekte durchsuchen" />
           </div>
-          <h3>
-            <span class="lang-de">⚡ Schlank &amp; Nativ (Kein Electron)</span>
-            <span class="lang-en" style="display:none;">⚡ Lean &amp; Native (Zero Electron)</span>
-          </h3>
-          <p>
-            <span class="lang-de">Desktop-Anwendungen gehören nicht in 300–400 MB schwere Chromium-Wrapper. Ich setze auf Go mit <strong>WebKitGTK / Win32</strong>, direkte System-Sockets und Single-Binaries mit <strong>10–15 MB RAM-Bedarf</strong> und augenblicklichem Start.</span>
-            <span class="lang-en" style="display:none;">Desktop tools don't belong in 300–400 MB Chromium wrappers. I build in Go with <strong>WebKitGTK / Win32</strong>, direct system sockets, and standalone single binaries requiring only <strong>10–15 MB RAM</strong> with instant startup.</span>
-          </p>
+
+          <div class="filter-bar" role="tablist" aria-label="Projektkategorien">
+            <button type="button" class="filter-btn active" data-filter="all">
+              <span class="lang-de">Alle (8)</span>
+              <span class="lang-en" style="display:none;">All (8)</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="desktop">
+              <span class="lang-de">Go &amp; Desktop (4)</span>
+              <span class="lang-en" style="display:none;">Go &amp; Desktop (4)</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="web">
+              <span class="lang-de">Web &amp; Services (2)</span>
+              <span class="lang-en" style="display:none;">Web &amp; Services (2)</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="community">
+              <span class="lang-de">Streamer &amp; Community (2)</span>
+              <span class="lang-en" style="display:none;">Streamer &amp; Community (2)</span>
+            </button>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="f-card-icon purple">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-          </div>
-          <h3>
-            <span class="lang-de">🔒 100% Local-First &amp; Zero AI Bloat</span>
-            <span class="lang-en" style="display:none;">🔒 100% Local-First &amp; Zero AI Bloat</span>
-          </h3>
-          <p>
-            <span class="lang-de">Volle Datensouveränität: Keine erzwungenen Cloud-Backends, keine unkontrollierten Telemetrie-Tracker und kein aufgezwungener "AI-Assistenten"-Ballast. Alle Nutzerdaten verbleiben sicher und offlinefähig auf dem lokalen System.</span>
-            <span class="lang-en" style="display:none;">Full data sovereignty: no mandatory cloud backends, zero untracked telemetry, and zero forced "AI assistant" bloat. All user tokens and records stay strictly offline and encrypted on the local host.</span>
-          </p>
-        </div>
+        <!-- 8 Published Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
 
-        <div class="feature-card">
-          <div class="f-card-icon orange">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-          </div>
-          <h3>
-            <span class="lang-de">📜 Freie Software &amp; SemVer</span>
-            <span class="lang-en" style="display:none;">📜 Free Software &amp; Strict SemVer</span>
-          </h3>
-          <p>
-            <span class="lang-de">Vollständige Transparenz unter der <strong>GNU General Public License v3.0 (GPL-3.0)</strong>. Strikte SemVer-Versionierung ohne unnötige Nuller (z.B. <code>v1.6</code>, <code>v2.1</code>), reproduzierbare GitHub Actions CI/CD Builds und offizielle Web-Wikis.</span>
-            <span class="lang-en" style="display:none;">Complete transparency licensed under the <strong>GNU General Public License v3.0 (GPL-3.0)</strong>. Strict SemVer tagging without trailing zeros (e.g. <code>v1.6</code>, <code>v2.1</code>), reproducible GitHub Actions CI/CD pipelines, and official web wikis.</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT & RESPONSIBLE DISCLOSURE SECTION -->
-  <section class="about-section" id="about">
-    <div class="section-container">
-      <div class="about-layout-grid">
-        
-        <div class="about-info-box">
-          <div class="about-box-title">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="box-ic"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            <span>
-              <span class="lang-de">Über Jeremy Benz</span>
-              <span class="lang-en" style="display:none;">About Jeremy Benz</span>
-            </span>
-          </div>
-
-          <div class="author-card">
-            <div class="author-avatar">JB</div>
-            <div>
-              <div class="author-name">Jeremy Benz</div>
-              <div class="author-handles">
-                <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">@benzjeremy</a> · 17 y/o · Deutschland
+          <!-- 1. untis-go -->
+          <article class="project-card" data-category="desktop" data-keywords="untis untis-go stundenplan vertretungsplan webuntis go webview gtk desktop awesome-go">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">untis-go</h3>
+                  <span class="p-card-ver ver-untis">v2.1</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge p-badge-awesome" title="Offiziell gelistet in avelino/awesome-go">★ Awesome-Go</span>
+                  <span class="p-badge p-badge-desktop">Desktop</span>
+                </div>
               </div>
-              <div class="author-role">Go Systems &amp; Native Desktop Developer</div>
-            </div>
-          </div>
 
-          <div data-lang="de" class="visible">
-            <p style="font-size:14px; color:var(--text-secondary); line-height:1.65; margin-bottom:16px;">
-              Ich entwickle Software aus echter Überzeugung. Software muss schnell sein, die Hardware des Nutzers respektieren und ohne Cloud-Zwang funktionieren. Jedes Projekt in meinem Portfolio ist produktiv im Einsatz und nach Industriestandards mit CI/CD und Dokumentation gepflegt.
-            </p>
-          </div>
-          <div data-lang="en">
-            <p style="font-size:14px; color:var(--text-secondary); line-height:1.65; margin-bottom:16px;">
-              I write software with passion and rigorous conviction. Code must be blazingly fast, deeply respectful of hardware resources, and function without mandatory cloud dependencies. Every project in this ecosystem is actively maintained with CI/CD and comprehensive web documentation.
-            </p>
-          </div>
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Ultraschneller, nativer Multi-Platform Desktop-Client für WebUntis. Zero-Dummy-Security mit <strong>AES-256-GCM</strong> Session-Tresor, Offline-First SQLite-Cache, dynamischer Multi-Account-Verwaltung und nur <strong>25 MB RAM</strong> (kein Electron).
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Ultra-fast native multi-platform desktop client for WebUntis. Zero-dummy security with <strong>AES-256-GCM</strong> encrypted credential store, offline SQLite caching, multi-account support, and only <strong>25 MB RAM</strong> footprint.
+                </p>
+              </div>
 
-          <div class="copyright-line" style="font-size:12px; color:var(--text-muted); border-top:1px solid var(--border-subtle); padding-top:14px;">
-            © 2026 Jeremy Benz · Lizenziert unter der GNU General Public License v3.0 (GPL-3.0).
-          </div>
-        </div>
-
-        <div class="about-info-box" id="kontakt">
-          <div class="about-box-title">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="box-ic"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span>
-              <span class="lang-de">Kontakt &amp; Responsible Disclosure</span>
-              <span class="lang-en" style="display:none;">Contact &amp; Responsible Disclosure</span>
-            </span>
-          </div>
-
-          <div class="disclosure-steps">
-            <div>
-              <span class="lang-de"><strong>1. Bug-Reports &amp; Feature-Requests:</strong> Bitte bevorzugt ein Issue im jeweiligen GitHub-Repository anlegen.</span>
-              <span class="lang-en" style="display:none;"><strong>1. Bug Reports &amp; Feature Requests:</strong> Please open a GitHub Issue in the respective repository first.</span>
-            </div>
-            <div>
-              <span class="lang-de"><strong>2. Vertrauliche Sicherheitsmeldungen:</strong> Direkte Kontaktaufnahme via E-Mail:</span>
-              <span class="lang-en" style="display:none;"><strong>2. Confidential Security Disclosures:</strong> Direct contact via email:</span>
-              
-              <div style="margin-top:6px;">
-                <button type="button" class="copy-btn" onclick="copyToClipboard('benzjeremy@pm.me', this)">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  <span>benzjeremy@pm.me</span>
-                </button>
+              <div class="tags">
+                <span class="tag">Go</span>
+                <span class="tag">WebKitGTK</span>
+                <span class="tag">AES-256-GCM</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Offline-First</span>
+                <span class="tag">GPL-3.0</span>
               </div>
             </div>
-            <div>
-              <span class="lang-de"><strong>Verbindliches Betreff-Format für E-Mails:</strong></span>
-              <span class="lang-en" style="display:none;"><strong>Required Email Subject Format:</strong></span>
-              <br>
-              <span class="disclosure-code">[GITHUB] [PROJEKTNAME] [#ISSUE_ID / TOPIC]</span>
-            </div>
-          </div>
 
-          <div class="ext-links-row" style="margin-top:20px;">
-            <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="link-btn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span>GitHub</span>
-            </a>
-            <a href="mailto:benzjeremy@pm.me" class="link-btn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              <span>E-Mail senden</span>
-            </a>
-            <a href="https://github.com/avelino/awesome-go" target="_blank" rel="noopener noreferrer" class="link-btn">
-              <span>Awesome Go (3x)</span>
-            </a>
-          </div>
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/untis-go/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
+                <span>🌐 Website</span>
+              </a>
+              <a href="https://benzjeremy.github.io/untis-go/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
+                <span>📖 Web-Wiki</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2. docklite -->
+          <article class="project-card" data-category="desktop" data-keywords="docklite docker container management dashboard lightweight tray go awesome-go">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">docklite</h3>
+                  <span class="p-card-ver ver-docklite">v1.2.1</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge p-badge-awesome" title="Offiziell gelistet in avelino/awesome-go">★ Awesome-Go</span>
+                  <span class="p-badge p-badge-desktop">Desktop</span>
+                </div>
+              </div>
+
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Radikal schlanker Docker Desktop &amp; Podman Ersatz in Go. Direktes Unix-Socket-Streaming, Zero-Overhead Tray-Integration, <strong>~15 MB RAM</strong> statt 1,5 GB von Docker Desktop. Volle Container- und Log-Kontrolle.
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Radically lightweight Docker Desktop and Podman alternative built in Go. Direct Unix socket streaming, native system tray integration, and only <strong>~15 MB RAM</strong> compared to Docker Desktop's 1.5 GB.
+                </p>
+              </div>
+
+              <div class="tags">
+                <span class="tag">Go</span>
+                <span class="tag">Docker API</span>
+                <span class="tag">Unix Socket</span>
+                <span class="tag">Tray GUI</span>
+                <span class="tag">Low Memory</span>
+                <span class="tag">GPL-3.0</span>
+              </div>
+            </div>
+
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/docklite/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
+                <span>🌐 Website</span>
+              </a>
+              <a href="https://benzjeremy.github.io/docklite/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
+                <span>📖 Web-Wiki</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 3. spotify-screensaver -->
+          <article class="project-card" data-category="desktop" data-keywords="spotify screensaver screensaver go desktop music visualizer canvas awesome-go">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">spotify-screensaver</h3>
+                  <span class="p-card-ver ver-spotify">v1.2.1</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge p-badge-awesome" title="Offiziell gelistet in avelino/awesome-go">★ Awesome-Go</span>
+                  <span class="p-badge p-badge-desktop">Desktop</span>
+                </div>
+              </div>
+
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Hardwarebeschleunigter OLED-Bildschirmschoner mit Spotify Web API Synchronisation. Sanfte 60-FPS-Farbverläufe, automatische Cover-Extraktion, Burn-in-Schutz und native Tray-Steuerung in Go.
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Hardware-accelerated OLED screensaver with live Spotify Web API synchronization. Smooth 60 FPS animated gradients, automatic album palette extraction, burn-in protection, and system tray integration.
+                </p>
+              </div>
+
+              <div class="tags">
+                <span class="tag">Go</span>
+                <span class="tag">Spotify Web API</span>
+                <span class="tag">Canvas 60fps</span>
+                <span class="tag">OLED Burn-in</span>
+                <span class="tag">GPL-3.0</span>
+              </div>
+            </div>
+
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/spotify-screensaver/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
+                <span>🌐 Website</span>
+              </a>
+              <a href="https://benzjeremy.github.io/spotify-screensaver/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
+                <span>📖 Web-Wiki</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 4. agi-research -->
+          <article class="project-card" data-category="desktop" data-keywords="agi research causality causal ast go ai deterministic parser ai-research">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">agi-research</h3>
+                  <span class="p-card-ver" style="background:rgba(99,102,241,0.12); color:#818cf8; border:1px solid rgba(99,102,241,0.3);">v1.0</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge p-badge-server">Forschung</span>
+                </div>
+              </div>
+
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Deterministische Kausalsysteme und AST-basierte Reasoner in Go. Formale Grammatiken, mathematische Kausalitätsgraphen und strenge Fehlerverifikation statt unberechenbarer probabilistischer Halluzinationen.
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Deterministic causality engines and AST-based reasoning systems in Go. Formal grammars, mathematical causal graphs, and rigorous verification avoiding probabilistic hallucination.
+                </p>
+              </div>
+
+              <div class="tags">
+                <span class="tag">Go</span>
+                <span class="tag">AST Analysis</span>
+                <span class="tag">Causal Graphs</span>
+                <span class="tag">Deterministic AI</span>
+                <span class="tag">GPL-3.0</span>
+              </div>
+            </div>
+
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/agi-research/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
+                <span>🌐 Website &amp; Research</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 5. search -->
+          <article class="project-card" data-category="web" data-keywords="search meta-search engine privacy security duckduckgo searxng web">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">search</h3>
+                  <span class="p-card-ver" style="background:rgba(210,153,34,0.12); color:#d29922; border:1px solid rgba(210,153,34,0.3);">v1.0</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge p-badge-web">Web</span>
+                </div>
+              </div>
+
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Radikal privatsphäre-orientierte Meta-Suchmaschine. Null Tracker, keine Werbenetzwerke, keine Profilbildung, vollständige CSP Level 3 Headers und sofortige Tastatur-Shortcuts für maximale Produktivität.
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Radically privacy-first meta-search engine. Zero trackers, no ad networks, no fingerprinting, full CSP Level 3 headers, and instant keyboard navigation for maximum velocity.
+                </p>
+              </div>
+
+              <div class="tags">
+                <span class="tag">Privacy</span>
+                <span class="tag">CSP Level 3</span>
+                <span class="tag">Zero Cookies</span>
+                <span class="tag">Vanilla JS</span>
+                <span class="tag">GPL-3.0</span>
+              </div>
+            </div>
+
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/search/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
+                <span>🌐 Live Search App</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 6. wetter-site -->
+          <article class="project-card" data-category="web" data-keywords="wetter weather open-meteo dwd forecast climate radar web">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">wetter-site</h3>
+                  <span class="p-card-ver" style="background:rgba(56,189,248,0.12); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">v1.0</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge p-badge-web">Web</span>
+                </div>
+              </div>
+
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Minimalistische, werbefreie Wettervorhersage-Applikation basierend auf Open-Meteo &amp; DWD-Daten. Radikal datensparsam, responsive Niederschlagsradare und optimiert für Low-Bandwidth Verbindungen.
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Minimalist, ad-free weather forecasting web app powered by Open-Meteo and official meteorology feeds. Radically data-sparing, responsive rain radar, and optimized for low-bandwidth connections.
+                </p>
+              </div>
+
+              <div class="tags">
+                <span class="tag">Open-Meteo</span>
+                <span class="tag">No Ads</span>
+                <span class="tag">Fast Weather</span>
+                <span class="tag">GPL-3.0</span>
+              </div>
+            </div>
+
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
+                <span>🌐 Live Weather App</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 7. binchrii -->
+          <article class="project-card" data-category="community" data-keywords="binchrii twitch streamer community hub creator showcase anime gaming">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">binchrii</h3>
+                  <span class="p-card-ver" style="background:rgba(168,85,247,0.12); color:#c084fc; border:1px solid rgba(168,85,247,0.3);">Hub</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge" style="background:rgba(168,85,247,0.12); color:#c084fc; border:1px solid rgba(168,85,247,0.3);">Community</span>
+                </div>
+              </div>
+
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Offizieller Web-Hub und interaktives Portal für die Streamerin und Content-Creatorin <strong>binchrii</strong>. Integrierter Twitch-Status, Community-Links, Events und maßgeschneidertes Cyberpunk-Design.
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Official community portal and web hub for Twitch streamer and content creator <strong>binchrii</strong>. Live broadcast indicators, event schedules, community socials, and custom cyberpunk aesthetics.
+                </p>
+              </div>
+
+              <div class="tags">
+                <span class="tag">Community</span>
+                <span class="tag">Twitch API</span>
+                <span class="tag">Responsive</span>
+                <span class="tag">GPL-3.0</span>
+              </div>
+            </div>
+
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/binchrii/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
+                <span>🌐 Community Hub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 8. itsbenzo-tv -->
+          <article class="project-card" data-category="community" data-keywords="itsbenzo itsbenzo-tv streaming twitch vods community live gaming">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">itsbenzo-tv</h3>
+                  <span class="p-card-ver" style="background:rgba(249,115,22,0.12); color:#fb923c; border:1px solid rgba(249,115,22,0.3);">Hub</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge" style="background:rgba(249,115,22,0.12); color:#fb923c; border:1px solid rgba(249,115,22,0.3);">Community</span>
+                </div>
+              </div>
+
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Streaming- und Entertainment-Portal für <strong>itsbenzo-tv</strong>. Live-Stream Status, Highlight-Clips, Social-Feed Aggregation und interaktive Community-Features ohne Drittanbieter-Tracker.
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Streaming and entertainment portal for <strong>itsbenzo-tv</strong>. Live broadcast detection, curated highlight clips, unified social links, and interactive community features with zero tracking.
+                </p>
+              </div>
+
+              <div class="tags">
+                <span class="tag">Streaming</span>
+                <span class="tag">Twitch Status</span>
+                <span class="tag">Zero Ads</span>
+                <span class="tag">GPL-3.0</span>
+              </div>
+            </div>
+
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
+                <span>🌐 Community Hub</span>
+              </a>
+            </div>
+          </article>
+
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
+  <!-- Site Footer -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-left">
-        <div class="author-avatar" style="width:28px; height:28px; font-size:11px;">JB</div>
-        <span>Jeremy Benz (@benzjeremy) · Open Source unter GPL-3.0</span>
+        <span>© 2026 Jeremy Benz (@benzjeremy) · Nordrhein-Westfalen, Deutschland</span>
       </div>
-      <div class="footer-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über mich</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html">Impressum (§ 5 DDG)</a>
+        <a href="datenschutz.html">Datenschutz (DSGVO)</a>
         <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://github.com/avelino/awesome-go#other-software" target="_blank" rel="noopener noreferrer">Awesome-Go</a>
-        <a href="mailto:benzjeremy@pm.me">E-Mail</a>
-      </div>
+      </nav>
     </div>
   </footer>
 
-  <!-- SCROLL WORLD 3D FLIGHT & UI UX PRO MAX ENGINE SCRIPT -->
   <script>
-    // --- 1. Interactive 3D Canvas Flight Engine (Scroll-World) ---
-    (function initScrollWorldCanvas() {
-      const canvas = document.getElementById('world-canvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      let w = canvas.width = window.innerWidth;
-      let h = canvas.height = window.innerHeight;
-
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      window.addEventListener('resize', () => {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-      });
-
-      // Starfield / Waypoint particle network
-      const NUM_STARS = reduceMotion ? 40 : 120;
-      const stars = [];
-      for (let i = 0; i < NUM_STARS; i++) {
-        stars.push({
-          x: (Math.random() - 0.5) * w * 2.5,
-          y: (Math.random() - 0.5) * h * 2.5,
-          z: Math.random() * 1000 + 100,
-          size: Math.random() * 2 + 0.8,
-          hue: Math.random() > 0.6 ? 200 : (Math.random() > 0.5 ? 160 : 270)
-        });
-      }
-
-      let scrollProgress = 0;
-      let targetProgress = 0;
-      let lastScrollY = window.scrollY;
-
-      function updateScroll() {
-        const totalH = document.documentElement.scrollHeight - window.innerHeight;
-        targetProgress = totalH > 0 ? window.scrollY / totalH : 0;
-        const flightBar = document.getElementById('flight-bar');
-        if (flightBar) {
-          flightBar.style.width = (targetProgress * 100) + '%';
-        }
-      }
-      window.addEventListener('scroll', updateScroll, { passive: true });
-      updateScroll();
-
-      let animId;
-      function render() {
-        // Smooth lerp progress
-        scrollProgress += (targetProgress - scrollProgress) * 0.08;
-        const speed = Math.abs(window.scrollY - lastScrollY) * 0.15 + 1.2;
-        lastScrollY = window.scrollY;
-
-        ctx.fillStyle = 'rgba(7, 9, 14, 0.28)';
-        ctx.fillRect(0, 0, w, h);
-
-        const cx = w / 2;
-        const cy = h / 2;
-
-        // Render 3D starfield scrubbed by scroll velocity
-        for (let i = 0; i < stars.length; i++) {
-          const s = stars[i];
-          s.z -= reduceMotion ? 0.3 : speed;
-          if (s.z <= 10) {
-            s.z = 1000;
-            s.x = (Math.random() - 0.5) * w * 2.5;
-            s.y = (Math.random() - 0.5) * h * 2.5;
-          }
-
-          const k = 300 / s.z;
-          const px = cx + s.x * k;
-          const py = cy + s.y * k + (scrollProgress * 150);
-
-          if (px >= 0 && px <= w && py >= 0 && py <= h) {
-            const alpha = Math.min(1, (1000 - s.z) / 700);
-            ctx.beginPath();
-            ctx.arc(px, py, s.size * k * 0.8, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${s.hue}, 90%, 65%, ${alpha})`;
-            ctx.fill();
-          }
-        }
-
-        // Render subtle cybernetic ground grid lines
-        const gridY = h * 0.75;
-        ctx.strokeStyle = 'rgba(56, 189, 248, 0.04)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        for (let x = 0; x <= w; x += 80) {
-          ctx.moveTo(x, gridY);
-          ctx.lineTo(cx + (x - cx) * 3, h);
-        }
-        ctx.stroke();
-
-        animId = requestAnimationFrame(render);
-      }
-      render();
-    })();
-
-    // --- 2. HUD Waypoint Navigator Sync ---
-    (function initHudNavigator() {
-      const dots = document.querySelectorAll('.sw-rail-dot');
-      const targets = Array.from(dots).map(d => document.querySelector(d.getAttribute('data-target'))).filter(Boolean);
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          const targetEl = document.querySelector(dot.getAttribute('data-target'));
-          if (targetEl) {
-            targetEl.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
-
-      window.addEventListener('scroll', () => {
-        const scrollMid = window.scrollY + window.innerHeight * 0.4;
-        let activeIdx = 0;
-
-        targets.forEach((el, idx) => {
-          if (el.offsetTop <= scrollMid) {
-            activeIdx = idx;
-          }
-        });
-
-        dots.forEach((dot, idx) => {
-          dot.classList.toggle('active', idx === activeIdx);
-        });
-      }, { passive: true });
-    })();
-
-    // --- 3. UI UX Pro Max: Live Search & Category Filtering ---
-    (function initProjectInteractions() {
-      const searchInput = document.getElementById('project-search');
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const cards = document.querySelectorAll('.project-card');
-
-      let currentFilter = 'all';
-      let currentQuery = '';
-
-      function applyFilter() {
-        cards.forEach(card => {
-          const cat = card.getAttribute('data-category') || '';
-          const text = card.textContent.toLowerCase();
-
-          const matchesCat = (currentFilter === 'all' || cat === currentFilter);
-          const matchesSearch = (!currentQuery || text.includes(currentQuery));
-
-          if (matchesCat && matchesSearch) {
-            card.classList.remove('is-hidden');
-          } else {
-            card.classList.add('is-hidden');
-          }
-        });
-      }
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          currentFilter = btn.getAttribute('data-filter');
-          filterBtns.forEach(b => {
-            b.classList.remove('active');
-            b.setAttribute('aria-selected', 'false');
-          });
-          btn.classList.add('active');
-          btn.setAttribute('aria-selected', 'true');
-          applyFilter();
-        });
-      });
-
-      if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          currentQuery = e.target.value.trim().toLowerCase();
-          applyFilter();
-        });
-      }
-    })();
-
-    // --- 4. Language Switcher (DE / EN) ---
-    function setLang(lang) {
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        el.classList.toggle('visible', el.getAttribute('data-lang') === lang);
-      });
-      document.querySelectorAll('.lang-de').forEach(el => {
-        el.style.display = lang === 'de' ? 'inline' : 'none';
-      });
-      document.querySelectorAll('.lang-en').forEach(el => {
-        el.style.display = lang === 'en' ? 'inline' : 'none';
-      });
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
-      });
-      document.documentElement.lang = lang;
-      try { localStorage.setItem('pref_lang', lang); } catch(e) {}
-    }
-
-    try {
-      const saved = localStorage.getItem('pref_lang');
-      if (saved && (saved === 'de' || saved === 'en')) {
-        setLang(saved);
-      }
-    } catch(e) {}
-
-    // --- 5. Clipboard Copy with Haptic Feedback ---
-    function copyToClipboard(text, btn) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => showCopiedState(btn))
-          .catch(() => fallbackCopy(text, btn));
-      } else {
-        fallbackCopy(text, btn);
-      }
-    }
-
-    function fallbackCopy(text, btn) {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
-        showCopiedState(btn);
-      } catch (err) {}
-      document.body.removeChild(ta);
-    }
-
-    function showCopiedState(btn) {
-      if (!btn) return;
-      const originalHTML = btn.innerHTML;
-      btn.classList.add('copied');
-      btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>Kopiert!</span>';
-      setTimeout(() => {
-        btn.classList.remove('copied');
-        btn.innerHTML = originalHTML;
-      }, 2200);
-    }
-
-    // --- 6. Mobile Navigation Toggle ---
+    // Mobile Drawer Toggle
     const mobileToggle = document.getElementById('mobile-toggle');
     const mainNav = document.getElementById('main-nav');
     if (mobileToggle && mainNav) {
       mobileToggle.addEventListener('click', () => {
         const isOpen = mainNav.classList.toggle('open');
         mobileToggle.setAttribute('aria-expanded', isOpen);
-        mobileToggle.innerHTML = isOpen ? '✕' : '☰';
       });
+    }
 
-      mainNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (mainNav.classList.contains('open')) {
-            mainNav.classList.remove('open');
-            mobileToggle.setAttribute('aria-expanded', 'false');
-            mobileToggle.innerHTML = '☰';
-          }
-        });
+    // Language Toggle (DE / EN)
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
       });
+      document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+      
+      const btnDe = document.getElementById('btn-lang-de');
+      const btnEn = document.getElementById('btn-lang-en');
+      if (btnDe && btnEn) {
+        btnDe.classList.toggle('active', lang === 'de');
+        btnEn.classList.toggle('active', lang === 'en');
+      }
+      try { localStorage.setItem('site_lang', lang); } catch (e) {}
+    }
 
-      document.addEventListener('click', (e) => {
-        if (mainNav.classList.contains('open') && !mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
-          mainNav.classList.remove('open');
-          mobileToggle.setAttribute('aria-expanded', 'false');
-          mobileToggle.innerHTML = '☰';
+    // Init Language from Storage
+    try {
+      const savedLang = localStorage.getItem('site_lang');
+      if (savedLang === 'en' || savedLang === 'de') setLang(savedLang);
+    } catch (e) {}
+
+    // Live Project Search and Category Filter
+    const searchInput = document.getElementById('project-search-input');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    let currentFilter = 'all';
+
+    function filterProjects() {
+      const query = (searchInput ? searchInput.value.toLowerCase().trim() : '');
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+        const text = card.textContent.toLowerCase();
+
+        const matchesCategory = (currentFilter === 'all' || category === currentFilter);
+        const matchesSearch = (!query || keywords.includes(query) || text.includes(query));
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('is-hidden');
+        } else {
+          card.classList.add('is-hidden');
         }
       });
     }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterProjects);
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter') || 'all';
+        filterProjects();
+      });
+    });
   </script>
 </body>
 </html>
