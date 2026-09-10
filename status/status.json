@@ -1,0 +1,160 @@
+{
+  "lastUpdated": "2026-09-10T20:50:00Z",
+  "systemStatus": "operational",
+  "systemMessage": {
+    "de": "Alle Systeme laufen normal und ohne Einschränkungen.",
+    "en": "All systems operational. No disruptions reported."
+  },
+  "metrics": {
+    "uptime30d": "99.98%",
+    "activeServices": 9,
+    "incidentCount": 0
+  },
+  "services": [
+    {
+      "id": "untis-go",
+      "name": "untis-go",
+      "category": "desktop",
+      "icon": "📅",
+      "status": "operational",
+      "version": "v2.2",
+      "description": {
+        "de": "Nativer WebUntis Desktop-Client (Go & WebKitGTK) · 100% Local-First",
+        "en": "Native WebUntis Desktop Client (Go & WebKitGTK) · 100% Local-First"
+      },
+      "url": "https://benzjeremy.github.io/untis-go/",
+      "github": "https://github.com/benzjeremy/untis-go",
+      "uptime": "100%",
+      "latency": "<1 ms"
+    },
+    {
+      "id": "docklite",
+      "name": "docklite",
+      "category": "devops",
+      "icon": "🐳",
+      "status": "operational",
+      "version": "v1.2.1",
+      "description": {
+        "de": "Schlanke Portainer-Alternative in Go & Astro · Single-Binary (~12 MB RAM)",
+        "en": "Ultra-lightweight Portainer alternative in Go & Astro (~12 MB RAM)"
+      },
+      "url": "https://benzjeremy.github.io/docklite/",
+      "github": "https://github.com/benzjeremy/docklite",
+      "uptime": "99.99%",
+      "latency": "<2 ms"
+    },
+    {
+      "id": "spotify-screensaver",
+      "name": "spotify-screensaver",
+      "category": "desktop",
+      "icon": "🎵",
+      "status": "operational",
+      "version": "v1.2.1",
+      "description": {
+        "de": "Vollbild-Screensaver & Canvas-Visualizer für Spotify (Awesome-Go #6667)",
+        "en": "Fullscreen Spotify Screensaver & Canvas Visualizer (Awesome-Go #6667)"
+      },
+      "url": "https://benzjeremy.github.io/spotify-screensaver/",
+      "github": "https://github.com/benzjeremy/spotify-screensaver",
+      "uptime": "100%",
+      "latency": "<1 ms"
+    },
+    {
+      "id": "wetter-site",
+      "name": "wetter-site",
+      "category": "web",
+      "icon": "🌤️",
+      "status": "operational",
+      "version": "v1.0",
+      "description": {
+        "de": "Live-Wetterstation & Canvas-Telemetrie via Open-Meteo (Zero-API-Key)",
+        "en": "Live Weather Station & Canvas Telemetry via Open-Meteo (Zero API Key)"
+      },
+      "url": "https://benzjeremy.github.io/wetter-site/",
+      "github": "https://github.com/benzjeremy/wetter-site",
+      "uptime": "99.95%",
+      "latency": "14 ms"
+    },
+    {
+      "id": "agi-research",
+      "name": "agi-research",
+      "category": "ai",
+      "icon": "🧠",
+      "status": "operational",
+      "version": "v1.0",
+      "description": {
+        "de": "F-AGI Benchmark Suite & Research Paper mit 13 neuro-symbolischen Thesen",
+        "en": "F-AGI Benchmark Suite & Research Paper with 13 neuro-symbolic proofs"
+      },
+      "url": "https://benzjeremy.github.io/agi-research/",
+      "github": "https://github.com/benzjeremy/agi-research",
+      "uptime": "100%",
+      "latency": "8 ms"
+    },
+    {
+      "id": "search",
+      "name": "search",
+      "category": "web",
+      "icon": "🔍",
+      "status": "operational",
+      "version": "v1.0",
+      "description": {
+        "de": "Clientseitige, datenschutzfreundliche Suchmaschine ohne Tracker & Server-Logs",
+        "en": "Client-side private search engine without trackers or server logs"
+      },
+      "url": "https://benzjeremy.github.io/search/",
+      "github": "https://github.com/benzjeremy/search",
+      "uptime": "100%",
+      "latency": "<1 ms"
+    },
+    {
+      "id": "binchrii",
+      "name": "binchrii",
+      "category": "streamer",
+      "icon": "📺",
+      "status": "operational",
+      "version": "v1.0",
+      "description": {
+        "de": "Offizielle Web-Präsenz & Streamer-Hub für Binchrii (Twitch/TikTok)",
+        "en": "Official web presence & streamer hub for Binchrii (Twitch/TikTok)"
+      },
+      "url": "https://benzjeremy.github.io/binchrii/",
+      "github": "https://github.com/benzjeremy/binchrii",
+      "uptime": "100%",
+      "latency": "12 ms"
+    },
+    {
+      "id": "itsbenzo-tv",
+      "name": "itsbenzo-tv",
+      "category": "streamer",
+      "icon": "🎮",
+      "status": "operational",
+      "version": "v1.0",
+      "description": {
+        "de": "Gaming-Hub & Community-Plattform für ItsBenzo_TV",
+        "en": "Gaming hub & community platform for ItsBenzo_TV"
+      },
+      "url": "https://benzjeremy.github.io/itsbenzo-tv/",
+      "github": "https://github.com/benzjeremy/itsbenzo-tv",
+      "uptime": "100%",
+      "latency": "11 ms"
+    },
+    {
+      "id": "benzjeremy-de",
+      "name": "benzjeremy.de (Core DNS & Proxy)",
+      "category": "infrastructure",
+      "icon": "🌐",
+      "status": "operational",
+      "version": "v1.0",
+      "description": {
+        "de": "Caddy Reverse Proxy & Hetzner Root Server mit automatischer HTTPS-Verwaltung",
+        "en": "Caddy Reverse Proxy & Hetzner Root Server with automated HTTPS"
+      },
+      "url": "https://benzjeremy.de/",
+      "github": "https://github.com/benzjeremy",
+      "uptime": "99.99%",
+      "latency": "7 ms"
+    }
+  ],
+  "incidents": []
+}
