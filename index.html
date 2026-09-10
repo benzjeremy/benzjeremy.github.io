@@ -194,12 +194,16 @@
 
           <div class="filter-bar" role="tablist" aria-label="Projektkategorien">
             <button type="button" class="filter-btn active" data-filter="all">
-              <span class="lang-de">Alle (8)</span>
-              <span class="lang-en" style="display:none;">All (8)</span>
+              <span class="lang-de">Alle (9)</span>
+              <span class="lang-en" style="display:none;">All (9)</span>
             </button>
             <button type="button" class="filter-btn" data-filter="desktop">
               <span class="lang-de">Go &amp; Desktop (4)</span>
               <span class="lang-en" style="display:none;">Go &amp; Desktop (4)</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="mobile">
+              <span class="lang-de">Android &amp; Mobile (1)</span>
+              <span class="lang-en" style="display:none;">Android &amp; Mobile (1)</span>
             </button>
             <button type="button" class="filter-btn" data-filter="web">
               <span class="lang-de">Web &amp; Services (2)</span>
@@ -212,7 +216,7 @@
           </div>
         </div>
 
-        <!-- 8 Published Projects Grid -->
+        <!-- 9 Published Projects Grid -->
         <div class="projects-grid" id="projects-grid">
 
           <!-- 1. untis-go -->
@@ -350,7 +354,54 @@
             </div>
           </article>
 
-          <!-- 4. agi-research -->
+          <!-- 4. pokemon-app -->
+          <article class="project-card" data-category="mobile" data-keywords="pokemon pokemon-app tcg cards card vault android kotlin jetpack compose sqlcipher aes-256 room database portfolio">
+            <div class="p-card-top">
+              <div class="p-card-header">
+                <div class="p-card-title-group">
+                  <h3 class="p-card-title">pokemon-app</h3>
+                  <span class="p-card-ver ver-pokemon">v1.0</span>
+                </div>
+                <div class="p-card-badges">
+                  <span class="p-badge p-badge-mobile">Android</span>
+                </div>
+              </div>
+
+              <div data-lang="de" class="visible">
+                <p class="p-card-desc">
+                  Native Android-Applikation &amp; Card-Portfolio-Manager in Kotlin &amp; Jetpack Compose. Hardware-gestützter <strong>SQLCipher AES-256</strong> Vault (Android Keystore TEE), Offline-First Room-Cache, Pokemon TCG API v2 Integration und interaktives 3D-Holografie-Rendering.
+                </p>
+              </div>
+              <div data-lang="en">
+                <p class="p-card-desc">
+                  Native Android application &amp; card portfolio manager engineered in Kotlin &amp; Jetpack Compose. Hardware-backed <strong>SQLCipher AES-256</strong> vault (Android Keystore TEE), offline-first Room cache, Pokemon TCG API v2 integration, and interactive 3D holographic rendering.
+                </p>
+              </div>
+
+              <div class="tags">
+                <span class="tag" style="border-color: rgba(168,85,247,0.3); color: #c084fc;">Kotlin</span>
+                <span class="tag">Jetpack Compose</span>
+                <span class="tag">SQLCipher AES-256</span>
+                <span class="tag">Room DB</span>
+                <span class="tag">3D Holo Render</span>
+                <span class="tag">GPL-3.0</span>
+              </div>
+            </div>
+
+            <div class="p-card-actions">
+              <a href="https://benzjeremy.github.io/pokemon-app/" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);">
+                <span>🌐 Website</span>
+              </a>
+              <a href="https://benzjeremy.github.io/pokemon-app/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
+                <span>📖 Web-Wiki</span>
+              </a>
+              <a href="https://github.com/benzjeremy/pokemon-app/releases/tag/v1.0" target="_blank" rel="noopener noreferrer" class="btn-card">
+                <span>📦 APK v1.0</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 5. agi-research -->
           <article class="project-card" data-category="desktop" data-keywords="agi research causality causal ast go ai deterministic parser ai-research">
             <div class="p-card-top">
               <div class="p-card-header">
@@ -390,7 +441,7 @@
             </div>
           </article>
 
-          <!-- 5. search -->
+          <!-- 6. search -->
           <article class="project-card" data-category="web" data-keywords="search meta-search engine privacy security duckduckgo searxng web">
             <div class="p-card-top">
               <div class="p-card-header">
@@ -430,7 +481,7 @@
             </div>
           </article>
 
-          <!-- 6. wetter-site -->
+          <!-- 7. wetter-site -->
           <article class="project-card" data-category="web" data-keywords="wetter weather open-meteo dwd forecast climate radar web">
             <div class="p-card-top">
               <div class="p-card-header">
@@ -469,7 +520,7 @@
             </div>
           </article>
 
-          <!-- 7. binchrii -->
+          <!-- 8. binchrii -->
           <article class="project-card" data-category="community" data-keywords="binchrii twitch streamer community hub creator showcase anime gaming">
             <div class="p-card-top">
               <div class="p-card-header">
@@ -508,7 +559,7 @@
             </div>
           </article>
 
-          <!-- 8. itsbenzo-tv -->
+          <!-- 9. itsbenzo-tv -->
           <article class="project-card" data-category="community" data-keywords="itsbenzo itsbenzo-tv streaming twitch vods community live gaming">
             <div class="p-card-top">
               <div class="p-card-header">
