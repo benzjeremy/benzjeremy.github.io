@@ -592,6 +592,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .ver-docklite { color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); }
 .ver-pokemon { color: #c084fc; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.35); }
 .ver-fleet { color: #fb7185; background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.35); }
+.ver-worker { color: #2dd4bf; background: rgba(20, 184, 166, 0.15); border: 1px solid rgba(20, 184, 166, 0.35); }
 
 .p-card-badges {
   display: flex;
