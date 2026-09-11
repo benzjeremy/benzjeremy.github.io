@@ -31,6 +31,30 @@
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
+  /* 8-Point Spacing Grid Tokens */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Typographic Modular Scale (Major Third) */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1.0rem;    /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 2.0rem;     /* 32px */
+  --text-4xl: 2.75rem;    /* 44px */
+
   --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 
@@ -90,10 +114,38 @@ body {
   background: rgba(255, 255, 255, 0.28);
 }
 
+/* Accessibility Skip Link (WCAG AAA) */
+.skip-link {
+  position: absolute;
+  top: -80px;
+  left: 20px;
+  background: var(--accent-primary);
+  color: #080a0f;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  z-index: 10000;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 20px;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
 /* Accessibility Focus States */
 a:focus-visible, button:focus-visible, input:focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 3px;
+}
+
+/* Button & Link Active State Machine */
+button:active, .btn-card:active, .filter-btn:active {
+  transform: scale(0.97) !important;
 }
 
 /* ==================== SITE NAVIGATION ==================== */
@@ -542,10 +594,43 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   justify-content: space-between;
   transition: transform 0.28s var(--spring-bounce), opacity 0.2s ease, border-color 0.2s, box-shadow 0.2s;
   position: relative;
+  contain: content;
 }
 
 .project-card.is-hidden {
   display: none !important;
+}
+
+/* Human-Centered Empty State (ISO 9241-110) */
+.search-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  margin-top: 12px;
+}
+
+.empty-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.empty-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.empty-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
 }
 
 .project-card:hover {
@@ -929,7 +1014,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 @media (max-width: 768px) {
   .hero-title { font-size: 34px; letter-spacing: -0.8px; }
-  .mobile-toggle { display: inline-flex; }
+  .mobile-toggle {
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+  }
   
   .main-nav {
     position: fixed;
@@ -968,12 +1057,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     font-weight: 600;
     border-radius: var(--radius-sm);
     background: rgba(255, 255, 255, 0.03);
-    min-height: 44px;
+    min-height: 48px;
   }
 
   .main-nav a.active::after { display: none; }
   .lang-switch { width: 100%; margin-top: 0.5rem; }
-  .lang-btn { flex: 1; height: 44px; display: flex; align-items: center; justify-content: center; }
+  .lang-btn { flex: 1; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .filter-btn { min-height: 48px; padding: 10px 18px; }
+  .btn-card { min-height: 48px; }
   .footer-container { flex-direction: column; text-align: center; }
   .projects-grid { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr; }

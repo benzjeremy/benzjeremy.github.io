@@ -20,6 +20,12 @@
 </head>
 <body>
 
+  <!-- Accessible Skip-Link (WCAG AAA / ISO 9241-110) -->
+  <a href="#main-content" class="skip-link">
+    <span class="lang-de">Zum Hauptinhalt springen</span>
+    <span class="lang-en" style="display:none;">Skip to main content</span>
+  </a>
+
   <!-- Site Navigation -->
   <header class="site-header">
     <div class="nav-container">
@@ -64,7 +70,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- HERO SECTION MIT "WOFÜR ICH STEHE" ZUERST -->
     <section class="hero-section" id="hero">
       <div class="hero-glow"></div>
@@ -395,9 +401,6 @@
               <a href="https://benzjeremy.github.io/pokemon-app/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
                 <span>📖 Web-Wiki</span>
               </a>
-              <a href="https://github.com/benzjeremy/pokemon-app/releases/tag/v1.0" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📦 APK v1.0</span>
-              </a>
             </div>
           </article>
 
@@ -484,9 +487,6 @@
               <a href="https://benzjeremy.github.io/ollama-fleet-manager/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
                 <span>📖 Web-Wiki</span>
               </a>
-              <a href="https://github.com/benzjeremy/ollama-fleet-manager/releases/tag/v1.0" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📦 Release v1.0</span>
-              </a>
             </div>
           </article>
 
@@ -528,9 +528,6 @@
             <div class="p-card-actions">
               <a href="https://benzjeremy.github.io/local-ai-worker/" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);">
                 <span>🌐 Website</span>
-              </a>
-              <a href="https://github.com/benzjeremy/local-ai-worker/releases/tag/v1.0" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📦 Release v1.0</span>
               </a>
             </div>
           </article>
@@ -574,9 +571,6 @@
               <a href="https://benzjeremy.github.io/omnichannel-hub/" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
                 <span>🌐 Website</span>
               </a>
-              <a href="https://github.com/benzjeremy/omnichannel-hub/releases/tag/v1.0" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📦 Release v1.0</span>
-              </a>
             </div>
           </article>
 
@@ -619,9 +613,6 @@
             <div class="p-card-actions">
               <a href="https://benzjeremy.github.io/search/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
                 <span>🌐 Live Search App</span>
-              </a>
-              <a href="https://github.com/benzjeremy/search/releases/tag/v1.2" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📦 Release v1.2</span>
               </a>
             </div>
           </article>
@@ -743,6 +734,23 @@
             </div>
           </article>
 
+          <!-- Human-Centered Empty State (ISO 9241-110) -->
+          <div id="search-empty-state" class="search-empty-state" style="display: none;">
+            <span class="empty-icon" aria-hidden="true">🔍</span>
+            <h3 class="empty-title">
+              <span class="lang-de">Keine Projekte gefunden</span>
+              <span class="lang-en" style="display:none;">No projects found</span>
+            </h3>
+            <p class="empty-desc">
+              <span class="lang-de">Für deine aktuellen Suchbegriffe oder Filterkriterien gibt es keine Treffer.</span>
+              <span class="lang-en" style="display:none;">No projects matched your search query or active filter category.</span>
+            </p>
+            <button type="button" class="btn-card highlight" onclick="resetSearch()" style="margin:0 auto;">
+              <span class="lang-de">Filter &amp; Suche zurücksetzen</span>
+              <span class="lang-en" style="display:none;">Reset Search &amp; Filters</span>
+            </button>
+          </div>
+
         </div>
 
       </div>
@@ -810,24 +818,42 @@
     const searchInput = document.getElementById('project-search-input');
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const emptyState = document.getElementById('search-empty-state');
     let currentFilter = 'all';
 
     function filterProjects() {
       const query = (searchInput ? searchInput.value.toLowerCase().trim() : '');
+      let visibleCount = 0;
+
       projectCards.forEach(card => {
-        const category = card.getAttribute('data-category');
+        const category = card.getAttribute('data-category') || '';
         const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
         const text = card.textContent.toLowerCase();
 
-        const matchesCategory = (currentFilter === 'all' || category === currentFilter);
+        const matchesCategory = (currentFilter === 'all' || category.split(' ').includes(currentFilter));
         const matchesSearch = (!query || keywords.includes(query) || text.includes(query));
 
         if (matchesCategory && matchesSearch) {
           card.classList.remove('is-hidden');
+          visibleCount++;
         } else {
           card.classList.add('is-hidden');
         }
       });
+
+      if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    function resetSearch() {
+      if (searchInput) searchInput.value = '';
+      currentFilter = 'all';
+      filterButtons.forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
+      });
+      filterProjects();
+      if (searchInput) searchInput.focus();
     }
 
     if (searchInput) {
