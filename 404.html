@@ -10,7 +10,7 @@
   <meta name="description" content="Diese Seite existiert nicht oder befindet sich im Wartungsmodus. Prüfe den Live-Status aller Dienste.">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="512x512" href="/icon.png">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=2.2">
   <style>
     .not-found-wrapper {
       min-height: 80vh;
@@ -231,7 +231,7 @@
           <a href="/agi-research/" class="quick-tag">🧠 agi-research</a>
           <a href="/search/" class="quick-tag">🔍 search</a>
           <a href="/status/" class="quick-tag">🟢 status</a>
-          <a href="/about.html" class="quick-tag">👤 über mich</a>
+          <a href="/about.html" class="quick-tag">👤 <span class="lang-de">Über mich</span><span class="lang-en" style="display:none;">About</span></a>
         </div>
       </div>
     </div>
@@ -241,16 +241,37 @@
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-left">
-        <span>© 2026 Jeremy Benz (@benzjeremy) · Nordrhein-Westfalen, Deutschland</span>
+        <span>© 2026 Jeremy Benz (@benzjeremy) · 
+          <span class="lang-de">Nordrhein-Westfalen, Deutschland</span>
+          <span class="lang-en" style="display:none;">North Rhine-Westphalia, Germany</span>
+        </span>
       </div>
 
       <nav class="footer-links" aria-label="Footer Navigation">
-        <a href="/">Startseite</a>
-        <a href="/about.html">Über mich</a>
-        <a href="/kontakt.html">Kontakt</a>
-        <a href="/status/">Status</a>
-        <a href="/impressum.html">Impressum (§ 5 DDG)</a>
-        <a href="/datenschutz.html">Datenschutz (DSGVO)</a>
+        <a href="/">
+          <span class="lang-de">Startseite</span>
+          <span class="lang-en" style="display:none;">Home</span>
+        </a>
+        <a href="/about.html">
+          <span class="lang-de">Über mich</span>
+          <span class="lang-en" style="display:none;">About</span>
+        </a>
+        <a href="/kontakt.html">
+          <span class="lang-de">Kontakt</span>
+          <span class="lang-en" style="display:none;">Contact</span>
+        </a>
+        <a href="/status/">
+          <span class="lang-de">Status</span>
+          <span class="lang-en" style="display:none;">Status</span>
+        </a>
+        <a href="/impressum.html">
+          <span class="lang-de">Impressum (§ 5 DDG)</span>
+          <span class="lang-en" style="display:none;">Legal Notice (§ 5 DDG)</span>
+        </a>
+        <a href="/datenschutz.html">
+          <span class="lang-de">Datenschutz (DSGVO)</span>
+          <span class="lang-en" style="display:none;">Privacy Policy (GDPR)</span>
+        </a>
         <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
     </div>
@@ -270,6 +291,8 @@
       'status': { name: 'status', icon: '🟢', url: '/status/', descDe: 'Live Systemstatus-Dashboard.', descEn: 'Live system status dashboard.' }
     };
 
+    let currentLang = 'de';
+
     function analyzePath() {
       const path = window.location.pathname.toLowerCase();
       const segments = path.split('/').filter(Boolean);
@@ -287,21 +310,20 @@
 
           if (box) box.classList.add('visible');
           if (icon) icon.textContent = p.icon;
-          if (title) title.textContent = p.name + ' erkannt';
+          if (title) title.textContent = currentLang === 'de' ? (p.name + ' erkannt') : (p.name + ' detected');
           if (desc) desc.textContent = currentLang === 'de' ? p.descDe : p.descEn;
 
           if (directBtn) {
             directBtn.href = p.url;
             directBtn.style.display = 'inline-flex';
-            if (directBtnText) directBtnText.textContent = 'Zu ' + p.name + ' →';
+            if (directBtnText) directBtnText.textContent = currentLang === 'de' ? ('Zu ' + p.name + ' →') : ('Go to ' + p.name + ' →');
           }
           break;
         }
       }
     }
 
-    // Language
-    let currentLang = 'de';
+    // Language Toggle
     function setLang(lang) {
       currentLang = lang;
       document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
@@ -313,6 +335,7 @@
         btnDe.classList.toggle('active', lang === 'de');
         btnEn.classList.toggle('active', lang === 'en');
       }
+      analyzePath();
       try { localStorage.setItem('site_lang', lang); } catch (e) {}
     }
 

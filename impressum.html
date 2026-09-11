@@ -13,7 +13,7 @@
   <meta property="og:description" content="Rechtliche Pflichtangaben gemäß § 5 DDG und Haftungsausschluss nach DSA & GNU GPL-3.0.">
   <meta property="og:url" content="https://benzjeremy.github.io/impressum.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.2">
 </head>
 <body>
 
@@ -85,65 +85,142 @@
 
     <!-- Card 1: Dienstanbieter & Kontakt -->
     <article class="legal-card">
-      <span class="legal-badge">§ 5 DDG Konform</span>
-      <h2>⚖️ Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</h2>
+      <span class="legal-badge">
+        <span class="lang-de">§ 5 DDG Konform</span>
+        <span class="lang-en" style="display:none;">§ 5 DDG Compliant</span>
+      </span>
+      <h2>
+        <span class="lang-de">⚖️ Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</span>
+        <span class="lang-en" style="display:none;">⚖️ Information Pursuant to § 5 DDG (Digital Services Act)</span>
+      </h2>
       
-      <div class="legal-info-box">
-        <strong>Jeremy Benz</strong><br>
-        Software-Entwickler &amp; Open-Source Maintainer<br>
-        Nordrhein-Westfalen (NRW), Deutschland<br><br>
-        <strong>E-Mail:</strong> <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br>
-        <strong>GitHub:</strong> <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a><br>
-        <strong>Web-Präsenz:</strong> <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a><br><br>
-        <span style="font-size: 12px; color: var(--text-muted);">
-          Hinweis: Rein private, nicht-kommerzielle Open-Source-Entwicklung &amp; Bildungsprojekte ohne Gewinnerzielungsabsicht. Ladungsfähige Anschrift wird auf berechtigte Anfrage via E-Mail unmittelbar zur Verfügung gestellt.
-        </span>
+      <div data-lang="de" class="visible">
+        <div class="legal-info-box">
+          <strong>Jeremy Benz</strong><br>
+          Software-Entwickler &amp; Open-Source Maintainer<br>
+          Nordrhein-Westfalen (NRW), Deutschland<br><br>
+          <strong>E-Mail:</strong> <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br>
+          <strong>GitHub:</strong> <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a><br>
+          <strong>Web-Präsenz:</strong> <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a><br><br>
+          <span style="font-size: 12px; color: var(--text-muted);">
+            Hinweis: Rein private, nicht-kommerzielle Open-Source-Entwicklung &amp; Bildungsprojekte ohne Gewinnerzielungsabsicht. Ladungsfähige Anschrift wird auf berechtigte Anfrage via E-Mail unmittelbar zur Verfügung gestellt.
+          </span>
+        </div>
+
+        <h2>👤 Redaktionell Verantwortlicher</h2>
+        <p>
+          Verantwortlich für die publizierten Inhalte dieser Webpräsenz und der verknüpften Open-Source-Dokumentationen gemäß <strong>§ 18 Abs. 2 MStV</strong> (Medienstaatsvertrag):<br>
+          <strong>Jeremy Benz</strong> (Kontakt via E-Mail: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>).
+        </p>
       </div>
 
-      <h2>👤 Redaktionell Verantwortlicher</h2>
-      <p>
-        Verantwortlich für die publizierten Inhalte dieser Webpräsenz und der verknüpften Open-Source-Dokumentationen gemäß <strong>§ 18 Abs. 2 MStV</strong> (Medienstaatsvertrag):<br>
-        <strong>Jeremy Benz</strong> (Kontakt via E-Mail: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>).
-      </p>
+      <div data-lang="en">
+        <div class="legal-info-box">
+          <strong>Jeremy Benz</strong><br>
+          Software Developer &amp; Open-Source Maintainer<br>
+          North Rhine-Westphalia (NRW), Germany<br><br>
+          <strong>E-Mail:</strong> <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br>
+          <strong>GitHub:</strong> <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a><br>
+          <strong>Web Presence:</strong> <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a><br><br>
+          <span style="font-size: 12px; color: var(--text-muted);">
+            Notice: Strictly non-commercial open-source research and educational software projects without profit intent. Official legal service address provided promptly upon legitimate inquiry via email.
+          </span>
+        </div>
+
+        <h2>👤 Editorial Responsibility</h2>
+        <p>
+          Responsible for the content published on this domain and affiliated open-source project documentations pursuant to <strong>§ 18 (2) MStV</strong> (German State Media Treaty):<br>
+          <strong>Jeremy Benz</strong> (Contact via email: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>).
+        </p>
+      </div>
     </article>
 
     <!-- Card 2: Responsible Disclosure & Sicherheitsmeldungen -->
     <article class="legal-card">
-      <span class="legal-badge">Security Guidelines</span>
-      <h2>📬 Kontakt &amp; Sicherheitsmeldungen (Responsible Disclosure)</h2>
-      <p>
-        Wenn Sie einen Bug, eine Schwachstelle oder ein sicherheitsrelevantes Problem in einem meiner Software-Projekte (z.&nbsp;B. <code>untis-go</code>, <code>docklite</code>, <code>spotify-screensaver</code>) identifizieren:
-      </p>
-      <ul>
-        <li><strong>Reguläre Issues &amp; Feature-Requests:</strong> Bitte direkt ein GitHub Issue im jeweiligen Projekt-Repository auf GitHub öffnen.</li>
-        <li><strong>Vertrauliche Sicherheitslücken (Security Advisories):</strong> Bitte diskret und verschlüsselt per E-Mail an <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a> senden.</li>
-        <li><strong>Verbindliches Betreff-Format:</strong> <code>[SECURITY] [PROJEKTNAME] [KURZBESCHREIBUNG]</code></li>
-      </ul>
-      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
-        Reaktionszeit-Garantie: Erste Sichtung und Rückmeldung erfolgen innerhalb von maximal 48 Stunden.
-      </p>
+      <span class="legal-badge">
+        <span class="lang-de">Security Guidelines</span>
+        <span class="lang-en" style="display:none;">Security Guidelines</span>
+      </span>
+      <h2>
+        <span class="lang-de">📬 Kontakt &amp; Sicherheitsmeldungen (Responsible Disclosure)</span>
+        <span class="lang-en" style="display:none;">📬 Contact &amp; Vulnerability Reporting (Responsible Disclosure)</span>
+      </h2>
+
+      <div data-lang="de" class="visible">
+        <p>
+          Wenn Sie einen Bug, eine Schwachstelle oder ein sicherheitsrelevantes Problem in einem meiner Software-Projekte (z.&nbsp;B. <code>untis-go</code>, <code>docklite</code>, <code>spotify-screensaver</code>) identifizieren:
+        </p>
+        <ul>
+          <li><strong>Reguläre Issues &amp; Feature-Requests:</strong> Bitte direkt ein GitHub Issue im jeweiligen Projekt-Repository auf GitHub öffnen.</li>
+          <li><strong>Vertrauliche Sicherheitslücken (Security Advisories):</strong> Bitte diskret und verschlüsselt per E-Mail an <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a> senden.</li>
+          <li><strong>Verbindliches Betreff-Format:</strong> <code>[SECURITY] [PROJEKTNAME] [KURZBESCHREIBUNG]</code></li>
+        </ul>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
+          Reaktionszeit-Garantie: Erste Sichtung und Rückmeldung erfolgen innerhalb von maximal 48 Stunden.
+        </p>
+      </div>
+
+      <div data-lang="en">
+        <p>
+          If you identify a bug, vulnerability, or security-critical flaw in any of my software projects (e.g., <code>untis-go</code>, <code>docklite</code>, <code>spotify-screensaver</code>):
+        </p>
+        <ul>
+          <li><strong>Standard Issues &amp; Feature Requests:</strong> Please open a public issue directly on GitHub in the respective repository.</li>
+          <li><strong>Confidential Vulnerabilities (Security Advisories):</strong> Please report privately and securely via email to <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>.</li>
+          <li><strong>Required Subject Format:</strong> <code>[SECURITY] [PROJECT] [BRIEF SUMMARY]</code></li>
+        </ul>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
+          Response Guarantee: Initial triage and acknowledgement within 48 hours maximum.
+        </p>
+      </div>
     </article>
 
     <!-- Card 3: Haftung & Open Source Ausschluss -->
     <article class="legal-card">
-      <span class="legal-badge">EU DSA &amp; GNU GPL-3.0</span>
-      <h2>🛡️ Haftung für Inhalte &amp; Open-Source-Ausschluss (DSA &amp; GPL-3.0)</h2>
-      <p>
-        Als Diensteanbieter sind wir gemäß § 7 DDG i.V.m. Art. 4 bis 8 der Verordnung (EU) 2022/2065 (<strong>Digital Services Act – DSA</strong>) für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen permanent zu überwachen oder nach Umständen zu forschen, die auf rechtswidrige Tätigkeiten hinweisen.
-      </p>
-      <p>
-        Die auf dieser Website vorgestellte Software, Binaries und Quellcodes werden ausnahmslos unter der <strong>GNU General Public License, Version 3 (GPL-3.0)</strong> kostenfrei zur Verfügung gestellt. Gemäß <strong>Section 15 &amp; 16 der GPL-3.0</strong> erfolgt die Bereitstellung ohne Mängelgewähr ("AS IS") und ohne jegliche vertragliche oder gesetzliche Haftung oder Garantie für Funktion, Marktfähigkeit oder Eignung für einen bestimmten Zweck.
-      </p>
+      <span class="legal-badge">
+        <span class="lang-de">EU DSA &amp; GNU GPL-3.0</span>
+        <span class="lang-en" style="display:none;">EU DSA &amp; GNU GPL-3.0</span>
+      </span>
 
-      <h2>🔗 Haftung für externe Links</h2>
-      <p>
-        Dieses Informationsangebot enthält Hyperlinks zu externen Websites Dritter (z.&nbsp;B. GitHub, Awesome Go, Microsoft, Docker, Twitch). Auf deren Inhalte und Datenverarbeitung haben wir keinen Einfluss. Für fremde Inhalte ist stets der jeweilige Dienstanbieter oder Seitenbetreiber verantwortlich. Zum Zeitpunkt der Verlinkung wurden die externen Seiten auf offensichtliche Rechtsverstöße geprüft; eine permanente inhaltliche Kontrolle ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar.
-      </p>
+      <div data-lang="de" class="visible">
+        <h2>🛡️ Haftung für Inhalte &amp; Open-Source-Ausschluss (DSA &amp; GPL-3.0)</h2>
+        <p>
+          Als Diensteanbieter sind wir gemäß § 7 DDG i.V.m. Art. 4 bis 8 der Verordnung (EU) 2022/2065 (<strong>Digital Services Act – DSA</strong>) für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen permanent zu überwachen oder nach Umständen zu forschen, die auf rechtswidrige Tätigkeiten hinweisen.
+        </p>
+        <p>
+          Die auf dieser Website vorgestellte Software, Binaries und Quellcodes werden ausnahmslos unter der <strong>GNU General Public License, Version 3 (GPL-3.0)</strong> kostenfrei zur Verfügung gestellt. Gemäß <strong>Section 15 &amp; 16 der GPL-3.0</strong> erfolgt die Bereitstellung ohne Mängelgewähr ("AS IS") und ohne jegliche vertragliche oder gesetzliche Haftung oder Garantie für Funktion, Marktfähigkeit oder Eignung für einen bestimmten Zweck.
+        </p>
 
-      <h2>📄 Urheberrecht &amp; Lizenzrechte</h2>
-      <p>
-        Die durch den Seitenbetreiber erstellten Quellcodes, Dokumentationen und grafischen Elemente unterliegen dem deutschen Urheberrecht (UrhG) und stehen, sofern nicht explizit anders gekennzeichnet, unter der <strong>GNU General Public License v3.0 (GPL-3.0)</strong>.
-      </p>
+        <h2>🔗 Haftung für externe Links</h2>
+        <p>
+          Dieses Informationsangebot enthält Hyperlinks zu externen Websites Dritter (z.&nbsp;B. GitHub, Awesome Go, Microsoft, Docker, Twitch). Auf deren Inhalte und Datenverarbeitung haben wir keinen Einfluss. Für fremde Inhalte ist stets der jeweilige Dienstanbieter oder Seitenbetreiber verantwortlich. Zum Zeitpunkt der Verlinkung wurden die externen Seiten auf offensichtliche Rechtsverstöße geprüft; eine permanente inhaltliche Kontrolle ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar.
+        </p>
+
+        <h2>📄 Urheberrecht &amp; Lizenzrechte</h2>
+        <p>
+          Die durch den Seitenbetreiber erstellten Quellcodes, Dokumentationen und grafischen Elemente unterliegen dem deutschen Urheberrecht (UrhG) und stehen, sofern nicht explizit anders gekennzeichnet, unter der <strong>GNU General Public License v3.0 (GPL-3.0)</strong>.
+        </p>
+      </div>
+
+      <div data-lang="en">
+        <h2>🛡️ Liability for Content &amp; Open-Source Disclaimer (DSA &amp; GPL-3.0)</h2>
+        <p>
+          As a service provider, we are responsible under § 7 DDG in conjunction with Art. 4 to 8 of Regulation (EU) 2022/2065 (<strong>Digital Services Act – DSA</strong>) for our own content on these pages pursuant to general laws. We are under no general obligation to monitor transmitted or stored third-party information or investigate circumstances that indicate illegal activity.
+        </p>
+        <p>
+          The software, binaries, and source code showcased on this website are distributed free of charge exclusively under the terms of the <strong>GNU General Public License, Version 3 (GPL-3.0)</strong>. Pursuant to <strong>Sections 15 &amp; 16 of the GPL-3.0</strong>, the program is provided "AS IS", without warranty of any kind, either expressed or implied, including the implied warranties of merchantability and fitness for a particular purpose.
+        </p>
+
+        <h2>🔗 Liability for External Hyperlinks</h2>
+        <p>
+          This information service contains links to third-party websites (e.g., GitHub, Awesome Go, Microsoft, Docker, Twitch). We have no influence over their content and data handling practices. The respective provider or operator is always responsible for third-party content. At the time of linking, external pages were examined for obvious legal violations; ongoing monitoring without specific indications of an infringement is neither reasonable nor required.
+        </p>
+
+        <h2>📄 Copyright &amp; Intellectual Property</h2>
+        <p>
+          Source code, documentation, and graphic assets authored by the site operator are subject to German copyright law (UrhG) and, unless explicitly noted otherwise, licensed under the <strong>GNU General Public License v3.0 (GPL-3.0)</strong>.
+        </p>
+      </div>
     </article>
 
     <div style="text-align: center; margin-top: 20px;">
@@ -158,16 +235,37 @@
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-left">
-        <span>© 2026 Jeremy Benz (@benzjeremy) · Nordrhein-Westfalen, Deutschland</span>
+        <span>© 2026 Jeremy Benz (@benzjeremy) · 
+          <span class="lang-de">Nordrhein-Westfalen, Deutschland</span>
+          <span class="lang-en" style="display:none;">North Rhine-Westphalia, Germany</span>
+        </span>
       </div>
 
       <nav class="footer-links" aria-label="Footer Navigation">
-        <a href="index.html">Startseite</a>
-        <a href="about.html">Über mich</a>
-        <a href="kontakt.html">Kontakt</a>
-        <a href="status/">Status</a>
-        <a href="impressum.html">Impressum (§ 5 DDG)</a>
-        <a href="datenschutz.html">Datenschutz (DSGVO)</a>
+        <a href="index.html">
+          <span class="lang-de">Startseite</span>
+          <span class="lang-en" style="display:none;">Home</span>
+        </a>
+        <a href="about.html">
+          <span class="lang-de">Über mich</span>
+          <span class="lang-en" style="display:none;">About</span>
+        </a>
+        <a href="kontakt.html">
+          <span class="lang-de">Kontakt</span>
+          <span class="lang-en" style="display:none;">Contact</span>
+        </a>
+        <a href="status/">
+          <span class="lang-de">Status</span>
+          <span class="lang-en" style="display:none;">Status</span>
+        </a>
+        <a href="impressum.html">
+          <span class="lang-de">Impressum (§ 5 DDG)</span>
+          <span class="lang-en" style="display:none;">Legal Notice (§ 5 DDG)</span>
+        </a>
+        <a href="datenschutz.html">
+          <span class="lang-de">Datenschutz (DSGVO)</span>
+          <span class="lang-en" style="display:none;">Privacy Policy (GDPR)</span>
+        </a>
         <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
     </div>
