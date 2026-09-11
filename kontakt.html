@@ -9,7 +9,20 @@
   <title>Kontakt &amp; Responsible Disclosure – Jeremy Benz (@benzjeremy)</title>
   <meta name="description" content="Direkter Kontakt zu Jeremy Benz, koordinierte Sicherheitsmeldungen (Responsible Disclosure), E-Mail benzjeremy@pm.me und GitHub Issue-Workflows.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230366d6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
-  <link rel="stylesheet" href="style.css?v=4.0">
+  <link rel="stylesheet" href="style.css?v=5.0">
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem("site_theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -21,8 +34,6 @@
         <span>Jeremy Benz</span>
         <span class="brand-badge">Go Dev</span>
       </a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
 
       <nav>
         <ul class="navbar-nav" id="navMenu">
@@ -53,14 +64,17 @@
           <li>
             <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </li>
-          <li>
-            <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-              <button type="button" class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
-              <button type="button" class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-            </div>
-          </li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+          <button type="button" class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+          <button type="button" class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+        <button type="button" class="theme-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Theme wechseln" title="Dark / Light Mode">🌙</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
+      </div>
     </div>
   </header>
 
@@ -206,7 +220,34 @@
       });
     }
 
+    // Theme Toggle (Light / Dark)
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute("data-theme") || "light";
+      var next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("site_theme", next); } catch (e) {}
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(theme) {
+      var btn = document.getElementById("themeToggle");
+      if (!btn) return;
+      var isEn = document.getElementById("btn-en") && document.getElementById("btn-en").classList.contains("active");
+      if (theme === "dark") {
+        btn.textContent = "☀️";
+        btn.setAttribute("aria-label", isEn ? "Switch to light theme" : "Helles Theme aktivieren");
+        btn.title = isEn ? "Switch to light theme" : "Helles Theme aktivieren";
+      } else {
+        btn.textContent = "🌙";
+        btn.setAttribute("aria-label", isEn ? "Switch to dark theme" : "Dunkles Theme aktivieren");
+        btn.title = isEn ? "Switch to dark theme" : "Dunkles Theme aktivieren";
+      }
+    }
+
+    // Language Switcher (DE / EN)
+    var currentLang = "de";
     function setLang(lang) {
+      currentLang = lang;
       var allDe = document.querySelectorAll("[data-lang='de']");
       var allEn = document.querySelectorAll("[data-lang='en']");
 
@@ -222,23 +263,29 @@
         document.getElementById("btn-de").classList.add("active");
       }
       try { localStorage.setItem("site_lang", lang); } catch (e) {}
+      updateThemeIcon(document.documentElement.getAttribute("data-theme") || "light");
     }
 
     function copyEmail() {
       var email = "benzjeremy@pm.me";
       var btn = document.getElementById("copyBtn");
+      var isEn = document.getElementById("btn-en") && document.getElementById("btn-en").classList.contains("active");
       navigator.clipboard.writeText(email).then(function() {
-        btn.textContent = "Kopiert! ✓";
-        setTimeout(function() { btn.textContent = "Kopieren"; }, 2000);
+        btn.textContent = isEn ? "Copied! ✓" : "Kopiert! ✓";
+        setTimeout(function() {
+          btn.textContent = isEn ? "Copy" : "Kopieren";
+        }, 2000);
       }).catch(function() {
         window.location.href = "mailto:" + email;
       });
     }
 
+    // Init language & theme from storage
     try {
       var savedLang = localStorage.getItem("site_lang");
       if (savedLang === "en" || savedLang === "de") setLang(savedLang);
     } catch (e) {}
+    updateThemeIcon(document.documentElement.getAttribute("data-theme") || "light");
   </script>
 </body>
 </html>

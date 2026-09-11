@@ -9,7 +9,20 @@
   <title>Live-Systemstatus · Jeremy Benz Ökosystem</title>
   <meta name="description" content="Echtzeit-Verfügbarkeit und Betriebszustand aller Jeremy Benz Open-Source Projekte, Web-Apps und Infrastruktur-Dienste.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230366d6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
-  <link rel="stylesheet" href="../style.css?v=4.0">
+  <link rel="stylesheet" href="../style.css?v=5.0">
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem("site_theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -21,8 +34,6 @@
         <span>Jeremy Benz</span>
         <span class="brand-badge">Status</span>
       </a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
 
       <nav>
         <ul class="navbar-nav" id="navMenu">
@@ -53,14 +64,17 @@
           <li>
             <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </li>
-          <li>
-            <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-              <button type="button" class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
-              <button type="button" class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-            </div>
-          </li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+          <button type="button" class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+          <button type="button" class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+        <button type="button" class="theme-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Theme wechseln" title="Dark / Light Mode">🌙</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
+      </div>
     </div>
   </header>
 
@@ -126,7 +140,7 @@
 
     <!-- Incident / Maintenance Box -->
     <div class="content-box" style="text-align: center;">
-      <h3 style="color: #2ea44f; margin-bottom: 6px;">
+      <h3 style="color: var(--brand-green); margin-bottom: 6px;">
         <span data-lang="de" class="visible">🛡️ Keine Störungen gemeldet</span>
         <span data-lang="en">🛡️ No Active Incidents</span>
       </h3>
@@ -167,6 +181,30 @@
       });
     }
 
+    // Theme Toggle (Light / Dark)
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute("data-theme") || "light";
+      var next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("site_theme", next); } catch (e) {}
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(theme) {
+      var btn = document.getElementById("themeToggle");
+      if (!btn) return;
+      var isEn = document.getElementById("btn-en") && document.getElementById("btn-en").classList.contains("active");
+      if (theme === "dark") {
+        btn.textContent = "☀️";
+        btn.setAttribute("aria-label", isEn ? "Switch to light theme" : "Helles Theme aktivieren");
+        btn.title = isEn ? "Switch to light theme" : "Helles Theme aktivieren";
+      } else {
+        btn.textContent = "🌙";
+        btn.setAttribute("aria-label", isEn ? "Switch to dark theme" : "Dunkles Theme aktivieren");
+        btn.title = isEn ? "Switch to dark theme" : "Dunkles Theme aktivieren";
+      }
+    }
+
     var currentLang = "de";
     var currentFilter = "all";
 
@@ -196,11 +234,11 @@
         var desc = currentLang === "de" ? s.descDe : s.descEn;
         return '<div class="status-card">' +
           '<div class="status-card-header">' +
-            '<span style="font-weight:700; color:#0366d6;">' + s.icon + ' ' + s.name + '</span>' +
+            '<span style="font-weight:700; color:var(--brand-blue);">' + s.icon + ' ' + s.name + '</span>' +
             '<span class="status-indicator"><span class="status-dot"></span>Online</span>' +
           '</div>' +
-          '<p style="font-size:13px; color:#586069; margin-bottom:12px;">' + desc + '</p>' +
-          '<div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eaecef; padding-top:8px;">' +
+          '<p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">' + desc + '</p>' +
+          '<div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-muted); padding-top:8px;">' +
             '<code>' + s.version + '</code>' +
             '<a href="' + s.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-default btn-sm">Website →</a>' +
           '</div>' +
@@ -233,6 +271,7 @@
         document.getElementById("btn-de").classList.add("active");
       }
       try { localStorage.setItem("site_lang", lang); } catch (e) {}
+      updateThemeIcon(document.documentElement.getAttribute("data-theme") || "light");
       renderServices();
     }
 
@@ -240,6 +279,7 @@
       var savedLang = localStorage.getItem("site_lang");
       if (savedLang === "en" || savedLang === "de") setLang(savedLang);
     } catch (e) {}
+    updateThemeIcon(document.documentElement.getAttribute("data-theme") || "light");
 
     renderServices();
   </script>
