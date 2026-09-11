@@ -16,7 +16,13 @@
   <meta name="twitter:title" content="Jeremy Benz – Go Systems Developer">
   <meta name="twitter:description" content="Native Systeme, verifizierte Kryptografie und kompromisslose Open-Source-Standards.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
-  <link rel="stylesheet" href="style.css?v=2.2">
+  <link rel="stylesheet" href="style.css?v=3.0">
+  <script>
+    (function() {
+      var saved = localStorage.getItem("site_theme");
+      document.documentElement.setAttribute("data-theme", saved || "light");
+    })();
+  </script>
 </head>
 <body>
 
@@ -57,9 +63,12 @@
           <span class="lang-en" style="display:none;">Status</span>
         </a>
 
-        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-          <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
-          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+        <div class="nav-controls">
+          <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+            <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
+            <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+          </div>
+          <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Farbschema umschalten" title="Design wechseln (Hell/Dunkel)">🌙</button>
         </div>
 
         <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
@@ -73,7 +82,7 @@
   <main id="main-content">
     <!-- HERO SECTION MIT "WOFÜR ICH STEHE" ZUERST -->
     <section class="hero-section" id="hero">
-      <div class="hero-glow"></div>
+      
       <div class="hero-container">
         <div class="hero-badges">
           <span class="hero-badge role-badge">🚀 17 y/o Go Systems Developer · NRW</span>
@@ -395,7 +404,7 @@
             </div>
 
             <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/pokemon-app/" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);">
+              <a href="https://benzjeremy.github.io/pokemon-app/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
                 <span>🌐 Website</span>
               </a>
               <a href="https://benzjeremy.github.io/pokemon-app/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
@@ -485,7 +494,7 @@
             </div>
 
             <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/ollama-fleet-manager/" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);">
+              <a href="https://benzjeremy.github.io/ollama-fleet-manager/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
                 <span>🌐 Website</span>
               </a>
               <a href="https://benzjeremy.github.io/ollama-fleet-manager/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
@@ -530,7 +539,7 @@
             </div>
 
             <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/local-ai-worker/" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);">
+              <a href="https://benzjeremy.github.io/local-ai-worker/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
                 <span>🌐 Website</span>
               </a>
             </div>
@@ -572,7 +581,7 @@
             </div>
 
             <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/omnichannel-hub/" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+              <a href="https://benzjeremy.github.io/omnichannel-hub/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
                 <span>🌐 Website</span>
               </a>
             </div>
@@ -907,6 +916,36 @@
         filterProjects();
       });
     });
+  
+    
+    // Theme Management (Default Light / Scandinavian-Editorial)
+    function initTheme() {
+      const saved = localStorage.getItem("site_theme") || "light";
+      applyTheme(saved);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      const btn = document.getElementById("theme-toggle");
+      if (btn) {
+        btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
+        btn.setAttribute("aria-label", theme === "dark" ? "Zu hellem Design wechseln" : "Zu dunklem Design wechseln");
+        btn.setAttribute("title", theme === "dark" ? "Helles Design aktivieren" : "Dunkles Design aktivieren");
+      }
+      try { localStorage.setItem("site_theme", theme); } catch (e) {}
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      applyTheme(current === "dark" ? "light" : "dark");
+    }
+
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", toggleTheme);
+    }
+    initTheme();
+
   </script>
 </body>
 </html>

@@ -10,119 +10,13 @@
   <meta name="description" content="Diese Seite existiert nicht oder befindet sich im Wartungsmodus. Prüfe den Live-Status aller Dienste.">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="512x512" href="/icon.png">
-  <link rel="stylesheet" href="/style.css?v=2.2">
-  <style>
-    .not-found-wrapper {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1.5rem;
-      text-align: center;
-      position: relative;
-    }
-    .not-found-card {
-      max-width: 680px;
-      width: 100%;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-xl);
-      padding: 3.5rem 2.5rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
-    }
-    .not-found-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 250px;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-    }
-    .glitch-code {
-      font-family: var(--font-mono);
-      font-size: clamp(4.5rem, 12vw, 7rem);
-      font-weight: 900;
-      letter-spacing: 0.05em;
-      line-height: 1;
-      margin-bottom: 1.25rem;
-      background: linear-gradient(135deg, #f8fafc 30%, var(--accent-primary) 70%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 40px rgba(56, 189, 248, 0.3);
-    }
-    .project-notice-box {
-      display: none;
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      margin: 1.75rem 0;
-      text-align: left;
-    }
-    .project-notice-box.visible {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .project-notice-icon {
-      font-size: 2.2rem;
-      flex-shrink: 0;
-    }
-    .project-notice-title {
-      font-weight: 700;
-      color: var(--accent-primary);
-      margin-bottom: 0.25rem;
-    }
-    .project-notice-desc {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.4;
-    }
-    .btn-action-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .quick-directory {
-      margin-top: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-subtle);
-    }
-    .quick-directory-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-    .quick-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    .quick-tag {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      color: var(--text-secondary);
-      font-size: 0.82rem;
-      text-decoration: none;
-      transition: all 0.2s var(--spring-bounce);
-    }
-    .quick-tag:hover {
-      color: var(--text-primary);
-      border-color: var(--border-accent);
-      background: var(--bg-card-hover);
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css?v=3.0">
+  <script>
+    (function() {
+      var saved = localStorage.getItem("site_theme");
+      document.documentElement.setAttribute("data-theme", saved || "light");
+    })();
+  </script>
 </head>
 <body>
 
@@ -163,9 +57,12 @@
           <span class="lang-en" style="display:none;">Status</span>
         </a>
 
-        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-          <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
-          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+        <div class="nav-controls">
+          <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+            <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
+            <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+          </div>
+          <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Farbschema umschalten" title="Design wechseln (Hell/Dunkel)">🌙</button>
         </div>
 
         <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
@@ -355,6 +252,36 @@
     }
 
     analyzePath();
+  
+    
+    // Theme Management (Default Light / Scandinavian-Editorial)
+    function initTheme() {
+      const saved = localStorage.getItem("site_theme") || "light";
+      applyTheme(saved);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      const btn = document.getElementById("theme-toggle");
+      if (btn) {
+        btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
+        btn.setAttribute("aria-label", theme === "dark" ? "Zu hellem Design wechseln" : "Zu dunklem Design wechseln");
+        btn.setAttribute("title", theme === "dark" ? "Helles Design aktivieren" : "Dunkles Design aktivieren");
+      }
+      try { localStorage.setItem("site_theme", theme); } catch (e) {}
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      applyTheme(current === "dark" ? "light" : "dark");
+    }
+
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", toggleTheme);
+    }
+    initTheme();
+
   </script>
 </body>
 </html>

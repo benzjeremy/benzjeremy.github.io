@@ -14,271 +14,13 @@
   <meta property="og:url" content="https://benzjeremy.github.io/status/">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="512x512" href="../icon.png">
-  <link rel="stylesheet" href="../style.css?v=2.2">
-  <style>
-    /* Custom Status Dashboard Enhancements */
-    .status-hero {
-      padding: 3rem 1.5rem 2rem;
-      text-align: center;
-      position: relative;
-    }
-    .status-banner {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.85rem 1.75rem;
-      border-radius: 9999px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      background: rgba(16, 185, 129, 0.1);
-      color: #34d399;
-      box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
-      transition: all 0.3s var(--spring-bounce);
-    }
-    .status-banner.has-issue {
-      border-color: rgba(245, 158, 11, 0.4);
-      background: rgba(245, 158, 11, 0.1);
-      color: #fbbf24;
-      box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
-    }
-    .pulse-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #10b981;
-      position: relative;
-      flex-shrink: 0;
-    }
-    .pulse-dot::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: inherit;
-      opacity: 0.7;
-      animation: pulse-ring 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-    }
-    .pulse-dot.warning {
-      background: #f59e0b;
-    }
-    @keyframes pulse-ring {
-      0% { transform: scale(0.9); opacity: 0.8; }
-      70% { transform: scale(2.2); opacity: 0; }
-      100% { transform: scale(2.2); opacity: 0; }
-    }
-
-    .metrics-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.25rem;
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      padding: 0 1rem;
-    }
-    .metric-pill {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      padding: 1.25rem 1rem;
-      border-radius: var(--radius-md);
-      text-align: center;
-      transition: transform 0.25s var(--spring-bounce), border-color 0.25s;
-    }
-    .metric-pill:hover {
-      transform: translateY(-2px);
-      border-color: var(--border-strong);
-    }
-    .metric-val {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      font-family: var(--font-mono);
-      line-height: 1.2;
-    }
-    .metric-lbl {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 0.35rem;
-    }
-
-    .status-filter-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
-    .status-filter-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      padding: 0.45rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s var(--spring-bounce);
-    }
-    .status-filter-btn:hover {
-      color: var(--text-primary);
-      border-color: var(--border-accent);
-    }
-    .status-filter-btn.active {
-      background: var(--accent-primary);
-      color: #080a0f;
-      font-weight: 600;
-      border-color: var(--accent-primary);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto 4rem;
-      padding: 0 1.25rem;
-    }
-    .service-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s var(--spring-bounce), border-color 0.3s, box-shadow 0.3s;
-    }
-    .service-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-accent);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-    }
-    .service-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    .service-title-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .service-icon {
-      font-size: 1.85rem;
-      line-height: 1;
-      padding: 0.5rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-    }
-    .service-name {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .service-version {
-      font-size: 0.75rem;
-      font-family: var(--font-mono);
-      color: var(--accent-primary);
-      background: rgba(56, 189, 248, 0.1);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      display: inline-block;
-      margin-top: 0.2rem;
-    }
-    .service-state-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.3rem 0.75rem;
-      border-radius: 9999px;
-      white-space: nowrap;
-    }
-    .state-operational {
-      background: rgba(16, 185, 129, 0.12);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-    .state-maintenance {
-      background: rgba(56, 189, 248, 0.12);
-      color: #7dd3fc;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-    }
-    .state-degraded {
-      background: rgba(245, 158, 11, 0.12);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.3);
-    }
-    .state-outage {
-      background: rgba(239, 68, 68, 0.12);
-      color: #f87171;
-      border: 1px solid rgba(239, 68, 68, 0.3);
-    }
-    .service-desc {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      margin-bottom: 1.25rem;
-      flex-grow: 1;
-    }
-    .service-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 0.9rem;
-      border-top: 1px solid var(--border-subtle);
-      font-size: 0.82rem;
-    }
-    .service-meta {
-      display: flex;
-      gap: 0.85rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-    }
-    .service-links a {
-      color: var(--accent-primary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .service-links a:hover {
-      color: var(--accent-primary-hover);
-      text-decoration: underline;
-    }
-
-    .incident-section {
-      max-width: 900px;
-      margin: 0 auto 5rem;
-      padding: 0 1.25rem;
-    }
-    .incident-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      text-align: center;
-    }
-    .incident-icon {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .last-refreshed-bar {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      margin-bottom: 2rem;
-    }
-  </style>
+  <link rel="stylesheet" href="../style.css?v=3.0">
+  <script>
+    (function() {
+      var saved = localStorage.getItem("site_theme");
+      document.documentElement.setAttribute("data-theme", saved || "light");
+    })();
+  </script>
 </head>
 <body>
 
@@ -313,9 +55,12 @@
           <span class="lang-en" style="display:none;">Status</span>
         </a>
 
-        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-          <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
-          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+        <div class="nav-controls">
+          <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+            <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
+            <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+          </div>
+          <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Farbschema umschalten" title="Design wechseln (Hell/Dunkel)">🌙</button>
         </div>
 
         <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
@@ -714,6 +459,36 @@
     }
 
     loadStatus();
+  
+    
+    // Theme Management (Default Light / Scandinavian-Editorial)
+    function initTheme() {
+      const saved = localStorage.getItem("site_theme") || "light";
+      applyTheme(saved);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      const btn = document.getElementById("theme-toggle");
+      if (btn) {
+        btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
+        btn.setAttribute("aria-label", theme === "dark" ? "Zu hellem Design wechseln" : "Zu dunklem Design wechseln");
+        btn.setAttribute("title", theme === "dark" ? "Helles Design aktivieren" : "Dunkles Design aktivieren");
+      }
+      try { localStorage.setItem("site_theme", theme); } catch (e) {}
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      applyTheme(current === "dark" ? "light" : "dark");
+    }
+
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", toggleTheme);
+    }
+    initTheme();
+
   </script>
 </body>
 </html>

@@ -13,7 +13,13 @@
   <meta property="og:description" content="Rechtliche Pflichtangaben gemäß § 5 DDG und Haftungsausschluss nach DSA & GNU GPL-3.0.">
   <meta property="og:url" content="https://benzjeremy.github.io/impressum.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
-  <link rel="stylesheet" href="style.css?v=2.2">
+  <link rel="stylesheet" href="style.css?v=3.0">
+  <script>
+    (function() {
+      var saved = localStorage.getItem("site_theme");
+      document.documentElement.setAttribute("data-theme", saved || "light");
+    })();
+  </script>
 </head>
 <body>
 
@@ -54,9 +60,12 @@
           <span class="lang-en" style="display:none;">Status</span>
         </a>
 
-        <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-          <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
-          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+        <div class="nav-controls">
+          <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+            <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
+            <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
+          </div>
+          <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Farbschema umschalten" title="Design wechseln (Hell/Dunkel)">🌙</button>
         </div>
 
         <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
@@ -308,6 +317,36 @@
       const savedLang = localStorage.getItem('site_lang');
       if (savedLang === 'en' || savedLang === 'de') setLang(savedLang);
     } catch (e) {}
+  
+    
+    // Theme Management (Default Light / Scandinavian-Editorial)
+    function initTheme() {
+      const saved = localStorage.getItem("site_theme") || "light";
+      applyTheme(saved);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      const btn = document.getElementById("theme-toggle");
+      if (btn) {
+        btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
+        btn.setAttribute("aria-label", theme === "dark" ? "Zu hellem Design wechseln" : "Zu dunklem Design wechseln");
+        btn.setAttribute("title", theme === "dark" ? "Helles Design aktivieren" : "Dunkles Design aktivieren");
+      }
+      try { localStorage.setItem("site_theme", theme); } catch (e) {}
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      applyTheme(current === "dark" ? "light" : "dark");
+    }
+
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", toggleTheme);
+    }
+    initTheme();
+
   </script>
 </body>
 </html>
