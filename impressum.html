@@ -3,194 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Impressum – Jeremy Benz (@benzjeremy) · Rechtliche Angaben</title>
   <meta name="description" content="Impressum und rechtliche Angaben für benzjeremy.github.io und alle zugehörigen Open-Source-Projekte gemäß § 5 DDG, DSA und GNU GPL-3.0.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Impressum – Jeremy Benz (@benzjeremy)">
-  <meta property="og:description" content="Rechtliche Pflichtangaben gemäß § 5 DDG und Haftungsausschluss nach DSA & GNU GPL-3.0.">
-  <meta property="og:url" content="https://benzjeremy.github.io/impressum.html">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
-  <link rel="stylesheet" href="style.css?v=3.0">
-  <script>
-    (function() {
-      var saved = localStorage.getItem("site_theme");
-      document.documentElement.setAttribute("data-theme", saved || "light");
-    })();
-  </script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230366d6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
+  <link rel="stylesheet" href="style.css?v=4.0">
 </head>
 <body>
 
-  <!-- Skip Link for Accessibility (WCAG AAA & ISO 9241-110) -->
-  <a href="#main-content" class="skip-link">
-    <span class="lang-de">Direkt zum Inhalt springen</span>
-    <span class="lang-en" style="display:none;">Skip to main content</span>
-  </a>
-
-  <!-- Site Navigation -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-link" aria-label="Jeremy Benz Startseite">
-        <div class="brand-avatar">JB</div>
-        <div class="brand-info">
-          <span class="brand-name">Jeremy Benz</span>
-          <span class="brand-ver">Go Systems Dev</span>
-        </div>
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-avatar">JB</span>
+        <span>Jeremy Benz</span>
+        <span class="brand-badge">Go Dev</span>
       </a>
 
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
 
-      <nav class="main-nav" id="main-nav">
-        <a href="index.html">
-          <span class="lang-de">Startseite</span>
-          <span class="lang-en" style="display:none;">Home</span>
-        </a>
-        <a href="about.html">
-          <span class="lang-de">Über mich</span>
-          <span class="lang-en" style="display:none;">About</span>
-        </a>
-        <a href="kontakt.html">
-          <span class="lang-de">Kontakt</span>
-          <span class="lang-en" style="display:none;">Contact</span>
-        </a>
-        <a href="status/">
-          <span class="lang-de">Status</span>
-          <span class="lang-en" style="display:none;">Status</span>
-        </a>
-
-        <div class="nav-controls">
-          <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-            <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
-            <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
-          </div>
-          <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Farbschema umschalten" title="Design wechseln (Hell/Dunkel)">🌙</button>
-        </div>
-
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          <span>GitHub</span>
-        </a>
+      <nav>
+        <ul class="navbar-nav" id="navMenu">
+          <li>
+            <a href="index.html">
+              <span data-lang="de" class="visible">Startseite</span>
+              <span data-lang="en">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="about.html">
+              <span data-lang="de" class="visible">Über mich</span>
+              <span data-lang="en">About</span>
+            </a>
+          </li>
+          <li>
+            <a href="kontakt.html">
+              <span data-lang="de" class="visible">Kontakt</span>
+              <span data-lang="en">Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="status/">
+              <span data-lang="de" class="visible">Status</span>
+              <span data-lang="en">Status</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </li>
+          <li>
+            <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+              <button type="button" class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+              <button type="button" class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            </div>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="page-container">
+  <!-- Page Header -->
+  <main class="container">
     <div class="page-header">
-      <span class="page-tag">
-        <span class="lang-de">Rechtliche Transparenz &amp; Pflichtangaben</span>
-        <span class="lang-en" style="display:none;">Legal Notice &amp; Statutory Disclosures</span>
+      <span class="badge badge-default">
+        <span data-lang="de" class="visible">Rechtliche Pflichtangaben</span>
+        <span data-lang="en">Legal Disclosures</span>
       </span>
-      <h1 class="page-title">
-        <span class="lang-de">Impressum</span>
-        <span class="lang-en" style="display:none;">Legal Notice</span>
+      <h1>
+        <span data-lang="de" class="visible">Impressum</span>
+        <span data-lang="en">Legal Notice</span>
       </h1>
-      <p class="page-intro">
-        <span class="lang-de">Gesetzliche Anbieterkennzeichnung gemäß § 5 Digitale-Dienste-Gesetz (DDG), EU Digital Services Act (DSA) und Lizenzhinweise nach GNU GPL-3.0.</span>
-        <span class="lang-en" style="display:none;">Statutory provider identification pursuant to § 5 German Digital Services Act (DDG), EU Digital Services Act (DSA), and GNU GPL-3.0 licensing disclaimers.</span>
+      <p>
+        <span data-lang="de" class="visible">Gesetzliche Anbieterkennzeichnung gemäß § 5 Digitale-Dienste-Gesetz (DDG), EU Digital Services Act (DSA) und GNU GPL-3.0.</span>
+        <span data-lang="en">Statutory provider identification pursuant to § 5 DDG, EU Digital Services Act (DSA), and GNU GPL-3.0.</span>
       </p>
     </div>
 
-    <!-- Card 1: Dienstanbieter & Kontakt -->
-    <article class="legal-card">
-      <span class="legal-badge">
-        <span class="lang-de">§ 5 DDG Konform</span>
-        <span class="lang-en" style="display:none;">§ 5 DDG Compliant</span>
-      </span>
+    <!-- Angaben gemäss § 5 DDG -->
+    <div class="content-box">
       <h2>
-        <span class="lang-de">⚖️ Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</span>
-        <span class="lang-en" style="display:none;">⚖️ Information Pursuant to § 5 DDG (Digital Services Act)</span>
+        <span data-lang="de" class="visible">Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</span>
+        <span data-lang="en">Information pursuant to § 5 DDG</span>
       </h2>
-      
-      <div data-lang="de" class="visible">
-        <div class="legal-info-box">
-          <strong>Jeremy Benz</strong><br>
-          Software-Entwickler &amp; Open-Source Maintainer<br>
-          Nordrhein-Westfalen (NRW), Deutschland<br><br>
-          <strong>E-Mail:</strong> <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br>
-          <strong>GitHub:</strong> <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a><br>
-          <strong>Web-Präsenz:</strong> <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a><br><br>
-          <span style="font-size: 12px; color: var(--text-muted);">
-            Hinweis: Rein private, nicht-kommerzielle Open-Source-Entwicklung &amp; Bildungsprojekte ohne Gewinnerzielungsabsicht. Ladungsfähige Anschrift wird auf berechtigte Anfrage via E-Mail unmittelbar zur Verfügung gestellt.
-          </span>
-        </div>
+      <table class="info-table">
+        <tbody>
+          <tr>
+            <th><span data-lang="de" class="visible">Diensteanbieter</span><span data-lang="en">Service Provider</span></th>
+            <td>Jeremy Benz</td>
+          </tr>
+          <tr>
+            <th><span data-lang="de" class="visible">Tätigkeit</span><span data-lang="en">Occupation</span></th>
+            <td><span data-lang="de" class="visible">Software-Entwickler &amp; Open-Source Maintainer</span><span data-lang="en">Software Developer &amp; Open-Source Maintainer</span></td>
+          </tr>
+          <tr>
+            <th><span data-lang="de" class="visible">Standort</span><span data-lang="en">Location</span></th>
+            <td>Nordrhein-Westfalen (NRW), Deutschland</td>
+          </tr>
+          <tr>
+            <th>E-Mail</th>
+            <td><a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a></td>
+          </tr>
+          <tr>
+            <th>GitHub</th>
+            <td><a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a></td>
+          </tr>
+          <tr>
+            <th><span data-lang="de" class="visible">Redaktionell verantwortlich (§ 18 MStV)</span><span data-lang="en">Editorial Responsibility (§ 18 MStV)</span></th>
+            <td>Jeremy Benz (E-Mail: benzjeremy@pm.me)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 13px; color: #586069; margin-top: 8px;">
+        <span data-lang="de" class="visible">Hinweis: Rein private, nicht-kommerzielle Open-Source-Entwicklung ohne Gewinnerzielungsabsicht. Eine ladungsfähige Anschrift wird auf berechtigte Anfrage via E-Mail unmittelbar übermittelt.</span>
+        <span data-lang="en">Notice: Non-commercial, educational open-source software projects without commercial intent. An official service address is provided promptly upon legitimate inquiry via email.</span>
+      </p>
+    </div>
 
-        <h2>👤 Redaktionell Verantwortlicher</h2>
-        <p>
-          Verantwortlich für die publizierten Inhalte dieser Webpräsenz und der verknüpften Open-Source-Dokumentationen gemäß <strong>§ 18 Abs. 2 MStV</strong> (Medienstaatsvertrag):<br>
-          <strong>Jeremy Benz</strong> (Kontakt via E-Mail: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>).
-        </p>
-      </div>
-
-      <div data-lang="en">
-        <div class="legal-info-box">
-          <strong>Jeremy Benz</strong><br>
-          Software Developer &amp; Open-Source Maintainer<br>
-          North Rhine-Westphalia (NRW), Germany<br><br>
-          <strong>E-Mail:</strong> <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br>
-          <strong>GitHub:</strong> <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a><br>
-          <strong>Web Presence:</strong> <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a><br><br>
-          <span style="font-size: 12px; color: var(--text-muted);">
-            Notice: Strictly non-commercial open-source research and educational software projects without profit intent. Official legal service address provided promptly upon legitimate inquiry via email.
-          </span>
-        </div>
-
-        <h2>👤 Editorial Responsibility</h2>
-        <p>
-          Responsible for the content published on this domain and affiliated open-source project documentations pursuant to <strong>§ 18 (2) MStV</strong> (German State Media Treaty):<br>
-          <strong>Jeremy Benz</strong> (Contact via email: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>).
-        </p>
-      </div>
-    </article>
-
-    <!-- Card 2: Responsible Disclosure & Sicherheitsmeldungen -->
-    <article class="legal-card">
-      <span class="legal-badge">
-        <span class="lang-de">Security Guidelines</span>
-        <span class="lang-en" style="display:none;">Security Guidelines</span>
-      </span>
-      <h2>
-        <span class="lang-de">📬 Kontakt &amp; Sicherheitsmeldungen (Responsible Disclosure)</span>
-        <span class="lang-en" style="display:none;">📬 Contact &amp; Vulnerability Reporting (Responsible Disclosure)</span>
-      </h2>
-
-      <div data-lang="de" class="visible">
-        <p>
-          Wenn Sie einen Bug, eine Schwachstelle oder ein sicherheitsrelevantes Problem in einem meiner Software-Projekte (z.&nbsp;B. <code>untis-go</code>, <code>docklite</code>, <code>spotify-screensaver</code>) identifizieren:
-        </p>
-        <ul>
-          <li><strong>Reguläre Issues &amp; Feature-Requests:</strong> Bitte direkt ein GitHub Issue im jeweiligen Projekt-Repository auf GitHub öffnen.</li>
-          <li><strong>Vertrauliche Sicherheitslücken (Security Advisories):</strong> Bitte diskret und verschlüsselt per E-Mail an <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a> senden.</li>
-          <li><strong>Verbindliches Betreff-Format:</strong> <code>[SECURITY] [PROJEKTNAME] [KURZBESCHREIBUNG]</code></li>
-        </ul>
-        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
-          Reaktionszeit-Garantie: Erste Sichtung und Rückmeldung erfolgen innerhalb von maximal 48 Stunden.
-        </p>
-      </div>
-
-      <div data-lang="en">
-        <p>
-          If you identify a bug, vulnerability, or security-critical flaw in any of my software projects (e.g., <code>untis-go</code>, <code>docklite</code>, <code>spotify-screensaver</code>):
-        </p>
-        <ul>
-          <li><strong>Standard Issues &amp; Feature Requests:</strong> Please open a public issue directly on GitHub in the respective repository.</li>
-          <li><strong>Confidential Vulnerabilities (Security Advisories):</strong> Please report privately and securely via email to <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>.</li>
-          <li><strong>Required Subject Format:</strong> <code>[SECURITY] [PROJECT] [BRIEF SUMMARY]</code></li>
-        </ul>
-        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
-          Response Guarantee: Initial triage and acknowledgement within 48 hours maximum.
-        </p>
-      </div>
-    </article>
-
-    <!-- Card 3: Haftung & Open Source Ausschluss -->
-    <article class="legal-card">
-      <span class="legal-badge">
-        <span class="lang-de">EU DSA &amp; GNU GPL-3.0</span>
-        <span class="lang-en" style="display:none;">EU DSA &amp; GNU GPL-3.0</span>
-      </span>
-
+    <!-- Haftungsausschluss -->
+    <div class="content-box">
       <div data-lang="de" class="visible">
         <h2>🛡️ Haftung für Inhalte &amp; Open-Source-Ausschluss (DSA &amp; GPL-3.0)</h2>
         <p>
@@ -202,12 +134,12 @@
 
         <h2>🔗 Haftung für externe Links</h2>
         <p>
-          Dieses Informationsangebot enthält Hyperlinks zu externen Websites Dritter (z.&nbsp;B. GitHub, Awesome Go, Microsoft, Docker, Twitch). Auf deren Inhalte und Datenverarbeitung haben wir keinen Einfluss. Für fremde Inhalte ist stets der jeweilige Dienstanbieter oder Seitenbetreiber verantwortlich. Zum Zeitpunkt der Verlinkung wurden die externen Seiten auf offensichtliche Rechtsverstöße geprüft; eine permanente inhaltliche Kontrolle ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar.
+          Dieses Informationsangebot enthält Hyperlinks zu externen Websites Dritter (z.&nbsp;B. GitHub, Awesome Go, Microsoft, Docker, Twitch). Auf deren Inhalte und Datenverarbeitung haben wir keinen Einfluss. Für fremde Inhalte ist stets der jeweilige Dienstanbieter oder Seitenbetreiber verantwortlich.
         </p>
 
         <h2>📄 Urheberrecht &amp; Lizenzrechte</h2>
         <p>
-          Die durch den Seitenbetreiber erstellten Quellcodes, Dokumentationen und grafischen Elemente unterliegen dem deutschen Urheberrecht (UrhG) und stehen, sofern nicht explizit anders gekennzeichnet, unter der <strong>GNU General Public License v3.0 (GPL-3.0)</strong>.
+          Die durch den Seitenbetreiber erstellten Quellcodes, Dokumentationen und grafischen Elemente unterliegen dem deutschen Urheberrecht (UrhG) und stehen, sofern nicht anders gekennzeichnet, unter der <strong>GNU General Public License v3.0 (GPL-3.0)</strong>.
         </p>
       </div>
 
@@ -220,133 +152,78 @@
           The software, binaries, and source code showcased on this website are distributed free of charge exclusively under the terms of the <strong>GNU General Public License, Version 3 (GPL-3.0)</strong>. Pursuant to <strong>Sections 15 &amp; 16 of the GPL-3.0</strong>, the program is provided "AS IS", without warranty of any kind, either expressed or implied, including the implied warranties of merchantability and fitness for a particular purpose.
         </p>
 
-        <h2>🔗 Liability for External Hyperlinks</h2>
+        <h2>🔗 Liability for External Links</h2>
         <p>
-          This information service contains links to third-party websites (e.g., GitHub, Awesome Go, Microsoft, Docker, Twitch). We have no influence over their content and data handling practices. The respective provider or operator is always responsible for third-party content. At the time of linking, external pages were examined for obvious legal violations; ongoing monitoring without specific indications of an infringement is neither reasonable nor required.
+          This website contains links to external websites operated by third parties (e.g., GitHub, Awesome Go, Microsoft, Docker, Twitch). We have no influence over their contents and data handling practices. The respective operator is always responsible for external content.
         </p>
 
         <h2>📄 Copyright &amp; Intellectual Property</h2>
         <p>
-          Source code, documentation, and graphic assets authored by the site operator are subject to German copyright law (UrhG) and, unless explicitly noted otherwise, licensed under the <strong>GNU General Public License v3.0 (GPL-3.0)</strong>.
+          Source code, documentation, and assets authored by the site operator are subject to German copyright law (UrhG) and, unless explicitly stated otherwise, licensed under the <strong>GNU General Public License v3.0 (GPL-3.0)</strong>.
         </p>
       </div>
-    </article>
 
-    <div style="text-align: center; margin-top: 20px;">
-      <a href="datenschutz.html" class="btn-card highlight" style="padding: 10px 20px;">
-        <span class="lang-de">Zur Datenschutzerklärung (DSGVO) →</span>
-        <span class="lang-en" style="display:none;">To Privacy Policy (GDPR) →</span>
-      </a>
+      <div style="margin-top: 16px;">
+        <a href="datenschutz.html" class="btn btn-default">
+          <span data-lang="de" class="visible">Zur Datenschutzerklärung (DSGVO) →</span>
+          <span data-lang="en">To Privacy Policy (GDPR) →</span>
+        </a>
+      </div>
     </div>
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-left">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div>
         <span>© 2026 Jeremy Benz (@benzjeremy) · 
-          <span class="lang-de">Nordrhein-Westfalen, Deutschland</span>
-          <span class="lang-en" style="display:none;">North Rhine-Westphalia, Germany</span>
+          <span data-lang="de" class="visible">Nordrhein-Westfalen, Deutschland</span>
+          <span data-lang="en">North Rhine-Westphalia, Germany</span>
         </span>
       </div>
-
-      <nav class="footer-links" aria-label="Footer Navigation">
-        <a href="index.html">
-          <span class="lang-de">Startseite</span>
-          <span class="lang-en" style="display:none;">Home</span>
-        </a>
-        <a href="about.html">
-          <span class="lang-de">Über mich</span>
-          <span class="lang-en" style="display:none;">About</span>
-        </a>
-        <a href="kontakt.html">
-          <span class="lang-de">Kontakt</span>
-          <span class="lang-en" style="display:none;">Contact</span>
-        </a>
-        <a href="status/">
-          <span class="lang-de">Status</span>
-          <span class="lang-en" style="display:none;">Status</span>
-        </a>
-        <a href="impressum.html">
-          <span class="lang-de">Impressum (§ 5 DDG)</span>
-          <span class="lang-en" style="display:none;">Legal Notice (§ 5 DDG)</span>
-        </a>
-        <a href="datenschutz.html">
-          <span class="lang-de">Datenschutz (DSGVO)</span>
-          <span class="lang-en" style="display:none;">Privacy Policy (GDPR)</span>
-        </a>
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </nav>
+      <ul class="footer-links">
+        <li><a href="index.html"><span data-lang="de" class="visible">Startseite</span><span data-lang="en">Home</span></a></li>
+        <li><a href="about.html"><span data-lang="de" class="visible">Über mich</span><span data-lang="en">About</span></a></li>
+        <li><a href="kontakt.html"><span data-lang="de" class="visible">Kontakt</span><span data-lang="en">Contact</span></a></li>
+        <li><a href="status/"><span data-lang="de" class="visible">Status</span><span data-lang="en">Status</span></a></li>
+        <li><a href="impressum.html"><span data-lang="de" class="visible">Impressum (§ 5 DDG)</span><span data-lang="en">Legal Notice</span></a></li>
+        <li><a href="datenschutz.html"><span data-lang="de" class="visible">Datenschutz (DSGVO)</span><span data-lang="en">Privacy Policy</span></a></li>
+        <li><a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+      </ul>
     </div>
   </footer>
 
   <script>
-    // Mobile Drawer Toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const mainNav = document.getElementById('main-nav');
-    if (mobileToggle && mainNav) {
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = mainNav.classList.toggle('open');
-        mobileToggle.setAttribute('aria-expanded', isOpen);
+    var navToggle = document.getElementById("navToggle");
+    var navMenu = document.getElementById("navMenu");
+    if (navToggle && navMenu) {
+      navToggle.addEventListener("click", function() {
+        navMenu.classList.toggle("open");
       });
     }
 
-    // Language Toggle (DE / EN)
     function setLang(lang) {
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        if (el.getAttribute('data-lang') === lang) {
-          el.classList.add('visible');
-        } else {
-          el.classList.remove('visible');
-        }
-      });
-      document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
-      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-      
-      const btnDe = document.getElementById('btn-lang-de');
-      const btnEn = document.getElementById('btn-lang-en');
-      if (btnDe && btnEn) {
-        btnDe.classList.toggle('active', lang === 'de');
-        btnEn.classList.toggle('active', lang === 'en');
+      var allDe = document.querySelectorAll("[data-lang='de']");
+      var allEn = document.querySelectorAll("[data-lang='en']");
+
+      if (lang === "en") {
+        allDe.forEach(function(el) { el.classList.remove("visible"); });
+        allEn.forEach(function(el) { el.classList.add("visible"); });
+        document.getElementById("btn-de").classList.remove("active");
+        document.getElementById("btn-en").classList.add("active");
+      } else {
+        allEn.forEach(function(el) { el.classList.remove("visible"); });
+        allDe.forEach(function(el) { el.classList.add("visible"); });
+        document.getElementById("btn-en").classList.remove("active");
+        document.getElementById("btn-de").classList.add("active");
       }
-      try { localStorage.setItem('site_lang', lang); } catch (e) {}
+      try { localStorage.setItem("site_lang", lang); } catch (e) {}
     }
 
-    // Init Language from Storage
     try {
-      const savedLang = localStorage.getItem('site_lang');
-      if (savedLang === 'en' || savedLang === 'de') setLang(savedLang);
+      var savedLang = localStorage.getItem("site_lang");
+      if (savedLang === "en" || savedLang === "de") setLang(savedLang);
     } catch (e) {}
-  
-    
-    // Theme Management (Default Light / Scandinavian-Editorial)
-    function initTheme() {
-      const saved = localStorage.getItem("site_theme") || "light";
-      applyTheme(saved);
-    }
-
-    function applyTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      const btn = document.getElementById("theme-toggle");
-      if (btn) {
-        btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
-        btn.setAttribute("aria-label", theme === "dark" ? "Zu hellem Design wechseln" : "Zu dunklem Design wechseln");
-        btn.setAttribute("title", theme === "dark" ? "Helles Design aktivieren" : "Dunkles Design aktivieren");
-      }
-      try { localStorage.setItem("site_theme", theme); } catch (e) {}
-    }
-
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute("data-theme") || "light";
-      applyTheme(current === "dark" ? "light" : "dark");
-    }
-
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener("click", toggleTheme);
-    }
-    initTheme();
-
   </script>
 </body>
 </html>

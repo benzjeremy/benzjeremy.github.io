@@ -3,486 +3,302 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Datenschutzerklärung – Jeremy Benz (@benzjeremy) · DSGVO &amp; TDDDG</title>
   <meta name="description" content="Datenschutzerklärung für benzjeremy.github.io und alle verknüpften Open-Source-Showcases gemäß DSGVO, § 25 TDDDG und LDI NRW Aufsicht.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Datenschutzerklärung – Jeremy Benz (@benzjeremy)">
-  <meta property="og:description" content="Transparente Datenschutzhinweise gemäß DSGVO, TDDDG und Data Privacy Framework.">
-  <meta property="og:url" content="https://benzjeremy.github.io/datenschutz.html">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
-  <link rel="stylesheet" href="style.css?v=3.0">
-  <script>
-    (function() {
-      var saved = localStorage.getItem("site_theme");
-      document.documentElement.setAttribute("data-theme", saved || "light");
-    })();
-  </script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230366d6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
+  <link rel="stylesheet" href="style.css?v=4.0">
 </head>
 <body>
 
-  <!-- Skip Link for Accessibility (WCAG AAA & ISO 9241-110) -->
-  <a href="#main-content" class="skip-link">
-    <span class="lang-de">Direkt zum Inhalt springen</span>
-    <span class="lang-en" style="display:none;">Skip to main content</span>
-  </a>
-
-  <!-- Site Navigation -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-link" aria-label="Jeremy Benz Startseite">
-        <div class="brand-avatar">JB</div>
-        <div class="brand-info">
-          <span class="brand-name">Jeremy Benz</span>
-          <span class="brand-ver">Go Systems Dev</span>
-        </div>
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-avatar">JB</span>
+        <span>Jeremy Benz</span>
+        <span class="brand-badge">Go Dev</span>
       </a>
 
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
 
-      <nav class="main-nav" id="main-nav">
-        <a href="index.html">
-          <span class="lang-de">Startseite</span>
-          <span class="lang-en" style="display:none;">Home</span>
-        </a>
-        <a href="about.html">
-          <span class="lang-de">Über mich</span>
-          <span class="lang-en" style="display:none;">About</span>
-        </a>
-        <a href="kontakt.html">
-          <span class="lang-de">Kontakt</span>
-          <span class="lang-en" style="display:none;">Contact</span>
-        </a>
-        <a href="status/">
-          <span class="lang-de">Status</span>
-          <span class="lang-en" style="display:none;">Status</span>
-        </a>
-
-        <div class="nav-controls">
-          <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-            <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
-            <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
-          </div>
-          <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Farbschema umschalten" title="Design wechseln (Hell/Dunkel)">🌙</button>
-        </div>
-
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          <span>GitHub</span>
-        </a>
+      <nav>
+        <ul class="navbar-nav" id="navMenu">
+          <li>
+            <a href="index.html">
+              <span data-lang="de" class="visible">Startseite</span>
+              <span data-lang="en">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="about.html">
+              <span data-lang="de" class="visible">Über mich</span>
+              <span data-lang="en">About</span>
+            </a>
+          </li>
+          <li>
+            <a href="kontakt.html">
+              <span data-lang="de" class="visible">Kontakt</span>
+              <span data-lang="en">Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="status/">
+              <span data-lang="de" class="visible">Status</span>
+              <span data-lang="en">Status</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </li>
+          <li>
+            <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+              <button type="button" class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+              <button type="button" class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            </div>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="page-container">
+  <!-- Page Header -->
+  <main class="container">
     <div class="page-header">
-      <span class="page-tag">
-        <span class="lang-de">Datenschutz &amp; Privatsphäre</span>
-        <span class="lang-en" style="display:none;">Privacy &amp; Data Protection</span>
+      <span class="badge badge-default">
+        <span data-lang="de" class="visible">Datenschutz &amp; Privatsphäre</span>
+        <span data-lang="en">Privacy &amp; Data Protection</span>
       </span>
-      <h1 class="page-title">
-        <span class="lang-de">Datenschutzerklärung</span>
-        <span class="lang-en" style="display:none;">Privacy Policy</span>
+      <h1>
+        <span data-lang="de" class="visible">Datenschutzerklärung</span>
+        <span data-lang="en">Privacy Policy</span>
       </h1>
-      <p class="page-intro">
-        <span class="lang-de">Transparente Information über die Erhebung und Verarbeitung personenbezogener Daten gemäß DSGVO und § 25 TDDDG.</span>
-        <span class="lang-en" style="display:none;">Transparent details on the collection and processing of personal data in accordance with the GDPR and the German TDDDG.</span>
+      <p>
+        <span data-lang="de" class="visible">Transparente Information über die Verarbeitung personenbezogener Daten gemäß DSGVO und § 25 TDDDG.</span>
+        <span data-lang="en">Transparent information on the processing of personal data pursuant to the GDPR and German TDDDG.</span>
       </p>
     </div>
 
     <!-- 1. Verantwortlicher -->
-    <article class="legal-card">
-      <span class="legal-badge">Art. 4 Nr. 7 DSGVO / GDPR</span>
+    <div class="content-box">
       <h2>
-        <span class="lang-de">1. Verantwortlicher für die Datenverarbeitung</span>
-        <span class="lang-en" style="display:none;">1. Data Controller</span>
+        <span data-lang="de" class="visible">1. Verantwortlicher für die Datenverarbeitung</span>
+        <span data-lang="en">1. Data Controller</span>
       </h2>
       <div data-lang="de" class="visible">
-        <div class="legal-info-box">
-          <strong>Jeremy Benz</strong><br>
-          Software-Entwickler &amp; Open-Source Maintainer<br>
-          Nordrhein-Westfalen (NRW), Deutschland<br><br>
-          <strong>E-Mail:</strong> <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br>
-          <strong>GitHub:</strong> <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a><br>
-          <strong>Web-Präsenz:</strong> <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a>
-        </div>
-        <p>
-          Der Schutz Ihrer persönlichen Daten bei der Nutzung unseres statischen Informationsangebots hat höchste Priorität. Diese Webpräsenz folgt dem Grundsatz der radikalen Datensparsamkeit ("Privacy by Design &amp; Privacy by Default", Art. 25 DSGVO).
-        </p>
+        <p>Verantwortlicher im Sinne von Art. 4 Nr. 7 der EU-Datenschutz-Grundverordnung (DSGVO):</p>
+        <table class="info-table">
+          <tbody>
+            <tr>
+              <th>Verantwortlicher</th>
+              <td>Jeremy Benz</td>
+            </tr>
+            <tr>
+              <th>Standort</th>
+              <td>Nordrhein-Westfalen (NRW), Deutschland</td>
+            </tr>
+            <tr>
+              <th>E-Mail</th>
+              <td><a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a></td>
+            </tr>
+            <tr>
+              <th>GitHub</th>
+              <td><a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div data-lang="en">
-        <div class="legal-info-box">
-          <strong>Jeremy Benz</strong><br>
-          Software Developer &amp; Open-Source Maintainer<br>
-          North Rhine-Westphalia (NRW), Germany<br><br>
-          <strong>E-Mail:</strong> <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a><br>
-          <strong>GitHub:</strong> <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a><br>
-          <strong>Web Presence:</strong> <a href="https://benzjeremy.github.io/">benzjeremy.github.io</a>
-        </div>
-        <p>
-          Protecting your personal data while you visit our static information showcase is our highest priority. This web presence strictly adheres to the principle of radical data minimization ("Privacy by Design &amp; Privacy by Default", Art. 25 GDPR).
-        </p>
+        <p>Controller pursuant to Art. 4 No. 7 of the EU General Data Protection Regulation (GDPR):</p>
+        <table class="info-table">
+          <tbody>
+            <tr>
+              <th>Controller</th>
+              <td>Jeremy Benz</td>
+            </tr>
+            <tr>
+              <th>Location</th>
+              <td>North Rhine-Westphalia (NRW), Germany</td>
+            </tr>
+            <tr>
+              <th>E-Mail</th>
+              <td><a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a></td>
+            </tr>
+            <tr>
+              <th>GitHub</th>
+              <td><a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">github.com/benzjeremy</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </article>
+    </div>
 
-    <!-- 2. GitHub Pages Hosting -->
-    <article class="legal-card">
-      <span class="legal-badge">Art. 6 Abs. 1 lit. f DSGVO / GDPR · DPF</span>
-      <h2>
-        <span class="lang-de">2. Bereitstellung der Website &amp; Server-Logfiles (GitHub Pages)</span>
-        <span class="lang-en" style="display:none;">2. Website Delivery &amp; Server Log Files (GitHub Pages)</span>
-      </h2>
+    <!-- 2. Hosting via GitHub Pages -->
+    <div class="content-box">
       <div data-lang="de" class="visible">
+        <h2>2. Bereitstellung der Website &amp; Server-Logfiles (GitHub Pages)</h2>
         <p>
-          Diese Website wird als statisches Webprojekt über den Dienst <strong>GitHub Pages</strong> gehostet. Anbieter ist:
+          Diese statische Website wird über den Dienst <strong>GitHub Pages</strong> gehostet, bereitgestellt durch die <strong>GitHub, Inc.</strong> (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
         </p>
-        <div class="legal-info-box">
-          <strong>GitHub B.V.</strong>, Prins Bernhardplein 200, 1097 JB Amsterdam, Niederlande<br>
-          bzw. Mutterkonzern <strong>GitHub, Inc.</strong>, 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (Teil der Microsoft Corporation).
-        </div>
         <p>
-          Beim Aufruf dieser Website erfasst die Infrastruktur von GitHub Pages automatisiert technische Zugriffsdaten in sogenannten Server-Log-Dateien:
+          Beim Aufruf dieser Website erfasst der Webserver von GitHub automatisiert Zugriffsdaten in sogenannten Server-Logdateien. Hierzu gehören:
         </p>
         <ul>
-          <li>IP-Adresse des anfragenden Geräts (anonymisiert bzw. gekürzt durch GitHub)</li>
-          <li>Datum und Uhrzeit des Zugriffs inklusive Zeitzonendifferenz</li>
-          <li>Name und URL der abgerufenen Datei bzw. Unterseite</li>
-          <li>Übertragene Datenmenge und HTTP-Statuscode</li>
-          <li>Referrer URL (zuvor besuchte Webseite)</li>
-          <li>Browsertyp, Version und Betriebssystem des Nutzers</li>
+          <li>IP-Adresse des anfragenden Endgeräts</li>
+          <li>Datum und Uhrzeit des Zugriffs</li>
+          <li>Aufgerufene URL und Dateipfad</li>
+          <li>HTTP-Statuscode</li>
+          <li>Browser-Typ und Betriebssystem (User-Agent)</li>
+          <li>Zuvor besuchte Website (Referrer-URL, sofern vom Browser übermittelt)</li>
         </ul>
         <p>
-          <strong>Zweck &amp; Rechtsgrundlage:</strong> Die Erfassung erfolgt zur Gewährleistung eines reibungslosen Verbindungsaufbaus, zur Sicherstellung der Systemsicherheit und Stabilität sowie zur Abwehr von DDoS-Angriffen (berechtigtes Interesse gemäß <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>).
-        </p>
-        <p>
-          <strong>Drittlandtransfer &amp; Garantien:</strong> GitHub, Inc. ist unter dem <strong>EU-U.S. Data Privacy Framework (DPF)</strong> zertifiziert. Ein Angemessenheitsbeschluss der Europäischen Kommission garantiert ein dem EU-Standard entsprechendes Datenschutzniveau.
+          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren, stabilen und fehlerfreien Bereitstellung der Webpräsenz). Die Datenübermittlung in die USA erfolgt auf Basis des <strong>EU-US Data Privacy Framework (DPF)</strong>.
         </p>
       </div>
+
       <div data-lang="en">
+        <h2>2. Website Hosting &amp; Server Log Files (GitHub Pages)</h2>
         <p>
-          This website is hosted as a static web showcase via <strong>GitHub Pages</strong>. Service provider:
+          This static website is hosted via <strong>GitHub Pages</strong>, operated by <strong>GitHub, Inc.</strong> (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
         </p>
-        <div class="legal-info-box">
-          <strong>GitHub B.V.</strong>, Prins Bernhardplein 200, 1097 JB Amsterdam, Netherlands<br>
-          or parent corporation <strong>GitHub, Inc.</strong>, 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (Microsoft Corporation).
-        </div>
         <p>
-          When you access this website, the GitHub Pages infrastructure automatically records technical access parameters in server log files:
+          When you access this website, GitHub servers automatically collect technical access data in server log files. This includes:
         </p>
         <ul>
-          <li>IP address of requesting device (anonymized or truncated by GitHub)</li>
-          <li>Timestamp of request including timezone offset</li>
-          <li>Name and URL of requested asset or path</li>
-          <li>Transferred data volume and HTTP status response code</li>
-          <li>Referrer URL (previously visited website)</li>
-          <li>Browser user agent, client version, and operating system</li>
+          <li>IP address of the requesting device</li>
+          <li>Date and timestamp of the access</li>
+          <li>Requested URL and resource path</li>
+          <li>HTTP status response code</li>
+          <li>Browser type and operating system (User-Agent)</li>
+          <li>Referrer URL (if transmitted by your browser)</li>
         </ul>
         <p>
-          <strong>Purpose &amp; Legal Basis:</strong> Logging is processed to ensure stable connection establishment, maintain system integrity, and thwart distributed denial-of-service (DDoS) attempts (legitimate interest pursuant to <strong>Art. 6 (1) lit. f GDPR</strong>).
-        </p>
-        <p>
-          <strong>Third Country Transfers:</strong> GitHub, Inc. is certified under the <strong>EU-U.S. Data Privacy Framework (DPF)</strong>. An adequacy decision by the European Commission ensures an equivalent level of data protection.
+          <strong>Legal Basis:</strong> Art. 6 (1) (f) GDPR (legitimate interest in stable, reliable, and secure web delivery). Data transfer to the US is certified under the <strong>EU-US Data Privacy Framework (DPF)</strong>.
         </p>
       </div>
-    </article>
+    </div>
 
-    <!-- 3. Zero-Cookie LocalStorage -->
-    <article class="legal-card">
-      <span class="legal-badge">§ 25 Abs. 2 Nr. 2 TDDDG · Zero-Cookie</span>
-      <h2>
-        <span class="lang-de">3. Lokale Speicherung ohne Cookies (§ 25 Abs. 2 Nr. 2 TDDDG)</span>
-        <span class="lang-en" style="display:none;">3. Cookie-Free Local Storage (§ 25 (2) No. 2 TDDDG)</span>
-      </h2>
+    <!-- 3. Keine Cookies & Lokaler Speicher -->
+    <div class="content-box">
       <div data-lang="de" class="visible">
+        <h2>3. Keine Cookies &amp; Lokaler Speicher (§ 25 TDDDG)</h2>
         <p>
-          Auf dieser gesamten Website werden <strong>ausnahmslos keine Tracking-, Werbe- oder Analyse-Cookies</strong> eingesetzt.
+          Diese Website setzt <strong>keine Tracking-Cookies, Werbe-Cookies oder Drittanbieter-Tracker</strong> ein. Es erfolgt keine Profilbildung und keine Weitergabe von Nutzungsdaten an Marketing-Netzwerke.
         </p>
         <p>
-          Zur Wahrung des Nutzungskomforts wird die vom Nutzer gewählte Spracheinstellung (Deutsch/Englisch) im lokalen Speicher Ihres Browsers hinterlegt (<code>localStorage.setItem('site_lang', ...)</code>).
-        </p>
-        <p>
-          <strong>Rechtsgrundlage:</strong> Der Zugriff auf die Speichereinheit des Endgeräts ist nach <strong>§ 25 Abs. 2 Nr. 2 TDDDG</strong> ohne vorherige Einwilligung zulässig, da er technisch zwingend erforderlich ist, um den vom Nutzer ausdrücklich gewünschten Dienst mit der gewählten Spracheinstellung bereitzustellen. Es werden keinerlei personenbezogene Daten oder geräteübergreifende Identifikatoren erfasst.
+          Zur Speicherung der von dir gewählten Spracheinstellung (Deutsch / Englisch) verwendet diese Website die lokale Browser-Speicherung (<code>localStorage</code>, Schlüssel <code>site_lang</code>). Dies dient rein der technischen Funktionalität und erfordert gemäß <strong>§ 25 Abs. 2 Nr. 2 TDDDG</strong> keine gesonderte Cookie-Einwilligung (Cookie-Banner-Freiheit).
         </p>
       </div>
+
       <div data-lang="en">
+        <h2>3. No Cookies &amp; Local Storage (§ 25 TDDDG)</h2>
         <p>
-          Across this entire website, <strong>absolutely zero tracking, marketing, or web analytics cookies</strong> are employed.
+          This website employs <strong>zero tracking cookies, marketing cookies, or third-party analytics trackers</strong>. We conduct no user profiling and transfer no telemetry to advertising networks.
         </p>
         <p>
-          To maintain user session preferences, your chosen language setting (German/English) is persisted in your browser's local key-value store (<code>localStorage.setItem('site_lang', ...)</code>).
-        </p>
-        <p>
-          <strong>Legal Basis:</strong> Access to the client terminal equipment storage is permissible without prior consent under <strong>§ 25 (2) No. 2 German TDDDG</strong> because it is strictly technically necessary to deliver the language preference explicitly requested by the user. Zero personal data or cross-device identifiers are collected.
+          To persist your language selection (German / English), your browser utilizes local storage (<code>localStorage</code>, key <code>site_lang</code>). This is strictly necessary for basic usability pursuant to <strong>§ 25 (2) No. 2 TDDDG</strong> and requires no intrusive consent banners.
         </p>
       </div>
-    </article>
+    </div>
 
-    <!-- 4. Wetter-Telemetrie & Geodaten -->
-    <article class="legal-card">
-      <span class="legal-badge">wetter-site · Privacy First</span>
-      <h2>
-        <span class="lang-de">4. Geodaten &amp; Wetterabfragen (wetter-site)</span>
-        <span class="lang-en" style="display:none;">4. Geodata &amp; Weather Telemetry (wetter-site)</span>
-      </h2>
+    <!-- 4. Betroffenenrechte & Aufsichtsbehörde -->
+    <div class="content-box">
       <div data-lang="de" class="visible">
-        <p>
-          Im Rahmen der Open-Source-Showcase-Applikation <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener noreferrer">wetter-site</a> wird eine interaktive Wettervisualisierung angeboten:
-        </p>
+        <h2>4. Ihre Rechte als betroffene Person (Art. 15–21 DSGVO)</h2>
+        <p>Sie haben nach der DSGVO folgende Rechte bezüglich Ihrer personenbezogenen Daten:</p>
         <ul>
-          <li><strong>Freiwillige Standortermittlung:</strong> Die Abfrage der Koordinaten über die HTML5 Geolocation API erfolgt ausschließlich nach Ihrer ausdrücklichen Freigabe im Browser (Art. 6 Abs. 1 lit. a DSGVO). Alternativ steht eine manuelle Stadtsuche ohne GPS-Zugriff bereit.</li>
-          <li><strong>Kein Server-Tracking:</strong> Es erfolgt zu keinem Zeitpunkt eine serverseitige Erfassung, Protokollierung oder Speicherung Ihrer Geokoordinaten oder Bewegungsprofile durch Jeremy Benz.</li>
-          <li><strong>Verschlüsselte API-Abfrage:</strong> Die Wetterabfrage erfolgt rein clientseitig aus Ihrem Browser direkt an die datenschutzfreundliche API von <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer">Open-Meteo</a> (Open-Meteo GmbH, Deutschland) über verschlüsseltes HTTPS. Die API verlangt keine Registrierung und erzeugt keine Verhaltensprofile.</li>
+          <li><strong>Auskunftsrecht (Art. 15 DSGVO):</strong> Auskunft über verarbeitete Daten verlangen.</li>
+          <li><strong>Berichtigungsrecht (Art. 16 DSGVO):</strong> Berichtigung unrichtiger Daten verlangen.</li>
+          <li><strong>Löschungsrecht (Art. 17 DSGVO):</strong> Löschung gespeicherter Daten verlangen.</li>
+          <li><strong>Einschränkungsrecht (Art. 18 DSGVO):</strong> Einschränkung der Verarbeitung verlangen.</li>
+          <li><strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO einlegen.</li>
         </ul>
-      </div>
-      <div data-lang="en">
-        <p>
-          The open-source showcase web app <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener noreferrer">wetter-site</a> provides interactive weather telemetry:
-        </p>
-        <ul>
-          <li><strong>Voluntary Geolocation:</strong> Browser coordinate lookups via HTML5 Geolocation API execute only upon your explicit browser permission (Art. 6 (1) lit. a GDPR). A manual city search is available without GPS coordinates.</li>
-          <li><strong>Zero Server Tracking:</strong> At no point does Jeremy Benz capture, log, or persist your geographical coordinates or location telemetry on any server.</li>
-          <li><strong>Encrypted Client API:</strong> Telemetry calls are dispatched directly from your browser client to the privacy-respecting API of <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer">Open-Meteo</a> (Open-Meteo GmbH, Germany) over encrypted HTTPS. The API requires no registration and builds zero behavior profiles.</li>
-        </ul>
-      </div>
-    </article>
+        <p>Zur Ausübung Ihrer Rechte genügt eine formlose E-Mail an: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>.</p>
 
-    <!-- 5. Keine Google Fonts / CDNs -->
-    <article class="legal-card">
-      <span class="legal-badge">Self-Contained Architecture</span>
-      <h2>
-        <span class="lang-de">5. Verzicht auf externe Schriftarten (Google Fonts) &amp; Dritt-CDNs</span>
-        <span class="lang-en" style="display:none;">5. Zero External Fonts (Google Fonts) &amp; Third-Party CDNs</span>
-      </h2>
-      <div data-lang="de" class="visible">
+        <h2>5. Beschwerderecht bei der Aufsichtsbehörde</h2>
         <p>
-          Diese Website verwendet bewusst <strong>keine externen Google Fonts oder ungeschützten Fremd-CDNs</strong>. Es werden ausnahmslos systemeigene Schriftarten Ihres Endgeräts (System UI, San Francisco, Segoe UI, Roboto) geladen.
-        </p>
-        <p>
-          Dadurch wird verhindert, dass Ihre IP-Adresse beim Rendern der Schriften an Drittanbieter wie Google LLC übertragen wird.
-        </p>
-      </div>
-      <div data-lang="en">
-        <p>
-          This website deliberately avoids <strong>all external Google Fonts or untrusted CDN relays</strong>. Typography is rendered purely with your operating system's native font stacks (System UI, San Francisco, Segoe UI, Roboto).
-        </p>
-        <p>
-          This ensures your IP address is never leaked or transmitted to third-party ad networks during font rendering.
-        </p>
-      </div>
-    </article>
-
-    <!-- 6. E-Mail & GitHub Issues -->
-    <article class="legal-card">
-      <span class="legal-badge">Art. 6 Abs. 1 lit. b &amp; lit. f DSGVO / GDPR</span>
-      <h2>
-        <span class="lang-de">6. Kontaktaufnahme per E-Mail &amp; GitHub Issues</span>
-        <span class="lang-en" style="display:none;">6. Communication via Email &amp; GitHub Issues</span>
-      </h2>
-      <div data-lang="de" class="visible">
-        <p>
-          Wenn Sie per E-Mail (<a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>) oder über ein öffentliches GitHub Issue Kontakt aufnehmen, werden die von Ihnen mitgeteilten Angaben ausschließlich zum Zweck der Bearbeitung Ihres Anliegens und für eventuelle Rückfragen verarbeitet. Eine Weitergabe an Dritte erfolgt nicht.
-        </p>
-      </div>
-      <div data-lang="en">
-        <p>
-          When contacting us via email (<a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>) or public GitHub Issues, information provided is processed solely to handle your technical request and coordinate follow-up communications. No data is shared with third parties.
-        </p>
-      </div>
-    </article>
-
-    <!-- 7. Betroffenenrechte -->
-    <article class="legal-card">
-      <span class="legal-badge">Art. 15–22 DSGVO / GDPR</span>
-      <h2>
-        <span class="lang-de">7. Ihre Rechte als betroffene Person</span>
-        <span class="lang-en" style="display:none;">7. Your Rights as a Data Subject</span>
-      </h2>
-      <div data-lang="de" class="visible">
-        <p>
-          Ihnen stehen nach der Datenschutz-Grundverordnung umfassende Schutzrechte zu:
-        </p>
-        <ul>
-          <li><strong>Auskunftsrecht (Art. 15 DSGVO):</strong> Sie können Auskunft über Ihre verarbeiteten Daten verlangen.</li>
-          <li><strong>Berichtigungsrecht (Art. 16 DSGVO):</strong> Sie haben das Recht auf Berichtigung unrichtiger Daten.</li>
-          <li><strong>Löschungsrecht (Art. 17 DSGVO):</strong> Sie können die Löschung Ihrer Daten fordern, soweit keine gesetzliche Pflicht entgegensteht.</li>
-          <li><strong>Einschränkung der Verarbeitung (Art. 18 DSGVO):</strong> Sie können die Einschränkung der Datenverarbeitung verlangen.</li>
-          <li><strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Recht auf Erhalt Ihrer Daten in einem strukturierten Format.</li>
-          <li><strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Recht auf Widerspruch gegen Verarbeitungen auf Basis berechtigter Interessen.</li>
-          <li><strong>Widerruf von Einwilligungen (Art. 7 Abs. 3 DSGVO):</strong> Erteilte Einwilligungen können jederzeit für die Zukunft widerrufen werden.</li>
-        </ul>
-      </div>
-      <div data-lang="en">
-        <p>
-          Under the General Data Protection Regulation (GDPR), you possess full enforceable rights:
-        </p>
-        <ul>
-          <li><strong>Right of Access (Art. 15 GDPR):</strong> Inquire about your personal data processed.</li>
-          <li><strong>Right to Rectification (Art. 16 GDPR):</strong> Demand correction of inaccurate information.</li>
-          <li><strong>Right to Erasure (Art. 17 GDPR):</strong> Request deletion of your personal records where applicable.</li>
-          <li><strong>Restriction of Processing (Art. 18 GDPR):</strong> Request freezing or limiting of data handling.</li>
-          <li><strong>Data Portability (Art. 20 GDPR):</strong> Receive data you provided in a structured, machine-readable format.</li>
-          <li><strong>Right to Object (Art. 21 GDPR):</strong> Object to processing predicated on legitimate interests.</li>
-          <li><strong>Withdrawal of Consent (Art. 7 (3) GDPR):</strong> Revoke previously granted consents at any time.</li>
-        </ul>
-      </div>
-    </article>
-
-    <!-- 8. Aufsichtsbehörde LDI NRW -->
-    <article class="legal-card">
-      <span class="legal-badge">Art. 77 DSGVO / GDPR · NRW</span>
-      <h2>
-        <span class="lang-de">8. Beschwerderecht bei der Aufsichtsbehörde (LDI NRW)</span>
-        <span class="lang-en" style="display:none;">8. Right to Lodge a Complaint with Supervisory Authority (LDI NRW)</span>
-      </h2>
-      <div data-lang="de" class="visible">
-        <p>
-          Sie haben unbeschadet eines anderweitigen Rechtsbehelfs das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde.
-        </p>
-        <div class="legal-info-box">
-          <strong>Zuständige Aufsichtsbehörde für Nordrhein-Westfalen:</strong><br><br>
+          Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer Daten zu beschweren. Die für Nordrhein-Westfalen zuständige Aufsichtsbehörde ist:<br>
           <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong><br>
-          Kavalleriestraße 2–4, 40213 Düsseldorf<br>
-          Telefon: 0211/38424-0 · E-Mail: <a href="mailto:poststelle@ldi.nrw.de">poststelle@ldi.nrw.de</a><br>
-          Web: <a href="https://www.ldi.nrw.de/" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>
-        </div>
-        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
-          Stand der Datenschutzerklärung: September 2026.
+          Kavalleriestraße 2–4, 40213 Düsseldorf · Website: <a href="https://www.ldi.nrw.de/" target="_blank" rel="noopener noreferrer">ldi.nrw.de</a>
         </p>
       </div>
-      <div data-lang="en">
-        <p>
-          Without prejudice to any other legal remedy, you have the right to lodge a formal complaint with a competent supervisory data protection authority.
-        </p>
-        <div class="legal-info-box">
-          <strong>Competent Supervisory Authority for North Rhine-Westphalia:</strong><br><br>
-          <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong><br>
-          Kavalleriestraße 2–4, 40213 Düsseldorf, Germany<br>
-          Phone: +49 (0)211/38424-0 · Email: <a href="mailto:poststelle@ldi.nrw.de">poststelle@ldi.nrw.de</a><br>
-          Web: <a href="https://www.ldi.nrw.de/" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>
-        </div>
-        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0;">
-          Privacy Policy effective date: September 2026.
-        </p>
-      </div>
-    </article>
 
-    <div style="text-align: center; margin-top: 20px;">
-      <a href="impressum.html" class="btn-card highlight" style="padding: 10px 20px;">
-        <span class="lang-de">← Zurück zum Impressum</span>
-        <span class="lang-en" style="display:none;">← Back to Legal Notice</span>
-      </a>
+      <div data-lang="en">
+        <h2>4. Your Rights as a Data Subject (Art. 15–21 GDPR)</h2>
+        <p>Under the GDPR, you are entitled to the following rights:</p>
+        <ul>
+          <li><strong>Right of Access (Art. 15 GDPR):</strong> Request confirmation and copies of personal data.</li>
+          <li><strong>Right to Rectification (Art. 16 GDPR):</strong> Request correction of inaccurate information.</li>
+          <li><strong>Right to Erasure (Art. 17 GDPR):</strong> Request deletion of your personal records.</li>
+          <li><strong>Right to Restriction (Art. 18 GDPR):</strong> Request limitation of processing activities.</li>
+          <li><strong>Right to Object (Art. 21 GDPR):</strong> Object to processing based on Art. 6 (1) (f) GDPR.</li>
+        </ul>
+        <p>To exercise your rights, email: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a>.</p>
+
+        <h2>5. Right to Lodge a Complaint with a Supervisory Authority</h2>
+        <p>
+          You have the right to lodge a formal complaint with a competent supervisory authority. The responsible data protection authority for North Rhine-Westphalia is:<br>
+          <strong>State Commissioner for Data Protection and Freedom of Information North Rhine-Westphalia (LDI NRW)</strong><br>
+          Kavalleriestrasse 2–4, 40213 Düsseldorf, Germany · Website: <a href="https://www.ldi.nrw.de/" target="_blank" rel="noopener noreferrer">ldi.nrw.de</a>
+        </p>
+      </div>
     </div>
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-left">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div>
         <span>© 2026 Jeremy Benz (@benzjeremy) · 
-          <span class="lang-de">Nordrhein-Westfalen, Deutschland</span>
-          <span class="lang-en" style="display:none;">North Rhine-Westphalia, Germany</span>
+          <span data-lang="de" class="visible">Nordrhein-Westfalen, Deutschland</span>
+          <span data-lang="en">North Rhine-Westphalia, Germany</span>
         </span>
       </div>
-
-      <nav class="footer-links" aria-label="Footer Navigation">
-        <a href="index.html">
-          <span class="lang-de">Startseite</span>
-          <span class="lang-en" style="display:none;">Home</span>
-        </a>
-        <a href="about.html">
-          <span class="lang-de">Über mich</span>
-          <span class="lang-en" style="display:none;">About</span>
-        </a>
-        <a href="kontakt.html">
-          <span class="lang-de">Kontakt</span>
-          <span class="lang-en" style="display:none;">Contact</span>
-        </a>
-        <a href="status/">
-          <span class="lang-de">Status</span>
-          <span class="lang-en" style="display:none;">Status</span>
-        </a>
-        <a href="impressum.html">
-          <span class="lang-de">Impressum (§ 5 DDG)</span>
-          <span class="lang-en" style="display:none;">Legal Notice (§ 5 DDG)</span>
-        </a>
-        <a href="datenschutz.html">
-          <span class="lang-de">Datenschutz (DSGVO)</span>
-          <span class="lang-en" style="display:none;">Privacy Policy (GDPR)</span>
-        </a>
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </nav>
+      <ul class="footer-links">
+        <li><a href="index.html"><span data-lang="de" class="visible">Startseite</span><span data-lang="en">Home</span></a></li>
+        <li><a href="about.html"><span data-lang="de" class="visible">Über mich</span><span data-lang="en">About</span></a></li>
+        <li><a href="kontakt.html"><span data-lang="de" class="visible">Kontakt</span><span data-lang="en">Contact</span></a></li>
+        <li><a href="status/"><span data-lang="de" class="visible">Status</span><span data-lang="en">Status</span></a></li>
+        <li><a href="impressum.html"><span data-lang="de" class="visible">Impressum (§ 5 DDG)</span><span data-lang="en">Legal Notice</span></a></li>
+        <li><a href="datenschutz.html"><span data-lang="de" class="visible">Datenschutz (DSGVO)</span><span data-lang="en">Privacy Policy</span></a></li>
+        <li><a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+      </ul>
     </div>
   </footer>
 
   <script>
-    // Mobile Drawer Toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const mainNav = document.getElementById('main-nav');
-    if (mobileToggle && mainNav) {
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = mainNav.classList.toggle('open');
-        mobileToggle.setAttribute('aria-expanded', isOpen);
+    var navToggle = document.getElementById("navToggle");
+    var navMenu = document.getElementById("navMenu");
+    if (navToggle && navMenu) {
+      navToggle.addEventListener("click", function() {
+        navMenu.classList.toggle("open");
       });
     }
 
-    // Language Toggle (DE / EN)
     function setLang(lang) {
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        if (el.getAttribute('data-lang') === lang) {
-          el.classList.add('visible');
-        } else {
-          el.classList.remove('visible');
-        }
-      });
-      document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
-      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-      
-      const btnDe = document.getElementById('btn-lang-de');
-      const btnEn = document.getElementById('btn-lang-en');
-      if (btnDe && btnEn) {
-        btnDe.classList.toggle('active', lang === 'de');
-        btnEn.classList.toggle('active', lang === 'en');
+      var allDe = document.querySelectorAll("[data-lang='de']");
+      var allEn = document.querySelectorAll("[data-lang='en']");
+
+      if (lang === "en") {
+        allDe.forEach(function(el) { el.classList.remove("visible"); });
+        allEn.forEach(function(el) { el.classList.add("visible"); });
+        document.getElementById("btn-de").classList.remove("active");
+        document.getElementById("btn-en").classList.add("active");
+      } else {
+        allEn.forEach(function(el) { el.classList.remove("visible"); });
+        allDe.forEach(function(el) { el.classList.add("visible"); });
+        document.getElementById("btn-en").classList.remove("active");
+        document.getElementById("btn-de").classList.add("active");
       }
-      try { localStorage.setItem('site_lang', lang); } catch (e) {}
+      try { localStorage.setItem("site_lang", lang); } catch (e) {}
     }
 
-    // Init Language from Storage
     try {
-      const savedLang = localStorage.getItem('site_lang');
-      if (savedLang === 'en' || savedLang === 'de') setLang(savedLang);
+      var savedLang = localStorage.getItem("site_lang");
+      if (savedLang === "en" || savedLang === "de") setLang(savedLang);
     } catch (e) {}
-  
-    
-    // Theme Management (Default Light / Scandinavian-Editorial)
-    function initTheme() {
-      const saved = localStorage.getItem("site_theme") || "light";
-      applyTheme(saved);
-    }
-
-    function applyTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      const btn = document.getElementById("theme-toggle");
-      if (btn) {
-        btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
-        btn.setAttribute("aria-label", theme === "dark" ? "Zu hellem Design wechseln" : "Zu dunklem Design wechseln");
-        btn.setAttribute("title", theme === "dark" ? "Helles Design aktivieren" : "Dunkles Design aktivieren");
-      }
-      try { localStorage.setItem("site_theme", theme); } catch (e) {}
-    }
-
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute("data-theme") || "light";
-      applyTheme(current === "dark" ? "light" : "dark");
-    }
-
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener("click", toggleTheme);
-    }
-    initTheme();
-
   </script>
 </body>
 </html>

@@ -3,949 +3,748 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>Jeremy Benz – Go Systems Developer · Werte &amp; Open-Source Ökosystem</title>
-  <meta name="description" content="17-jähriger Go-Entwickler aus Nordrhein-Westfalen (NRW), Deutschland. Native Desktop-Systeme (Go + WebKitGTK), echte Kryptografie (AES-256-GCM, PBKDF2), 100% Local-First und dreifach in Awesome-Go gelistet.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Jeremy Benz – Go Systems Developer">
-  <meta property="og:description" content="Native Desktop-Systeme, verifizierte Sicherheit und echte Open-Source-Software nach GNU GPL-3.0.">
-  <meta property="og:url" content="https://benzjeremy.github.io/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Jeremy Benz – Go Systems Developer">
-  <meta name="twitter:description" content="Native Systeme, verifizierte Kryptografie und kompromisslose Open-Source-Standards.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
-  <link rel="stylesheet" href="style.css?v=3.0">
-  <script>
-    (function() {
-      var saved = localStorage.getItem("site_theme");
-      document.documentElement.setAttribute("data-theme", saved || "light");
-    })();
-  </script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Jeremy Benz – Go Systems Developer · Open-Source Ökosystem</title>
+  <meta name="description" content="17-jähriger Go-Entwickler aus NRW, Deutschland. Native Desktop-Systeme, verifizierte Kryptografie (AES-256-GCM, PBKDF2), 100% Local-First und dreifach in Awesome-Go gelistet.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230366d6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
+  <link rel="stylesheet" href="style.css?v=4.0">
 </head>
 <body>
 
-  <!-- Accessible Skip-Link (WCAG AAA / ISO 9241-110) -->
-  <a href="#main-content" class="skip-link">
-    <span class="lang-de">Direkt zum Inhalt springen</span>
-    <span class="lang-en" style="display:none;">Skip to main content</span>
-  </a>
-
-  <!-- Site Navigation -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-link" aria-label="Jeremy Benz Startseite">
-        <div class="brand-avatar">JB</div>
-        <div class="brand-info">
-          <span class="brand-name">Jeremy Benz</span>
-          <span class="brand-ver">Go Systems Dev</span>
-        </div>
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-avatar">JB</span>
+        <span>Jeremy Benz</span>
+        <span class="brand-badge">Go Dev</span>
       </a>
 
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
 
-      <nav class="main-nav" id="main-nav">
-        <a href="index.html" class="active">
-          <span class="lang-de">Startseite</span>
-          <span class="lang-en" style="display:none;">Home</span>
-        </a>
-        <a href="about.html">
-          <span class="lang-de">Über mich</span>
-          <span class="lang-en" style="display:none;">About</span>
-        </a>
-        <a href="kontakt.html">
-          <span class="lang-de">Kontakt</span>
-          <span class="lang-en" style="display:none;">Contact</span>
-        </a>
-        <a href="status/">
-          <span class="lang-de">Status</span>
-          <span class="lang-en" style="display:none;">Status</span>
-        </a>
-
-        <div class="nav-controls">
-          <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-            <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
-            <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
-          </div>
-          <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Farbschema umschalten" title="Design wechseln (Hell/Dunkel)">🌙</button>
-        </div>
-
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          <span>GitHub</span>
-        </a>
+      <nav>
+        <ul class="navbar-nav" id="navMenu">
+          <li>
+            <a href="index.html" class="active">
+              <span data-lang="de" class="visible">Startseite</span>
+              <span data-lang="en">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="about.html">
+              <span data-lang="de" class="visible">Über mich</span>
+              <span data-lang="en">About</span>
+            </a>
+          </li>
+          <li>
+            <a href="kontakt.html">
+              <span data-lang="de" class="visible">Kontakt</span>
+              <span data-lang="en">Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="status/">
+              <span data-lang="de" class="visible">Status</span>
+              <span data-lang="en">Status</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </li>
+          <li>
+            <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+              <button type="button" class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+              <button type="button" class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            </div>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main-content">
-    <!-- HERO SECTION MIT "WOFÜR ICH STEHE" ZUERST -->
-    <section class="hero-section" id="hero">
-      
-      <div class="hero-container">
-        <div class="hero-badges">
-          <span class="hero-badge role-badge">🚀 17 y/o Go Systems Developer · NRW</span>
-          <a href="https://github.com/avelino/awesome-go#other-software" target="_blank" rel="noopener noreferrer" class="hero-badge awesome-badge" title="Awesome-Go">
-            ★ <span class="lang-de">In Awesome-Go gelistet (3x)</span><span class="lang-en" style="display:none;">Listed in Awesome-Go (3x)</span>
-          </a>
-          <span class="hero-badge security-badge">🛡️ Zero Dummy Security · Local-First</span>
-          <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener noreferrer" class="hero-badge license-pill" title="Lizenz: GNU General Public License v3.0 (GPL-3.0)">GNU GPL-3.0</a>
-        </div>
+  <!-- Hero Header -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-meta-row">
+        <span class="badge badge-default">🚀 17 y/o Go Systems Developer · NRW</span>
+        <a href="https://github.com/avelino/awesome-go#other-software" target="_blank" rel="noopener noreferrer" class="badge badge-awesome">
+          ★ <span data-lang="de" class="visible">In Awesome-Go gelistet (3x)</span><span data-lang="en">Listed in Awesome-Go (3x)</span>
+        </a>
+        <span class="badge badge-success">🛡️ Zero Dummy Security</span>
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener noreferrer" class="badge badge-neutral">GNU GPL-3.0</a>
+      </div>
 
-        <!-- DE Hero Content -->
+      <div data-lang="de" class="visible">
+        <h1>Native Systeme. Radikal schlank.<br><span class="highlight">Echte Ingenieursstandards statt Hype.</span></h1>
+        <p class="lead">
+          17-jähriger Entwickler aus <strong>Nordrhein-Westfalen, Deutschland</strong>. High-Velocity <strong>VibeCoding</strong> kombiniert mit unnachgiebiger Ingenieursdisziplin in <strong>Go</strong> — kompromisslose Sicherheit, kein Electron-Ballast, 100% verifizierbarer Code und echte Werte.
+        </p>
+      </div>
+
+      <div data-lang="en">
+        <h1>Native Systems. Radically Lean.<br><span class="highlight">True Engineering Standards Over Hype.</span></h1>
+        <p class="lead">
+          17-year-old developer from <strong>North Rhine-Westphalia, Germany</strong>. High-velocity <strong>VibeCoding</strong> paired with uncompromising engineering rigor in <strong>Go</strong> — verified security, zero Electron bloat, 100% local-first ownership, and free software.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Wofür ich stehe -->
+    <div class="section-header">
+      <h2>
+        <span data-lang="de" class="visible">🛡️ Wofür ich stehe · Unverhandelbare Prinzipien</span>
+        <span data-lang="en">🛡️ What I Stand For · Non-Negotiable Principles</span>
+      </h2>
+      <span class="section-sub">
+        <span data-lang="de" class="visible">4 Grundpfeiler aller meiner Projekte</span>
+        <span data-lang="en">4 Foundations of all my projects</span>
+      </span>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-box">
         <div data-lang="de" class="visible">
-          <h1 class="hero-title">
-            Native Systeme. Radikal schlank.<br>
-            <span class="gradient-text">Echte Ingenieursstandards statt Hype.</span>
-          </h1>
-          <p class="hero-subtitle">
-            17-jähriger Entwickler aus <strong>Nordrhein-Westfalen, Deutschland</strong>. High-Velocity <strong>VibeCoding</strong> kombiniert mit unnachgiebiger Ingenieursdisziplin in <strong>Go</strong> — kompromisslose Sicherheit, kein Electron-Ballast, 100% verifizierbarer Code und echte Werte.
-          </p>
+          <h3>🔐 Zero-Dummy-Security</h3>
+          <p>Niemals unsichere Placeholders, <code>TODO</code>-Security oder gefälschte Authentifizierungs-Token. Industriestandard-Kryptografie (AES-256-GCM, PBKDF2 ≥100.000 Runden, CSP Level 3) ist in jedem Release Pflicht.</p>
         </div>
-
-        <!-- EN Hero Content -->
         <div data-lang="en">
-          <h1 class="hero-title">
-            Native Systems. Radically Lean.<br>
-            <span class="gradient-text">True Engineering Standards Over Hype.</span>
-          </h1>
-          <p class="hero-subtitle">
-            17-year-old developer from <strong>North Rhine-Westphalia, Germany</strong>. High-velocity <strong>VibeCoding</strong> paired with uncompromising engineering rigor in <strong>Go</strong> — verified security, zero Electron bloat, 100% local-first ownership, and free software.
+          <h3>🔐 Zero-Dummy Security</h3>
+          <p>Never accept insecure placeholders or mocked auth tokens. Full industrial cryptographic standards (AES-256-GCM, PBKDF2 ≥100,000 iterations, CSP Level 3) are mandatory in every single release.</p>
+        </div>
+      </div>
+
+      <div class="value-box val-green">
+        <div data-lang="de" class="visible">
+          <h3>⚡ Radikal Native Desktop-Systeme</h3>
+          <p>Kein Electron-Container-Ballast (300MB+ RAM verschwendet). Stattdessen hochoptimiertes Go mit nativen Webviews (WebKitGTK auf Linux, Win32 Webview2 auf Windows) für 15–40 MB RAM und sofortigen Start.</p>
+        </div>
+        <div data-lang="en">
+          <h3>⚡ Radically Native Desktop</h3>
+          <p>No bloated Electron bundles wasting hundreds of megabytes of RAM. Highly tuned Go backends paired with native OS engines (WebKitGTK on Linux, Win32 Webview2 on Windows) running smoothly at 15–40 MB RAM.</p>
+        </div>
+      </div>
+
+      <div class="value-box val-orange">
+        <div data-lang="de" class="visible">
+          <h3>💾 100% Local-First &amp; Zero Tracking</h3>
+          <p>Deine Daten gehören dir allein. Lokale SQLite-/JSON-Speicherung, kein heimliches Tracking, keine erzwungenen Cloud-Zertifikate und vollständige Offline-Autonomie vom ersten Start an.</p>
+        </div>
+        <div data-lang="en">
+          <h3>💾 100% Local-First &amp; Zero Tracking</h3>
+          <p>Your data remains entirely yours. Local SQLite and JSON storage, zero clandestine telemetry, no forced cloud accounts, and seamless offline functionality out of the box.</p>
+        </div>
+      </div>
+
+      <div class="value-box val-purple">
+        <div data-lang="de" class="visible">
+          <h3>⚖️ GNU GPL-3.0 &amp; Echte SemVer</h3>
+          <p>Konsequente Freiheit für Nutzer und Entwickler. Vollständige Transparenz, Multi-Platform Binaries und strikte semantische Versionierung ohne Trailing Zeros (<code>v1.0</code>, <code>v2.1</code>).</p>
+        </div>
+        <div data-lang="en">
+          <h3>⚖️ GNU GPL-3.0 &amp; Strict SemVer</h3>
+          <p>Uncompromising freedom for users and developers. Full transparency, reproducible multi-platform builds, and clean semantic versioning without trailing zeros (<code>v1.0</code>, <code>v2.1</code>).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projekte Section -->
+    <div class="section-header" id="projekte">
+      <h2>
+        <span data-lang="de" class="visible">📦 Veröffentlichte Open-Source-Projekte</span>
+        <span data-lang="en">📦 Published Open-Source Projects</span>
+      </h2>
+      <span class="section-sub">
+        <span data-lang="de" class="visible">Verifizierte Software mit Live-Dokumentation &amp; Showcases</span>
+        <span data-lang="en">Verified software with live documentation &amp; showcases</span>
+      </span>
+    </div>
+
+    <!-- Search & Filter Toolbar -->
+    <div class="toolbar">
+      <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="Projekt suchen (z. B. Untis, Docker, Spotify, Go)..." aria-label="Projekt suchen">
+      </div>
+
+      <div class="filter-group">
+        <button type="button" class="filter-btn active" data-filter="all">
+          <span data-lang="de" class="visible">Alle (12)</span>
+          <span data-lang="en">All (12)</span>
+        </button>
+        <button type="button" class="filter-btn" data-filter="desktop">
+          <span data-lang="de" class="visible">Go &amp; Desktop (7)</span>
+          <span data-lang="en">Go &amp; Desktop (7)</span>
+        </button>
+        <button type="button" class="filter-btn" data-filter="mobile">
+          <span data-lang="de" class="visible">Android &amp; Mobile (1)</span>
+          <span data-lang="en">Android &amp; Mobile (1)</span>
+        </button>
+        <button type="button" class="filter-btn" data-filter="web">
+          <span data-lang="de" class="visible">Web &amp; Services (2)</span>
+          <span data-lang="en">Web &amp; Services (2)</span>
+        </button>
+        <button type="button" class="filter-btn" data-filter="community">
+          <span data-lang="de" class="visible">Streamer &amp; Community (2)</span>
+          <span data-lang="en">Streamer &amp; Community (2)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Project List -->
+    <div class="project-list" id="projectList">
+
+      <!-- 1. untis-go -->
+      <article class="project-card" data-category="desktop" data-keywords="untis untis-go stundenplan vertretungsplan webuntis go webview gtk desktop awesome-go">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">untis-go</h3>
+            <span class="project-version">v2.3</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-awesome">★ Awesome-Go</span>
+            <span class="badge badge-default">Desktop</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Ultraschneller, nativer Multi-Platform Desktop-Client für WebUntis. Zero-Dummy-Security mit <strong>AES-256-GCM</strong> Session-Tresor, Offline-First SQLite-Cache, RFC-5545 iCal-Export, Hintergrund-Sync, nativem Tray-Icon und nur <strong>25 MB RAM</strong> (kein Electron).
           </p>
         </div>
-
-        <!-- WOFÜR ICH STEHE — 4 KERN-PRINZIPIEN -->
-        <div class="values-container" id="werte">
-          <div class="values-title">
-            <span>🛡️</span>
-            <span class="lang-de">Wofür ich stehe · Unverhandelbare Prinzipien</span>
-            <span class="lang-en" style="display:none;">What I Stand For · Non-Negotiable Principles</span>
-          </div>
-
-          <div class="values-grid">
-            <!-- Wert 1: Zero Dummy Security -->
-            <article class="value-card" style="--card-accent: #38bdf8;">
-              <span class="value-icon">🔐</span>
-              <div data-lang="de" class="visible">
-                <h3>Zero-Dummy-Security</h3>
-                <p>Niemals unsichere Placeholders, <code>TODO</code>-Security oder gefälschte Authentifizierungs-Token. Industriestandard-Kryptografie (AES-256-GCM, PBKDF2 ≥100.000 Runden, CSP Level 3) ist in jedem Release Pflicht.</p>
-              </div>
-              <div data-lang="en">
-                <h3>Zero-Dummy Security</h3>
-                <p>Never accept insecure placeholders or mocked auth tokens. Full industrial cryptographic standards (AES-256-GCM, PBKDF2 ≥100,000 iterations, CSP Level 3) are mandatory in every single release.</p>
-              </div>
-            </article>
-
-            <!-- Wert 2: Radikal Native Architektur -->
-            <article class="value-card" style="--card-accent: #10b981;">
-              <span class="value-icon">⚡</span>
-              <div data-lang="de" class="visible">
-                <h3>Radikal Native Desktop-Systeme</h3>
-                <p>Kein Electron-Container-Ballast (300MB+ RAM verschwendet). Stattdessen hochoptimiertes Go mit nativen Webviews (WebKitGTK auf Linux, Win32 Webview2 auf Windows) für 15–40 MB RAM und sofortigen Start.</p>
-              </div>
-              <div data-lang="en">
-                <h3>Radically Native Desktop</h3>
-                <p>No bloated Electron bundles wasting hundreds of megabytes of RAM. Highly tuned Go backends paired with native OS engines (WebKitGTK on Linux, Win32 Webview2 on Windows) running smoothly at 15–40 MB RAM.</p>
-              </div>
-            </article>
-
-            <!-- Wert 3: Local-First & Zero Telemetrie -->
-            <article class="value-card" style="--card-accent: #f59e0b;">
-              <span class="value-icon">💾</span>
-              <div data-lang="de" class="visible">
-                <h3>100% Local-First &amp; Zero Tracking</h3>
-                <p>Deine Daten gehören dir allein. Lokale SQLite-/JSON-Speicherung, kein heimliches Tracking, keine erzwungenen Cloud-Zertifikate und vollständige Offline-Autonomie vom ersten Start an.</p>
-              </div>
-              <div data-lang="en">
-                <h3>100% Local-First &amp; Zero Tracking</h3>
-                <p>Your data remains entirely yours. Local SQLite and JSON storage, zero clandestine telemetry, no forced cloud accounts, and seamless offline functionality out of the box.</p>
-              </div>
-            </article>
-
-            <!-- Wert 4: Freie Software GPL-3.0 & SemVer -->
-            <article class="value-card" style="--card-accent: #a855f7;">
-              <span class="value-icon">⚖️</span>
-              <div data-lang="de" class="visible">
-                <h3>GNU GPL-3.0 &amp; Echte SemVer</h3>
-                <p>Konsequente Freiheit für Nutzer und Entwickler. Vollständige Transparenz, Multi-Platform Binaries und strikte semantische Versionierung ohne Trailing Zeros (<code>v1.0</code>, <code>v2.1</code>).</p>
-              </div>
-              <div data-lang="en">
-                <h3>GNU GPL-3.0 &amp; Strict SemVer</h3>
-                <p>Uncompromising freedom for users and developers. Full transparency, reproducible multi-platform builds, and clean semantic versioning without trailing zeros (<code>v1.0</code>, <code>v2.1</code>).</p>
-              </div>
-            </article>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROJECTS SHOWCASE SECTION (NUR AUF GITHUB VERÖFFENTLICHTE PROJEKTE) -->
-    <section class="projects-section" id="projekte">
-      <div class="section-container">
-        
-        <div class="section-header">
-          <span class="section-tag">
-            <span class="lang-de">Portfolio &amp; Ökosystem</span>
-            <span class="lang-en" style="display:none;">Portfolio &amp; Ecosystem</span>
-          </span>
-          <h2 class="section-title">
-            <span class="lang-de">Veröffentlichte Open-Source-Projekte</span>
-            <span class="lang-en" style="display:none;">Published Open-Source Projects</span>
-          </h2>
-          <p class="section-sub">
-            <span class="lang-de">Verifizierte Software mit Fokus auf Performance, Sicherheit und Unabhängigkeit. Ausnahmslos mit vollwertigen Web-Präsenzen und Live-Dokumentation.</span>
-            <span class="lang-en" style="display:none;">Verified software engineered for performance, security, and user autonomy. Complete with live documentation and web showcases.</span>
+        <div data-lang="en">
+          <p class="project-desc">
+            Ultra-fast native multi-platform desktop client for WebUntis. Zero-dummy security with <strong>AES-256-GCM</strong> encrypted credential store, offline SQLite caching, RFC-5545 iCal export, background sync, native tray, and <strong>25 MB RAM</strong> footprint.
           </p>
         </div>
+        <div class="project-tags">
+          <span class="tag-pill">Go</span>
+          <span class="tag-pill">WebKitGTK</span>
+          <span class="tag-pill">AES-256-GCM</span>
+          <span class="tag-pill">SQLite</span>
+          <span class="tag-pill">iCal Export</span>
+          <span class="tag-pill">System-Tray</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/untis-go/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
+          <a href="https://benzjeremy.github.io/untis-go/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
+        </div>
+      </article>
 
-        <!-- Live Search & Filter Bar -->
-        <div class="filter-search-wrap">
-          <div class="project-search-box">
-            <svg class="search-icon-abs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="search" id="project-search-input" class="project-search-input" placeholder="Projekt suchen (z. B. Untis, Docker, Spotify, Go)..." aria-label="Projekte durchsuchen" />
+      <!-- 2. docklite -->
+      <article class="project-card" data-category="desktop" data-keywords="docklite docker container management dashboard lightweight tray go awesome-go">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">docklite</h3>
+            <span class="project-version">v1.3</span>
           </div>
-
-          <div class="filter-bar" role="tablist" aria-label="Projektkategorien">
-            <button type="button" class="filter-btn active" data-filter="all">
-              <span class="lang-de">Alle (12)</span>
-              <span class="lang-en" style="display:none;">All (12)</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="desktop">
-              <span class="lang-de">Go &amp; Desktop (7)</span>
-              <span class="lang-en" style="display:none;">Go &amp; Desktop (7)</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="mobile">
-              <span class="lang-de">Android &amp; Mobile (1)</span>
-              <span class="lang-en" style="display:none;">Android &amp; Mobile (1)</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="web">
-              <span class="lang-de">Web &amp; Services (2)</span>
-              <span class="lang-en" style="display:none;">Web &amp; Services (2)</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="community">
-              <span class="lang-de">Streamer &amp; Community (2)</span>
-              <span class="lang-en" style="display:none;">Streamer &amp; Community (2)</span>
-            </button>
+          <div class="project-badges">
+            <span class="badge badge-awesome">★ Awesome-Go</span>
+            <span class="badge badge-default">Desktop</span>
           </div>
         </div>
-
-        <!-- 10 Published Projects Grid -->
-        <div class="projects-grid" id="projects-grid">
-
-          <!-- 1. untis-go -->
-          <article class="project-card" data-category="desktop" data-keywords="untis untis-go stundenplan vertretungsplan webuntis go webview gtk desktop awesome-go">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">untis-go</h3>
-                  <span class="p-card-ver ver-untis">v2.3</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-awesome" title="Offiziell gelistet in avelino/awesome-go">★ Awesome-Go</span>
-                  <span class="p-badge p-badge-desktop">Desktop</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Ultraschneller, nativer Multi-Platform Desktop-Client für WebUntis. Zero-Dummy-Security mit <strong>AES-256-GCM</strong> Session-Tresor, Offline-First SQLite-Cache, RFC-5545 iCal-Export, Hintergrund-Sync, nativem Tray-Icon und nur <strong>25 MB RAM</strong> (kein Electron).
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Ultra-fast native multi-platform desktop client for WebUntis. Zero-dummy security with <strong>AES-256-GCM</strong> encrypted credential store, offline SQLite caching, RFC-5545 iCal export, background sync, native tray, and <strong>25 MB RAM</strong> footprint.
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag">Go</span>
-                <span class="tag">WebKitGTK</span>
-                <span class="tag">AES-256-GCM</span>
-                <span class="tag">SQLite</span>
-                <span class="tag">iCal Export</span>
-                <span class="tag">System-Tray</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/untis-go/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Website</span>
-              </a>
-              <a href="https://benzjeremy.github.io/untis-go/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📖 Web-Wiki</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 2. docklite -->
-          <article class="project-card" data-category="desktop" data-keywords="docklite docker container management dashboard lightweight tray go awesome-go">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">docklite</h3>
-                  <span class="p-card-ver ver-docklite">v1.3</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-awesome" title="Offiziell gelistet in avelino/awesome-go">★ Awesome-Go</span>
-                  <span class="p-badge p-badge-desktop">Desktop</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Radikal schlanker Docker Desktop &amp; Podman Ersatz in Go. Direktes Unix-Socket-Streaming, In-Browser WebSocket Exec Terminal, Compose Stack Inspector, <strong>~12 MB RAM</strong> statt 1,5 GB von Docker Desktop.
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Radically lightweight Docker Desktop and Podman alternative built in Go. Direct Unix socket streaming, in-browser WebSocket exec terminal, Compose stack inspector, and only <strong>~12 MB RAM</strong>.
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag">Go</span>
-                <span class="tag">Docker API</span>
-                <span class="tag">Web Terminal</span>
-                <span class="tag">Compose Stacks</span>
-                <span class="tag">Low Memory</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/docklite/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Website</span>
-              </a>
-              <a href="https://benzjeremy.github.io/docklite/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📖 Web-Wiki</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 3. spotify-screensaver -->
-          <article class="project-card" data-category="desktop" data-keywords="spotify screensaver screensaver go desktop music visualizer canvas awesome-go">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">spotify-screensaver</h3>
-                  <span class="p-card-ver ver-spotify">v1.4</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-awesome" title="Offiziell gelistet in avelino/awesome-go">★ Awesome-Go</span>
-                  <span class="p-badge p-badge-desktop">Desktop</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Hardwarebeschleunigter OLED-Bildschirmschoner mit intelligenter Werbeerkennung (Ad-Handling für Spotify Free), redundanzfreiem Clean-Cover-Layout, 64-Band Audio-Spektrumanalyse (PulseAudio/PipeWire FFT) und D-Bus MPRIS.
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Hardware-accelerated OLED screensaver with intelligent ad handling for Spotify Free, clean cover layout, 64-band hardware audio spectrum FFT, dynamic cover palette, and live MPRIS synchronization.
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag">Go</span>
-                <span class="tag">Ad-Handling</span>
-                <span class="tag">Audio FFT (60 FPS)</span>
-                <span class="tag">Clean Layout</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/spotify-screensaver/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Website</span>
-              </a>
-              <a href="https://benzjeremy.github.io/spotify-screensaver/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📖 Web-Wiki</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 4. pokemon-app -->
-          <article class="project-card" data-category="mobile" data-keywords="pokemon pokemon-app tcg cards card vault android kotlin jetpack compose sqlcipher aes-256 room database portfolio">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">pokemon-app</h3>
-                  <span class="p-card-ver ver-pokemon">v1.0</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-mobile">Android</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Native Android-Applikation &amp; Card-Portfolio-Manager in Kotlin &amp; Jetpack Compose. Hardware-gestützter <strong>SQLCipher AES-256</strong> Vault (Android Keystore TEE), Offline-First Room-Cache, Pokemon TCG API v2 Integration und interaktives 3D-Holografie-Rendering.
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Native Android application &amp; card portfolio manager engineered in Kotlin &amp; Jetpack Compose. Hardware-backed <strong>SQLCipher AES-256</strong> vault (Android Keystore TEE), offline-first Room cache, Pokemon TCG API v2 integration, and interactive 3D holographic rendering.
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag" style="border-color: rgba(168,85,247,0.3); color: #c084fc;">Kotlin</span>
-                <span class="tag">Jetpack Compose</span>
-                <span class="tag">SQLCipher AES-256</span>
-                <span class="tag">Room DB</span>
-                <span class="tag">3D Holo Render</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/pokemon-app/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Website</span>
-              </a>
-              <a href="https://benzjeremy.github.io/pokemon-app/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📖 Web-Wiki</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 5. agi-research -->
-          <article class="project-card" data-category="desktop" data-keywords="agi research causality causal ast go ai deterministic parser ai-research">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">agi-research</h3>
-                  <span class="p-card-ver" style="background:rgba(99,102,241,0.12); color:#818cf8; border:1px solid rgba(99,102,241,0.3);">v2.0 [Major]</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-server">
-                    <span class="lang-de">Forschung</span>
-                    <span class="lang-en" style="display:none;">Research</span>
-                  </span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Wissenschaftliche Benchmark-Suite &amp; Framework für Functional Artificial General Intelligence (F-AGI) via Self-Evolving Agent Networks (SEAN v2.0). 18 deterministische Benchmarks, verteilter epistemischer Konsens, 512-dim multimodales Latent-Grounding und Pearl Level 3 Kausalität.
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Empirical benchmark suite and framework proving Functional Artificial General Intelligence (F-AGI) via Self-Evolving Agent Networks (SEAN v2.0). 18 deterministic benchmarks, distributed consensus, 512-dim multi-modal latent grounding, and Pearl Level 3 causality.
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag">SEAN v2.0</span>
-                <span class="tag">18 Benchmarks</span>
-                <span class="tag">Distributed Consensus</span>
-                <span class="tag">Multimodal Fusion</span>
-                <span class="tag">Pearl L3 Causality</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/agi-research/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span class="lang-de">🌐 Website &amp; Forschung</span>
-                <span class="lang-en" style="display:none;">🌐 Website &amp; Research</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 6. ollama-fleet-manager -->
-          <article class="project-card" data-category="desktop" data-keywords="ollama ollama-fleet-manager fleet manager ai model router gpu vram oom hardware telemetry go rest">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">ollama-fleet-manager</h3>
-                  <span class="p-card-ver ver-fleet">v1.0</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-desktop">Go &amp; Daemon</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Intelligenter Fleet Manager &amp; dynamischer KI-Modell-Router für Ollama in purem Go. Hardware-Sensoren (CPU, RAM, GPU-VRAM), automatisches Task-Matching (Coding, Writing, Reasoning, Vision), Anti-OOM-Schutz und kompromisslose <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Intelligent fleet manager and dynamic AI model router for Ollama built in pure Go. Hardware telemetry sensors (CPU, RAM, GPU-VRAM), automated task matching (coding, reasoning, vision), proactive anti-OOM eviction, and uncompromising <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag" style="border-color: rgba(244,63,94,0.3); color: #fb7185;">Go 1.22</span>
-                <span class="tag">Ollama API</span>
-                <span class="tag">Hardware Telemetry</span>
-                <span class="tag">Rule Engine</span>
-                <span class="tag">Anti-OOM</span>
-                <span class="tag">AES-256-GCM</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/ollama-fleet-manager/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Website</span>
-              </a>
-              <a href="https://benzjeremy.github.io/ollama-fleet-manager/wiki/" target="_blank" rel="noopener noreferrer" class="btn-card">
-                <span>📖 Web-Wiki</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 7. local-ai-worker -->
-          <article class="project-card" data-category="desktop" data-keywords="local-ai-worker ai worker second brain obsidian rag bm25 feedback vision cad assistant go daemon">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">local-ai-worker</h3>
-                  <span class="p-card-ver ver-worker">v1.0</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-desktop">Go &amp; AI Agent</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Autarker <strong>Second Brain</strong> KI-Mitarbeiter &amp; lokaler Assistenz-Daemon in Go 1.22. Semantische Obsidian-Vault RAG-Suche (<a href="https://de.wikipedia.org/wiki/Okapi_BM25" target="_blank" rel="noopener">Okapi BM25</a>), Feedback-Lernschleife aus Vorgesetzten- &amp; Nutzer-Korrekturen, CAD- &amp; Vision-Inspektion und <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Autonomous <strong>Second Brain</strong> AI worker &amp; local assistance daemon in Go 1.22. Semantic Obsidian Vault RAG retrieval (<a href="https://en.wikipedia.org/wiki/Okapi_BM25" target="_blank" rel="noopener">Okapi BM25</a>), supervisor feedback learning loop, CAD and visual inspection, and <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag" style="border-color: rgba(20,184,166,0.3); color: #2dd4bf;">Go 1.22</span>
-                <span class="tag">Obsidian RAG</span>
-                <span class="tag">Okapi BM25</span>
-                <span class="tag">Feedback Loop</span>
-                <span class="tag">Vision CAD</span>
-                <span class="tag">AES-256-GCM</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/local-ai-worker/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Website</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 8. omnichannel-hub -->
-          <article class="project-card" data-category="desktop" data-keywords="omnichannel omnichannel-hub unified messaging broker email whatsapp discord imap smtp real-time chat go daemon">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">omnichannel-hub</h3>
-                  <span class="p-card-ver ver-omni">v1.0</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-desktop">Go &amp; Messaging</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Selbstgehosteter <strong>Unified Messaging Hub</strong> &amp; Echtzeit-Broker in Go 1.22. Sichere Bündelung von E-Mail (IMAP/SMTP TLS), WhatsApp und Discord ohne Drittanbieter-Relays, mit In-Memory PubSub-Engine und <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Self-hosted <strong>Unified Messaging Hub</strong> and real-time communication broker in Go 1.22. Aggregates Email (IMAP/SMTP TLS), WhatsApp, and Discord with zero third-party cloud relays, in-memory PubSub broker, and <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag" style="border-color: rgba(99,102,241,0.3); color: #818cf8;">Go 1.22</span>
-                <span class="tag">Unified Messaging</span>
-                <span class="tag">IMAP / SMTP</span>
-                <span class="tag">Discord Bot</span>
-                <span class="tag">WhatsApp</span>
-                <span class="tag">AES-256-GCM</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/omnichannel-hub/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Website</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 9. search -->
-          <article class="project-card" data-category="desktop web" data-keywords="search meta-search engine privacy security duckduckgo searxng web desktop bm25 indexeddb gtk webkitgtk">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">search</h3>
-                  <span class="p-card-ver" style="background:rgba(20,184,166,0.12); color:#2dd4bf; border:1px solid rgba(20,184,166,0.3);">v1.2</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-go">Go</span>
-                  <span class="p-badge p-badge-desktop">Desktop</span>
-                  <span class="p-badge p-badge-web">Web</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Radikal privatsphäre-orientierte Meta-Suchmaschine &amp; Desktop-App (WebKitGTK/Windows). Vollständig lokale BM25-Suche, lokaler IndexedDB-Lesezeichentresor, Null Tracker, keine Profilbildung, CSP Level 3 und Tastatur-Shortcuts.
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Radically privacy-first meta-search engine &amp; desktop app (WebKitGTK/Windows). Client-side BM25 search, local IndexedDB bookmark vault, zero trackers, no fingerprinting, full CSP Level 3 headers, and instant keyboard shortcuts.
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag">Privacy</span>
-                <span class="tag">Desktop (GTK)</span>
-                <span class="tag">BM25</span>
-                <span class="tag">IndexedDB</span>
-                <span class="tag">CSP Level 3</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/search/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span class="lang-de">🌐 Live-Suche</span>
-                <span class="lang-en" style="display:none;">🌐 Live Search</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 8. wetter-site -->
-          <article class="project-card" data-category="web" data-keywords="wetter weather open-meteo dwd forecast climate radar web">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">wetter-site</h3>
-                  <span class="p-card-ver" style="background:rgba(56,189,248,0.12); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">v1.1</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge p-badge-web">Web</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Minimalistische, werbefreie Wettervorhersage-Applikation &amp; PV-Solarprognose basierend auf Open-Meteo. Live-Leistung (kW), 24h-Solar- &amp; Niederschlags-Graphen, 100% datensparsam (§ 25 TDDDG).
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Minimalist, ad-free weather forecasting &amp; PV solar telemetry web app powered by Open-Meteo. Live power (kW), 24h solar &amp; rain graphs, 100% privacy-first (§ 25 TDDDG).
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag">Open-Meteo</span>
-                <span class="tag">PV-Prognose</span>
-                <span class="tag">Solar Telemetry</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span class="lang-de">🌐 Live-Wetter App</span>
-                <span class="lang-en" style="display:none;">🌐 Live Weather App</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 9. binchrii -->
-          <article class="project-card" data-category="community" data-keywords="binchrii twitch streamer community hub creator showcase anime gaming">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">binchrii</h3>
-                  <span class="p-card-ver" style="background:rgba(168,85,247,0.12); color:#c084fc; border:1px solid rgba(168,85,247,0.3);">Hub</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge" style="background:rgba(168,85,247,0.12); color:#c084fc; border:1px solid rgba(168,85,247,0.3);">Community</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Offizieller Web-Hub und interaktives Portal für die Streamerin und Content-Creatorin <strong>binchrii</strong>. Integrierter Twitch-Status, Community-Links, Events und maßgeschneidertes Cyberpunk-Design.
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Official community portal and web hub for Twitch streamer and content creator <strong>binchrii</strong>. Live broadcast indicators, event schedules, community socials, and custom cyberpunk aesthetics.
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag">Community</span>
-                <span class="tag">Twitch API</span>
-                <span class="tag">Responsive</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/binchrii/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Community Hub</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- 10. itsbenzo-tv -->
-          <article class="project-card" data-category="community" data-keywords="itsbenzo itsbenzo-tv streaming twitch vods community live gaming">
-            <div class="p-card-top">
-              <div class="p-card-header">
-                <div class="p-card-title-group">
-                  <h3 class="p-card-title">itsbenzo-tv</h3>
-                  <span class="p-card-ver" style="background:rgba(249,115,22,0.12); color:#fb923c; border:1px solid rgba(249,115,22,0.3);">Hub</span>
-                </div>
-                <div class="p-card-badges">
-                  <span class="p-badge" style="background:rgba(249,115,22,0.12); color:#fb923c; border:1px solid rgba(249,115,22,0.3);">Community</span>
-                </div>
-              </div>
-
-              <div data-lang="de" class="visible">
-                <p class="p-card-desc">
-                  Streaming- und Entertainment-Portal für <strong>itsbenzo-tv</strong>. Live-Stream Status, Highlight-Clips, Social-Feed Aggregation und interaktive Community-Features ohne Drittanbieter-Tracker.
-                </p>
-              </div>
-              <div data-lang="en">
-                <p class="p-card-desc">
-                  Streaming and entertainment portal for <strong>itsbenzo-tv</strong>. Live broadcast detection, curated highlight clips, unified social links, and interactive community features with zero tracking.
-                </p>
-              </div>
-
-              <div class="tags">
-                <span class="tag">Streaming</span>
-                <span class="tag">Twitch Status</span>
-                <span class="tag">Zero Ads</span>
-                <span class="tag">GPL-3.0</span>
-              </div>
-            </div>
-
-            <div class="p-card-actions">
-              <a href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank" rel="noopener noreferrer" class="btn-card highlight">
-                <span>🌐 Community Hub</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Human-Centered Empty State (ISO 9241-110) -->
-          <div id="search-empty-state" class="search-empty-state" style="display: none;">
-            <span class="empty-icon" aria-hidden="true">🔍</span>
-            <h3 class="empty-title">
-              <span class="lang-de">Keine Projekte gefunden</span>
-              <span class="lang-en" style="display:none;">No projects found</span>
-            </h3>
-            <p class="empty-desc">
-              <span class="lang-de">Für deine aktuellen Suchbegriffe oder Filterkriterien gibt es keine Treffer.</span>
-              <span class="lang-en" style="display:none;">No projects matched your search query or active filter category.</span>
-            </p>
-            <button type="button" class="btn-card highlight" onclick="resetSearch()" style="margin:0 auto;">
-              <span class="lang-de">Filter &amp; Suche zurücksetzen</span>
-              <span class="lang-en" style="display:none;">Reset Search &amp; Filters</span>
-            </button>
-          </div>
-
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Radikal schlanker Docker Desktop &amp; Podman Ersatz in Go. Direktes Unix-Socket-Streaming, In-Browser WebSocket Exec Terminal, Compose Stack Inspector, <strong>~12 MB RAM</strong> statt 1,5 GB von Docker Desktop.
+          </p>
         </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Radically lightweight Docker Desktop and Podman alternative built in Go. Direct Unix socket streaming, in-browser WebSocket exec terminal, Compose stack inspector, and only <strong>~12 MB RAM</strong>.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Go</span>
+          <span class="tag-pill">Docker API</span>
+          <span class="tag-pill">Web Terminal</span>
+          <span class="tag-pill">Compose Stacks</span>
+          <span class="tag-pill">Low Memory</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/docklite/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
+          <a href="https://benzjeremy.github.io/docklite/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
+        </div>
+      </article>
 
+      <!-- 3. spotify-screensaver -->
+      <article class="project-card" data-category="desktop" data-keywords="spotify screensaver screensaver go desktop music visualizer canvas awesome-go">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">spotify-screensaver</h3>
+            <span class="project-version">v1.4</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-awesome">★ Awesome-Go</span>
+            <span class="badge badge-default">Desktop</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Hardwarebeschleunigter OLED-Bildschirmschoner mit intelligenter Werbeerkennung (Ad-Handling für Spotify Free), redundanzfreiem Clean-Cover-Layout, 64-Band Audio-Spektrumanalyse (PulseAudio/PipeWire FFT) und D-Bus MPRIS.
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Hardware-accelerated OLED screensaver with intelligent ad handling for Spotify Free, clean cover layout, 64-band hardware audio spectrum FFT, dynamic cover palette, and live MPRIS synchronization.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Go</span>
+          <span class="tag-pill">Ad-Handling</span>
+          <span class="tag-pill">Audio FFT (60 FPS)</span>
+          <span class="tag-pill">Clean Layout</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/spotify-screensaver/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
+          <a href="https://benzjeremy.github.io/spotify-screensaver/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
+        </div>
+      </article>
+
+      <!-- 4. pokemon-app -->
+      <article class="project-card" data-category="mobile" data-keywords="pokemon pokemon-app tcg cards card vault android kotlin jetpack compose sqlcipher aes-256 room database portfolio">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">pokemon-app</h3>
+            <span class="project-version">v1.0</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Android</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Native Android-Applikation &amp; Card-Portfolio-Manager in Kotlin &amp; Jetpack Compose. Hardware-gestützter <strong>SQLCipher AES-256</strong> Vault (Android Keystore TEE), Offline-First Room-Cache, Pokemon TCG API v2 Integration und interaktives 3D-Holografie-Rendering.
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Native Android application &amp; card portfolio manager engineered in Kotlin &amp; Jetpack Compose. Hardware-backed <strong>SQLCipher AES-256</strong> vault (Android Keystore TEE), offline-first Room cache, Pokemon TCG API v2 integration, and interactive 3D holographic rendering.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Kotlin</span>
+          <span class="tag-pill">Jetpack Compose</span>
+          <span class="tag-pill">SQLCipher AES-256</span>
+          <span class="tag-pill">Room DB</span>
+          <span class="tag-pill">3D Holo Render</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/pokemon-app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
+          <a href="https://benzjeremy.github.io/pokemon-app/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
+        </div>
+      </article>
+
+      <!-- 5. agi-research -->
+      <article class="project-card" data-category="desktop" data-keywords="agi research causality causal ast go ai deterministic parser ai-research">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">agi-research</h3>
+            <span class="project-version">v2.0 [Major]</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Forschung</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Wissenschaftliche Benchmark-Suite &amp; Framework für Functional Artificial General Intelligence (F-AGI) via Self-Evolving Agent Networks (SEAN v2.0). 18 deterministische Benchmarks, verteilter epistemischer Konsens, 512-dim multimodales Latent-Grounding und Pearl Level 3 Kausalität.
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Empirical benchmark suite and framework proving Functional Artificial General Intelligence (F-AGI) via Self-Evolving Agent Networks (SEAN v2.0). 18 deterministic benchmarks, distributed consensus, 512-dim multi-modal latent grounding, and Pearl Level 3 causality.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">SEAN v2.0</span>
+          <span class="tag-pill">18 Benchmarks</span>
+          <span class="tag-pill">Distributed Consensus</span>
+          <span class="tag-pill">Multimodal Fusion</span>
+          <span class="tag-pill">Pearl L3 Causality</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/agi-research/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website &amp; Forschung</a>
+        </div>
+      </article>
+
+      <!-- 6. ollama-fleet-manager -->
+      <article class="project-card" data-category="desktop" data-keywords="ollama fleet manager ai router gpu vram go rest">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">ollama-fleet-manager</h3>
+            <span class="project-version">v1.0</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Go &amp; Daemon</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Intelligenter Fleet Manager &amp; dynamischer KI-Modell-Router für Ollama in purem Go. Hardware-Sensoren (CPU, RAM, GPU-VRAM), automatisches Task-Matching (Coding, Writing, Reasoning, Vision), Anti-OOM-Schutz und kompromisslose <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Intelligent fleet manager and dynamic AI model router for Ollama built in pure Go. Hardware telemetry sensors (CPU, RAM, GPU-VRAM), automated task matching (coding, reasoning, vision), proactive anti-OOM eviction, and uncompromising <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Go 1.22</span>
+          <span class="tag-pill">Ollama API</span>
+          <span class="tag-pill">Hardware Telemetry</span>
+          <span class="tag-pill">Anti-OOM</span>
+          <span class="tag-pill">AES-256-GCM</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/ollama-fleet-manager/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
+          <a href="https://benzjeremy.github.io/ollama-fleet-manager/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
+        </div>
+      </article>
+
+      <!-- 7. local-ai-worker -->
+      <article class="project-card" data-category="desktop" data-keywords="local-ai-worker ai worker second brain obsidian rag bm25 feedback vision cad assistant go daemon">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">local-ai-worker</h3>
+            <span class="project-version">v1.0</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Go &amp; AI Agent</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Autarker <strong>Second Brain</strong> KI-Mitarbeiter &amp; lokaler Assistenz-Daemon in Go 1.22. Semantische Obsidian-Vault RAG-Suche (Okapi BM25), Feedback-Lernschleife aus Vorgesetzten- &amp; Nutzer-Korrekturen, CAD- &amp; Vision-Inspektion und <strong>Zero-Dummy-Security</strong>.
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Autonomous <strong>Second Brain</strong> AI worker &amp; local assistance daemon in Go 1.22. Semantic Obsidian Vault RAG retrieval (Okapi BM25), supervisor feedback learning loop, CAD and visual inspection, and <strong>Zero-Dummy-Security</strong>.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Go 1.22</span>
+          <span class="tag-pill">Obsidian RAG</span>
+          <span class="tag-pill">Okapi BM25</span>
+          <span class="tag-pill">Feedback Loop</span>
+          <span class="tag-pill">Vision CAD</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/local-ai-worker/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
+        </div>
+      </article>
+
+      <!-- 8. omnichannel-hub -->
+      <article class="project-card" data-category="desktop" data-keywords="omnichannel omnichannel-hub unified messaging broker email whatsapp discord imap smtp real-time chat go daemon">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">omnichannel-hub</h3>
+            <span class="project-version">v1.0</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Go &amp; Messaging</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Selbstgehosteter <strong>Unified Messaging Hub</strong> &amp; Echtzeit-Broker in Go 1.22. Sichere Bündelung von E-Mail (IMAP/SMTP TLS), WhatsApp und Discord ohne Drittanbieter-Relays, mit In-Memory PubSub-Engine und <strong>Zero-Dummy-Security</strong>.
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Self-hosted <strong>Unified Messaging Hub</strong> and real-time communication broker in Go 1.22. Aggregates Email (IMAP/SMTP TLS), WhatsApp, and Discord with zero third-party cloud relays, in-memory PubSub broker, and <strong>Zero-Dummy-Security</strong>.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Go 1.22</span>
+          <span class="tag-pill">Unified Messaging</span>
+          <span class="tag-pill">IMAP / SMTP</span>
+          <span class="tag-pill">Discord</span>
+          <span class="tag-pill">WhatsApp</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/omnichannel-hub/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
+        </div>
+      </article>
+
+      <!-- 9. search -->
+      <article class="project-card" data-category="desktop web" data-keywords="search meta-search engine privacy security duckduckgo searxng web desktop bm25 indexeddb gtk webkitgtk">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">search</h3>
+            <span class="project-version">v1.2</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Desktop &amp; Web</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Radikal privatsphäre-orientierte Meta-Suchmaschine &amp; Desktop-App (WebKitGTK/Windows). Vollständig lokale BM25-Suche, lokaler IndexedDB-Lesezeichentresor, Null Tracker, keine Profilbildung, CSP Level 3 und Tastatur-Shortcuts.
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Radically privacy-first meta-search engine &amp; desktop app (WebKitGTK/Windows). Client-side BM25 search, local IndexedDB bookmark vault, zero trackers, no fingerprinting, full CSP Level 3 headers, and instant keyboard shortcuts.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Privacy</span>
+          <span class="tag-pill">WebKitGTK</span>
+          <span class="tag-pill">BM25</span>
+          <span class="tag-pill">IndexedDB</span>
+          <span class="tag-pill">CSP Level 3</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/search/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Live-Suche</a>
+        </div>
+      </article>
+
+      <!-- 10. wetter-site -->
+      <article class="project-card" data-category="web" data-keywords="wetter weather open-meteo dwd forecast climate radar web">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">wetter-site</h3>
+            <span class="project-version">v1.1</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Web</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Minimalistische, werbefreie Wettervorhersage-Applikation &amp; PV-Solarprognose basierend auf Open-Meteo. Live-Leistung (kW), 24h-Solar- &amp; Niederschlags-Graphen, 100% datensparsam (§ 25 TDDDG).
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Minimalist, ad-free weather forecasting &amp; PV solar telemetry web app powered by Open-Meteo. Live power (kW), 24h solar &amp; rain graphs, 100% privacy-first (§ 25 TDDDG).
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Open-Meteo</span>
+          <span class="tag-pill">PV-Prognose</span>
+          <span class="tag-pill">Solar Telemetry</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Live-Wetter App</a>
+        </div>
+      </article>
+
+      <!-- 11. binchrii -->
+      <article class="project-card" data-category="community" data-keywords="binchrii twitch streamer community hub creator showcase anime gaming">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">binchrii</h3>
+            <span class="project-version">Hub</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Community</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Offizieller Web-Hub und interaktives Portal für die Streamerin und Content-Creatorin <strong>binchrii</strong>. Integrierter Twitch-Status, Community-Links, Events und maßgeschneidertes Design.
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Official community portal and web hub for Twitch streamer and content creator <strong>binchrii</strong>. Live broadcast indicators, event schedules, community socials, and custom aesthetics.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Community</span>
+          <span class="tag-pill">Twitch API</span>
+          <span class="tag-pill">Responsive</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/binchrii/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Community Hub</a>
+        </div>
+      </article>
+
+      <!-- 12. itsbenzo-tv -->
+      <article class="project-card" data-category="community" data-keywords="itsbenzo itsbenzo-tv streaming twitch vods community live gaming">
+        <div class="project-card-header">
+          <div class="project-title-group">
+            <h3 class="project-title">itsbenzo-tv</h3>
+            <span class="project-version">Hub</span>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-default">Community</span>
+          </div>
+        </div>
+        <div data-lang="de" class="visible">
+          <p class="project-desc">
+            Streaming- und Entertainment-Portal für <strong>itsbenzo-tv</strong>. Live-Stream Status, Highlight-Clips, Social-Feed Aggregation und interaktive Community-Features ohne Drittanbieter-Tracker.
+          </p>
+        </div>
+        <div data-lang="en">
+          <p class="project-desc">
+            Streaming and entertainment portal for <strong>itsbenzo-tv</strong>. Live broadcast detection, curated highlight clips, unified social links, and interactive community features with zero tracking.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag-pill">Streaming</span>
+          <span class="tag-pill">Twitch Status</span>
+          <span class="tag-pill">Zero Ads</span>
+          <span class="tag-pill">GPL-3.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Community Hub</a>
+        </div>
+      </article>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-box" style="display: none;">
+        <h3>
+          <span data-lang="de" class="visible">Keine Projekte gefunden</span>
+          <span data-lang="en">No projects found</span>
+        </h3>
+        <p>
+          <span data-lang="de" class="visible">Für deine aktuellen Filterkriterien oder Suchbegriffe gibt es keine Treffer.</span>
+          <span data-lang="en">No projects matched your search query or selected filter.</span>
+        </p>
+        <button type="button" class="btn btn-default" onclick="resetSearch()" style="margin-top: 10px;">
+          <span data-lang="de" class="visible">Filter zurücksetzen</span>
+          <span data-lang="en">Reset Filters</span>
+        </button>
       </div>
-    </section>
+
+    </div>
+
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-left">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div>
         <span>© 2026 Jeremy Benz (@benzjeremy) · 
-          <span class="lang-de">Nordrhein-Westfalen, Deutschland</span>
-          <span class="lang-en" style="display:none;">North Rhine-Westphalia, Germany</span>
+          <span data-lang="de" class="visible">Nordrhein-Westfalen, Deutschland</span>
+          <span data-lang="en">North Rhine-Westphalia, Germany</span>
         </span>
       </div>
-
-      <nav class="footer-links" aria-label="Footer Navigation">
-        <a href="index.html">
-          <span class="lang-de">Startseite</span>
-          <span class="lang-en" style="display:none;">Home</span>
-        </a>
-        <a href="about.html">
-          <span class="lang-de">Über mich</span>
-          <span class="lang-en" style="display:none;">About</span>
-        </a>
-        <a href="kontakt.html">
-          <span class="lang-de">Kontakt</span>
-          <span class="lang-en" style="display:none;">Contact</span>
-        </a>
-        <a href="status/">
-          <span class="lang-de">Status</span>
-          <span class="lang-en" style="display:none;">Status</span>
-        </a>
-        <a href="impressum.html">
-          <span class="lang-de">Impressum (§ 5 DDG)</span>
-          <span class="lang-en" style="display:none;">Legal Notice (§ 5 DDG)</span>
-        </a>
-        <a href="datenschutz.html">
-          <span class="lang-de">Datenschutz (DSGVO)</span>
-          <span class="lang-en" style="display:none;">Privacy Policy (GDPR)</span>
-        </a>
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </nav>
+      <ul class="footer-links">
+        <li><a href="index.html"><span data-lang="de" class="visible">Startseite</span><span data-lang="en">Home</span></a></li>
+        <li><a href="about.html"><span data-lang="de" class="visible">Über mich</span><span data-lang="en">About</span></a></li>
+        <li><a href="kontakt.html"><span data-lang="de" class="visible">Kontakt</span><span data-lang="en">Contact</span></a></li>
+        <li><a href="status/"><span data-lang="de" class="visible">Status</span><span data-lang="en">Status</span></a></li>
+        <li><a href="impressum.html"><span data-lang="de" class="visible">Impressum (§ 5 DDG)</span><span data-lang="en">Legal Notice</span></a></li>
+        <li><a href="datenschutz.html"><span data-lang="de" class="visible">Datenschutz (DSGVO)</span><span data-lang="en">Privacy Policy</span></a></li>
+        <li><a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+      </ul>
     </div>
   </footer>
 
+  <!-- Handcrafted Vanilla JavaScript (Zero Bloat) -->
   <script>
-    // Mobile Drawer Toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const mainNav = document.getElementById('main-nav');
-    if (mobileToggle && mainNav) {
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = mainNav.classList.toggle('open');
-        mobileToggle.setAttribute('aria-expanded', isOpen);
+    // 1. Mobile Menu Toggle
+    var navToggle = document.getElementById("navToggle");
+    var navMenu = document.getElementById("navMenu");
+    if (navToggle && navMenu) {
+      navToggle.addEventListener("click", function() {
+        navMenu.classList.toggle("open");
       });
     }
 
-    // Language Toggle (DE / EN)
+    // 2. Language Switcher (DE / EN)
     function setLang(lang) {
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        if (el.getAttribute('data-lang') === lang) {
-          el.classList.add('visible');
-        } else {
-          el.classList.remove('visible');
-        }
-      });
-      document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
-      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-      
-      const btnDe = document.getElementById('btn-lang-de');
-      const btnEn = document.getElementById('btn-lang-en');
-      if (btnDe && btnEn) {
-        btnDe.classList.toggle('active', lang === 'de');
-        btnEn.classList.toggle('active', lang === 'en');
-      }
+      var allDe = document.querySelectorAll("[data-lang='de']");
+      var allEn = document.querySelectorAll("[data-lang='en']");
 
-      const searchIn = document.getElementById('project-search-input');
-      if (searchIn) {
-        if (lang === 'en') {
-          searchIn.placeholder = "Search projects (e.g. Untis, Docker, Spotify, Go)...";
-          searchIn.setAttribute('aria-label', "Search projects");
-        } else {
-          searchIn.placeholder = "Projekt suchen (z. B. Untis, Docker, Spotify, Go)...";
-          searchIn.setAttribute('aria-label', "Projekte durchsuchen");
-        }
+      if (lang === "en") {
+        allDe.forEach(function(el) { el.classList.remove("visible"); });
+        allEn.forEach(function(el) { el.classList.add("visible"); });
+        document.getElementById("btn-de").classList.remove("active");
+        document.getElementById("btn-en").classList.add("active");
+        var sIn = document.getElementById("searchInput");
+        if (sIn) sIn.placeholder = "Search projects (e.g. Untis, Docker, Spotify, Go)...";
+      } else {
+        allEn.forEach(function(el) { el.classList.remove("visible"); });
+        allDe.forEach(function(el) { el.classList.add("visible"); });
+        document.getElementById("btn-en").classList.remove("active");
+        document.getElementById("btn-de").classList.add("active");
+        var sIn = document.getElementById("searchInput");
+        if (sIn) sIn.placeholder = "Projekt suchen (z. B. Untis, Docker, Spotify, Go)...";
       }
-
-      try { localStorage.setItem('site_lang', lang); } catch (e) {}
+      try { localStorage.setItem("site_lang", lang); } catch (e) {}
     }
 
-    // Init Language from Storage
+    // Init language from storage
     try {
-      const savedLang = localStorage.getItem('site_lang');
-      if (savedLang === 'en' || savedLang === 'de') setLang(savedLang);
+      var savedLang = localStorage.getItem("site_lang");
+      if (savedLang === "en" || savedLang === "de") {
+        setLang(savedLang);
+      }
     } catch (e) {}
 
-    // Live Project Search and Category Filter
-    const searchInput = document.getElementById('project-search-input');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    const emptyState = document.getElementById('search-empty-state');
-    let currentFilter = 'all';
+    // 3. Search & Filter
+    var searchInput = document.getElementById("searchInput");
+    var filterButtons = document.querySelectorAll(".filter-btn");
+    var projectCards = document.querySelectorAll(".project-card");
+    var emptyState = document.getElementById("emptyState");
+    var activeCategory = "all";
 
-    function filterProjects() {
-      const query = (searchInput ? searchInput.value.toLowerCase().trim() : '');
-      let visibleCount = 0;
+    function filterItems() {
+      var query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+      var count = 0;
 
-      projectCards.forEach(card => {
-        const category = card.getAttribute('data-category') || '';
-        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
-        const text = card.textContent.toLowerCase();
+      projectCards.forEach(function(card) {
+        var cat = card.getAttribute("data-category") || "";
+        var keywords = (card.getAttribute("data-keywords") || "").toLowerCase();
+        var text = card.textContent.toLowerCase();
 
-        const matchesCategory = (currentFilter === 'all' || category.split(' ').includes(currentFilter));
-        const matchesSearch = (!query || keywords.includes(query) || text.includes(query));
+        var matchesCat = (activeCategory === "all" || cat.indexOf(activeCategory) !== -1);
+        var matchesQuery = (!query || keywords.indexOf(query) !== -1 || text.indexOf(query) !== -1);
 
-        if (matchesCategory && matchesSearch) {
-          card.classList.remove('is-hidden');
-          visibleCount++;
+        if (matchesCat && matchesQuery) {
+          card.classList.remove("is-hidden");
+          count++;
         } else {
-          card.classList.add('is-hidden');
+          card.classList.add("is-hidden");
         }
       });
 
       if (emptyState) {
-        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        emptyState.style.display = count === 0 ? "block" : "none";
       }
     }
 
     function resetSearch() {
-      if (searchInput) searchInput.value = '';
-      currentFilter = 'all';
-      filterButtons.forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
+      if (searchInput) searchInput.value = "";
+      activeCategory = "all";
+      filterButtons.forEach(function(b) {
+        if (b.getAttribute("data-filter") === "all") b.classList.add("active");
+        else b.classList.remove("active");
       });
-      filterProjects();
-      if (searchInput) searchInput.focus();
+      filterItems();
     }
 
     if (searchInput) {
-      searchInput.addEventListener('input', filterProjects);
+      searchInput.addEventListener("input", filterItems);
     }
 
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.getAttribute('data-filter') || 'all';
-        filterProjects();
+    filterButtons.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        filterButtons.forEach(function(b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        activeCategory = btn.getAttribute("data-filter") || "all";
+        filterItems();
       });
     });
-  
-    
-    // Theme Management (Default Light / Scandinavian-Editorial)
-    function initTheme() {
-      const saved = localStorage.getItem("site_theme") || "light";
-      applyTheme(saved);
-    }
-
-    function applyTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      const btn = document.getElementById("theme-toggle");
-      if (btn) {
-        btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
-        btn.setAttribute("aria-label", theme === "dark" ? "Zu hellem Design wechseln" : "Zu dunklem Design wechseln");
-        btn.setAttribute("title", theme === "dark" ? "Helles Design aktivieren" : "Dunkles Design aktivieren");
-      }
-      try { localStorage.setItem("site_theme", theme); } catch (e) {}
-    }
-
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute("data-theme") || "light";
-      applyTheme(current === "dark" ? "light" : "dark");
-    }
-
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener("click", toggleTheme);
-    }
-    initTheme();
-
   </script>
 </body>
 </html>

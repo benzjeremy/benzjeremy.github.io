@@ -3,492 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Live-Systemstatus · Jeremy Benz Ökosystem</title>
   <meta name="description" content="Echtzeit-Verfügbarkeit und Betriebszustand aller Jeremy Benz Open-Source Projekte, Web-Apps und Infrastruktur-Dienste.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Live-Systemstatus · Jeremy Benz">
-  <meta property="og:description" content="Live-Status aller Services (untis-go, docklite, spotify-screensaver, wetter-site, agi-research u.a.).">
-  <meta property="og:url" content="https://benzjeremy.github.io/status/">
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="icon" type="image/png" sizes="512x512" href="../icon.png">
-  <link rel="stylesheet" href="../style.css?v=3.0">
-  <script>
-    (function() {
-      var saved = localStorage.getItem("site_theme");
-      document.documentElement.setAttribute("data-theme", saved || "light");
-    })();
-  </script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230366d6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'></polygon></svg>">
+  <link rel="stylesheet" href="../style.css?v=4.0">
 </head>
 <body>
 
-  <!-- Site Navigation -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="../index.html" class="brand-link" aria-label="Jeremy Benz Startseite">
-        <div class="brand-avatar">JB</div>
-        <div class="brand-info">
-          <span class="brand-name">Jeremy Benz</span>
-          <span class="brand-ver">System Status</span>
-        </div>
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="navbar-brand">
+        <span class="brand-avatar">JB</span>
+        <span>Jeremy Benz</span>
+        <span class="brand-badge">Status</span>
       </a>
 
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
 
-      <nav class="main-nav" id="main-nav">
-        <a href="../index.html">
-          <span class="lang-de">Startseite</span>
-          <span class="lang-en" style="display:none;">Home</span>
-        </a>
-        <a href="../about.html">
-          <span class="lang-de">Über mich</span>
-          <span class="lang-en" style="display:none;">About</span>
-        </a>
-        <a href="../kontakt.html">
-          <span class="lang-de">Kontakt</span>
-          <span class="lang-en" style="display:none;">Contact</span>
-        </a>
-        <a href="index.html" class="active">
-          <span class="lang-de">Status</span>
-          <span class="lang-en" style="display:none;">Status</span>
-        </a>
-
-        <div class="nav-controls">
-          <div class="lang-switch" role="group" aria-label="Sprachauswahl">
-            <button type="button" class="lang-btn active" id="btn-lang-de" onclick="setLang('de')">DE</button>
-            <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLang('en')">EN</button>
-          </div>
-          <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Farbschema umschalten" title="Design wechseln (Hell/Dunkel)">🌙</button>
-        </div>
-
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer" class="btn-card highlight" style="padding:6px 12px;">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          <span>GitHub</span>
-        </a>
+      <nav>
+        <ul class="navbar-nav" id="navMenu">
+          <li>
+            <a href="../index.html">
+              <span data-lang="de" class="visible">Startseite</span>
+              <span data-lang="en">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="../about.html">
+              <span data-lang="de" class="visible">Über mich</span>
+              <span data-lang="en">About</span>
+            </a>
+          </li>
+          <li>
+            <a href="../kontakt.html">
+              <span data-lang="de" class="visible">Kontakt</span>
+              <span data-lang="en">Contact</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html" class="active">
+              <span data-lang="de" class="visible">Status</span>
+              <span data-lang="en">Status</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </li>
+          <li>
+            <div class="lang-switch" role="group" aria-label="Sprachauswahl">
+              <button type="button" class="lang-btn active" id="btn-de" onclick="setLang('de')">DE</button>
+              <button type="button" class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+            </div>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO STATUS -->
-    <section class="status-hero">
-      <div class="status-banner" id="globalStatusBanner">
-        <span class="pulse-dot" id="globalPulseDot"></span>
-        <span id="globalStatusText">
-          <span class="lang-de">Alle Systeme laufen betriebsbereit</span>
-          <span class="lang-en" style="display:none;">All Systems Operational</span>
-        </span>
-      </div>
-
-      <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.75rem;">
-        <span class="lang-de">Live System-Status</span>
-        <span class="lang-en" style="display:none;">Live System Status</span>
+  <!-- Page Header -->
+  <main class="container">
+    <div class="page-header">
+      <span class="badge badge-success">
+        <span data-lang="de" class="visible">● Alle Systeme betriebsbereit</span>
+        <span data-lang="en">● All Systems Operational</span>
+      </span>
+      <h1>
+        <span data-lang="de" class="visible">Live-Systemstatus</span>
+        <span data-lang="en">Live System Status</span>
       </h1>
-      <p class="hero-subtitle" style="max-width: 680px; margin: 0 auto 2.5rem;">
-        <span class="lang-de">Echtzeit-Übersicht über Betriebsbereitschaft, Uptime und Verfügbarkeit aller Webseiten, Repositories und Services im Jeremy Benz Ökosystem.</span>
-        <span class="lang-en" style="display:none;">Real-time overview of system health, uptime, and availability across all web applications, repositories, and services.</span>
+      <p>
+        <span data-lang="de" class="visible">Echtzeit-Übersicht über Betriebsbereitschaft, Uptime und Verfügbarkeit aller Webseiten und Services im Jeremy Benz Ökosystem.</span>
+        <span data-lang="en">Real-time overview of system health, uptime, and availability across all web applications and services.</span>
       </p>
+    </div>
 
-      <!-- Key Metrics -->
-      <div class="metrics-bar">
-        <div class="metric-pill">
-          <div class="metric-val" id="metricUptime">99.98%</div>
-          <div class="metric-lbl">
-            <span class="lang-de">Verfügbarkeit (30 Tage)</span>
-            <span class="lang-en" style="display:none;">30-Day Uptime</span>
-          </div>
-        </div>
-        <div class="metric-pill">
-          <div class="metric-val" id="metricServices">9 / 9</div>
-          <div class="metric-lbl">
-            <span class="lang-de">Aktive Dienste</span>
-            <span class="lang-en" style="display:none;">Active Services</span>
-          </div>
-        </div>
-        <div class="metric-pill">
-          <div class="metric-val" id="metricIncidents" style="color: #34d399;">0</div>
-          <div class="metric-lbl">
-            <span class="lang-de">Offene Störungen</span>
-            <span class="lang-en" style="display:none;">Active Incidents</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="last-refreshed-bar">
-        <span class="lang-de">Zuletzt aktualisiert:</span>
-        <span class="lang-en" style="display:none;">Last checked:</span>
-        <span id="lastUpdatedTimestamp">Vor wenigen Momenten</span>
-      </div>
-
-      <!-- Filter Controls -->
-      <div class="status-filter-wrap" role="group" aria-label="Dienste filtern">
-        <button type="button" class="status-filter-btn active" data-filter="all" onclick="filterServices('all')">
-          <span class="lang-de">Alle Dienste</span>
-          <span class="lang-en" style="display:none;">All Services</span>
-        </button>
-        <button type="button" class="status-filter-btn" data-filter="desktop" onclick="filterServices('desktop')">Desktop (Go/GTK)</button>
-        <button type="button" class="status-filter-btn" data-filter="devops" onclick="filterServices('devops')">DevOps &amp; Docker</button>
-        <button type="button" class="status-filter-btn" data-filter="web" onclick="filterServices('web')">Web Applications</button>
-        <button type="button" class="status-filter-btn" data-filter="ai" onclick="filterServices('ai')">AI Research</button>
-        <button type="button" class="status-filter-btn" data-filter="streamer" onclick="filterServices('streamer')">Streamer Hubs</button>
-      </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section class="services-grid" id="servicesGrid">
-      <!-- Injected via JavaScript from status.json -->
-    </section>
-
-    <!-- Incident / Maintenance History -->
-    <section class="incident-section">
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem; text-align: center;">
-        <span class="lang-de">Wartungen &amp; Vorfälle</span>
-        <span class="lang-en" style="display:none;">Maintenance &amp; Incidents</span>
-      </h2>
-      <div class="incident-card">
-        <div class="incident-icon">🛡️</div>
-        <h3 style="font-size: 1.15rem; font-weight: 600; color: #34d399; margin-bottom: 0.5rem;">
-          <span class="lang-de">Keine aktuellen Störungen gemeldet</span>
-          <span class="lang-en" style="display:none;">No Active Incidents</span>
-        </h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 600px; margin: 0 auto;">
-          <span class="lang-de">Ausnahmslos alle 9 Kernsysteme und GitHub Pages Showcases operieren mit voller Geschwindigkeit und unter Einhaltung unserer Zero-Telemetry-Richtlinien.</span>
-          <span class="lang-en" style="display:none;">All 9 core services and GitHub Pages showcases operate normally with zero telemetry and 100% data compliance.</span>
+    <!-- Key Metrics Grid -->
+    <div class="values-grid" style="margin-bottom: 24px;">
+      <div class="value-box val-green">
+        <h3>99.98%</h3>
+        <p>
+          <span data-lang="de" class="visible">Verfügbarkeit (30 Tage)</span>
+          <span data-lang="en">30-Day Uptime</span>
         </p>
       </div>
-    </section>
+      <div class="value-box">
+        <h3>9 / 9</h3>
+        <p>
+          <span data-lang="de" class="visible">Aktive Dienste</span>
+          <span data-lang="en">Active Services</span>
+        </p>
+      </div>
+      <div class="value-box val-green">
+        <h3>0</h3>
+        <p>
+          <span data-lang="de" class="visible">Aktive Störungen</span>
+          <span data-lang="en">Active Incidents</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-group" style="margin-bottom: 20px;">
+      <button type="button" class="filter-btn active" data-filter="all" onclick="filterServices('all')">
+        <span data-lang="de" class="visible">Alle Dienste</span>
+        <span data-lang="en">All Services</span>
+      </button>
+      <button type="button" class="filter-btn" data-filter="desktop" onclick="filterServices('desktop')">Desktop</button>
+      <button type="button" class="filter-btn" data-filter="devops" onclick="filterServices('devops')">DevOps</button>
+      <button type="button" class="filter-btn" data-filter="web" onclick="filterServices('web')">Web</button>
+      <button type="button" class="filter-btn" data-filter="ai" onclick="filterServices('ai')">AI</button>
+      <button type="button" class="filter-btn" data-filter="streamer" onclick="filterServices('streamer')">Streamer</button>
+    </div>
+
+    <!-- Services Grid Container -->
+    <div id="servicesGrid" class="status-grid">
+      <!-- Injected via JavaScript from status.json or fallback -->
+    </div>
+
+    <!-- Incident / Maintenance Box -->
+    <div class="content-box" style="text-align: center;">
+      <h3 style="color: #2ea44f; margin-bottom: 6px;">
+        <span data-lang="de" class="visible">🛡️ Keine Störungen gemeldet</span>
+        <span data-lang="en">🛡️ No Active Incidents</span>
+      </h3>
+      <p style="margin-bottom: 0; font-size: 13px;">
+        <span data-lang="de" class="visible">Ausnahmslos alle 9 Kernsysteme und GitHub Pages Showcases operieren mit voller Geschwindigkeit und unter Einhaltung unserer Zero-Telemetry-Richtlinien.</span>
+        <span data-lang="en">All 9 core services and GitHub Pages showcases operate normally with zero telemetry and 100% data compliance.</span>
+      </p>
+    </div>
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-left">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div>
         <span>© 2026 Jeremy Benz (@benzjeremy) · 
-          <span class="lang-de">Nordrhein-Westfalen, Deutschland</span>
-          <span class="lang-en" style="display:none;">North Rhine-Westphalia, Germany</span>
+          <span data-lang="de" class="visible">Nordrhein-Westfalen, Deutschland</span>
+          <span data-lang="en">North Rhine-Westphalia, Germany</span>
         </span>
       </div>
-
-      <nav class="footer-links" aria-label="Footer Navigation">
-        <a href="../index.html">
-          <span class="lang-de">Startseite</span>
-          <span class="lang-en" style="display:none;">Home</span>
-        </a>
-        <a href="../about.html">
-          <span class="lang-de">Über mich</span>
-          <span class="lang-en" style="display:none;">About</span>
-        </a>
-        <a href="../kontakt.html">
-          <span class="lang-de">Kontakt</span>
-          <span class="lang-en" style="display:none;">Contact</span>
-        </a>
-        <a href="index.html" style="color: var(--accent-primary);">
-          <span class="lang-de">Status</span>
-          <span class="lang-en" style="display:none;">Status</span>
-        </a>
-        <a href="../impressum.html">
-          <span class="lang-de">Impressum (§ 5 DDG)</span>
-          <span class="lang-en" style="display:none;">Legal Notice (§ 5 DDG)</span>
-        </a>
-        <a href="../datenschutz.html">
-          <span class="lang-de">Datenschutz (DSGVO)</span>
-          <span class="lang-en" style="display:none;">Privacy Policy (GDPR)</span>
-        </a>
-        <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </nav>
+      <ul class="footer-links">
+        <li><a href="../index.html"><span data-lang="de" class="visible">Startseite</span><span data-lang="en">Home</span></a></li>
+        <li><a href="../about.html"><span data-lang="de" class="visible">Über mich</span><span data-lang="en">About</span></a></li>
+        <li><a href="../kontakt.html"><span data-lang="de" class="visible">Kontakt</span><span data-lang="en">Contact</span></a></li>
+        <li><a href="index.html"><span data-lang="de" class="visible">Status</span><span data-lang="en">Status</span></a></li>
+        <li><a href="../impressum.html"><span data-lang="de" class="visible">Impressum (§ 5 DDG)</span><span data-lang="en">Legal Notice</span></a></li>
+        <li><a href="../datenschutz.html"><span data-lang="de" class="visible">Datenschutz (DSGVO)</span><span data-lang="en">Privacy Policy</span></a></li>
+        <li><a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+      </ul>
     </div>
   </footer>
 
   <script>
-    // State
-    let currentLang = 'de';
-    let currentFilter = 'all';
-    let serviceData = [];
-
-    // Fallback static data if fetch fails (e.g. file:// protocol)
-    const fallbackData = [
-      {
-        id: "untis-go",
-        name: "untis-go",
-        category: "desktop",
-        icon: "📅",
-        status: "operational",
-        version: "v2.2",
-        description: {
-          de: "Nativer WebUntis Desktop-Client (Go & WebKitGTK) · 100% Local-First & DSGVO",
-          en: "Native WebUntis Desktop Client (Go & WebKitGTK) · 100% Local-First & GDPR"
-        },
-        url: "https://benzjeremy.github.io/untis-go/",
-        github: "https://github.com/benzjeremy/untis-go",
-        uptime: "100%",
-        latency: "<1 ms"
-      },
-      {
-        id: "docklite",
-        name: "docklite",
-        category: "devops",
-        icon: "🐳",
-        status: "operational",
-        version: "v1.2.1",
-        description: {
-          de: "Schlanke Portainer-Alternative in Go & Astro · Single-Binary (~12 MB RAM)",
-          en: "Ultra-lightweight Portainer alternative in Go & Astro (~12 MB RAM)"
-        },
-        url: "https://benzjeremy.github.io/docklite/",
-        github: "https://github.com/benzjeremy/docklite",
-        uptime: "99.99%",
-        latency: "<2 ms"
-      },
-      {
-        id: "spotify-screensaver",
-        name: "spotify-screensaver",
-        category: "desktop",
-        icon: "🎵",
-        status: "operational",
-        version: "v1.2.1",
-        description: {
-          de: "Vollbild-Screensaver & Canvas-Visualizer für Spotify (Awesome-Go #6667)",
-          en: "Fullscreen Spotify Screensaver & Canvas Visualizer (Awesome-Go #6667)"
-        },
-        url: "https://benzjeremy.github.io/spotify-screensaver/",
-        github: "https://github.com/benzjeremy/spotify-screensaver",
-        uptime: "100%",
-        latency: "<1 ms"
-      },
-      {
-        id: "wetter-site",
-        name: "wetter-site",
-        category: "web",
-        icon: "🌤️",
-        status: "operational",
-        version: "v1.0",
-        description: {
-          de: "Live-Wetterstation & Canvas-Telemetrie via Open-Meteo (Zero-API-Key)",
-          en: "Live Weather Station & Canvas Telemetry via Open-Meteo (Zero API Key)"
-        },
-        url: "https://benzjeremy.github.io/wetter-site/",
-        github: "https://github.com/benzjeremy/wetter-site",
-        uptime: "99.95%",
-        latency: "14 ms"
-      },
-      {
-        id: "agi-research",
-        name: "agi-research",
-        category: "ai",
-        icon: "🧠",
-        status: "operational",
-        version: "v1.0",
-        description: {
-          de: "F-AGI Benchmark Suite & Research Paper mit 13 neuro-symbolischen Thesen",
-          en: "F-AGI Benchmark Suite & Research Paper with 13 neuro-symbolic proofs"
-        },
-        url: "https://benzjeremy.github.io/agi-research/",
-        github: "https://github.com/benzjeremy/agi-research",
-        uptime: "100%",
-        latency: "8 ms"
-      },
-      {
-        id: "search",
-        name: "search",
-        category: "web",
-        icon: "🔍",
-        status: "operational",
-        version: "v1.0",
-        description: {
-          de: "Clientseitige, datenschutzfreundliche Suchmaschine ohne Tracker & Server-Logs",
-          en: "Client-side private search engine without trackers or server logs"
-        },
-        url: "https://benzjeremy.github.io/search/",
-        github: "https://github.com/benzjeremy/search",
-        uptime: "100%",
-        latency: "<1 ms"
-      },
-      {
-        id: "binchrii",
-        name: "binchrii",
-        category: "streamer",
-        icon: "📺",
-        status: "operational",
-        version: "v1.0",
-        description: {
-          de: "Offizielle Web-Präsenz & Streamer-Hub für Binchrii (Twitch/TikTok)",
-          en: "Official web presence & streamer hub for Binchrii (Twitch/TikTok)"
-        },
-        url: "https://benzjeremy.github.io/binchrii/",
-        github: "https://github.com/benzjeremy/binchrii",
-        uptime: "100%",
-        latency: "12 ms"
-      },
-      {
-        id: "itsbenzo-tv",
-        name: "itsbenzo-tv",
-        category: "streamer",
-        icon: "🎮",
-        status: "operational",
-        version: "v1.0",
-        description: {
-          de: "Gaming-Hub & Community-Plattform für ItsBenzo_TV",
-          en: "Gaming hub & community platform for ItsBenzo_TV"
-        },
-        url: "https://benzjeremy.github.io/itsbenzo-tv/",
-        github: "https://github.com/benzjeremy/itsbenzo-tv",
-        uptime: "100%",
-        latency: "11 ms"
-      },
-      {
-        id: "benzjeremy-de",
-        name: "benzjeremy.de",
-        category: "infrastructure",
-        icon: "🌐",
-        status: "operational",
-        version: "v1.0",
-        description: {
-          de: "Caddy Reverse Proxy & Hetzner Root Server mit automatischer HTTPS-Verwaltung",
-          en: "Caddy Reverse Proxy & Hetzner Root Server with automated HTTPS"
-        },
-        url: "https://benzjeremy.de/",
-        github: "https://github.com/benzjeremy",
-        uptime: "99.99%",
-        latency: "7 ms"
-      }
-    ];
-
-    async function loadStatus() {
-      try {
-        const res = await fetch('status.json?t=' + Date.now());
-        if (res.ok) {
-          const json = await res.json();
-          serviceData = json.services || fallbackData;
-          if (json.lastUpdated) {
-            const date = new Date(json.lastUpdated);
-            document.getElementById('lastUpdatedTimestamp').textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' (' + date.toLocaleDateString() + ')';
-          }
-        } else {
-          serviceData = fallbackData;
-        }
-      } catch (e) {
-        serviceData = fallbackData;
-      }
-      renderServices();
+    var navToggle = document.getElementById("navToggle");
+    var navMenu = document.getElementById("navMenu");
+    if (navToggle && navMenu) {
+      navToggle.addEventListener("click", function() {
+        navMenu.classList.toggle("open");
+      });
     }
 
+    var currentLang = "de";
+    var currentFilter = "all";
+
+    var fallbackServices = [
+      { id: "untis-go", name: "untis-go", category: "desktop", icon: "📅", version: "v2.3", descDe: "WebUntis Desktop Client in Go & WebKitGTK.", descEn: "WebUntis Desktop Client in Go & WebKitGTK.", url: "https://benzjeremy.github.io/untis-go/" },
+      { id: "docklite", name: "docklite", category: "devops", icon: "🐳", version: "v1.3", descDe: "Portainer-Alternative in Go & Astro (~12 MB RAM).", descEn: "Portainer alternative in Go & Astro (~12 MB RAM).", url: "https://benzjeremy.github.io/docklite/" },
+      { id: "spotify-screensaver", name: "spotify-screensaver", category: "desktop", icon: "🎵", version: "v1.4", descDe: "Screensaver für Spotify mit MPRIS.", descEn: "Screensaver for Spotify with MPRIS.", url: "https://benzjeremy.github.io/spotify-screensaver/" },
+      { id: "wetter-site", name: "wetter-site", category: "web", icon: "🌤️", version: "v1.1", descDe: "Wetterstation via Open-Meteo.", descEn: "Weather station via Open-Meteo.", url: "https://benzjeremy.github.io/wetter-site/" },
+      { id: "agi-research", name: "agi-research", category: "ai", icon: "🧠", version: "v2.0", descDe: "F-AGI Benchmark Suite.", descEn: "F-AGI Benchmark Suite.", url: "https://benzjeremy.github.io/agi-research/" },
+      { id: "search", name: "search", category: "web", icon: "🔍", version: "v1.2", descDe: "Datenschutzfreundliche Meta-Suche.", descEn: "Privacy-first search engine.", url: "https://benzjeremy.github.io/search/" },
+      { id: "binchrii", name: "binchrii", category: "streamer", icon: "📺", version: "Hub", descDe: "Offizieller Community-Hub.", descEn: "Official community hub.", url: "https://benzjeremy.github.io/binchrii/" },
+      { id: "itsbenzo-tv", name: "itsbenzo-tv", category: "streamer", icon: "🎮", version: "Hub", descDe: "Gaming-Hub für ItsBenzo_TV.", descEn: "Gaming hub for ItsBenzo_TV.", url: "https://benzjeremy.github.io/itsbenzo-tv/" },
+      { id: "benzjeremy-de", name: "benzjeremy.de", category: "infrastructure", icon: "🌐", version: "v1.0", descDe: "Caddy Server & Hetzner Root.", descEn: "Caddy Server & Hetzner Root.", url: "https://benzjeremy.de/" }
+    ];
+
+    var serviceData = fallbackServices;
+
     function renderServices() {
-      const grid = document.getElementById('servicesGrid');
+      var grid = document.getElementById("servicesGrid");
       if (!grid) return;
 
-      const filtered = serviceData.filter(s => currentFilter === 'all' || s.category === currentFilter);
+      var filtered = serviceData.filter(function(s) {
+        return currentFilter === "all" || s.category === currentFilter;
+      });
 
-      grid.innerHTML = filtered.map(s => {
-        const desc = (s.description && s.description[currentLang]) ? s.description[currentLang] : (s.description ? s.description.de : '');
-        const stateClass = 'state-' + (s.status || 'operational');
-        const stateText = currentLang === 'de' ? (s.status === 'operational' ? 'Betriebsbereit' : s.status) : (s.status === 'operational' ? 'Operational' : s.status);
-        const dotColor = s.status === 'operational' ? '#10b981' : '#f59e0b';
-
-        return `
-          <article class="service-card" data-category="${s.category}">
-            <div>
-              <div class="service-header">
-                <div class="service-title-wrap">
-                  <div class="service-icon">${s.icon}</div>
-                  <div>
-                    <h3 class="service-name">${s.name}</h3>
-                    <span class="service-version">${s.version}</span>
-                  </div>
-                </div>
-                <div class="service-state-badge ${stateClass}">
-                  <span style="width: 8px; height: 8px; border-radius: 50%; background: ${dotColor};"></span>
-                  <span>${stateText}</span>
-                </div>
-              </div>
-              <p class="service-desc">${desc}</p>
-            </div>
-            <div class="service-footer">
-              <div class="service-meta">
-                <span>⚡ ${s.latency || '<1 ms'}</span>
-                <span>📈 ${s.uptime || '100%'}</span>
-              </div>
-              <div class="service-links">
-                <a href="${s.url}" target="_blank" rel="noopener noreferrer">Website →</a>
-                ${s.github ? ` · <a href="${s.github}" target="_blank" rel="noopener noreferrer">Repo</a>` : ''}
-              </div>
-            </div>
-          </article>
-        `;
-      }).join('');
+      grid.innerHTML = filtered.map(function(s) {
+        var desc = currentLang === "de" ? s.descDe : s.descEn;
+        return '<div class="status-card">' +
+          '<div class="status-card-header">' +
+            '<span style="font-weight:700; color:#0366d6;">' + s.icon + ' ' + s.name + '</span>' +
+            '<span class="status-indicator"><span class="status-dot"></span>Online</span>' +
+          '</div>' +
+          '<p style="font-size:13px; color:#586069; margin-bottom:12px;">' + desc + '</p>' +
+          '<div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eaecef; padding-top:8px;">' +
+            '<code>' + s.version + '</code>' +
+            '<a href="' + s.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-default btn-sm">Website →</a>' +
+          '</div>' +
+        '</div>';
+      }).join("");
     }
 
     function filterServices(category) {
       currentFilter = category;
-      document.querySelectorAll('.status-filter-btn').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-filter') === category);
+      document.querySelectorAll(".filter-btn").forEach(function(b) {
+        b.classList.toggle("active", b.getAttribute("data-filter") === category);
       });
       renderServices();
     }
 
     function setLang(lang) {
       currentLang = lang;
-      document.querySelectorAll('.lang-de').forEach(el => el.style.display = lang === 'de' ? '' : 'none');
-      document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-      
-      const btnDe = document.getElementById('btn-lang-de');
-      const btnEn = document.getElementById('btn-lang-en');
-      if (btnDe && btnEn) {
-        btnDe.classList.toggle('active', lang === 'de');
-        btnEn.classList.toggle('active', lang === 'en');
+      var allDe = document.querySelectorAll("[data-lang='de']");
+      var allEn = document.querySelectorAll("[data-lang='en']");
+
+      if (lang === "en") {
+        allDe.forEach(function(el) { el.classList.remove("visible"); });
+        allEn.forEach(function(el) { el.classList.add("visible"); });
+        document.getElementById("btn-de").classList.remove("active");
+        document.getElementById("btn-en").classList.add("active");
+      } else {
+        allEn.forEach(function(el) { el.classList.remove("visible"); });
+        allDe.forEach(function(el) { el.classList.add("visible"); });
+        document.getElementById("btn-en").classList.remove("active");
+        document.getElementById("btn-de").classList.add("active");
       }
-      try { localStorage.setItem('site_lang', lang); } catch (e) {}
+      try { localStorage.setItem("site_lang", lang); } catch (e) {}
       renderServices();
     }
 
-    // Init
     try {
-      const savedLang = localStorage.getItem('site_lang');
-      if (savedLang === 'en' || savedLang === 'de') setLang(savedLang);
+      var savedLang = localStorage.getItem("site_lang");
+      if (savedLang === "en" || savedLang === "de") setLang(savedLang);
     } catch (e) {}
 
-    // Mobile Drawer Toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const mainNav = document.getElementById('main-nav');
-    if (mobileToggle && mainNav) {
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = mainNav.classList.toggle('open');
-        mobileToggle.setAttribute('aria-expanded', isOpen);
-      });
-    }
-
-    loadStatus();
-  
-    
-    // Theme Management (Default Light / Scandinavian-Editorial)
-    function initTheme() {
-      const saved = localStorage.getItem("site_theme") || "light";
-      applyTheme(saved);
-    }
-
-    function applyTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      const btn = document.getElementById("theme-toggle");
-      if (btn) {
-        btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
-        btn.setAttribute("aria-label", theme === "dark" ? "Zu hellem Design wechseln" : "Zu dunklem Design wechseln");
-        btn.setAttribute("title", theme === "dark" ? "Helles Design aktivieren" : "Dunkles Design aktivieren");
-      }
-      try { localStorage.setItem("site_theme", theme); } catch (e) {}
-    }
-
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute("data-theme") || "light";
-      applyTheme(current === "dark" ? "light" : "dark");
-    }
-
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener("click", toggleTheme);
-    }
-    initTheme();
-
+    renderServices();
   </script>
 </body>
 </html>
