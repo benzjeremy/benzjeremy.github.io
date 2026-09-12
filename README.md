@@ -1,5 +1,11 @@
 # Jeremy Benz – Root Web Ecosystem
 
+[![Status: Pre-Release](https://img.shields.io/badge/Status-Pre--Release%20%2F%20WIP-orange.svg?style=flat-square)](https://github.com/benzjeremy)
+
+> [!IMPORTANT]
+> ### 🚧 Pre-Release / Active Development Notice
+> The software projects within this ecosystem are **not yet finished** and are under continuous active development. All published versions, packages, and binaries are **Pre-Releases** (Work in Progress), even if not originally announced with a pre-release suffix.
+
 The official root domain landing page, infrastructure hub, and static assets for [benzjeremy.github.io](https://benzjeremy.github.io).
 
 ## Architecture & Features
