@@ -393,6 +393,35 @@ code {
   border-color: var(--border-color);
 }
 
+.badge-warning {
+  background-color: var(--brand-amber-bg);
+  color: var(--brand-amber);
+  border-color: var(--brand-amber-border);
+  font-weight: 700;
+}
+
+.pre-release-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background-color: var(--brand-amber-bg);
+  border: 1px solid var(--brand-amber-border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-main);
+  box-shadow: var(--card-shadow);
+}
+
+.pre-release-alert .pre-release-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
 /* 6. Section Headers */
 .section-header {
   margin: 40px 0 20px;

@@ -172,6 +172,14 @@
     <priority>0.4</priority>
   </url>
 
+  <!-- BenzStore Showcase (Unified AppStore for Android & PC) -->
+  <url>
+    <loc>https://benzjeremy.github.io/benzstore/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Other Projects & Showcases -->
   <url>
     <loc>https://benzjeremy.github.io/untis_go/</loc>

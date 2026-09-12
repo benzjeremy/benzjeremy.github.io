@@ -133,6 +133,19 @@
       <button type="button" class="filter-btn" data-filter="streamer" onclick="filterServices('streamer')">Streamer</button>
     </div>
 
+    <!-- Pre-Release Notice Banner -->
+    <div class="pre-release-alert" style="margin-bottom: 20px;">
+      <span class="pre-release-icon">🚧</span>
+      <div>
+        <div data-lang="de" class="visible">
+          <strong>Pre-Release Status:</strong> Sämtliche Software-Systeme und Repositories im Portfolio befinden sich in aktiver Entwicklung (Pre-Releases / WIP). Alle Versionen sind Pre-Releases und werden kontinuierlich weiterbearbeitet.
+        </div>
+        <div data-lang="en">
+          <strong>Pre-Release Notice:</strong> All software systems and repositories across this portfolio are under active development (Pre-Releases / WIP). All versions are pre-releases subject to continuous work.
+        </div>
+      </div>
+    </div>
+
     <!-- Services Grid Container -->
     <div id="servicesGrid" class="status-grid">
       <!-- Injected via JavaScript from status.json or fallback -->
@@ -209,17 +222,21 @@
     var currentFilter = "all";
 
     var fallbackServices = [
-      { id: "untis-go", name: "untis-go", category: "desktop", icon: "📅", version: "v2.3", descDe: "WebUntis Desktop Client in Go & WebKitGTK.", descEn: "WebUntis Desktop Client in Go & WebKitGTK.", url: "https://benzjeremy.github.io/untis-go/" },
-      { id: "docklite", name: "docklite", category: "devops", icon: "🐳", version: "v1.3", descDe: "Portainer-Alternative in Go & Astro (~12 MB RAM).", descEn: "Portainer alternative in Go & Astro (~12 MB RAM).", url: "https://benzjeremy.github.io/docklite/" },
-      { id: "spotify-screensaver", name: "spotify-screensaver", category: "desktop", icon: "🎵", version: "v1.4", descDe: "Screensaver für Spotify mit MPRIS.", descEn: "Screensaver for Spotify with MPRIS.", url: "https://benzjeremy.github.io/spotify-screensaver/" },
-      { id: "wetter-site", name: "wetter-site", category: "web", icon: "🌤️", version: "v1.1", descDe: "Wetterstation via Open-Meteo.", descEn: "Weather station via Open-Meteo.", url: "https://benzjeremy.github.io/wetter-site/" },
-      { id: "learn", name: "learn", category: "mobile", icon: "🎓", version: "v2.1", descDe: "Bildungs-Engine & Android-Lernapp (45 Lektionen).", descEn: "Education engine & native Android app (45 lessons).", url: "https://benzjeremy.github.io/learn/" },
-      { id: "myfdroid", name: "myfdroid", category: "mobile", icon: "📦", version: "v1.0", descDe: "Offizielles F-Droid & Android Paket-Repository.", descEn: "Official F-Droid & Android package repository.", url: "https://benzjeremy.github.io/myfdroid/" },
-      { id: "agi-research", name: "agi-research", category: "ai", icon: "🧠", version: "v2.0", descDe: "F-AGI Benchmark Suite.", descEn: "F-AGI Benchmark Suite.", url: "https://benzjeremy.github.io/agi-research/" },
-      { id: "search", name: "search", category: "web", icon: "🔍", version: "v1.2", descDe: "Datenschutzfreundliche Meta-Suche.", descEn: "Privacy-first search engine.", url: "https://benzjeremy.github.io/search/" },
-      { id: "binchrii", name: "binchrii", category: "streamer", icon: "📺", version: "Hub", descDe: "Offizieller Community-Hub.", descEn: "Official community hub.", url: "https://benzjeremy.github.io/binchrii/" },
-      { id: "itsbenzo-tv", name: "itsbenzo-tv", category: "streamer", icon: "🎮", version: "Hub", descDe: "Gaming-Hub für ItsBenzo_TV.", descEn: "Gaming hub for ItsBenzo_TV.", url: "https://benzjeremy.github.io/itsbenzo-tv/" },
-      { id: "benzjeremy-de", name: "benzjeremy.de", category: "infrastructure", icon: "🌐", version: "v1.0", descDe: "Caddy Server & Hetzner Root.", descEn: "Caddy Server & Hetzner Root.", url: "https://benzjeremy.de/" }
+      { id: "untis-go", name: "untis-go", category: "desktop", icon: "📅", version: "v2.3 [Pre-Release]", isPre: true, descDe: "WebUntis Desktop Client in Go & WebKitGTK (Pre-Release / In Entwicklung).", descEn: "WebUntis Desktop Client in Go & WebKitGTK (Pre-Release / Active Dev).", url: "https://benzjeremy.github.io/untis-go/" },
+      { id: "docklite", name: "docklite", category: "devops", icon: "🐳", version: "v1.3 [Pre-Release]", isPre: true, descDe: "Portainer-Alternative in Go & Astro (~12 MB RAM, Pre-Release).", descEn: "Portainer alternative in Go & Astro (~12 MB RAM, Pre-Release).", url: "https://benzjeremy.github.io/docklite/" },
+      { id: "spotify-screensaver", name: "spotify-screensaver", category: "desktop", icon: "🎵", version: "v1.4 [Pre-Release]", isPre: true, descDe: "Screensaver für Spotify mit MPRIS (Pre-Release).", descEn: "Screensaver for Spotify with MPRIS (Pre-Release).", url: "https://benzjeremy.github.io/spotify-screensaver/" },
+      { id: "wetter-site", name: "wetter-site", category: "web", icon: "🌤️", version: "v1.1 [Pre-Release]", isPre: true, descDe: "Wetterstation via Open-Meteo (Pre-Release).", descEn: "Weather station via Open-Meteo (Pre-Release).", url: "https://benzjeremy.github.io/wetter-site/" },
+      { id: "learn", name: "learn", category: "mobile", icon: "🎓", version: "v2.1 [Pre-Release]", isPre: true, descDe: "Bildungs-Engine & Android-Lernapp (45 Lektionen, Pre-Release).", descEn: "Education engine & native Android app (45 lessons, Pre-Release).", url: "https://benzjeremy.github.io/learn/" },
+      { id: "benzstore", name: "benzstore", category: "mobile", icon: "📦", version: "v1.0 [Pre-Release]", isPre: true, descDe: "AppStore für Android & PC mit SHA-256 (Pre-Release).", descEn: "AppStore for Android & PC with SHA-256 (Pre-Release).", url: "https://benzjeremy.github.io/benzstore/" },
+      { id: "myfdroid", name: "myfdroid", category: "mobile", icon: "📦", version: "v1.0 [Pre-Release]", isPre: true, descDe: "Offizielles F-Droid & Android Paket-Repository (Pre-Release).", descEn: "Official F-Droid & Android package repository (Pre-Release).", url: "https://benzjeremy.github.io/myfdroid/" },
+      { id: "agi-research", name: "agi-research", category: "ai", icon: "🧠", version: "v2.0 [Pre-Release]", isPre: true, descDe: "F-AGI Benchmark Suite & SEAN Framework (Pre-Release).", descEn: "F-AGI Benchmark Suite & SEAN Framework (Pre-Release).", url: "https://benzjeremy.github.io/agi-research/" },
+      { id: "ollama-fleet-manager", name: "ollama-fleet-manager", category: "ai", icon: "🚀", version: "v1.0 [Pre-Release]", isPre: true, descDe: "Ollama Fleet Manager & Model Router (Pre-Release).", descEn: "Ollama Fleet Manager & Model Router (Pre-Release).", url: "https://benzjeremy.github.io/ollama-fleet-manager/" },
+      { id: "local-ai-worker", name: "local-ai-worker", category: "ai", icon: "🧠", version: "v1.0 [Pre-Release]", isPre: true, descDe: "Local-First AI Worker & Obsidian RAG (Pre-Release).", descEn: "Local-First AI Worker & Obsidian RAG (Pre-Release).", url: "https://benzjeremy.github.io/local-ai-worker/" },
+      { id: "omnichannel-hub", name: "omnichannel-hub", category: "desktop", icon: "🌐", version: "v1.0 [Pre-Release]", isPre: true, descDe: "Unified Messaging Hub (Email, WhatsApp, Discord - Pre-Release).", descEn: "Unified Messaging Hub (Email, WhatsApp, Discord - Pre-Release).", url: "https://benzjeremy.github.io/omnichannel-hub/" },
+      { id: "search", name: "search", category: "web", icon: "🔍", version: "v1.2 [Pre-Release]", isPre: true, descDe: "Datenschutzfreundliche Meta-Suche (Pre-Release).", descEn: "Privacy-first search engine (Pre-Release).", url: "https://benzjeremy.github.io/search/" },
+      { id: "binchrii", name: "binchrii", category: "streamer", icon: "📺", version: "Hub", isPre: false, descDe: "Offizieller Community-Hub.", descEn: "Official community hub.", url: "https://benzjeremy.github.io/binchrii/" },
+      { id: "itsbenzo-tv", name: "itsbenzo-tv", category: "streamer", icon: "🎮", version: "Hub", isPre: false, descDe: "Gaming-Hub für ItsBenzo_TV.", descEn: "Gaming hub for ItsBenzo_TV.", url: "https://benzjeremy.github.io/itsbenzo-tv/" },
+      { id: "benzjeremy-de", name: "benzjeremy.de", category: "infrastructure", icon: "🌐", version: "v1.0", isPre: false, descDe: "Caddy Server & Hetzner Root.", descEn: "Caddy Server & Hetzner Root.", url: "https://benzjeremy.de/" }
     ];
 
     var serviceData = fallbackServices;
@@ -234,9 +251,10 @@
 
       grid.innerHTML = filtered.map(function(s) {
         var desc = currentLang === "de" ? s.descDe : s.descEn;
+        var preBadge = s.isPre ? '<span class="badge badge-warning" style="font-size:10px; padding:2px 6px; margin-left:6px;">Pre-Release</span>' : '';
         return '<div class="status-card">' +
           '<div class="status-card-header">' +
-            '<span style="font-weight:700; color:var(--brand-blue);">' + s.icon + ' ' + s.name + '</span>' +
+            '<span style="font-weight:700; color:var(--brand-blue); display:flex; align-items:center;">' + s.icon + ' ' + s.name + preBadge + '</span>' +
             '<span class="status-indicator"><span class="status-dot"></span>Online</span>' +
           '</div>' +
           '<p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">' + desc + '</p>' +
