@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-10T20:50:00Z",
+  "lastUpdated": "2026-09-12T14:45:00Z",
   "systemStatus": "operational",
   "systemMessage": {
     "de": "Alle Systeme laufen normal und ohne Einschränkungen.",
@@ -7,7 +7,7 @@
   },
   "metrics": {
     "uptime30d": "99.98%",
-    "activeServices": 9,
+    "activeServices": 11,
     "incidentCount": 0
   },
   "services": [
@@ -17,7 +17,7 @@
       "category": "desktop",
       "icon": "📅",
       "status": "operational",
-      "version": "v2.2",
+      "version": "v2.3",
       "description": {
         "de": "Nativer WebUntis Desktop-Client (Go & WebKitGTK) · 100% Local-First",
         "en": "Native WebUntis Desktop Client (Go & WebKitGTK) · 100% Local-First"
@@ -33,7 +33,7 @@
       "category": "devops",
       "icon": "🐳",
       "status": "operational",
-      "version": "v1.2.1",
+      "version": "v1.3",
       "description": {
         "de": "Schlanke Portainer-Alternative in Go & Astro · Single-Binary (~12 MB RAM)",
         "en": "Ultra-lightweight Portainer alternative in Go & Astro (~12 MB RAM)"
@@ -49,7 +49,7 @@
       "category": "desktop",
       "icon": "🎵",
       "status": "operational",
-      "version": "v1.2.1",
+      "version": "v1.4",
       "description": {
         "de": "Vollbild-Screensaver & Canvas-Visualizer für Spotify (Awesome-Go #6667)",
         "en": "Fullscreen Spotify Screensaver & Canvas Visualizer (Awesome-Go #6667)"
@@ -65,15 +65,47 @@
       "category": "web",
       "icon": "🌤️",
       "status": "operational",
-      "version": "v1.0",
+      "version": "v1.1",
       "description": {
-        "de": "Live-Wetterstation & Canvas-Telemetrie via Open-Meteo (Zero-API-Key)",
-        "en": "Live Weather Station & Canvas Telemetry via Open-Meteo (Zero API Key)"
+        "de": "Hyperlokale Wetterstation & Android App mit Live-Widget (Zero-API-Key)",
+        "en": "Hyperlocal Weather Station & Android App with Live Widget (Zero API Key)"
       },
       "url": "https://benzjeremy.github.io/wetter-site/",
       "github": "https://github.com/benzjeremy/wetter-site",
       "uptime": "99.95%",
       "latency": "14 ms"
+    },
+    {
+      "id": "learn",
+      "name": "learn",
+      "category": "mobile",
+      "icon": "🎓",
+      "status": "operational",
+      "version": "v2.1",
+      "description": {
+        "de": "Bildungs-Engine & Android-App mit 45 Lektionen für Programmieranfänger",
+        "en": "Education engine & native Android app with 45 lessons for beginner coders"
+      },
+      "url": "https://benzjeremy.github.io/learn/",
+      "github": "https://github.com/benzjeremy/learn",
+      "uptime": "100%",
+      "latency": "<1 ms"
+    },
+    {
+      "id": "myfdroid",
+      "name": "myfdroid",
+      "category": "mobile",
+      "icon": "📦",
+      "status": "operational",
+      "version": "v1.0",
+      "description": {
+        "de": "Offizielles F-Droid & Android Paket-Repository mit v1/v2 Index-Integrität",
+        "en": "Official F-Droid & Android package repository with v1/v2 index integrity"
+      },
+      "url": "https://benzjeremy.github.io/myfdroid/",
+      "github": "https://github.com/benzjeremy/myfdroid",
+      "uptime": "100%",
+      "latency": "<1 ms"
     },
     {
       "id": "agi-research",
