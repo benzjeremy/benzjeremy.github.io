@@ -136,9 +136,9 @@
           <h3>🔐 Zero-Dummy-Security</h3>
           <p>Niemals unsichere Placeholders, <code>TODO</code>-Security oder gefälschte Authentifizierungs-Token. Industriestandard-Kryptografie (AES-256-GCM, PBKDF2 ≥100.000 Runden, CSP Level 3) ist in jedem Release Pflicht.</p>
         </div>
-        <div data-lang="en">
+        <div data-lang="en" class="visible">
           <h3>🔐 Zero-Dummy Security</h3>
-          <p>Never accept insecure placeholders or mocked auth tokens. Full industrial cryptographic standards (AES-256-GCM, PBKDF2 ≥100,000 iterations, CSP Level 3) are mandatory in every single release.</p>
+          <p>Never accept insecure placeholders or mocked auth tokens. Full industrial cryptographic standards (AES-256-GCM, PBKDF2 ≥, 100,000 iterations, CSP Level 3) are mandatory in every single release.</p>
         </div>
       </div>
 
@@ -147,7 +147,7 @@
           <h3>⚡ Radikal Native Desktop-Systeme</h3>
           <p>Kein Electron-Container-Ballast (300MB+ RAM verschwendet). Stattdessen hochoptimiertes Go mit nativen Webviews (WebKitGTK auf Linux, Win32 Webview2 auf Windows) für 15–40 MB RAM und sofortigen Start.</p>
         </div>
-        <div data-lang="en">
+        <div data-lang="en" class="visible">
           <h3>⚡ Radically Native Desktop</h3>
           <p>No bloated Electron bundles wasting hundreds of megabytes of RAM. Highly tuned Go backends paired with native OS engines (WebKitGTK on Linux, Win32 Webview2 on Windows) running smoothly at 15–40 MB RAM.</p>
         </div>
@@ -158,7 +158,7 @@
           <h3>💾 100% Local-First &amp; Zero Tracking</h3>
           <p>Deine Daten gehören dir allein. Lokale SQLite-/JSON-Speicherung, kein heimliches Tracking, keine erzwungenen Cloud-Zertifikate und vollständige Offline-Autonomie vom ersten Start an.</p>
         </div>
-        <div data-lang="en">
+        <div data-lang="en" class="visible">
           <h3>💾 100% Local-First &amp; Zero Tracking</h3>
           <p>Your data remains entirely yours. Local SQLite and JSON storage, zero clandestine telemetry, no forced cloud accounts, and seamless offline functionality out of the box.</p>
         </div>
@@ -169,7 +169,7 @@
           <h3>⚖️ GNU GPL-3.0 &amp; Echte SemVer</h3>
           <p>Konsequente Freiheit für Nutzer und Entwickler. Vollständige Transparenz, Multi-Platform Binaries und strikte semantische Versionierung ohne Trailing Zeros (<code>v1.0</code>, <code>v2.1</code>).</p>
         </div>
-        <div data-lang="en">
+        <div data-lang="en" class="visible">
           <h3>⚖️ GNU GPL-3.0 &amp; Strict SemVer</h3>
           <p>Uncompromising freedom for users and developers. Full transparency, reproducible multi-platform builds, and clean semantic versioning without trailing zeros (<code>v1.0</code>, <code>v2.1</code>).</p>
         </div>
@@ -184,426 +184,42 @@
       </h2>
       <span class="section-sub">
         <span data-lang="de" class="visible">Verifizierte Software mit Live-Dokumentation &amp; Showcases</span>
-        <span data-lang="en">Verified software with live documentation &amp; showcases</span>
+        <span data-lang="en" class="visible">Verified software with live documentation &amp; showcases</span>
       </span>
     </div>
 
     <!-- Search & Filter Toolbar -->
     <div class="toolbar">
       <div class="search-box">
-        <input type="text" id="searchInput" class="search-input" placeholder="Projekt suchen (z. B. Untis, Docker, Spotify, Go)..." aria-label="Projekt suchen">
+        <input type="text" id="searchInput" class="search-input" placeholder="Projekt suchen (z. B. Untis, Docker, Spotify, Go)" aria-label="Projekt suchen">
       </div>
 
       <div class="filter-group">
         <button type="button" class="filter-btn active" data-filter="all">
           <span data-lang="de" class="visible">Alle (16)</span>
-          <span data-lang="en">All (16)</span>
+          <span data-lang="en" class="visible">All (16)</span>
         </button>
         <button type="button" class="filter-btn" data-filter="desktop">
           <span data-lang="de" class="visible">Go &amp; Desktop (10)</span>
-          <span data-lang="en">Go &amp; Desktop (10)</span>
+          <span data-lang="en" class="visible">Go &amp; Desktop (10)</span>
         </button>
         <button type="button" class="filter-btn" data-filter="mobile">
           <span data-lang="de" class="visible">Android &amp; Mobile (5)</span>
-          <span data-lang="en">Android &amp; Mobile (5)</span>
+          <span data-lang="en" class="visible">Android &amp; Mobile (5)</span>
         </button>
         <button type="button" class="filter-btn" data-filter="web">
           <span data-lang="de" class="visible">Web &amp; Services (5)</span>
-          <span data-lang="en">Web &amp; Services (5)</span>
+          <span data-lang="en" class="visible">Web &amp; Services (5)</span>
         </button>
         <button type="button" class="filter-btn" data-filter="community">
           <span data-lang="de" class="visible">Streamer &amp; Community (2)</span>
-          <span data-lang="en">Streamer &amp; Community (2)</span>
+          <span data-lang="en" class="visible">Streamer &amp; Community (2)</span>
         </button>
-      </div>
-    </div>
-
-    <!-- Pre-Release Alert Banner -->
-    <div class="pre-release-alert">
-      <span class="pre-release-icon">🚧</span>
-      <div>
-        <div data-lang="de" class="visible">
-          <strong>Pre-Release Status:</strong> Sämtliche Software-Projekte und Repositories befinden sich in kontinuierlicher, aktiver Entwicklung und stellen <em>Pre-Releases</em> (Work in Progress) dar — auch wenn reguläre Versionsnummern vergeben sind. APIs, Benutzeroberflächen und Architekturen werden stetig optimiert und weiterbearbeitet.
-        </div>
-        <div data-lang="en">
-          <strong>Pre-Release Notice:</strong> All software projects and repositories are under active, continuous development and represent <em>Pre-Releases</em> (Work in Progress) — even when designated with standard version tags. APIs, user interfaces, and system architectures are actively being refined and worked on.
-        </div>
       </div>
     </div>
 
     <!-- Project Grid -->
     <div class="project-grid" id="projectList">
-
-      <!-- 1. untis-go -->
-      <article class="project-card" data-category="desktop" data-keywords="untis untis-go stundenplan vertretungsplan webuntis go webview gtk desktop awesome-go">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">untis-go</h3>
-            <span class="project-version">v2.3 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-awesome">★ Awesome-Go</span>
-            <span class="badge badge-default">Desktop</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Ultraschneller, nativer Multi-Platform Desktop-Client für WebUntis. Zero-Dummy-Security mit <strong>AES-256-GCM</strong> Session-Tresor, Offline-First SQLite-Cache, RFC-5545 iCal-Export, Hintergrund-Sync, nativem Tray-Icon und nur <strong>25 MB RAM</strong> (kein Electron).
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Ultra-fast native multi-platform desktop client for WebUntis. Zero-dummy security with <strong>AES-256-GCM</strong> encrypted credential store, offline SQLite caching, RFC-5545 iCal export, background sync, native tray, and <strong>25 MB RAM</strong> footprint.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go</span>
-          <span class="tag-pill">WebKitGTK</span>
-          <span class="tag-pill">AES-256-GCM</span>
-          <span class="tag-pill">SQLite</span>
-          <span class="tag-pill">iCal Export</span>
-          <span class="tag-pill">System-Tray</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/untis-go/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-          <a href="https://benzjeremy.github.io/untis-go/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
-        </div>
-      </article>
-
-      <!-- 2. docklite -->
-      <article class="project-card" data-category="desktop" data-keywords="docklite docker container management dashboard lightweight tray go awesome-go">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">docklite</h3>
-            <span class="project-version">v1.3 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-awesome">★ Awesome-Go</span>
-            <span class="badge badge-default">Desktop</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Radikal schlanker Docker Desktop &amp; Podman Ersatz in Go. Direktes Unix-Socket-Streaming, In-Browser WebSocket Exec Terminal, Compose Stack Inspector, <strong>~12 MB RAM</strong> statt 1,5 GB von Docker Desktop.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Radically lightweight Docker Desktop and Podman alternative built in Go. Direct Unix socket streaming, in-browser WebSocket exec terminal, Compose stack inspector, and only <strong>~12 MB RAM</strong>.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go</span>
-          <span class="tag-pill">Docker API</span>
-          <span class="tag-pill">Web Terminal</span>
-          <span class="tag-pill">Compose Stacks</span>
-          <span class="tag-pill">Low Memory</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/docklite/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-          <a href="https://benzjeremy.github.io/docklite/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
-        </div>
-      </article>
-
-      <!-- 3. spotify-screensaver -->
-      <article class="project-card" data-category="desktop" data-keywords="spotify screensaver screensaver go desktop music visualizer canvas awesome-go">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">spotify-screensaver</h3>
-            <span class="project-version">v1.4 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-awesome">★ Awesome-Go</span>
-            <span class="badge badge-default">Desktop</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Hardwarebeschleunigter OLED-Bildschirmschoner mit intelligenter Werbeerkennung (Ad-Handling für Spotify Free), redundanzfreiem Clean-Cover-Layout, 64-Band Audio-Spektrumanalyse (PulseAudio/PipeWire FFT) und D-Bus MPRIS.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Hardware-accelerated OLED screensaver with intelligent ad handling for Spotify Free, clean cover layout, 64-band hardware audio spectrum FFT, dynamic cover palette, and live MPRIS synchronization.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go</span>
-          <span class="tag-pill">Ad-Handling</span>
-          <span class="tag-pill">Audio FFT (60 FPS)</span>
-          <span class="tag-pill">Clean Layout</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/spotify-screensaver/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-          <a href="https://benzjeremy.github.io/spotify-screensaver/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
-        </div>
-      </article>
-
-
-
-      <!-- 5. agi-research -->
-      <article class="project-card" data-category="desktop" data-keywords="agi research causality causal ast go ai deterministic parser ai-research">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">agi-research</h3>
-            <span class="project-version">v2.0 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Forschung</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Wissenschaftliche Benchmark-Suite &amp; Framework für Functional Artificial General Intelligence (F-AGI) via Self-Evolving Agent Networks (SEAN v2.0). 18 deterministische Benchmarks, verteilter epistemischer Konsens, 512-dim multimodales Latent-Grounding und Pearl Level 3 Kausalität.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Empirical benchmark suite and framework proving Functional Artificial General Intelligence (F-AGI) via Self-Evolving Agent Networks (SEAN v2.0). 18 deterministic benchmarks, distributed consensus, 512-dim multi-modal latent grounding, and Pearl Level 3 causality.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">SEAN v2.0</span>
-          <span class="tag-pill">18 Benchmarks</span>
-          <span class="tag-pill">Distributed Consensus</span>
-          <span class="tag-pill">Multimodal Fusion</span>
-          <span class="tag-pill">Pearl L3 Causality</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/agi-research/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website &amp; Forschung</a>
-        </div>
-      </article>
-
-      <!-- 6. ollama-fleet-manager -->
-      <article class="project-card" data-category="desktop" data-keywords="ollama fleet manager ai router gpu vram go rest">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">ollama-fleet-manager</h3>
-            <span class="project-version">v1.0 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Go &amp; Daemon</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Intelligenter Fleet Manager &amp; dynamischer KI-Modell-Router für Ollama in purem Go. Hardware-Sensoren (CPU, RAM, GPU-VRAM), automatisches Task-Matching (Coding, Writing, Reasoning, Vision), Anti-OOM-Schutz und kompromisslose <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Intelligent fleet manager and dynamic AI model router for Ollama built in pure Go. Hardware telemetry sensors (CPU, RAM, GPU-VRAM), automated task matching (coding, reasoning, vision), proactive anti-OOM eviction, and uncompromising <strong>Zero-Dummy-Security</strong> (AES-256-GCM, Anti-CSRF).
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go 1.22</span>
-          <span class="tag-pill">Ollama API</span>
-          <span class="tag-pill">Hardware Telemetry</span>
-          <span class="tag-pill">Anti-OOM</span>
-          <span class="tag-pill">AES-256-GCM</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/ollama-fleet-manager/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-          <a href="https://benzjeremy.github.io/ollama-fleet-manager/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
-        </div>
-      </article>
-
-      <!-- 7. local-ai-worker -->
-      <article class="project-card" data-category="desktop" data-keywords="local-ai-worker ai worker second brain obsidian rag bm25 feedback vision cad assistant go daemon">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">local-ai-worker</h3>
-            <span class="project-version">v1.0 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Go &amp; AI Agent</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Autarker <strong>Second Brain</strong> KI-Mitarbeiter &amp; lokaler Assistenz-Daemon in Go 1.22. Semantische Obsidian-Vault RAG-Suche (Okapi BM25), Feedback-Lernschleife aus Vorgesetzten- &amp; Nutzer-Korrekturen, CAD- &amp; Vision-Inspektion und <strong>Zero-Dummy-Security</strong>.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Autonomous <strong>Second Brain</strong> AI worker &amp; local assistance daemon in Go 1.22. Semantic Obsidian Vault RAG retrieval (Okapi BM25), supervisor feedback learning loop, CAD and visual inspection, and <strong>Zero-Dummy-Security</strong>.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go 1.22</span>
-          <span class="tag-pill">Obsidian RAG</span>
-          <span class="tag-pill">Okapi BM25</span>
-          <span class="tag-pill">Feedback Loop</span>
-          <span class="tag-pill">Vision CAD</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/local-ai-worker/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-        </div>
-      </article>
-
-      <!-- 8. omnichannel-hub -->
-      <article class="project-card" data-category="desktop" data-keywords="omnichannel omnichannel-hub unified messaging broker email whatsapp discord imap smtp real-time chat go daemon">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">omnichannel-hub</h3>
-            <span class="project-version">v1.0 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Go &amp; Messaging</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Selbstgehosteter <strong>Unified Messaging Hub</strong> &amp; Echtzeit-Broker in Go 1.22. Sichere Bündelung von E-Mail (IMAP/SMTP TLS), WhatsApp und Discord ohne Drittanbieter-Relays, mit In-Memory PubSub-Engine und <strong>Zero-Dummy-Security</strong>.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Self-hosted <strong>Unified Messaging Hub</strong> and real-time communication broker in Go 1.22. Aggregates Email (IMAP/SMTP TLS), WhatsApp, and Discord with zero third-party cloud relays, in-memory PubSub broker, and <strong>Zero-Dummy-Security</strong>.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go 1.22</span>
-          <span class="tag-pill">Unified Messaging</span>
-          <span class="tag-pill">IMAP / SMTP</span>
-          <span class="tag-pill">Discord</span>
-          <span class="tag-pill">WhatsApp</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/omnichannel-hub/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-        </div>
-      </article>
-
-      <!-- 9. search -->
-      <article class="project-card" data-category="desktop web" data-keywords="search meta-search engine privacy security duckduckgo searxng web desktop bm25 indexeddb gtk webkitgtk">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">search</h3>
-            <span class="project-version">v1.2 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Desktop &amp; Web</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Radikal privatsphäre-orientierte Meta-Suchmaschine &amp; Desktop-App (WebKitGTK/Windows). Vollständig lokale BM25-Suche, lokaler IndexedDB-Lesezeichentresor, Null Tracker, keine Profilbildung, CSP Level 3 und Tastatur-Shortcuts.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Radically privacy-first meta-search engine &amp; desktop app (WebKitGTK/Windows). Client-side BM25 search, local IndexedDB bookmark vault, zero trackers, no fingerprinting, full CSP Level 3 headers, and instant keyboard shortcuts.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Privacy</span>
-          <span class="tag-pill">WebKitGTK</span>
-          <span class="tag-pill">BM25</span>
-          <span class="tag-pill">IndexedDB</span>
-          <span class="tag-pill">CSP Level 3</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/search/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Live-Suche</a>
-        </div>
-      </article>
-
-      <!-- 10. wetter-site -->
-      <article class="project-card" data-category="web mobile" data-keywords="wetter weather open-meteo dwd forecast climate radar web mobile android widget fdroid myfdroid pv solar live clock auto refresh">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">wetter-site</h3>
-            <span class="project-version"><a href="https://github.com/benzjeremy/wetter-site/releases/tag/v1.1" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">v1.1 [Pre-Release]</a></span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Web</span>
-            <span class="badge badge-default">Android</span>
-            <span class="badge badge-default">3-Web Trio</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Hyperlokale Wettervorhersage &amp; PV-Solarprognose mit interaktivem Startbildschirm-Widget &amp; Live-Systemuhr. Native Android-App (v1.1 via myfdroid) mit konfigurierbarem Auto-Refresh (15m, 30m, 1h, Aus), 3-Web Ökosystem mit butterweicher Canvas-Telemetrie und direkter Open-Meteo REST-Anbindung ohne Relay-Server.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Hyperlocal weather forecasting &amp; solar PV yield estimation with interactive home screen widget &amp; live system clock. Native Android app (v1.1 via myfdroid) with configurable auto-refresh intervals (15m, 30m, 1h, off), 3-Web ecosystem with smooth Canvas telemetry, and direct Open-Meteo REST integration with zero relay servers.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Android Widget &amp; Live Clock</span>
-          <span class="tag-pill">Auto-Refresh Interval</span>
-          <span class="tag-pill">Open-Meteo Direct</span>
-          <span class="tag-pill">PV-Prognose (5 kWp)</span>
-          <span class="tag-pill">myfdroid</span>
-          <span class="tag-pill">3-Web Trio</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/wetter-site/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-          <a href="https://benzjeremy.github.io/wetter-site/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
-          <a href="https://benzjeremy.github.io/wetter-site/app/" target="_blank" rel="noopener noreferrer" class="btn btn-default">🚀 Live Web-App</a>
-          <a href="https://benzjeremy.github.io/myfdroid/repo/wetter-v1.1.apk" target="_blank" rel="noopener noreferrer" class="btn btn-default">📱 Android APK</a>
-        </div>
-      </article>
-
-      <!-- 11. learn -->
-      <article class="project-card" data-category="mobile desktop" data-keywords="learn code-lernen education go cybersecurity sql csharp astro python php web js coding app mobile android fyne fdroid myfdroid izzyondroid offline-first fachinformatiker prüfung beginner curricula lektionen">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">learn</h3>
-            <span class="project-version"><a href="https://github.com/benzjeremy/learn/releases/tag/v2.1" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">v2.1 [Pre-Release]</a></span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Ausbildungs-Standard</span>
-            <span class="badge badge-default">3-Branch &amp; 3-Web</span>
-            <span class="badge badge-default">Android &amp; Web</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Open-Source Bildungs-Engine nach Fachinformatiker-Standard für Anwendungsentwicklung &amp; Systemintegration. 45 didaktisch fundierte Lektionen &amp; 90 Prüfungsfragen für absolute Programmier-Einsteiger über 9 Kernfächer (Go, Security, SQL, Python, Web, JS, C#, Astro, PHP). Native Android App v2.1 (980 KB) ohne Tracker und interaktives Web-Cockpit.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Open-source education engine following vocational software engineering standards. 45 didactic beginner lessons &amp; 90 examination questions across 9 core subjects (Go, Security, SQL, Python, Web, JS, C#, Astro, PHP) for absolute beginners. Pure native Android app v2.1 (980 KB) with zero trackers and interactive web cockpit.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">45 Lektionen &amp; 9 Fächer</span>
-          <span class="tag-pill">Einsteiger-Didaktik</span>
-          <span class="tag-pill">Native Android v2.1</span>
-          <span class="tag-pill">myfdroid</span>
-          <span class="tag-pill">3-Web Trio</span>
-          <span class="tag-pill">Offline-First</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/learn/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-          <a href="https://benzjeremy.github.io/learn/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
-          <a href="https://benzjeremy.github.io/learn/app/" target="_blank" rel="noopener noreferrer" class="btn btn-default">🚀 Live Web-App</a>
-          <a href="https://benzjeremy.github.io/myfdroid/repo/learn-v2.1.apk" target="_blank" rel="noopener noreferrer" class="btn btn-default">📱 Android APK</a>
-        </div>
-      </article>
 
       <!-- 12. benzstore -->
       <article class="project-card" data-category="desktop mobile web" data-keywords="benzstore appstore package-manager android pc linux windows apk single-binary gpl store feed fdroid zero-jarsigner">
@@ -624,225 +240,21 @@
             Offizieller, einheitlicher AppStore für Android &amp; PC. Schluss mit mühsamer JAR-Signierung: Direkte Bereitstellung von verifizierten Single-Binaries (Linux/Windows) und nativen APKs (Android) mit kryptografischer <strong>SHA-256</strong>-Integritätsprüfung und Version-Picker (Latest oder gezielte Version).
           </p>
         </div>
-        <div data-lang="en">
+        <div data-lang="en" class="visible">
           <p class="project-desc">
             Official unified AppStore for Android &amp; PC. Eliminates jarsigner recompilation overhead: Direct distribution of verified single binaries (Linux/Windows) and native signed APKs (Android) with cryptographic <strong>SHA-256</strong> verification and explicit version picker (Latest or specific release).
           </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go Desktop</span>
-          <span class="tag-pill">Android Native</span>
-          <span class="tag-pill">Single Binary</span>
-          <span class="tag-pill">SHA-256 Integrity</span>
-          <span class="tag-pill">Version Picker</span>
-          <span class="tag-pill">GPL-3.0</span>
         </div>
         <div class="project-links">
           <a href="https://benzjeremy.github.io/benzstore/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
           <div class="install-instructions">
             <span data-lang="de" class="visible">Installation via Go:</span>
-            <span data-lang="en">Install via Go:</span>
+            <span data-lang="en" class="visible">Install via Go:</span>
             <br>
             <code>go install github.com/benzjeremy/benzstore@latest</code>
           </div>
         </div>
       </article>
-
-      <!-- 13. myfdroid -->
-      <article class="project-card" data-category="mobile web" data-keywords="myfdroid fdroid repository android packages apk droid-ify neo-store distribution f-droid open-source learn wetter benzstore">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">myfdroid</h3>
-            <span class="project-version">v1.0 [Pre-Release]</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">F-Droid Repo</span>
-            <span class="badge badge-default">Android &amp; Web</span>
-            <span class="badge badge-default">Zero-Telemetry</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Offizielles F-Droid und Android-Paket-Repository für die freien Open-Source-Anwendungen von Jeremy Benz (wie <strong>learn v2.2</strong>, <strong>Wetter v1.2</strong> und dem neuen <strong>BenzStore v1.0</strong>). Vollständige F-Droid v1 &amp; v2 Index-Integrität, QR-Code-Integration und direkte Einbindung in F-Droid, Droid-ify und Neo Store.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Official F-Droid and Android package repository for Jeremy Benz open-source applications (such as <strong>learn v2.2</strong>, <strong>Weather v1.2</strong>, and the new <strong>BenzStore v1.0</strong>). Full F-Droid v1 &amp; v2 index integrity, 1-click client integration, and support for F-Droid, Droid-ify, and Neo Store.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">F-Droid Repository</span>
-          <span class="tag-pill">Android Distribution</span>
-          <span class="tag-pill">Reproducible Builds</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/myfdroid/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Repository Portal</a>
-          <a href="https://benzjeremy.github.io/myfdroid/wiki/" target="_blank" rel="noopener noreferrer" class="btn btn-default">📖 Web-Wiki</a>
-          <a href="https://benzjeremy.github.io/myfdroid/repo/index-v1.json" target="_blank" rel="noopener noreferrer" class="btn btn-default">📦 index-v1.json</a>
-        </div>
-      </article>
-
-      <!-- 14. benzcloud-server -->
-      <article class="project-card" data-category="desktop web mobile" data-keywords="benzcloud benzcloud-server cloud suite nextcloud mesh vpn nebula dns drive storage go aes-256-gcm">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">benzcloud-server</h3>
-            <span class="project-version"><a href="https://github.com/benzjeremy/benzcloud-server" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">v1.0 [Pre-Release]</a></span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Cloud Suite</span>
-            <span class="badge badge-default">Go &amp; Nebula</span>
-            <span class="badge badge-default">Zero-Telemetry</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Vollautonome, datenschutzfreundliche Cloud-Suite in Go als Open-Source-Alternative zu Nextcloud und Microsoft 365. Slack Nebula Mesh-VPN ohne Router-Portfreigaben, integrierter RFC 1035 DNS-Server, <strong>AES-256-GCM</strong> Dateitresor und nahtlose Plugin-Erweiterbarkeit (Web, Mail, Chat).
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Fully autonomous, privacy-first cloud suite in Go as an open-source alternative to Nextcloud and Microsoft 365. Slack Nebula Mesh-VPN without router port forwarding, embedded RFC 1035 DNS server, <strong>AES-256-GCM</strong> file vault, and modular plugins (Web, Mail, Chat).
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go</span>
-          <span class="tag-pill">Nebula Mesh-VPN</span>
-          <span class="tag-pill">RFC 1035 DNS</span>
-          <span class="tag-pill">AES-256-GCM</span>
-          <span class="tag-pill">Zero-Telemetry</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/benzcloud-server/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-          <a href="https://benzjeremy.github.io/benzcloud-server/app/" target="_blank" rel="noopener noreferrer" class="btn btn-default">🚀 Web-Cockpit</a>
-          <a href="https://raw.githubusercontent.com/benzjeremy/benzstore/content/linux/benzcloud-server/benzcloud-server_1.0" target="_blank" rel="noopener noreferrer" class="btn btn-default">💻 Linux Binary</a>
-          <a href="https://raw.githubusercontent.com/benzjeremy/benzstore/content/android/benzcloud-server/benzcloud-server_1.0.apk" target="_blank" rel="noopener noreferrer" class="btn btn-default">📱 Android APK</a>
-        </div>
-      </article>
-
-      <!-- 15. benzcloud-client -->
-      <article class="project-card" data-category="desktop mobile" data-keywords="benzcloud benzcloud-client mesh vpn client cockpit desktop android pairing qr token launcher go">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">benzcloud-client</h3>
-            <span class="project-version"><a href="https://github.com/benzjeremy/benzcloud-client" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">v1.0 [Pre-Release]</a></span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-warning">🚧 Pre-Release</span>
-            <span class="badge badge-default">Client &amp; Cockpit</span>
-            <span class="badge badge-default">Android &amp; PC</span>
-            <span class="badge badge-default">Zero-Telemetry</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Sicherer Desktop- und Mobile-Client für das BenzCloud-Ökosystem. Automatische Mesh-VPN-Verbindung via 1-Click QR-Code oder 32-Byte Pairing-Token, unentziehbare Mesh-Rechte und zentrales Launcher-Cockpit für Drive, Mail, Chat und Web.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Secure desktop and mobile client for the BenzCloud ecosystem. Automatic mesh VPN connection via 1-click QR code or 32-byte pairing token, immutable mesh privileges, and unified service launcher cockpit for Drive, Mail, Chat, and Web.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Go Desktop</span>
-          <span class="tag-pill">Android Native</span>
-          <span class="tag-pill">QR Pairing</span>
-          <span class="tag-pill">Noise Protocol</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/benzcloud-client/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Website</a>
-          <a href="https://benzjeremy.github.io/benzcloud-client/app/" target="_blank" rel="noopener noreferrer" class="btn btn-default">🚀 Client-Cockpit</a>
-          <a href="https://raw.githubusercontent.com/benzjeremy/benzstore/content/linux/benzcloud-client/benzcloud-client_1.0" target="_blank" rel="noopener noreferrer" class="btn btn-default">💻 Linux Binary</a>
-          <a href="https://raw.githubusercontent.com/benzjeremy/benzstore/content/android/benzcloud-client/benzcloud-client_1.0.apk" target="_blank" rel="noopener noreferrer" class="btn btn-default">📱 Android APK</a>
-        </div>
-      </article>
-
-      <!-- 16. binchrii -->
-      <article class="project-card" data-category="community" data-keywords="binchrii twitch streamer community hub creator showcase anime gaming">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">binchrii</h3>
-            <span class="project-version">Hub</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-default">Community</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Offizieller Web-Hub und interaktives Portal für die Streamerin und Content-Creatorin <strong>binchrii</strong>. Integrierter Twitch-Status, Community-Links, Events und maßgeschneidertes Design.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Official community portal and web hub for Twitch streamer and content creator <strong>binchrii</strong>. Live broadcast indicators, event schedules, community socials, and custom aesthetics.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Community</span>
-          <span class="tag-pill">Twitch API</span>
-          <span class="tag-pill">Responsive</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/binchrii/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Community Hub</a>
-        </div>
-      </article>
-
-      <!-- 15. itsbenzo-tv -->
-      <article class="project-card" data-category="community" data-keywords="itsbenzo itsbenzo-tv streaming twitch vods community live gaming">
-        <div class="project-card-header">
-          <div class="project-title-group">
-            <h3 class="project-title">itsbenzo-tv</h3>
-            <span class="project-version">Hub</span>
-          </div>
-          <div class="project-badges">
-            <span class="badge badge-default">Community</span>
-          </div>
-        </div>
-        <div data-lang="de" class="visible">
-          <p class="project-desc">
-            Streaming- und Entertainment-Portal für <strong>itsbenzo-tv</strong>. Live-Stream Status, Highlight-Clips, Social-Feed Aggregation und interaktive Community-Features ohne Drittanbieter-Tracker.
-          </p>
-        </div>
-        <div data-lang="en">
-          <p class="project-desc">
-            Streaming and entertainment portal for <strong>itsbenzo-tv</strong>. Live broadcast detection, curated highlight clips, unified social links, and interactive community features with zero tracking.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag-pill">Streaming</span>
-          <span class="tag-pill">Twitch Status</span>
-          <span class="tag-pill">Zero Ads</span>
-          <span class="tag-pill">GPL-3.0</span>
-        </div>
-        <div class="project-links">
-          <a href="https://benzjeremy.github.io/itsbenzo-tv/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">🌐 Community Hub</a>
-        </div>
-      </article>
-
-      <!-- Empty State -->
-      <div id="emptyState" class="empty-box" style="display: none;">
-        <h3>
-          <span data-lang="de" class="visible">Keine Projekte gefunden</span>
-          <span data-lang="en">No projects found</span>
-        </h3>
-        <p>
-          <span data-lang="de" class="visible">Für deine aktuellen Filterkriterien oder Suchbegriffe gibt es keine Treffer.</span>
-          <span data-lang="en">No projects matched your search query or selected filter.</span>
-        </p>
-        <button type="button" class="btn btn-default" onclick="resetSearch()" style="margin-top: 10px;">
-          <span data-lang="de" class="visible">Filter zurücksetzen</span>
-          <span data-lang="en">Reset Filters</span>
-        </button>
-      </div>
 
     </div>
 
@@ -852,9 +264,9 @@
   <footer class="footer">
     <div class="container">
       <div>
-        <span>© 2026 Jeremy Benz (@benzjeremy) · 
+        <span>© 2026 Jeremy Benz (@benzjeremy) ·
           <span data-lang="de" class="visible">Nordrhein-Westfalen, Deutschland</span>
-          <span data-lang="en">North Rhine-Westphalia, Germany</span>
+          <span data-lang="en" class="visible">North Rhine-Westphalia, Germany</span>
         </span>
       </div>
       <ul class="footer-links">
