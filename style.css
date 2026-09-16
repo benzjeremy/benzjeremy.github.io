@@ -954,7 +954,7 @@ div[data-lang].visible { display: block; }
     order: 3;
   }
   .navbar-nav {
-    display: none;
+    display: none; /* hidden by default, shown when .open is added */
     flex-direction: column;
     width: 100%;
     margin-top: 12px;
@@ -962,6 +962,7 @@ div[data-lang].visible { display: block; }
     border-top: 1px solid var(--border-color);
     gap: 6px;
   }
+  /* When the hamburger button toggles the menu, show the list */
   .navbar-nav.open {
     display: flex;
   }
