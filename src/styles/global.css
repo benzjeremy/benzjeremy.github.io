@@ -188,12 +188,19 @@ html[lang="en"] [data-lang="de"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s, border-color 0.15s;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 
 .ctrl-btn:hover {
   background: var(--bg-soft);
   border-color: var(--border-strong);
+  color: var(--accent);
+}
+
+.ctrl-btn.icon-btn {
+  padding: 0;
+  width: 42px;
 }
 
 /* Buttons */
