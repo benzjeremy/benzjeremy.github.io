@@ -192,12 +192,18 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Other Projects & Showcases -->
+  <!-- Untis Go Showcase & Wiki -->
   <url>
-    <loc>https://benzjeremy.github.io/untis_go/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://benzjeremy.github.io/untis-go/</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benzjeremy.github.io/untis-go/wiki/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://benzjeremy.github.io/spotify-screensaver/</loc>
