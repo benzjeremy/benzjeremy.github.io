@@ -1,0 +1,195 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  titleDe: string;
+  titleEn: string;
+  descriptionDe?: string;
+  descriptionEn?: string;
+  currentPath?: string;
+}
+
+const {
+  titleDe,
+  titleEn,
+  descriptionDe = 'Offene, native Werkzeuge für Desktop, Android und das Web von Jeremy Benz.',
+  descriptionEn = 'Open, native tools for desktop, Android and web by Jeremy Benz.',
+  currentPath = '/'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <title data-title-de={titleDe} data-title-en={titleEn}>{titleDe}</title>
+  
+  <meta name="description" content={descriptionDe} data-desc-de={descriptionDe} data-desc-en={descriptionEn} />
+  <meta name="author" content="Jeremy Benz" />
+  <meta property="og:title" content={titleDe} />
+  <meta property="og:description" content={descriptionDe} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Jeremy Benz" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%232563eb'/><text x='50%' y='55%' text-anchor='middle' dominant-baseline='middle' fill='white' font-family='system-ui, sans-serif' font-weight='800' font-size='48'>jb.</text></svg>" />
+
+  <!-- Zero-FOUC Theme & Language Init -->
+  <script is:inline>
+    (function() {
+      try {
+        const storedTheme = localStorage.getItem('site_theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = storedTheme || (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+
+        const storedLang = localStorage.getItem('site_lang');
+        const browserLang = (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'de';
+        const lang = storedLang || browserLang;
+        document.documentElement.setAttribute('lang', lang);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">
+    <span data-lang="de">Zum Inhalt springen</span>
+    <span data-lang="en">Skip to main content</span>
+  </a>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <span class="monogram">jb.</span>
+        <span>Jeremy Benz</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigation">
+        <a href="/" class:list={['nav-link', { active: currentPath === '/' }]}>
+          <span data-lang="de">Start</span>
+          <span data-lang="en">Home</span>
+        </a>
+        <a href="/about" class:list={['nav-link', { active: currentPath === '/about' }]}>
+          <span data-lang="de">Über mich</span>
+          <span data-lang="en">About</span>
+        </a>
+        <a href="/kontakt" class:list={['nav-link', { active: currentPath === '/kontakt' }]}>
+          <span data-lang="de">Kontakt</span>
+          <span data-lang="en">Contact</span>
+        </a>
+        <a href="/status" class:list={['nav-link', { active: currentPath === '/status' }]}>
+          <span data-lang="de">Projekte</span>
+          <span data-lang="en">Projects</span>
+        </a>
+        <a href="/dashboard/" class="nav-link" target="_blank" rel="noopener">
+          <span data-lang="de">Dashboard ↗</span>
+          <span data-lang="en">Dashboard ↗</span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="langToggle" class="ctrl-btn" aria-label="Switch Language">
+          <span class="lang-label">EN</span>
+        </button>
+        <button id="themeToggle" class="ctrl-btn" aria-label="Toggle Theme">
+          <span class="theme-icon">◐</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          Jeremy Benz
+          <span>
+            <span data-lang="de">Software aus NRW · Frei & offen entwickelt</span>
+            <span data-lang="en">Software from Germany · Free & open source</span>
+          </span>
+        </div>
+        <div class="footer-links">
+          <a href="/kontakt">
+            <span data-lang="de">Kontakt</span>
+            <span data-lang="en">Contact</span>
+          </a>
+          <a href="/impressum">
+            <span data-lang="de">Impressum</span>
+            <span data-lang="en">Legal Notice</span>
+          </a>
+          <a href="/datenschutz">
+            <span data-lang="de">Datenschutz</span>
+            <span data-lang="en">Privacy Policy</span>
+          </a>
+          <a href="https://github.com/benzjeremy" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Jeremy Benz</span>
+        <a href="/about#ki">
+          <span data-lang="de">KI-generiert · Konzept & Verantwortung: Jeremy Benz</span>
+          <span data-lang="en">AI-generated · Concept & responsibility: Jeremy Benz</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline>
+    // Theme & Language Controller
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeBtn = document.getElementById('themeToggle');
+      const langBtn = document.getElementById('langToggle');
+      const langLabel = langBtn?.querySelector('.lang-label');
+
+      function updateLangUI() {
+        const cur = document.documentElement.getAttribute('lang') || 'de';
+        if (langLabel) {
+          langLabel.textContent = cur === 'de' ? 'EN' : 'DE';
+        }
+        const titleEl = document.querySelector('title');
+        if (titleEl) {
+          const t = cur === 'de' ? titleEl.getAttribute('data-title-de') : titleEl.getAttribute('data-title-en');
+          if (t) titleEl.textContent = t;
+        }
+      }
+
+      langBtn?.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('lang') || 'de';
+        const next = cur === 'de' ? 'en' : 'de';
+        document.documentElement.setAttribute('lang', next);
+        localStorage.setItem('site_lang', next);
+        updateLangUI();
+      });
+
+      themeBtn?.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = cur === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('site_theme', next);
+      });
+
+      updateLangUI();
+
+      // Copy buttons handler
+      document.querySelectorAll('[data-copy]').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const text = btn.getAttribute('data-copy');
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            const orig = btn.innerHTML;
+            btn.innerHTML = '✓ Kopiert / Copied';
+            setTimeout(() => { btn.innerHTML = orig; }, 2000);
+          } catch(e) {}
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="404 — Seite nicht gefunden / Page Not Found — Jeremy Benz"
+  description="Die angeforderte Ressource existiert nicht / The requested resource could not be found."
+  currentPath="/404"
+>
+  <div class="error-container">
+    <div class="error-code">404</div>
+    
+    <div class="lang-block lang-de">
+      <h1 class="error-title">Ressource nicht auffindbar</h1>
+      <p class="error-desc">
+        Der angeforderte Endpunkt existiert auf diesem Cluster nicht oder wurde im Rahmen des 2026-Refactorings verschoben.
+      </p>
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">Zur Startseite</a>
+        <a href="/status" class="btn btn-secondary">Projektkatalog ansehen</a>
+      </div>
+    </div>
+
+    <div class="lang-block lang-en">
+      <h1 class="error-title">Resource Not Found</h1>
+      <p class="error-desc">
+        The requested endpoint does not exist on this cluster or was relocated during the 2026 platform architecture refactor.
+      </p>
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">Back to Home</a>
+        <a href="/status" class="btn btn-secondary">Browse Project Directory</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .error-container {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .error-code {
+    font-size: clamp(5rem, 15vw, 9rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--accent);
+    opacity: 0.9;
+    margin-bottom: var(--space-4);
+  }
+
+  .error-title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+  }
+
+  .error-desc {
+    max-width: 520px;
+    margin: 0 auto var(--space-8);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: var(--text-base);
+  }
+
+  .error-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    min-height: 48px;
+    transition: all var(--transition-base);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+    border: 1px solid var(--accent);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: var(--surface-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    background: var(--surface-elevated);
+    border-color: var(--border-color-strong);
+  }
+
+  /* Language toggle */
+  html[lang="de"] .lang-en {
+    display: none;
+  }
+  html[lang="en"] .lang-de {
+    display: none;
+  }
+</style>

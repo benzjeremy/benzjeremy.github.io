@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    name: 'untis-go',
+    titleDe: 'WebUntis auf dem Desktop',
+    titleEn: 'WebUntis on your desktop',
+    descDe: 'Schneller, ressourcenschonender Stundenplan-Client in Go mit WebKitGTK und Zero-Telemetry.',
+    descEn: 'Fast, lightweight WebUntis timetable client in Go with WebKitGTK and zero telemetry.',
+    category: 'Desktop',
+    link: '/untis-go/',
+    icon: '/assets/untis-go.png'
+  },
+  {
+    name: 'docklite',
+    titleDe: 'Docker-Container übersichtlich verwalten',
+    titleEn: 'Manage Docker containers cleanly',
+    descDe: 'Moderne BubbleTea-TUI und Web-Dashboard zur intuitiven Steuerung von Docker-Containern.',
+    descEn: 'Modern BubbleTea TUI and web dashboard for intuitive Docker container management.',
+    category: 'Desktop',
+    link: '/docklite/',
+    icon: '/assets/docklite.svg'
+  },
+  {
+    name: 'spotify-screensaver',
+    titleDe: 'Die aktuelle Musik im Mittelpunkt',
+    titleEn: 'Put your current music front & centre',
+    descDe: 'Minimalistischer Now-Playing Screensaver mit direkter Linux MPRIS D-Bus und Spotify Anbindung.',
+    descEn: 'Minimalist now-playing screensaver with native Linux MPRIS D-Bus & Spotify integration.',
+    category: 'Desktop',
+    link: '/spotify-screensaver/',
+    icon: '/assets/spotify.png'
+  },
+  {
+    name: 'benzstore',
+    titleDe: 'Ein Ort für alle Apps',
+    titleEn: 'One place for all apps',
+    descDe: 'Das offizielle App-Portal für Linux-Binaries, Android-APKs und Dokumentation.',
+    descEn: 'The official app store for Linux binaries, Android APKs, and documentation.',
+    category: 'Web',
+    link: '/benzstore/',
+    icon: '/assets/benzstore.png'
+  },
+  {
+    name: 'learn',
+    titleDe: 'Interaktive Lernplattform',
+    titleEn: 'Interactive learning platform',
+    descDe: 'Strukturierte Lerneinheiten für Webstandards, Go, Linux und barrierefreie Software.',
+    descEn: 'Structured learning modules for web standards, Go, Linux and accessible software.',
+    category: 'Web',
+    link: '/learn/',
+    icon: ''
+  },
+  {
+    name: 'search',
+    titleDe: 'Lokale & datenschutzfreundliche Suche',
+    titleEn: 'Local & privacy-first search',
+    descDe: 'Schneller Indexer ohne Tracker, Cookies oder Profilbildung.',
+    descEn: 'Fast search indexer without tracking, cookies, or profiling.',
+    category: 'Web',
+    link: '/search/',
+    icon: ''
+  },
+  {
+    name: 'wetter-site',
+    titleDe: 'Wetter-Station & Telemetrie',
+    titleEn: 'Weather station & telemetry',
+    descDe: 'Echtzeit-Wettervorhersage und Umweltdaten auf Basis offener Wettermodelle.',
+    descEn: 'Real-time weather forecast and environmental telemetry based on open models.',
+    category: 'Web',
+    link: '/wetter-site/',
+    icon: ''
+  },
+  {
+    name: 'myfdroid',
+    titleDe: 'F-Droid APK Repository',
+    titleEn: 'F-Droid APK repository',
+    descDe: 'Sicheres, signiertes Paket-Repository für Android-Geräte ohne Google Play Services.',
+    descEn: 'Secure, signed package repository for Android devices without Google Play Services.',
+    category: 'Android',
+    link: '/myfdroid/',
+    icon: ''
+  }
+];
+---
+
+<Layout 
+  titleDe="Gute Software für deinen Alltag · Jeremy Benz"
+  titleEn="Useful software for your everyday · Jeremy Benz"
+  currentPath="/"
+>
+  <!-- Hero Section -->
+  <section class="container hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Jeremy Benz / Open Source</p>
+      <h1>
+        <span data-lang="de">Gute Software.<br/>Für deinen Alltag.</span>
+        <span data-lang="en">Useful software.<br/>For your everyday.</span>
+      </h1>
+      <div class="lead">
+        <p data-lang="de">Ich entwickle offene Werkzeuge für Desktop, Android und das Web. Mit Go, einem Blick fürs Wesentliche und der Freiheit, selbst weiterzubauen.</p>
+        <p data-lang="en">I build open tools for desktop, Android and the web. With Go, a focus on what matters and the freedom to make them your own.</p>
+      </div>
+      <div class="actions">
+        <a href="/benzstore/" class="button primary">
+          <span data-lang="de">BenzStore entdecken</span>
+          <span data-lang="en">Explore BenzStore</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a href="#projekte" class="button secondary">
+          <span data-lang="de">Projekte ansehen</span>
+          <span data-lang="en">Browse projects</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="JB Software Index">
+      <div class="hero-visual-top">
+        <span>JB / SOFTWARE</span>
+        <span>2026</span>
+      </div>
+      <div class="hero-visual-center">
+        Build.<br/>Use.<br/><em>Share.</em>
+      </div>
+      <div class="hero-visual-bottom">
+        <span>Go · Android · Web</span>
+        <span aria-hidden="true">↓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles Section -->
+  <section class="container principles-section" aria-label="Prinzipien / Principles">
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="principle-num">01</div>
+        <h2>
+          <span data-lang="de">Offene Quellen</span>
+          <span data-lang="en">Open Source</span>
+        </h2>
+        <p data-lang="de">Nachlesen, verstehen und verändern. Der Code gehört zur Idee. Alle Repositories stehen unter anerkannten Open-Source-Lizenzen (GPL-3.0).</p>
+        <p data-lang="en">Read, understand and modify. Code is part of the concept. All repositories are published under open-source licences (GPL-3.0).</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">02</div>
+        <h2>
+          <span data-lang="de">Bewusst schlank</span>
+          <span data-lang="en">Considered Software</span>
+        </h2>
+        <p data-lang="de">Klare Aufgaben, minimale Abhängigkeiten und native Bibliotheken statt schwerfälligen Electron-Containern.</p>
+        <p data-lang="en">Clear purpose, minimal dependencies and native libraries instead of bloated Electron runtimes.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">03</div>
+        <h2>
+          <span data-lang="de">Daten unter Kontrolle</span>
+          <span data-lang="en">Control Over Data</span>
+        </h2>
+        <p data-lang="de">Lokale Datenhaltung, zero Telemetrie und keine Third-Party-Tracker. Ihre Daten bleiben ausnahmslos auf Ihrem Gerät.</p>
+        <p data-lang="en">Local-first data storage, zero telemetry and no third-party tracking. Your data stays strictly on your machine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BenzStore Spotlight Banner -->
+  <section class="store-banner">
+    <div class="container store-grid">
+      <div class="store-mark-box" aria-hidden="true">
+        B
+      </div>
+      <div class="store-content">
+        <p class="eyebrow">BenzStore Spotlight</p>
+        <h2>
+          <span data-lang="de">Ein Ort für alle meine Apps.</span>
+          <span data-lang="en">One place for all my apps.</span>
+        </h2>
+        <p data-lang="de">Entdecke alle Desktop- und Mobil-Anwendungen an einem zentralen Ort. Mit verifizierten Binaries, Release-Notes und direkten Installationsanleitungen.</p>
+        <p data-lang="en">Discover all desktop and mobile apps in one single place. Complete with verified binaries, release notes and installation guides.</p>
+        <a href="/benzstore/" class="button primary">
+          <span data-lang="de">Zum BenzStore</span>
+          <span data-lang="en">Visit BenzStore</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects List Section -->
+  <section class="container projects-section" id="projekte">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">
+          <span data-lang="de">Aus der Werkstatt</span>
+          <span data-lang="en">From the workshop</span>
+        </p>
+        <h2>
+          <span data-lang="de">Ein Blick in die Projekte.</span>
+          <span data-lang="en">A look at the projects.</span>
+        </h2>
+      </div>
+      <a href="/status" class="section-link">
+        <span data-lang="de">Alle Projekte im Katalog →</span>
+        <span data-lang="en">Browse complete catalog →</span>
+      </a>
+    </div>
+
+    <div class="projects-list">
+      {projects.map((p) => (
+        <a href={p.link} class="project-row" data-category={p.category}>
+          <div class="project-icon">
+            {p.icon ? (
+              <img src={p.icon} alt={p.name} loading="lazy" />
+            ) : (
+              <span>{p.name.slice(0, 2).toUpperCase()}</span>
+            )}
+          </div>
+          <div class="project-info">
+            <h3>
+              {p.name}
+              <span aria-hidden="true">↗</span>
+            </h3>
+            <p data-lang="de">{p.descDe}</p>
+            <p data-lang="en">{p.descEn}</p>
+          </div>
+          <span class="project-tag">{p.category}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="closing-banner">
+    <div class="container closing-inner">
+      <h2>
+        <span data-lang="de">Eine Idee. Eine Frage.<br/>Ein guter Anfang.</span>
+        <span data-lang="en">An idea. A question.<br/>A good place to start.</span>
+      </h2>
+      <a href="/kontakt" class="button secondary">
+        <span data-lang="de">Lass uns sprechen ↗</span>
+        <span data-lang="en">Get in touch ↗</span>
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  titleDe="Über mich · Jeremy Benz"
+  titleEn="About me · Jeremy Benz"
+  currentPath="/about"
+>
+  <div class="container">
+    <div class="page-intro">
+      <p class="eyebrow">
+        <span data-lang="de">Biografie & Handwerk</span>
+        <span data-lang="en">Biography & Craft</span>
+      </p>
+      <h1>
+        <span data-lang="de">Wer hier baut.</span>
+        <span data-lang="en">Who is building here.</span>
+      </h1>
+      <p class="lead">
+        <span data-lang="de">Mein Name ist Jeremy Benz. Ich bin 17 Jahre alt, lebe in Freudenberg (Nordrhein-Westfalen) und entwickle Werkzeuge, die den digitalen Alltag spürbar leichter, schneller und privater machen.</span>
+        <span data-lang="en">My name is Jeremy Benz. I am 17 years old, based in Freudenberg (North Rhine-Westphalia, Germany), building software designed to make daily computing faster, lighter, and private.</span>
+      </p>
+    </div>
+
+    <div class="subpage-content">
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">Philosophie: Radikal nativer Code</span>
+          <span data-lang="en">Philosophy: Radically native code</span>
+        </h2>
+        <p data-lang="de">
+          In einer Welt, in der einfache Notiz-Apps gigantische Electron-Laufzeiten mitschleppen und hunderte Megabyte RAM beanspruchen, setze ich auf radikale Ressourcendisziplin. Meine Desktop-Programme entstehen in <strong>Go</strong> und nutzen schlanke native WebKitGTK- bzw. Plattform-Engines. Das Ergebnis: Subsekunden-Startzeiten, minimaler Speicherverbrauch und maximale Akkulaufzeit auf Laptops.
+        </p>
+        <p data-lang="en">
+          In an era where simple apps bundle full Chromium runtimes and consume hundreds of megabytes of RAM, I build with resource discipline. My desktop software is built in <strong>Go</strong> using lightweight native WebKitGTK and platform webviews. The result: sub-second startups, minimal RAM footprints, and superior battery life.
+        </p>
+      </section>
+
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">Zero-Dummy-Security & Datenschutz</span>
+          <span data-lang="en">Zero-Dummy-Security & Privacy</span>
+        </h2>
+        <p data-lang="de">
+          Sicherheit darf keine Attrappe sein. Wo Passwörter oder Tokens verarbeitet werden, kommen standardmäßig <strong>PBKDF2 mit mindestens 100.000 Iterationen</strong>, <strong>AES-256-GCM</strong> und kryptografisch sichere 32-Byte Tokens zum Einsatz. Es gibt keine Pseudo-Verschlüsselung und keine versteckten Telemetrie-Schnittstellen.
+        </p>
+        <p data-lang="en">
+          Security cannot be simulated. Whenever passwords or credentials are handled, production-grade <strong>PBKDF2 with 100,000+ iterations</strong>, <strong>AES-256-GCM</strong>, and cryptographically secure 32-byte tokens are used. Zero mock encryption, zero hidden telemetry endpoints.
+        </p>
+      </section>
+
+      <section class="content-section" id="ki">
+        <h2>
+          <span data-lang="de">KI-generiert. Menschlich verantwortet.</span>
+          <span data-lang="en">AI-generated. Human responsibility.</span>
+        </h2>
+        <p data-lang="de">
+          Diese Webauftritte und Teile der Software wurden unter Zuhilfenahme moderner KI-Agenten (wie J.A.R.V.I.S. / Antigravity) konzipiert, programmiert und geprüft. Sämtliche architektonische Entscheidungen, Tests und die rechtliche Verantwortung liegen zu 100% bei mir als Person. Wir leben Transparenz statt Schein-Autorenschaft.
+        </p>
+        <p data-lang="en">
+          These web presence pages and portions of the software were designed, implemented and verified with the support of modern AI agents (like J.A.R.V.I.S. / Antigravity). All architectural decisions, testing and full legal responsibility rest 100% with me personally. We practice genuine transparency.
+        </p>
+      </section>
+
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">Offen weiterbauen</span>
+          <span data-lang="en">Open collaboration</span>
+        </h2>
+        <p data-lang="de">
+          Quellcode und Lizenzbedingungen findest du frei zugänglich in den jeweiligen GitHub-Repositories. Hinweise, Fehlerberichte und Pull Requests sind stets willkommen.
+        </p>
+        <p data-lang="en">
+          Source code and licence terms are openly available in the respective GitHub repositories. Feedback, issue reports and pull requests are always welcome.
+        </p>
+        <a href="https://github.com/benzjeremy" class="button primary" target="_blank" rel="noopener">
+          <span data-lang="de">Zu den Repositories auf GitHub ↗</span>
+          <span data-lang="en">Visit GitHub Repositories ↗</span>
+        </a>
+      </section>
+    </div>
+  </div>
+</Layout>
