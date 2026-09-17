@@ -2,278 +2,371 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout
-  title="Datenschutzerklärung / Privacy Policy — Jeremy Benz"
-  description="Datenschutzerklärung nach DSGVO / General Data Protection Regulation (GDPR) compliance for Jeremy Benz web platforms."
+<Layout 
+  titleDe="Datenschutz · Jeremy Benz"
+  titleEn="Privacy · Jeremy Benz"
   currentPath="/datenschutz"
 >
-  <div class="legal-container">
-    <div class="legal-header">
-      <div class="eyebrow" data-i18n="legal.privacy.eyebrow">DATENSCHUTZ & PRIVATSPHÄRE</div>
-      <h1 data-i18n="legal.privacy.title">Datenschutzerklärung</h1>
-      <p class="subtitle" data-i18n="legal.privacy.subtitle">
-        Informationen über die Verarbeitung personenbezogener Daten gemäß DSGVO / Information on the processing of personal data according to the GDPR.
+  <div class="container">
+    <header class="page-intro">
+      <p class="eyebrow">
+        <span data-lang="de">Datenschutz & Transparenz (DSGVO / TDDDG)</span>
+        <span data-lang="en">Privacy Notice & Compliance (GDPR / TDDDG)</span>
       </p>
-    </div>
+      <h1>
+        <span data-lang="de">Deine Daten. Klar erklärt.</span>
+        <span data-lang="en">Your data. Clearly explained.</span>
+      </h1>
+      <p class="lead">
+        <span data-lang="de">Datenschutzerklärung für diese Webplattform und die zugehörigen Open-Source-Showcases. Stand: 18. September 2026.</span>
+        <span data-lang="en">Privacy notice for this web platform and associated open-source showcases. Status: 18 September 2026.</span>
+      </p>
+    </header>
 
-    <!-- GERMAN SECTION -->
-    <div class="lang-block lang-de">
-      <section class="legal-section">
-        <h2>1. Allgemeine Hinweise & Grundsatz</h2>
-        <p>
-          Der Schutz Ihrer persönlichen Daten ist mir ein besonderes Anliegen. Ich behandle Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften (DSGVO, TDDDG) sowie dieser Datenschutzerklärung.
-        </p>
-        <div class="privacy-highlight">
-          <strong>Grundsatz der Datensparsamkeit:</strong> Auf diesem Webserver und meinen Open-Source-Showcases werden <em>keinerlei Tracking-Cookies, keine Analyse-Dienste Dritter (wie Google Analytics), keine Werbenetzwerke und keine externen CDN-Skripte</em> eingesetzt. Alle Schriften und Assets werden lokal ausgeliefert.
+    <div class="subpage-content legal-flow">
+      <!-- Highlight Banner -->
+      <div class="legal-highlight-card">
+        <div class="highlight-badge">
+          <span data-lang="de">Grundsatz der Datensparsamkeit</span>
+          <span data-lang="en">Data Minimization Principle</span>
         </div>
-      </section>
+        <p data-lang="de">
+          Diese Website verzichtet vollständig auf Tracking-Cookies, Drittanbieter-Analysedienste (wie Google Analytics), Werbenetzwerke und externe CDN-Skripte. Alle Schriften, Icons und Medien werden lokal ausgeliefert.
+        </p>
+        <p data-lang="en">
+          This website operates completely free of tracking cookies, third-party analytics (such as Google Analytics), ad networks, and external CDN scripts. All typography, icons, and media are served strictly from local origin.
+        </p>
+      </div>
 
-      <section class="legal-section">
-        <h2>2. Verantwortliche Stelle</h2>
-        <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
-        <div class="contact-box">
+      <!-- 1. Verantwortlicher und Geltungsbereich -->
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">1. Verantwortlicher und Geltungsbereich</span>
+          <span data-lang="en">1. Controller and Scope</span>
+        </h2>
+        <div class="legal-address-card">
           <p><strong>Jeremy Benz</strong></p>
-          <p>Rimbergstraße 57</p>
-          <p>57258 Freudenberg, Deutschland</p>
-          <p>E-Mail: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a></p>
+          <p>Rimbergstr. 57</p>
+          <p>57258 Freudenberg</p>
+          <p>
+            <span data-lang="de">Nordrhein-Westfalen, Deutschland</span>
+            <span data-lang="en">North Rhine-Westphalia, Germany</span>
+          </p>
+          <p class="legal-contact-links">
+            <span>E-Mail: <a href="mailto:benzjeremy@pm.me" class="email-link">benzjeremy@pm.me</a></span>
+            <span class="sep">·</span>
+            <span>
+              <span data-lang="de">KI-Assistent:</span>
+              <span data-lang="en">AI Assistant:</span>
+              <a href="mailto:jarvis.ai.benzjeremy@gmail.com" class="email-link">jarvis.ai.benzjeremy@gmail.com</a>
+            </span>
+          </p>
         </div>
+        <p data-lang="de">
+          Diese Erklärung gilt für diese zentrale Portfolio-Website einschließlich Kontakt, Über mich und Projektverzeichnis. Verlinkte Web-Apps und eigenständige Showcase-Repositories können spezifische Funktionen und ergänzende Datenschutzhinweise aufweisen.
+        </p>
+        <p data-lang="en">
+          This notice applies to this central portfolio website including contact, about, and project catalog views. Linked web applications and standalone showcase repositories may implement distinct functional scopes and supplemental privacy notices.
+        </p>
       </section>
 
-      <section class="legal-section">
-        <h2>3. Erfassung von Daten beim Besuch dieser Website</h2>
-        <h3>Server-Log-Dateien</h3>
-        <p>
-          Beim Aufruf dieser Website erfasst der Webserver (Caddy) automatisiert technische Informationen in sogenannten Server-Log-Dateien. Dies sind:
+      <!-- 2. Hosting & Technische Server-Logs -->
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">2. Hosting & Technische Server-Logs</span>
+          <span data-lang="en">2. Server Hosting & Technical Logs</span>
+        </h2>
+        <p data-lang="de">
+          Beim Aufruf dieser Plattform verarbeitet der Webserver automatisiert technische Verbindungsdaten (HTTP Server-Logs), die Ihr Browser übermittelt:
         </p>
-        <ul>
-          <li>IP-Adresse des anfragenden Geräts (anonymisiert bzw. gekürzt zur Missbrauchsprävention)</li>
-          <li>Datum und Uhrzeit der Serveranfrage</li>
-          <li>Aufgerufene URL / Pfad</li>
-          <li>HTTP-Statuscode und übertragene Datenmenge</li>
-          <li>Referrer-URL (die zuvor besuchte Seite, sofern vom Browser übermittelt)</li>
-          <li>Browsertyp und Browserversion / Betriebssystem (User-Agent)</li>
+        <p data-lang="en">
+          When accessing this platform, the web server automatically records technical connection data (HTTP server logs) transmitted by your client browser:
+        </p>
+        <ul class="legal-list">
+          <li>
+            <span data-lang="de">IP-Adresse des anfragenden Geräts (zur Missbrauchsprävention gekürzt bzw. anonymisiert)</span>
+            <span data-lang="en">IP address of the requesting client (truncated/anonymized for security and abuse prevention)</span>
+          </li>
+          <li>
+            <span data-lang="de">Datum und Uhrzeit der Serveranfrage</span>
+            <span data-lang="en">Timestamp and date of the server request</span>
+          </li>
+          <li>
+            <span data-lang="de">Aufgerufener Pfad / URL-Ressource</span>
+            <span data-lang="en">Requested URL path / web resource</span>
+          </li>
+          <li>
+            <span data-lang="de">HTTP-Statuscode und übertragene Datenmenge</span>
+            <span data-lang="en">HTTP status code and transferred payload size</span>
+          </li>
+          <li>
+            <span data-lang="de">Referrer-URL (die zuvor besuchte Seite, sofern vom Browser übermittelt)</span>
+            <span data-lang="en">Referrer URL (previously visited resource, if provided by the client)</span>
+          </li>
+          <li>
+            <span data-lang="de">Browsertyp, Version und Betriebssystem (User-Agent)</span>
+            <span data-lang="en">Browser engine, version string, and client operating system (User-Agent)</span>
+          </li>
         </ul>
-        <p>
-          <strong>Rechtsgrundlage:</strong> Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis meines berechtigten Interesses an der technischen Stabilität, Sicherheit und Fehleranalyse des Servers. Eine Zusammenführung dieser Daten mit anderen Datenquellen oder eine Profilerstellung findet nicht statt. Die Logs werden nach 14 Tagen automatisiert gelöscht.
+        <p data-lang="de">
+          <strong>Rechtsgrundlage:</strong> Die Verarbeitung erfolgt gemäß <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> auf Basis meines berechtigten Interesses an der Stabilität, Angriffserkennung, Fehlersuche und Betriebssicherheit der Server-Infrastruktur. Es findet keine Zusammenführung mit anderen Datenquellen oder Profilbildung statt. Server-Logs werden nach maximal 14 Tagen automatisiert gelöscht.
+        </p>
+        <p data-lang="en">
+          <strong>Legal Basis:</strong> Processing is conducted pursuant to <strong>Art. 6(1)(f) GDPR</strong> based on legitimate interest in ensuring operational resilience, intrusion forensics, and technical stability. Server logs are never correlated with secondary data profiles and are purged automatically within 14 days.
         </p>
       </section>
 
-      <section class="legal-section">
-        <h2>4. Kontaktaufnahme</h2>
-        <p>
-          Wenn Sie mir per E-Mail oder über ein Formular Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei mir gespeichert.
+      <!-- 3. Sprache, Farbschema und lokaler Speicher -->
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">3. Sprache, Farbschema und lokaler Speicher (§ 25 Abs. 2 Nr. 2 TDDDG)</span>
+          <span data-lang="en">3. Language, Colour Scheme & Local Storage (§ 25(2) No. 2 TDDDG)</span>
+        </h2>
+        <p data-lang="de">
+          Diese Website verwendet <strong>keine Tracking-Cookies</strong> und keine Werbe-Identifikatoren. Wenn Sie auf der Seite eine Sprache (DE/EN) oder ein Farbschema (Dunkel/Hell) auswählen, wird diese Auswahl unter <code>site_lang</code> bzw. <code>site_theme</code> im <code>localStorage</code> Ihres Webbrowsers abgelegt.
         </p>
-        <p>
-          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen/Vertrag) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihrer Anfrage). Diese Daten gebe ich selbstverständlich niemals ohne Ihre Einwilligung weiter.
+        <p data-lang="en">
+          This website utilizes <strong>zero tracking cookies</strong> and zero advertising identifiers. When you explicitly switch language (DE/EN) or theme mode (Dark/Light), your preference is persisted under <code>site_lang</code> or <code>site_theme</code> inside your browser’s <code>localStorage</code>.
+        </p>
+        <p data-lang="de">
+          Diese Speicherung ist technisch erforderlich, um die von Ihnen ausdrücklich angeforderte Darstellungsform bei Seitenwechseln beizubehalten (Rechtsgrundlage: <strong>§ 25 Abs. 2 Nr. 2 TDDDG</strong>). Die Daten verbleiben ausschließlich auf Ihrem Endgerät und werden zu keinem Zeitpunkt an den Server übertragen. Über den Button „Einstellungen zurücksetzen“ im Footer oder das Löschen Ihrer Browserdaten können die Einträge jederzeit entfernt werden.
+        </p>
+        <p data-lang="en">
+          This storage is strictly necessary to provide the display settings explicitly requested by the user across navigation steps (statutory basis: <strong>§ 25(2) No. 2 TDDDG</strong>). Stored preferences reside solely on your client hardware and are never transmitted to our servers. You may purge them at any time via the "Reset preferences" button in the footer or by clearing your browser cache.
         </p>
       </section>
 
-      <section class="legal-section">
-        <h2>5. Externe Dienste & Quellcode-Hosting</h2>
-        <p>
-          Auf dieser Website befinden sich Links zu externen Plattformen, insbesondere <strong>GitHub</strong> (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
+      <!-- 4. Kontakt per E-Mail -->
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">4. Kontakt per E-Mail & Kommunikation</span>
+          <span data-lang="en">4. Email Correspondence & Communication</span>
+        </h2>
+        <p data-lang="de">
+          Wenn Sie mir per E-Mail schreiben, werden Absenderadresse, Nachrichteninhalt, übermittelte Anhänge sowie technische Metadaten zwecks Bearbeitung Ihres Anliegens verarbeitet.
         </p>
-        <p>
-          Erst wenn Sie einen externen Link anklicken, verlassen Sie diese Website und werden direkt auf die Server des jeweiligen Anbieters weitergeleitet. Dort gelten die jeweiligen Datenschutzbestimmungen des Anbieters.
+        <p data-lang="en">
+          When sending inquiries by email, your sender address, message payload, attachments, and transmission metadata are processed to respond to your request.
+        </p>
+        <p data-lang="de">
+          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (sofern Ihre Anfrage der Vorbereitung oder Erfüllung eines Vertrags dient) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sachgerechten Beantwortung von Anfragen).
+        </p>
+        <p data-lang="en">
+          <strong>Legal Basis:</strong> Art. 6(1)(b) GDPR (if correspondence concerns pre-contractual matters or fulfillment) or Art. 6(1)(f) GDPR (legitimate interest in processing correspondence).
+        </p>
+        <p data-lang="de">
+          Die persönliche Adresse nutzt Proton Mail mit Serverstandort in der Schweiz (Angemessenheitsbeschluss der EU-Kommission nach Art. 45 DSGVO). Nachrichten werden gelöscht, sobald der jeweilige Sachverhalt abschließend geklärt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+        </p>
+        <p data-lang="en">
+          Personal correspondence routes through Proton Mail with server facilities in Switzerland (EU Commission adequacy decision pursuant to Art. 45 GDPR). Correspondence records are expunged once inquiries have been resolved and no statutory archiving duties apply.
         </p>
       </section>
 
-      <section class="legal-section">
-        <h2>6. Ihre Rechte als betroffene Person</h2>
-        <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit folgende Rechte:</p>
-        <ul>
-          <li><strong>Auskunftsrecht (Art. 15 DSGVO):</strong> Auskunft über Ihre von mir verarbeiteten personenbezogenen Daten.</li>
-          <li><strong>Berichtigungsrecht (Art. 16 DSGVO):</strong> Berichtigung unrichtiger oder Vervollständigung Ihrer Daten.</li>
-          <li><strong>Löschungsrecht (Art. 17 DSGVO):</strong> Löschung Ihrer bei mir gespeicherten Daten, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</li>
-          <li><strong>Einschränkung der Verarbeitung (Art. 18 DSGVO):</strong> Einschränkung der Datenverarbeitung unter den gesetzlichen Voraussetzungen.</li>
-          <li><strong>Datenübertragbarkeit (Art. 20 DSGVO):</strong> Erhalt Ihrer Daten in einem strukturierten, gängigen und maschinenlesbaren Format.</li>
-          <li><strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Widerspruch gegen die Verarbeitung Ihrer Daten, die auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO erfolgt.</li>
-          <li><strong>Beschwerderecht:</strong> Beschwerderecht bei der zuständigen Datenschutzaufsichtsbehörde (z. B. Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, LDI NRW).</li>
+      <!-- 5. Kommunikation mit dem KI-Assistenten -->
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">5. Kommunikation mit dem KI-Assistenten (J.A.R.V.I.S.)</span>
+          <span data-lang="en">5. Communication with the AI Assistant (J.A.R.V.I.S.)</span>
+        </h2>
+        <p data-lang="de">
+          Die E-Mail-Adresse <code>jarvis.ai.benzjeremy@gmail.com</code> ist ein ausdrücklich als automatisierter KI-Kontakt gekennzeichneter Kommunikationskanal. Eingehende Nachrichten an diese Adresse werden automatisiert durch das Assistenzsystem verarbeitet und beantwortet.
+        </p>
+        <p data-lang="en">
+          The email address <code>jarvis.ai.benzjeremy@gmail.com</code> is explicitly designated as an automated AI assistant contact channel. Incoming messages addressed to this inbox are processed and answered automatically by the assistant engine.
+        </p>
+        <p data-lang="de">
+          <strong>Wichtiger Hinweis:</strong> Bitte senden Sie niemals Passwörter, Zugangsdaten, Gesundheitsdaten oder sonstige vertrauliche Unterlagen an diesen Kontakt. Für vertrauliche oder datenschutzrechtliche Belange nutzen Sie bitte ausschließlich die persönliche Adresse <code>benzjeremy@pm.me</code>.
+        </p>
+        <p data-lang="en">
+          <strong>Security Notice:</strong> Please do not submit passwords, authentication credentials, medical records, or confidential proprietary materials to this automated recipient. For confidential inquiries or statutory rights, use only the personal address <code>benzjeremy@pm.me</code>.
+        </p>
+        <p data-lang="de">
+          Der bloße Besuch dieser Website übermittelt keine Eingaben an ein KI-Modell. Eine E-Mail an den KI-Kontakt stellt keine pauschale Einwilligung in ein weitergehendes Modell-Training dar.
+        </p>
+        <p data-lang="en">
+          Visiting this website does not transmit user data to any AI model. Sending correspondence to the AI inbox does not constitute consent for secondary model training.
+        </p>
+      </section>
+
+      <!-- 6. Externe Dienste & Quellcode-Hosting (GitHub) -->
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">6. Externe Dienste & Repositories (GitHub)</span>
+          <span data-lang="en">6. External Services & Source Repositories (GitHub)</span>
+        </h2>
+        <p data-lang="de">
+          Diese Website enthält Hyperlinks zu externen Repositories auf <strong>GitHub</strong> (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Erst wenn Sie einen solchen Link aktiv anklicken, wird eine Verbindung zu den Servern von GitHub aufgebaut.
+        </p>
+        <p data-lang="en">
+          This platform provides hyperlinks to public software repositories hosted on <strong>GitHub</strong> (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). External connections are established only upon active user interaction.
+        </p>
+        <p data-lang="de">
+          GitHub ist unter dem <strong>EU-U.S. Data Privacy Framework (DPF)</strong> zertifiziert, wodurch ein angemessenes Datenschutzniveau nach Art. 45 DSGVO gewährleistet wird. Nähere Informationen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener" class="text-link">Datenschutzerklärung von GitHub ↗</a>.
+        </p>
+        <p data-lang="en">
+          GitHub is certified under the <strong>EU-U.S. Data Privacy Framework (DPF)</strong>, ensuring an adequate level of data protection pursuant to Art. 45 GDPR. For details, review the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener" class="text-link">GitHub Privacy Statement ↗</a>.
+        </p>
+      </section>
+
+      <!-- 7. Rechte der betroffenen Person -->
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">7. Deine Rechte als betroffene Person (Art. 15–21 DSGVO)</span>
+          <span data-lang="en">7. Your Statutory Rights as a Data Subject (Arts. 15–21 GDPR)</span>
+        </h2>
+        <p data-lang="de">
+          Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen der Datenschutz-Grundverordnung jederzeit das Recht auf:
+        </p>
+        <p data-lang="en">
+          Under the General Data Protection Regulation, you are entitled to exercise the following rights at any time:
+        </p>
+        <ul class="legal-list">
+          <li>
+            <strong><span data-lang="de">Auskunft (Art. 15 DSGVO):</span><span data-lang="en">Right of Access (Art. 15 GDPR):</span></strong>
+            <span data-lang="de">Sie können Auskunft über Ihre von mir verarbeiteten personenbezogenen Daten verlangen.</span>
+            <span data-lang="en">You may request confirmation and detailed insight into personal data stored about you.</span>
+          </li>
+          <li>
+            <strong><span data-lang="de">Berichtigung (Art. 16 DSGVO):</span><span data-lang="en">Right to Rectification (Art. 16 GDPR):</span></strong>
+            <span data-lang="de">Sie haben das Recht auf Berichtigung unrichtiger oder Vervollständigung Ihrer Daten.</span>
+            <span data-lang="en">You are entitled to have inaccurate or incomplete personal records rectified.</span>
+          </li>
+          <li>
+            <strong><span data-lang="de">Löschung (Art. 17 DSGVO):</span><span data-lang="en">Right to Erasure (Art. 17 GDPR):</span></strong>
+            <span data-lang="de">Sie können die Löschung Ihrer Daten verlangen, sofern keine gesetzlichen Aufbewahrungsfristen entgegenstehen.</span>
+            <span data-lang="en">You may demand the deletion of your data where statutory retention obligations do not apply.</span>
+          </li>
+          <li>
+            <strong><span data-lang="de">Einschränkung der Verarbeitung (Art. 18 DSGVO):</span><span data-lang="en">Restriction of Processing (Art. 18 GDPR):</span></strong>
+            <span data-lang="de">Sie können die Einschränkung der Verarbeitung verlangen, solange etwaige Streitigkeiten geklärt werden.</span>
+            <span data-lang="en">You may request the suspension of data processing under statutory preconditions.</span>
+          </li>
+          <li>
+            <strong><span data-lang="de">Datenübertragbarkeit (Art. 20 DSGVO):</span><span data-lang="en">Data Portability (Art. 20 GDPR):</span></strong>
+            <span data-lang="de">Sie können Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format erhalten.</span>
+            <span data-lang="en">You are entitled to receive your data in a structured, machine-readable format.</span>
+          </li>
+          <li>
+            <strong><span data-lang="de">Widerspruchsrecht (Art. 21 DSGVO):</span><span data-lang="en">Right to Object (Art. 21 GDPR):</span></strong>
+            <span data-lang="de">Erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigte Interessen), haben Sie das Recht, jederzeit aus Gründen Ihrer besonderen Situation Widerspruch einzulegen.</span>
+            <span data-lang="en">Where processing relies upon Art. 6(1)(f) GDPR (legitimate interests), you possess the right to object at any time on grounds relating to your particular situation.</span>
+          </li>
         </ul>
-      </section>
-    </div>
-
-    <!-- ENGLISH SECTION -->
-    <div class="lang-block lang-en">
-      <section class="legal-section">
-        <h2>1. General Information & Core Principles</h2>
-        <p>
-          Protecting your personal data is an essential concern to me. I treat your personal data confidentially and strictly in accordance with statutory data protection regulations (GDPR) and this privacy policy.
+        <p data-lang="de">
+          Zur Ausübung Ihrer Rechte genügt eine formlose E-Mail an <a href="mailto:benzjeremy@pm.me" class="email-link">benzjeremy@pm.me</a>.
         </p>
-        <div class="privacy-highlight">
-          <strong>Data Minimization Principle:</strong> This web server and all associated open-source showcases employ <em>zero tracking cookies, zero third-party analytics (like Google Analytics), zero ad networks, and zero external CDN script dependencies</em>. All fonts and assets are hosted locally.
+        <p data-lang="en">
+          To exercise your statutory rights, a message to <a href="mailto:benzjeremy@pm.me" class="email-link">benzjeremy@pm.me</a> is sufficient.
+        </p>
+      </section>
+
+      <!-- 8. Beschwerderecht bei der Aufsichtsbehörde -->
+      <section class="content-section">
+        <h2>
+          <span data-lang="de">8. Beschwerderecht bei der zuständigen Aufsichtsbehörde (Art. 77 DSGVO)</span>
+          <span data-lang="en">8. Right to Lodge a Complaint with a Supervisory Authority (Art. 77 GDPR)</span>
+        </h2>
+        <p data-lang="de">
+          Unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs steht Ihnen das Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde zu, insbesondere in dem Mitgliedstaat Ihres gewöhnlichen Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes.
+        </p>
+        <p data-lang="en">
+          Without prejudice to any other administrative or judicial remedy, you have the right to lodge a complaint with a data protection supervisory authority, in particular in the Member State of your habitual residence, place of work, or place of the alleged infringement.
+        </p>
+        <div class="legal-address-card">
+          <p><strong><span data-lang="de">Zuständige Aufsichtsbehörde für Nordrhein-Westfalen:</span><span data-lang="en">Competent Supervisory Authority for North Rhine-Westphalia:</span></strong></p>
+          <p>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</p>
+          <p>Kavalleriestraße 2–4, 40213 Düsseldorf, Deutschland</p>
+          <p>Website: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener" class="text-link">https://www.ldi.nrw.de ↗</a></p>
         </div>
-      </section>
-
-      <section class="legal-section">
-        <h2>2. Data Controller</h2>
-        <p>Responsible for data processing on this platform:</p>
-        <div class="contact-box">
-          <p><strong>Jeremy Benz</strong></p>
-          <p>Rimbergstrasse 57</p>
-          <p>57258 Freudenberg, Germany</p>
-          <p>Email: <a href="mailto:benzjeremy@pm.me">benzjeremy@pm.me</a></p>
-        </div>
-      </section>
-
-      <section class="legal-section">
-        <h2>3. Data Collection When Visiting This Website</h2>
-        <h3>Server Log Files</h3>
-        <p>
-          When you access this website, the web server (Caddy) automatically records technical information in server log files:
-        </p>
-        <ul>
-          <li>IP address of the requesting device (truncated/anonymized for security and abuse prevention)</li>
-          <li>Date and timestamp of the server request</li>
-          <li>Requested URL / resource path</li>
-          <li>HTTP status code and transferred payload size</li>
-          <li>Referrer URL (if supplied by your client)</li>
-          <li>Browser type, user agent string, and client operating system</li>
-        </ul>
-        <p>
-          <strong>Legal Basis:</strong> Processing is conducted in accordance with Art. 6(1)(f) GDPR based on legitimate interest in ensuring server stability, technical resilience, and incident forensics. This data is not merged with other sources nor utilized for profiling. Log files are purged automatically after 14 days.
-        </p>
-      </section>
-
-      <section class="legal-section">
-        <h2>4. Direct Inquiries</h2>
-        <p>
-          If you send inquiries via email or direct contact channels, your message and details are retained solely for the purpose of processing your request and addressing follow-up communications.
-        </p>
-        <p>
-          <strong>Legal Basis:</strong> Art. 6(1)(b) GDPR (pre-contractual/contractual fulfillment) or Art. 6(1)(f) GDPR (legitimate interest in processing correspondence). Your contact details are never shared with third parties.
-        </p>
-      </section>
-
-      <section class="legal-section">
-        <h2>5. External Services & Source Repositories</h2>
-        <p>
-          This website references external repositories hosted on <strong>GitHub</strong> (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
-        </p>
-        <p>
-          External links require conscious user navigation. Upon clicking an outbound link, you are redirected to the third-party infrastructure where their respective privacy policies apply.
-        </p>
-      </section>
-
-      <section class="legal-section">
-        <h2>6. Your Statutory Rights</h2>
-        <p>Under the GDPR, you are entitled to exercise the following rights at any time:</p>
-        <ul>
-          <li><strong>Right of Access (Art. 15 GDPR):</strong> Comprehensive insight into stored personal data.</li>
-          <li><strong>Right to Rectification (Art. 16 GDPR):</strong> Correction of inaccurate or incomplete records.</li>
-          <li><strong>Right to Erasure (Art. 17 GDPR):</strong> Immediate deletion where legal retention mandates do not apply.</li>
-          <li><strong>Right to Restrict Processing (Art. 18 GDPR):</strong> Suspension of data processing under statutory criteria.</li>
-          <li><strong>Right to Data Portability (Art. 20 GDPR):</strong> Provision of your data in a structured, machine-readable format.</li>
-          <li><strong>Right to Object (Art. 21 GDPR):</strong> Right to contest processing founded on Art. 6(1)(f) GDPR.</li>
-          <li><strong>Right to Lodge a Complaint:</strong> Right to contact the competent data protection supervisory authority (e.g., LDI NRW).</li>
-        </ul>
       </section>
     </div>
   </div>
 </Layout>
 
 <style>
-  .legal-container {
+  .legal-flow {
     max-width: 820px;
-    margin: 0 auto;
-    padding: var(--space-8) var(--space-4);
   }
 
-  .legal-header {
-    margin-bottom: var(--space-10);
-    padding-bottom: var(--space-6);
-    border-bottom: 1px solid var(--border-color);
+  .legal-highlight-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--accent);
+    padding: 24px 28px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: 48px;
   }
 
-  .eyebrow {
-    font-size: var(--text-xs);
+  .highlight-badge {
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--accent);
-    margin-bottom: var(--space-2);
+    margin-bottom: 10px;
   }
 
-  .legal-header h1 {
-    font-size: var(--text-3xl);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-3);
+  .legal-highlight-card p {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin: 0;
   }
 
-  .subtitle {
+  .legal-address-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    margin: 16px 0 24px;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .legal-address-card p {
+    margin-bottom: 4px;
+    color: var(--text-main);
+  }
+
+  .legal-contact-links {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+
+  .sep {
+    color: var(--text-subtle);
+  }
+
+  .legal-list {
+    margin: 16px 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .legal-list li {
     color: var(--text-muted);
-    font-size: var(--text-base);
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: 1.02rem;
   }
 
-  .legal-section {
-    margin-bottom: var(--space-10);
+  .legal-list li strong {
+    color: var(--text-main);
   }
 
-  .legal-section h2 {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    margin-bottom: var(--space-3);
-    color: var(--text-primary);
-  }
-
-  .legal-section h3 {
-    font-size: var(--text-lg);
-    font-weight: 600;
-    margin: var(--space-4) 0 var(--space-2);
-    color: var(--text-primary);
-  }
-
-  .legal-section p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: var(--space-3);
-  }
-
-  .legal-section ul {
-    margin: var(--space-3) 0 var(--space-4) var(--space-5);
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  .legal-section li {
-    margin-bottom: var(--space-2);
-  }
-
-  .privacy-highlight {
-    background: var(--surface-card);
-    border: 1px solid var(--border-color);
-    border-left: 3px solid var(--accent);
-    padding: var(--space-4) var(--space-5);
-    border-radius: var(--radius-sm);
-    color: var(--text-primary);
-    line-height: 1.6;
-    margin: var(--space-4) 0;
-  }
-
-  .contact-box {
-    background: var(--surface-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    padding: var(--space-5);
-    margin-top: var(--space-3);
-  }
-
-  .contact-box p {
-    margin-bottom: var(--space-1);
-    color: var(--text-primary);
-  }
-
-  .contact-box a {
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--bg-soft);
     color: var(--accent);
-    text-decoration: underline;
-  }
-
-  /* Language block toggle */
-  html[lang="de"] .lang-en {
-    display: none;
-  }
-  html[lang="en"] .lang-de {
-    display: none;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
   }
 </style>
