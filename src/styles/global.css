@@ -139,16 +139,12 @@ html[lang="en"] [data-lang="de"] {
   letter-spacing: -0.03em;
 }
 
-.monogram {
+.monogram, .brand-logo {
   width: 36px;
   height: 36px;
-  border-radius: 10px;
-  background: var(--accent);
-  color: var(--accent-ink);
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  font-size: 0.95rem;
+  border-radius: 9px;
+  object-fit: cover;
+  display: block;
 }
 
 .nav-links {
@@ -624,18 +620,19 @@ html[lang="en"] [data-lang="de"] {
   gap: 36px;
 }
 .profile-avatar-wrap {
-  width: 128px;
-  height: 128px;
+  width: 120px;
+  height: 120px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: 28px;
   overflow: hidden;
-  border: 3px solid var(--accent);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--border-subtle);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
 }
 .profile-avatar-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 @media (max-width: 640px) {
   .profile-intro {
