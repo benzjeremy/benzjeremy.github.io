@@ -35,6 +35,23 @@ const stats = [
   { val: 'TUI + Web', labelDe: 'Oberfläche', labelEn: 'Interface' }
 ];
 
+const latestDownloads = [
+  {
+    os: 'linux' as const,
+    labelDe: 'Linux x86_64 (Tarball)',
+    labelEn: 'Linux x86_64 (Tarball)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/docklite/docklite/releases/download/v1.2.1/docklite-v1.2.1-linux-amd64.tar.gz',
+    filename: 'docklite-v1.2.1-linux-amd64.tar.gz'
+  },
+  {
+    os: 'windows' as const,
+    labelDe: 'Windows x64 (ZIP)',
+    labelEn: 'Windows x64 (ZIP)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/docklite/docklite/releases/download/v1.2.1/docklite-v1.2.1-windows-amd64.zip',
+    filename: 'docklite-v1.2.1-windows-amd64.zip'
+  }
+];
+
 const techPills = ['Go 1.22', 'Docker Engine API', 'BubbleTea', 'Astro', 'SQLite', 'WebSockets', 'Linux'];
 ---
 
@@ -51,7 +68,9 @@ const techPills = ['Go 1.22', 'Docker Engine API', 'BubbleTea', 'Astro', 'SQLite
   techPills={techPills}
   stats={stats}
   features={features}
-  quickInstall={{ label: "Go Install", cmd: "go install github.com/benzjeremy/docklite@latest" }}
+  quickInstall={{ label: "Go Install", cmd: "go install pi5.darter-basking.ts.net/gitea/docklite/docklite@latest" }}
+  giteaUrl="https://pi5.darter-basking.ts.net/gitea/docklite/docklite"
+  latestDownloads={latestDownloads}
   downloadUrl="https://pi5.darter-basking.ts.net/gitea/docklite/docklite"
   wikiUrl="/docklite/wiki/"
 />

@@ -35,13 +35,32 @@ const stats = [
   { val: 'GPL-3.0', labelDe: 'Open-Source Lizenz', labelEn: 'Open source license' }
 ];
 
+const latestDownloads = [
+  {
+    os: 'linux' as const,
+    labelDe: 'Linux x86_64 (Tarball)',
+    labelEn: 'Linux x86_64 (Tarball)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go/releases/download/v2.3/untis-go-v2.3-linux.tar.gz',
+    filename: 'untis-go-v2.3-linux.tar.gz',
+    size: '9.8 MB'
+  },
+  {
+    os: 'windows' as const,
+    labelDe: 'Windows x64 (ZIP)',
+    labelEn: 'Windows x64 (ZIP)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go/releases/download/v2.3/untis-go-v2.3-windows.zip',
+    filename: 'untis-go-v2.3-windows.zip',
+    size: '11.4 MB'
+  }
+];
+
 const techPills = ['Go 1.22', 'WebKitGTK', 'SQLite', 'AES-256-GCM', 'PBKDF2', 'Linux', 'Windows', 'Awesome-Go'];
 ---
 
 <ProjectPage
   id="untis-go"
   name="untis-go"
-  version="v2.4"
+  version="v2.3"
   taglineDe="Schneller nativer WebUntis Desktop Client"
   taglineEn="Fast native WebUntis desktop client"
   summaryDe="Der native WebUntis PC-Desktop Client für Linux und Windows in Go & WebKitGTK. Entwickelt für maximale Geschwindigkeit, minimale Ressourcennutzung und absolute Datensouveränität ohne Telemetrie."
@@ -51,7 +70,9 @@ const techPills = ['Go 1.22', 'WebKitGTK', 'SQLite', 'AES-256-GCM', 'PBKDF2', 'L
   techPills={techPills}
   stats={stats}
   features={features}
-  quickInstall={{ label: "Go Install", cmd: "go install github.com/benzjeremy/untis-go@latest" }}
-  downloadUrl="https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go"
+  quickInstall={{ label: "Go Install", cmd: "go install pi5.darter-basking.ts.net/gitea/untis-go/untis-go@latest" }}
+  downloadUrl="https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go/releases/latest"
+  giteaUrl="https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go"
+  latestDownloads={latestDownloads}
   wikiUrl="/untis-go/wiki/"
 />

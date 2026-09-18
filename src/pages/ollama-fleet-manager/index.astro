@@ -35,13 +35,30 @@ const stats = [
   { val: 'OpenAI v1', labelDe: 'API-Kompatibel', labelEn: 'API compatibility' }
 ];
 
+const latestDownloads = [
+  {
+    os: 'linux' as const,
+    labelDe: 'Linux x86_64 (Tarball)',
+    labelEn: 'Linux x86_64 (Tarball)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager/releases/download/v1.0/ollama-fleet-manager-v1.0-linux.tar.gz',
+    filename: 'ollama-fleet-manager-v1.0-linux.tar.gz'
+  },
+  {
+    os: 'windows' as const,
+    labelDe: 'Windows x64 (ZIP)',
+    labelEn: 'Windows x64 (ZIP)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager/releases/download/v1.0/ollama-fleet-manager-v1.0-windows.zip',
+    filename: 'ollama-fleet-manager-v1.0-windows.zip'
+  }
+];
+
 const techPills = ['Go 1.22', 'Ollama API', 'Prometheus Metrics', 'Tailscale WireGuard', 'Linux'];
 ---
 
 <ProjectPage
   id="ollama-fleet-manager"
   name="ollama-fleet-manager"
-  version="v1.2"
+  version="v1.0"
   taglineDe="Intelligenter KI-Modell-Router & OOM-Schutz für Ollama"
   taglineEn="Intelligent LLM model router & OOM protection for Ollama"
   summaryDe="Der intelligente Flotten-Manager für verteilte Ollama-Instanzen. Bietet zuverlässigen VRAM-Schutz gegen Speicherüberläufe, automatische Lastverteilung und ausfallsichere API-Weiterleitung."
@@ -51,6 +68,9 @@ const techPills = ['Go 1.22', 'Ollama API', 'Prometheus Metrics', 'Tailscale Wir
   techPills={techPills}
   stats={stats}
   features={features}
-  quickInstall={{ label: "Go Install", cmd: "go install github.com/benzjeremy/ollama-fleet-manager@latest" }}
+  quickInstall={{ label: "Go Install", cmd: "go install pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager@latest" }}
+  giteaUrl="https://pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager"
+  latestDownloads={latestDownloads}
+  downloadUrl="https://pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager/releases/tag/v1.0"
   wikiUrl="/ollama-fleet-manager/wiki/"
 />

@@ -35,6 +35,23 @@ const stats = [
   { val: '60 FPS', labelDe: 'Bildrate', labelEn: 'Framerate' }
 ];
 
+const latestDownloads = [
+  {
+    os: 'linux' as const,
+    labelDe: 'Linux x86_64 (Tarball)',
+    labelEn: 'Linux x86_64 (Tarball)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver/releases/download/v1.4/spotify-screensaver-v1.4-linux.tar.gz',
+    filename: 'spotify-screensaver-v1.4-linux.tar.gz'
+  },
+  {
+    os: 'windows' as const,
+    labelDe: 'Windows x64 (ZIP)',
+    labelEn: 'Windows x64 (ZIP)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver/releases/download/v1.4/spotify-screensaver-v1.4-windows.zip',
+    filename: 'spotify-screensaver-v1.4-windows.zip'
+  }
+];
+
 const techPills = ['Go 1.22', 'MPRIS D-Bus', 'OpenGL / Canvas', 'Linux Desktop', 'OLED Safe'];
 ---
 
@@ -51,7 +68,9 @@ const techPills = ['Go 1.22', 'MPRIS D-Bus', 'OpenGL / Canvas', 'Linux Desktop',
   techPills={techPills}
   stats={stats}
   features={features}
-  quickInstall={{ label: "Go Install", cmd: "go install github.com/benzjeremy/spotify-screensaver@latest" }}
+  quickInstall={{ label: "Go Install", cmd: "go install pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver@latest" }}
+  giteaUrl="https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver"
+  latestDownloads={latestDownloads}
   downloadUrl="https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver"
   wikiUrl="/spotify-screensaver/wiki/"
 />

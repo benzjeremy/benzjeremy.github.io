@@ -20,6 +20,15 @@ interface QuickInstall {
   cmd: string;
 }
 
+export interface DownloadItem {
+  os: 'linux' | 'windows' | 'android' | 'all' | 'source';
+  labelDe: string;
+  labelEn: string;
+  url: string;
+  filename?: string;
+  size?: string;
+}
+
 interface Props {
   id: string;
   name: string;
@@ -32,11 +41,13 @@ interface Props {
   icon?: string;
   techPills: string[];
   quickInstall?: QuickInstall;
+  latestDownloads?: DownloadItem[];
   stats?: Stat[];
   features: Feature[];
   appUrl?: string;
   docsUrl?: string;
   downloadUrl?: string;
+  giteaUrl?: string;
   wikiUrl?: string;
 }
 
@@ -52,11 +63,13 @@ const {
   icon,
   techPills,
   quickInstall,
+  latestDownloads = [],
   stats = [],
   features,
   appUrl,
   docsUrl,
   downloadUrl,
+  giteaUrl,
   wikiUrl,
 } = Astro.props;
 
@@ -140,6 +153,13 @@ const titleEn = `${name} · ${taglineEn}`;
             <span data-lang="en">Docs & Wiki</span>
           </a>
         )}
+        {giteaUrl && (
+          <a href={giteaUrl} target="_blank" rel="noopener" class="btn-hero btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span data-lang="de">Quellcode (Gitea)</span>
+            <span data-lang="en">Source (Gitea)</span>
+          </a>
+        )}
       </div>
 
       <!-- Quick Install Box -->
@@ -159,6 +179,55 @@ const titleEn = `${name} · ${taglineEn}`;
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               <span>Kopieren</span>
             </button>
+          </div>
+        </div>
+      )}
+
+      <!-- Direct Latest Builds Download Panel -->
+      {latestDownloads && latestDownloads.length > 0 && (
+        <div class="latest-builds-panel">
+          <div class="builds-header">
+            <div class="builds-title-group">
+              <span class="builds-badge">LATEST BUILD</span>
+              <h3 class="builds-title">
+                <span data-lang="de">Direkter Binary-Download ({version})</span>
+                <span data-lang="en">Direct Binary Download ({version})</span>
+              </h3>
+            </div>
+            <p class="builds-sub">
+              <span data-lang="de">Sofort einsatzbereit – ohne Umweg direkt die kompilierten Binaries herunterladen:</span>
+              <span data-lang="en">Ready to use – download compiled binaries directly without detour:</span>
+            </p>
+          </div>
+          <div class="builds-grid">
+            {latestDownloads.map(dl => (
+              <a href={dl.url} class="build-download-card" download>
+                <div class="build-icon">
+                  {dl.os === 'linux' && (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.002 0C5.373 0 0 5.373 0 12s5.373 12 12.002 12c6.627 0 11.998-5.373 11.998-12s-5.371-12-11.998-12zm0 2.182c5.422 0 9.818 4.396 9.818 9.818s-4.396 9.818-9.818 9.818c-5.423 0-9.82-4.396-9.82-9.818 0-5.422 4.397-9.818 9.82-9.818z"/></svg>
+                  )}
+                  {dl.os === 'windows' && (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                  )}
+                  {dl.os === 'android' && (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4111 13.8533 8.0805 12 8.0805s-3.5902.3306-5.1367.8692L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg>
+                  )}
+                  {(dl.os === 'source' || dl.os === 'all') && (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  )}
+                </div>
+                <div class="build-meta">
+                  <div class="build-label">
+                    <span data-lang="de">{dl.labelDe}</span>
+                    <span data-lang="en">{dl.labelEn}</span>
+                  </div>
+                  {dl.filename && <div class="build-filename">{dl.filename} {dl.size && `• ${dl.size}`}</div>}
+                </div>
+                <div class="build-action">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       )}
@@ -460,6 +529,103 @@ const titleEn = `${name} · ${taglineEn}`;
   .copy-btn:hover {
     background: #263750;
     color: #ffffff;
+  }
+
+  /* Latest Builds Download Panel */
+  .latest-builds-panel {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .builds-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .builds-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .builds-badge {
+    font-size: 0.68rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    letter-spacing: 0.05em;
+  }
+  .builds-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-main);
+  }
+  .builds-sub {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .builds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .build-download-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 1.15rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
+  .build-download-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+  }
+  .build-icon {
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .build-meta {
+    flex: 1;
+    min-width: 0;
+  }
+  .build-label {
+    font-weight: 600;
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+  .build-filename {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .build-action {
+    color: var(--text-muted);
+    transition: color 0.15s ease;
+    flex-shrink: 0;
+  }
+  .build-download-card:hover .build-action {
+    color: var(--accent);
   }
 
   /* Stats Strip */

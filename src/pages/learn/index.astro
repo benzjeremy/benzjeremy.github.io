@@ -35,6 +35,30 @@ const stats = [
   { val: 'Web Worker', labelDe: 'Code-Ausführung', labelEn: 'Code execution' }
 ];
 
+const latestDownloads = [
+  {
+    os: 'android' as const,
+    labelDe: 'Android APK',
+    labelEn: 'Android APK',
+    url: 'https://pi5.darter-basking.ts.net/gitea/learn/learn/releases/download/v2.0/learn-v2.0.apk',
+    filename: 'learn-v2.0.apk'
+  },
+  {
+    os: 'linux' as const,
+    labelDe: 'Linux x86_64 (Tarball)',
+    labelEn: 'Linux x86_64 (Tarball)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/learn/learn/releases/download/v2.0/learn-v2.0-linux.tar.gz',
+    filename: 'learn-v2.0-linux.tar.gz'
+  },
+  {
+    os: 'windows' as const,
+    labelDe: 'Windows x64 (ZIP)',
+    labelEn: 'Windows x64 (ZIP)',
+    url: 'https://pi5.darter-basking.ts.net/gitea/learn/learn/releases/download/v2.0/learn-v2.0-windows.zip',
+    filename: 'learn-v2.0-windows.zip'
+  }
+];
+
 const techPills = ['Astro', 'TypeScript', 'Web Workers', 'PrismJS', 'IndexedDB', 'HTML5', 'Go'];
 ---
 
@@ -52,5 +76,8 @@ const techPills = ['Astro', 'TypeScript', 'Web Workers', 'PrismJS', 'IndexedDB',
   stats={stats}
   features={features}
   appUrl="/learn/app/"
+  giteaUrl="https://pi5.darter-basking.ts.net/gitea/learn/learn"
+  latestDownloads={latestDownloads}
+  downloadUrl="https://pi5.darter-basking.ts.net/gitea/learn/learn/releases/tag/v2.0"
   wikiUrl="/learn/wiki/"
 />
