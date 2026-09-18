@@ -4,6 +4,6 @@ export default defineConfig({
   site: 'https://pi5.darter-basking.ts.net',
   output: 'static',
   build: {
-    format: 'file'
+    format: 'directory'
   }
 });

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Private internal routes
+Disallow: /dashboard/
+
+Sitemap: https://pi5.darter-basking.ts.net/sitemap.xml

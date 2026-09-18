@@ -1,0 +1,57 @@
+---
+import ProjectPage from '../../components/ProjectPage.astro';
+
+const features = [
+  {
+    titleDe: 'Hochauflösendes Niederschlagsradar',
+    titleEn: 'High-Resolution Precipitation Radar',
+    descDe: 'Flüssige Radar-Loops mit 1-km-Auflösung auf OpenStreetMap-Basis direkt aus den offenen Daten des Deutschen Wetterdienstes (DWD).',
+    descEn: 'Smooth radar loops with 1 km resolution over OpenStreetMap powered directly by open data from the German Weather Service (DWD).'
+  },
+  {
+    titleDe: 'Solar-Photovoltaik Ertragsprognose',
+    titleEn: 'Solar PV Yield Forecast',
+    descDe: 'Berechnet die voraussichtliche stündliche Stromproduktion Ihrer PV-Anlage anhand von Globalstrahlung, Bewölkung, Neigung und Ausrichtung.',
+    descEn: 'Calculates expected hourly solar electricity yields based on solar irradiance, cloud cover, panel tilt, and compass orientation.'
+  },
+  {
+    titleDe: 'DWD Amtliche Unwetterwarnungen',
+    titleEn: 'Official Severe Weather Warnings',
+    descDe: 'Präzise ortsbezogene Warnmeldungen vor Sturm, Starkregen, Glätte und Gewittern mit klaren Handlungsempfehlungen.',
+    descEn: 'Accurate localized warnings for storms, heavy rainfall, icy roads, and thunderstorms with clear safety instructions.'
+  },
+  {
+    titleDe: 'Native Android App mit Homescreen-Widget',
+    titleEn: 'Native Android App with Homescreen Widget',
+    descDe: 'Schlanke Android-App (in Kotlin & Jetpack Compose), die den aktuellen Wetterstatus und das Radar direkt auf den Startbildschirm bringt.',
+    descEn: 'Lightweight Android app (Kotlin & Jetpack Compose) delivering live weather status and radar straight to your homescreen widget.'
+  }
+];
+
+const stats = [
+  { val: '15 min', labelDe: 'Radar-Aktualisierung', labelEn: 'Radar update interval' },
+  { val: '1 km', labelDe: 'Rasterauflösung', labelEn: 'Grid resolution' },
+  { val: '100%', labelDe: 'Werbefrei & Open Data', labelEn: 'Ad-free & open data' },
+  { val: 'Widget', labelDe: 'Android Integration', labelEn: 'Android widget' }
+];
+
+const techPills = ['DWD OpenData', 'Open-Meteo', 'Leaflet', 'Kotlin Compose', 'Android Widget', 'Go Backend'];
+---
+
+<ProjectPage
+  id="wetter-site"
+  name="wetter-site"
+  version="v2.1"
+  taglineDe="Hyperlokale Wetter-Station & Solar-PV Prognose"
+  taglineEn="Hyper-local weather station & solar PV forecast"
+  summaryDe="Das werbefreie, datenschutzfreundliche Wetterportal mit hochauflösendem Niederschlagsradar, stündlicher Solar-Ertragsprognose und nativer Android-Begleitapp mit Homescreen-Widget."
+  summaryEn="The ad-free, privacy-preserving weather dashboard featuring high-resolution precipitation radar loops, hourly solar energy predictions, and a native Android companion app with widgets."
+  badge="Web & Android"
+  icon="/assets/wetter.png"
+  techPills={techPills}
+  stats={stats}
+  features={features}
+  appUrl="/wetter-site/app/"
+  downloadUrl="/myfdroid/"
+  wikiUrl="/wetter-site/wiki/"
+/>

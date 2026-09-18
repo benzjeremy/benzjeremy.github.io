@@ -1,0 +1,56 @@
+---
+import ProjectPage from '../../components/ProjectPage.astro';
+
+const features = [
+  {
+    titleDe: 'Local-First RAG-Engine über Obsidian Vault',
+    titleEn: 'Local-First RAG Engine over Obsidian Vault',
+    descDe: 'Vektorisiert und indiziert das persönliche Second Brain lokal. Liefert hochpräzise Kontext-Antworten ohne externe API-Kosten oder Datenabfluss.',
+    descEn: 'Embeds and indexes personal Second Brain notes locally. Delivers precise contextual synthesis with zero cloud API fees and zero data leakage.'
+  },
+  {
+    titleDe: 'Autonome Hintergrund-Task-Abarbeitung',
+    titleEn: 'Autonomous Background Task Execution',
+    descDe: 'Führt geplante Heartbeats, Zusammenfassungen, Code-Audits und Markdown-Graph-Pflege vollautomatisch auf lokaler Hardware aus.',
+    descEn: 'Executes scheduled heartbeats, summaries, code audits, and markdown graph hygiene fully autonomously on local compute.'
+  },
+  {
+    titleDe: 'OpenAI-Kompatibler Endpunkt',
+    titleEn: 'OpenAI-Compatible Endpoint',
+    descDe: 'Bietet eine standardkonforme `/v1/chat/completions` Schnittstelle zur nahtlosen Integration in OpenClaw, IDE-Plugins und Browser-Tools.',
+    descEn: 'Serves a standard-compliant `/v1/chat/completions` API enabling drop-in integration with OpenClaw, IDE plugins, and browser extensions.'
+  },
+  {
+    titleDe: 'Strikter Zero-Telemetry Standard',
+    titleEn: 'Strict Zero-Telemetry Standard',
+    descDe: 'Keine Nutzerdaten, Prompts oder Tokens werden an externe Cloud-Anbieter übertragen. 100% DSGVO-konforme Offline-Intelligenz.',
+    descEn: 'Zero user prompts, queries, or generated tokens are transmitted to external providers. 100% GDPR-compliant private AI.'
+  }
+];
+
+const stats = [
+  { val: 'Local-First', labelDe: 'Betriebsmodus', labelEn: 'Execution model' },
+  { val: 'OpenAI v1', labelDe: 'API-Standard', labelEn: 'API standard' },
+  { val: '0 Byte', labelDe: 'Cloud-Leakage', labelEn: 'Cloud leakage' },
+  { val: 'Chroma/SQLite', labelDe: 'Vektorspeicher', labelEn: 'Vector store' }
+];
+
+const techPills = ['Go 1.22', 'Python', 'Ollama API', 'SQLite Vector', 'FastAPI', 'Obsidian Graph', 'Tailscale'];
+---
+
+<ProjectPage
+  id="local-ai-worker"
+  name="local-ai-worker"
+  version="v1.2"
+  taglineDe="Local-First AI Worker & Obsidian RAG Agent"
+  taglineEn="Local-first AI worker & Obsidian RAG agent"
+  summaryDe="Der autonome KI-Agent für das persönliche Second Brain. Führt lokale RAG-Abfragen über Obsidian-Notizen aus, verarbeitet Hintergrund-Aufgaben und stellt eine standardisierte Schnittstelle für lokale LLMs bereit."
+  summaryEn="The autonomous local AI agent for personal Second Brain knowledge bases. Powers local RAG queries over Obsidian notes, processes background maintenance tasks, and provides standard LLM interfaces."
+  badge="AI & Tooling"
+  icon="/assets/jb-logo.png"
+  techPills={techPills}
+  stats={stats}
+  features={features}
+  quickInstall={{ label: "Go Install", cmd: "go install github.com/benzjeremy/local-ai-worker@latest" }}
+  wikiUrl="/local-ai-worker/wiki/"
+/>

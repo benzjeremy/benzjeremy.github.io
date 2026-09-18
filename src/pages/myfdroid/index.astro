@@ -1,0 +1,57 @@
+---
+import ProjectPage from '../../components/ProjectPage.astro';
+
+const features = [
+  {
+    titleDe: 'Offizieller F-Droid Index v1 & v2 Standard',
+    titleEn: 'Official F-Droid Index v1 & v2 Standard',
+    descDe: 'Stellt standardkonforme, kryptografisch signierte Metadaten-Archive (`index-v1.jar`, `index-v2.json`) für alle modernen F-Droid Clients bereit.',
+    descEn: 'Serves standard-compliant, cryptographically signed metadata archives (`index-v1.jar`, `index-v2.json`) for all modern F-Droid clients.'
+  },
+  {
+    titleDe: 'Kryptografische RSA-4096 Signierung',
+    titleEn: 'Cryptographic RSA-4096 Signing',
+    descDe: 'Alle APK-Pakete und Repository-Indizes werden mit einem dedizierten Signaturschlüssel signiert. Vollständiger Fingerprint-Schutz.',
+    descEn: 'All APK packages and repository indices are signed using a dedicated RSA-4096 key ensuring complete fingerprint verification.'
+  },
+  {
+    titleDe: '1-Klick-Einrichtung per QR-Code',
+    titleEn: '1-Click Setup via QR Code',
+    descDe: 'Einfaches Scannen mit der Handykamera fügt das Repository blitzschnell zu F-Droid, Droid-ify oder Neo Store hinzu.',
+    descEn: 'Scan with your smartphone camera to instantly link the repository to F-Droid, Droid-ify, or Neo Store.'
+  },
+  {
+    titleDe: 'Automatisierte Veröffentlichungspipeline',
+    titleEn: 'Automated Release Pipeline',
+    descDe: 'Neue Builds aus den Projekt-Repositories werden automatisch kompiliert, signiert und über die Pi 5 Web-Infrastruktur publiziert.',
+    descEn: 'New builds from project repositories are automatically compiled, signed, and published across the Pi 5 web infrastructure.'
+  }
+];
+
+const stats = [
+  { val: 'RSA 4096', labelDe: 'Signaturschlüssel', labelEn: 'Signing key' },
+  { val: 'v1 + v2', labelDe: 'F-Droid Index-Format', labelEn: 'Index format' },
+  { val: '100%', labelDe: 'Quelloffen', labelEn: 'Open source' },
+  { val: '0 Byte', labelDe: 'Drittanbieter-Tracking', labelEn: 'Third-party tracking' }
+];
+
+const techPills = ['Python build_repo', 'JAR Signing', 'F-Droid Index v2', 'GPG', 'Android Keystore', 'Pi 5 Hosting'];
+---
+
+<ProjectPage
+  id="myfdroid"
+  name="myfdroid"
+  version="v1.2"
+  taglineDe="Offizielles F-Droid Repository für Jeremy Benz Apps"
+  taglineEn="Official F-Droid repository for Jeremy Benz apps"
+  summaryDe="Das kryptografisch signierte F-Droid Software-Repository für Android-Anwendungen aus dem Jeremy Benz Ökosystem (inkl. BenzStore, Wetter-Site). Kompatibel mit allen Standard-F-Droid Clients."
+  summaryEn="The cryptographically signed F-Droid repository hosting Android applications across the Jeremy Benz ecosystem (including BenzStore, Wetter-Site). Compatible with all standard F-Droid clients."
+  badge="Android & Repository"
+  icon="/assets/jb-logo.png"
+  techPills={techPills}
+  stats={stats}
+  features={features}
+  quickInstall={{ label: "Repository URL", cmd: "https://pi5.darter-basking.ts.net/myfdroid/repo" }}
+  downloadUrl="/myfdroid/benzstore-v1.1.apk"
+  wikiUrl="/myfdroid/wiki/"
+/>

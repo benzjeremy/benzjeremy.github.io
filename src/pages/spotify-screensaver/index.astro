@@ -1,0 +1,57 @@
+---
+import ProjectPage from '../../components/ProjectPage.astro';
+
+const features = [
+  {
+    titleDe: 'Natives Linux MPRIS D-Bus Protokoll',
+    titleEn: 'Native Linux MPRIS D-Bus Protocol',
+    descDe: 'Liest Titel, Künstler, Album und Wiedergabestatus latenzfrei über den Standard-Desktop-Bus aus – kompatibel mit Spotify, VLC und MPD.',
+    descEn: 'Reads title, artist, album, and playback status latency-free over the standard desktop bus – compatible with Spotify, VLC, and MPD.'
+  },
+  {
+    titleDe: 'OLED-Burn-In-Schutz mit Dynamic-Drift',
+    titleEn: 'OLED Burn-In Protection with Dynamic Drift',
+    descDe: 'Automatisches, sanftes Pixel-Verschieben verhindert Einbrennen auf modernen OLED-Monitoren und -Fernsehern bei dauerhafter Anzeige.',
+    descEn: 'Subtle automatic pixel drifting prevents panel burn-in on modern OLED monitors and televisions during prolonged playback.'
+  },
+  {
+    titleDe: 'Dynamischer Canvas-Glow & Farbextraktion',
+    titleEn: 'Dynamic Canvas Glow & Color Extraction',
+    descDe: 'Generiert eine stimmungsvolle Hintergrund-Atmosphäre aus den dominanten Farbnuancen des jeweiligen Albumcovers.',
+    descEn: 'Generates an ambient background atmosphere dynamically sampled from the dominant colors of the active album artwork.'
+  },
+  {
+    titleDe: 'Minimale CPU-Auslastung (< 1%)',
+    titleEn: 'Minimal CPU Footprint (< 1%)',
+    descDe: 'Schont Ressourcen und Hardware durch optimierte 60 FPS Canvas-Render-Pipes und intelligentes Aussetzen bei Inaktivität.',
+    descEn: 'Conserves hardware resources via hardware-accelerated 60 FPS canvas rendering with intelligent idle pausing.'
+  }
+];
+
+const stats = [
+  { val: '< 1%', labelDe: 'CPU-Auslastung', labelEn: 'CPU load' },
+  { val: 'OLED-Safe', labelDe: 'Panelschutz', labelEn: 'Panel safety' },
+  { val: '< 15 ms', labelDe: 'MPRIS Latenz', labelEn: 'D-Bus latency' },
+  { val: '60 FPS', labelDe: 'Bildrate', labelEn: 'Framerate' }
+];
+
+const techPills = ['Go 1.22', 'MPRIS D-Bus', 'OpenGL / Canvas', 'Linux Desktop', 'OLED Safe'];
+---
+
+<ProjectPage
+  id="spotify-screensaver"
+  name="spotify-screensaver"
+  version="v1.4"
+  taglineDe="Eleganter Desktop Bildschirmschoner in Go"
+  taglineEn="Elegant desktop screensaver in Go"
+  summaryDe="Der minimalistische, ästhetische Musik-Bildschirmschoner für Linux-Desktops. Zeigt das aktuelle Spotify-Albumcover mit dynamischem Farbschein und schützt OLED-Displays durch intelligente Drift-Mechanismen."
+  summaryEn="The minimalist, aesthetic music screensaver for Linux desktops. Displays active Spotify album art with ambient glow and protects OLED displays using intelligent drift algorithms."
+  badge="Desktop"
+  icon="/assets/spotify.png"
+  techPills={techPills}
+  stats={stats}
+  features={features}
+  quickInstall={{ label: "Go Install", cmd: "go install github.com/benzjeremy/spotify-screensaver@latest" }}
+  downloadUrl="https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver"
+  wikiUrl="/spotify-screensaver/wiki/"
+/>

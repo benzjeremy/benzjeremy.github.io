@@ -1,0 +1,57 @@
+---
+import ProjectPage from '../../components/ProjectPage.astro';
+
+const features = [
+  {
+    titleDe: 'Nativer Pi 5 DDGS Proxy-Backend',
+    titleEn: 'Native Pi 5 DDGS Proxy Backend',
+    descDe: 'Nutzt den auf dem Raspberry Pi 5 installierten `ddgs-proxy` Dienst. Echte DuckDuckGo Web-Suchergebnisse ohne Tracking oder Werbung in unter 850 ms.',
+    descEn: 'Powered by the local `ddgs-proxy` service on the Raspberry Pi 5. Real DuckDuckGo web results without ads or user tracking in under 850 ms.'
+  },
+  {
+    titleDe: 'Clientseitiger Okapi BM25 Index',
+    titleEn: 'Client-Side Okapi BM25 Index',
+    descDe: 'Durchsucht die statische Wissensdatenbank des Jeremy Benz Ökosystems direkt im Browser per hochoptimiertem BM25 Scoring.',
+    descEn: 'Searches the Jeremy Benz ecosystem static knowledge database directly inside your browser via optimized BM25 scoring.'
+  },
+  {
+    titleDe: 'Föderierte Wissensquellen & Instant Answers',
+    titleEn: 'Federated Knowledge Sources & Instant Answers',
+    descDe: 'Kombiniert DuckDuckGo Websuche, Wikipedia Knowledge Panels und technische Dokumentation zu einer übersichtlichen Ergebnisansicht.',
+    descEn: 'Combines DuckDuckGo web hits, Wikipedia knowledge panels, and technical documentation into a cohesive result stream.'
+  },
+  {
+    titleDe: 'Verschlüsselter Lesezeichentresor (IndexedDB)',
+    titleEn: 'Encrypted Bookmark Vault (IndexedDB)',
+    descDe: 'Gefundene Links und Notizen können lokal und privat im Browser gespeichert werden. Enthält einen automatischen URL-Tracking-Sanitizer.',
+    descEn: 'Save bookmarks and search notes securely inside your local browser storage. Includes an automatic URL tracking parameter cleaner.'
+  }
+];
+
+const stats = [
+  { val: '< 850 ms', labelDe: 'Antwortzeit', labelEn: 'Response time' },
+  { val: '0%', labelDe: 'Tracking & Cookies', labelEn: 'Tracking & cookies' },
+  { val: 'DDGS', labelDe: 'Backend Proxy', labelEn: 'Backend proxy' },
+  { val: 'BM25', labelDe: 'Lokaler Ranking-Index', labelEn: 'Local ranking index' }
+];
+
+const techPills = ['Python ddgs', 'FastAPI', 'Okapi BM25', 'IndexedDB', 'Vanilla JS', 'Pi 5 Microservice'];
+---
+
+<ProjectPage
+  id="search"
+  name="search"
+  version="v1.4"
+  taglineDe="Offene Web- & Ökosystem-Suchmaschine"
+  taglineEn="Open web & ecosystem search engine"
+  summaryDe="Die ultra-schnelle, privacy-orientierte Suchmaschine ohne Tracking. Ausgestattet mit einem nativen DDGS-Proxy auf dem Raspberry Pi 5, clientseitigem BM25-Index und automatischem URL-Tracking-Filter."
+  summaryEn="The ultra-fast, privacy-oriented search engine without tracking. Equipped with a native DDGS proxy on the Raspberry Pi 5, client-side BM25 index, and automated URL tracking sanitization."
+  badge="Web & Service"
+  icon="/assets/search.png"
+  techPills={techPills}
+  stats={stats}
+  features={features}
+  appUrl="/search/"
+  quickInstall={{ label: "API Query", cmd: "curl -s 'https://pi5.darter-basking.ts.net/api/search?q=Jeremy+Benz'" }}
+  wikiUrl="/search/wiki/"
+/>

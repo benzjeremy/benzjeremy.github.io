@@ -1,0 +1,57 @@
+---
+import ProjectPage from '../../components/ProjectPage.astro';
+
+const features = [
+  {
+    titleDe: 'Natives WebKitGTK Frontend & Go Core',
+    titleEn: 'Native WebKitGTK Frontend & Go Core',
+    descDe: 'Verbraucht im laufenden Betrieb ca. 25 MB Arbeitsspeicher – ein Bruchteil gängiger Electron-Anwendungen. Blitzschneller Kaltstart in unter 150 ms.',
+    descEn: 'Consumes only ~25 MB of RAM during operation – a fraction of Electron bloatware. Blazing fast cold start in under 150 ms.'
+  },
+  {
+    titleDe: 'AES-256-GCM Session-Tresor',
+    titleEn: 'AES-256-GCM Session Vault',
+    descDe: 'Zugangsdaten und Session-Tokens werden mit modernster Authenticated Encryption und PBKDF2 (100.000 Runden) auf der lokalen Festplatte verschlüsselt.',
+    descEn: 'Credentials and session tokens are encrypted locally using state-of-the-art Authenticated Encryption and PBKDF2 (100,000 iterations).'
+  },
+  {
+    titleDe: '100% Offline-Fähig & Local-First',
+    titleEn: '100% Offline-Capable & Local-First',
+    descDe: 'Stundenpläne, Vertretungen und Räume werden in einer lokalen SQLite-Datenbank zwischengespeichert. Voller Zugriff auch bei Netzausfall.',
+    descEn: 'Timetables, substitutions, and rooms are cached in a local SQLite database. Full instant access even without internet connectivity.'
+  },
+  {
+    titleDe: 'Awesome-Go Gelistet & Peer-Reviewed',
+    titleEn: 'Awesome-Go Listed & Peer-Reviewed',
+    descDe: 'Erfüllt die strengen Codequalitäts- und Dokumentationskriterien der weltweiten Awesome-Go Community. 100% quelloffen unter GNU GPL-3.0.',
+    descEn: 'Meets the rigorous code quality and documentation standards of the global Awesome-Go community. 100% open source under GNU GPL-3.0.'
+  }
+];
+
+const stats = [
+  { val: '~25 MB', labelDe: 'RAM-Verbrauch', labelEn: 'Memory footprint' },
+  { val: '< 150 ms', labelDe: 'Kaltstart-Latenz', labelEn: 'Cold start latency' },
+  { val: 'AES-256', labelDe: 'Session-Tresor', labelEn: 'Session encryption' },
+  { val: 'GPL-3.0', labelDe: 'Open-Source Lizenz', labelEn: 'Open source license' }
+];
+
+const techPills = ['Go 1.22', 'WebKitGTK', 'SQLite', 'AES-256-GCM', 'PBKDF2', 'Linux', 'Windows', 'Awesome-Go'];
+---
+
+<ProjectPage
+  id="untis-go"
+  name="untis-go"
+  version="v2.4"
+  taglineDe="Schneller nativer WebUntis Desktop Client"
+  taglineEn="Fast native WebUntis desktop client"
+  summaryDe="Der native WebUntis PC-Desktop Client für Linux und Windows in Go & WebKitGTK. Entwickelt für maximale Geschwindigkeit, minimale Ressourcennutzung und absolute Datensouveränität ohne Telemetrie."
+  summaryEn="The native WebUntis PC desktop client for Linux and Windows written in Go & WebKitGTK. Engineered for high performance, minimal memory footprint, and complete privacy with zero telemetry."
+  badge="Desktop"
+  icon="/assets/untis-go.png"
+  techPills={techPills}
+  stats={stats}
+  features={features}
+  quickInstall={{ label: "Go Install", cmd: "go install github.com/benzjeremy/untis-go@latest" }}
+  downloadUrl="https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go"
+  wikiUrl="/untis-go/wiki/"
+/>
