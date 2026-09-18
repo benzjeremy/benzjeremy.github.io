@@ -33,14 +33,14 @@ const projects = [
     icon: '/assets/spotify.png'
   },
   {
-    name: 'benzstore',
-    titleDe: 'Ein Ort für alle Apps',
-    titleEn: 'One place for all apps',
-    descDe: 'Das offizielle App-Portal für Linux-Binaries, Android-APKs und Dokumentation.',
-    descEn: 'The official app store for Linux binaries, Android APKs, and documentation.',
-    category: 'Web',
-    link: '/benzstore/',
-    icon: '/assets/benzstore.png'
+    name: 'myfdroid',
+    titleDe: 'Offizielles F-Droid Repository',
+    titleEn: 'Official F-Droid Repository',
+    descDe: 'Kryptografisch signiertes F-Droid Software-Repository für freie Android-Apps (learn, Wetter).',
+    descEn: 'Cryptographically signed F-Droid repository hosting free Android apps (learn, Wetter).',
+    category: 'Android',
+    link: '/myfdroid/',
+    icon: '/assets/jb-logo.png'
   },
   {
     name: 'learn',
@@ -103,15 +103,15 @@ const projects = [
         <p data-lang="en">I build open tools for desktop, Android and the web. With Go, a focus on what matters and the freedom to make them your own.</p>
       </div>
       <div class="actions">
-        <a href="/benzstore/" class="button primary">
-          <span data-lang="de">BenzStore entdecken</span>
-          <span data-lang="en">Explore BenzStore</span>
-          <span aria-hidden="true">↗</span>
+        <a href="/downloads/" class="button primary">
+          <span data-lang="de">PC Downloads (Go)</span>
+          <span data-lang="en">PC Downloads (Go)</span>
+          <span aria-hidden="true">💻</span>
         </a>
-        <a href="#projekte" class="button secondary">
-          <span data-lang="de">Projekte ansehen</span>
-          <span data-lang="en">Browse projects</span>
-          <span aria-hidden="true">↓</span>
+        <a href="/myfdroid/" class="button secondary">
+          <span data-lang="de">Android Apps (myfdroid)</span>
+          <span data-lang="en">Android Apps (myfdroid)</span>
+          <span aria-hidden="true">📱</span>
         </a>
       </div>
     </div>
@@ -166,25 +166,35 @@ const projects = [
     </div>
   </section>
 
-  <!-- BenzStore Spotlight Banner -->
+  <!-- Ecosystem Spotlight Banner -->
   <section class="store-banner">
     <div class="container store-grid">
       <div class="store-mark-box">
-        <img src="/assets/benzstore.png" alt="BenzStore Icon" class="store-mark-img" />
+        <img src="/assets/jb-logo.png" alt="Jeremy Benz Ecosystem" class="store-mark-img" />
       </div>
       <div class="store-content">
-        <p class="eyebrow">BenzStore Spotlight</p>
+        <p class="eyebrow">
+          <span data-lang="de">App-Verteilung &amp; Ökosystem</span>
+          <span data-lang="en">App Distribution &amp; Ecosystem</span>
+        </p>
         <h2>
-          <span data-lang="de">Ein Ort für alle meine Apps.</span>
-          <span data-lang="en">One place for all my apps.</span>
+          <span data-lang="de">Offene Software für Android &amp; PC.</span>
+          <span data-lang="en">Open software for Android &amp; PC.</span>
         </h2>
-        <p data-lang="de">Entdecke alle Desktop- und Mobil-Anwendungen an einem zentralen Ort. Mit verifizierten Binaries, Release-Notes und direkten Installationsanleitungen.</p>
-        <p data-lang="en">Discover all desktop and mobile apps in one single place. Complete with verified binaries, release notes and installation guides.</p>
-        <a href="/benzstore/" class="button primary">
-          <span data-lang="de">Zum BenzStore</span>
-          <span data-lang="en">Visit BenzStore</span>
-          <span aria-hidden="true">↗</span>
-        </a>
+        <p data-lang="de">Für Android-Nutzer steht unser kryptografisch signiertes F-Droid Repository bereit. Desktop-Nutzer (Linux &amp; Windows) erhalten direkte Go-Binaries mit SHA-256 Integrität über unsere Self-Hosted Gitea-Infrastruktur.</p>
+        <p data-lang="en">For Android users, our cryptographically signed F-Droid repository is ready. Desktop users (Linux &amp; Windows) receive direct Go binaries with SHA-256 integrity hosted on our self-hosted Gitea infrastructure.</p>
+        <div class="store-actions" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="/downloads/" class="button primary">
+            <span data-lang="de">Zu den PC Downloads</span>
+            <span data-lang="en">PC Downloads</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="/myfdroid/" class="button secondary">
+            <span data-lang="de">Zu myfdroid (F-Droid)</span>
+            <span data-lang="en">Visit myfdroid (F-Droid)</span>
+            <span aria-hidden="true">📱</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>

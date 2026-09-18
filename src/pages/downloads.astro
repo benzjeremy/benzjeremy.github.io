@@ -1,0 +1,398 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const apps = [
+  {
+    id: 'untis-go',
+    name: 'untis-go',
+    version: 'v2.3',
+    icon: '/assets/jb-logo.png',
+    descDe: 'Schlanker, blitzschneller Stundenplan-Client für WebUntis. Basiert auf Go und nativen Webview-Shells (WebKitGTK unter Linux, WebView2 unter Windows) – ohne schwerfälliges Electron.',
+    descEn: 'Lightweight, lightning-fast timetable client for WebUntis. Built with Go and native webview shells (WebKitGTK on Linux, WebView2 on Windows) – zero Electron bloat.',
+    giteaRepo: 'https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go',
+    giteaReleases: 'https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go/releases',
+    downloads: [
+      {
+        platform: 'Linux (x86_64)',
+        format: '.tar.gz',
+        size: '9.4 MB',
+        url: 'https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go/releases/download/v2.3/untis-go-v2.3-linux.tar.gz'
+      },
+      {
+        platform: 'Windows (x86_64)',
+        format: '.zip',
+        size: '10.8 MB',
+        url: 'https://pi5.darter-basking.ts.net/gitea/untis-go/untis-go/releases/download/v2.3/untis-go-v2.3-windows.zip'
+      }
+    ]
+  },
+  {
+    id: 'docklite',
+    name: 'docklite',
+    version: 'v1.2.1',
+    icon: '/assets/jb-logo.png',
+    descDe: 'Minimalistische, ressourcenschonende Desktop-GUI für Docker Container. Echtzeit-Metriken, Log-Stream und Container-Verwaltung mit unter 30 MB RAM-Bedarf.',
+    descEn: 'Minimalist, resource-efficient desktop GUI for Docker containers. Real-time metrics, log streaming, and container lifecycle management with under 30 MB RAM.',
+    giteaRepo: 'https://pi5.darter-basking.ts.net/gitea/docklite/docklite',
+    giteaReleases: 'https://pi5.darter-basking.ts.net/gitea/docklite/docklite/releases',
+    downloads: [
+      {
+        platform: 'Linux (x86_64)',
+        format: '.tar.gz',
+        size: '3.1 MB',
+        url: 'https://pi5.darter-basking.ts.net/gitea/docklite/docklite/releases/download/v1.2.1/docklite-v1.2.1-linux-amd64.tar.gz'
+      },
+      {
+        platform: 'Windows (x86_64)',
+        format: '.zip',
+        size: '3.3 MB',
+        url: 'https://pi5.darter-basking.ts.net/gitea/docklite/docklite/releases/download/v1.2.1/docklite-v1.2.1-windows-amd64.zip'
+      }
+    ]
+  },
+  {
+    id: 'spotify-screensaver',
+    name: 'spotify-screensaver',
+    version: 'v1.4',
+    icon: '/assets/jb-logo.png',
+    descDe: 'Vollbild-Bildschirmschoner und Medienanzeige für Spotify. Zeigt hochauflösende Album-Cover, animierte Visualisierungen und lokale Mediensteuerung.',
+    descEn: 'Fullscreen screensaver and media display for Spotify. Features high-res album art, animated visualizers, and local playback controls.',
+    giteaRepo: 'https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver',
+    giteaReleases: 'https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver/releases',
+    downloads: [
+      {
+        platform: 'Linux (x86_64)',
+        format: '.tar.gz',
+        size: '3.1 MB',
+        url: 'https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver/releases/download/v1.4/spotify-screensaver-v1.4-linux.tar.gz'
+      },
+      {
+        platform: 'Windows (x86_64)',
+        format: '.zip',
+        size: '3.2 MB',
+        url: 'https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver/releases/download/v1.4/spotify-screensaver-v1.4-windows.zip'
+      }
+    ]
+  },
+  {
+    id: 'ollama-fleet-manager',
+    name: 'ollama-fleet-manager',
+    version: 'v1.0',
+    icon: '/assets/jb-logo.png',
+    descDe: 'Verteiltes Management für mehrere Ollama-Instanzen. Automatische Lastverteilung, Modell-Synchronisation und aggregiertes Monitoring über Tailscale.',
+    descEn: 'Distributed management for multiple Ollama instances. Automatic load balancing, model synchronization, and aggregated monitoring across Tailscale.',
+    giteaRepo: 'https://pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager',
+    giteaReleases: 'https://pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager/releases',
+    downloads: [
+      {
+        platform: 'Linux (x86_64)',
+        format: '.tar.gz',
+        size: '3.0 MB',
+        url: 'https://pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager/releases/download/v1.0/ollama-fleet-manager-v1.0-linux.tar.gz'
+      },
+      {
+        platform: 'Windows (x86_64)',
+        format: '.zip',
+        size: '3.1 MB',
+        url: 'https://pi5.darter-basking.ts.net/gitea/ollama-fleet-manager/ollama-fleet-manager/releases/download/v1.0/ollama-fleet-manager-v1.0-windows.zip'
+      }
+    ]
+  }
+];
+---
+
+<Layout
+  titleDe="Downloads · Go Desktop-Anwendungen | Jeremy Benz"
+  titleEn="Downloads · Go Desktop Applications | Jeremy Benz"
+  descriptionDe="Offizielle Binär-Downloads der Desktop-Tools von Jeremy Benz für Linux & Windows direkt über Gitea."
+  descriptionEn="Official binary downloads for desktop tools by Jeremy Benz for Linux & Windows hosted on Gitea."
+  currentPath="/downloads"
+>
+  <main id="main" class="downloads-page">
+    <section class="container page-hero">
+      <div class="hero-label">
+        <span data-lang="de">Desktop Software &amp; Binaries</span>
+        <span data-lang="en">Desktop Software &amp; Binaries</span>
+      </div>
+      <h1 class="page-title">
+        <span data-lang="de">PC &amp; Desktop Downloads</span>
+        <span data-lang="en">PC &amp; Desktop Downloads</span>
+      </h1>
+      <p class="page-lead">
+        <span data-lang="de">Kompilierte, verifizierte native Go-Anwendungen für Linux und Windows. Alle Binaries werden über unsere Self-Hosted Gitea-Infrastruktur mit SHA-256 Integrität bereitgestellt.</span>
+        <span data-lang="en">Compiled, verified native Go applications for Linux and Windows. All binaries are hosted on our self-hosted Gitea infrastructure with SHA-256 integrity.</span>
+      </p>
+    </section>
+
+    <!-- App Cards Grid -->
+    <section class="container downloads-section">
+      <div class="downloads-grid">
+        {apps.map(app => (
+          <article class="download-card" id={app.id}>
+            <div class="card-head">
+              <div class="card-title-wrap">
+                <h2 class="app-name">{app.name}</h2>
+                <span class="version-badge">{app.version}</span>
+              </div>
+              <a href={`/${app.id}/`} class="details-link" title="Showcase">
+                <span data-lang="de">Projekt-Info ↗</span>
+                <span data-lang="en">Project Info ↗</span>
+              </a>
+            </div>
+
+            <p class="app-desc">
+              <span data-lang="de">{app.descDe}</span>
+              <span data-lang="en">{app.descEn}</span>
+            </p>
+
+            <div class="download-buttons">
+              {app.downloads.map(dl => (
+                <a href={dl.url} class="button primary download-btn" download>
+                  <span class="btn-platform">{dl.platform}</span>
+                  <span class="btn-meta">{dl.format} · {dl.size}</span>
+                </a>
+              ))}
+            </div>
+
+            <div class="card-foot">
+              <a href={app.giteaReleases} class="meta-link" target="_blank" rel="noopener noreferrer">
+                <span>📦 Gitea Release ↗</span>
+              </a>
+              <a href={app.giteaRepo} class="meta-link" target="_blank" rel="noopener noreferrer">
+                <span>💻 Source Code (Gitea) ↗</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Android Callout Banner -->
+    <section class="container mobile-callout-section">
+      <div class="mobile-callout-card">
+        <div class="callout-icon">📱</div>
+        <div class="callout-content">
+          <p class="callout-eyebrow">
+            <span data-lang="de">Für Android-Nutzer</span>
+            <span data-lang="en">For Android Users</span>
+          </p>
+          <h3>
+            <span data-lang="de">Offizielles F-Droid Repository (myfdroid)</span>
+            <span data-lang="en">Official F-Droid Repository (myfdroid)</span>
+          </h3>
+          <p>
+            <span data-lang="de">Unterwegs auf Android? Binde unser kryptografisch signiertes F-Droid Repository ein, um Apps wie <strong>learn</strong> und <strong>Wetter</strong> mit automatischen Updates direkt auf deinem Smartphone zu installieren.</span>
+            <span data-lang="en">On Android? Add our cryptographically signed F-Droid repository to install apps like <strong>learn</strong> and <strong>Wetter</strong> with automatic updates directly on your smartphone.</span>
+          </p>
+          <div class="callout-actions">
+            <a href="/myfdroid/" class="button primary">
+              <span data-lang="de">Zu myfdroid &amp; Repository-URL</span>
+              <span data-lang="en">Visit myfdroid &amp; Repository URL</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .downloads-page {
+    padding-bottom: 5rem;
+  }
+
+  .page-hero {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-label {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+  }
+
+  .page-lead {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 65ch;
+    line-height: 1.6;
+  }
+
+  .downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .download-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md, 8px);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .download-card:hover {
+    border-color: var(--accent-primary);
+  }
+
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .card-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .app-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .version-badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: var(--bg-input, rgba(0,0,0,0.05));
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+  }
+
+  .details-link {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .details-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .app-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .download-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .download-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .btn-platform {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .btn-meta {
+    font-size: 0.75rem;
+    opacity: 0.85;
+    font-weight: 400;
+  }
+
+  .card-foot {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.8125rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .meta-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .meta-link:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+  }
+
+  /* Mobile Callout */
+  .mobile-callout-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: var(--radius-md, 8px);
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .callout-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .callout-eyebrow {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .callout-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .callout-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    max-width: 70ch;
+  }
+
+  @media (max-width: 640px) {
+    .mobile-callout-card {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+  }
+</style>
