@@ -1,42 +1,28 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website umgezogen · Jeremy Benz → pi5.darter-basking.ts.net</title>
+  <title>Offizielle Weiterleitung · Jeremy Benz → pi5.darter-basking.ts.net</title>
   
-  <meta name="description" content="Die offizielle Website und alle Projekt-Wikis von Jeremy Benz sind dauerhaft auf unsere private Raspberry Pi 5 Infrastruktur umgezogen: https://pi5.darter-basking.ts.net/">
-  <meta http-equiv="refresh" content="0; url=https://pi5.darter-basking.ts.net/">
+  <meta name="description" content="Offizieller Transparenz- und Weiterleitungshinweis von Jeremy Benz. Die Webpräsenz ist dauerhaft auf unsere private Raspberry Pi 5 Infrastruktur umgezogen.">
   <link rel="canonical" href="https://pi5.darter-basking.ts.net/">
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Instant Redirection Logic -->
-  <script>
-    (function() {
-      var targetBase = 'https://pi5.darter-basking.ts.net';
-      var path = window.location.pathname;
-      var search = window.location.search;
-      var hash = window.location.hash;
-
-      if (path === '/index.html' || path === '/index.htm') {
-        path = '/';
-      }
-
-      var targetUrl = targetBase + path + search + hash;
-      window.location.replace(targetUrl);
-    })();
-  </script>
-
   <style>
     :root {
-      --bg: #090e17;
-      --card-bg: rgba(15, 23, 42, 0.85);
-      --border: rgba(56, 189, 248, 0.2);
+      --bg: #070b14;
+      --card-bg: rgba(13, 20, 36, 0.88);
+      --border-subtle: rgba(56, 189, 248, 0.16);
+      --border-strong: rgba(56, 189, 248, 0.35);
       --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.25);
+      --accent-glow: rgba(56, 189, 248, 0.2);
       --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.2);
+      --amber: #f59e0b;
       --text: #f8fafc;
       --text-muted: #94a3b8;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
     * {
@@ -48,86 +34,149 @@
     body {
       background-color: var(--bg);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.6) 0%, transparent 100%);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 24px 16px;
       line-height: 1.6;
+    }
+
+    .container {
+      max-width: 660px;
+      width: 100%;
     }
 
     .redirect-card {
       background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px var(--accent-glow);
-      max-width: 580px;
-      width: 100%;
-      padding: 40px 32px;
-      text-align: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 50px var(--accent-glow);
+      padding: clamp(28px, 5vw, 44px);
       display: flex;
       flex-direction: column;
+      gap: 22px;
+      animation: cardEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Top Navigation bar in card */
+    .card-topbar {
+      display: flex;
       align-items: center;
-      gap: 20px;
-      animation: fadeIn 0.4s ease-out;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+    .brand-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .logo-wrap {
-      position: relative;
-      width: 88px;
-      height: 88px;
-      margin-bottom: 4px;
-    }
-
-    .logo-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 22px;
+    .brand-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       object-fit: cover;
-      border: 2px solid var(--border);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--green);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.78rem;
+    .brand-title {
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.2;
     }
 
-    .pulse-dot {
-      width: 7px;
-      height: 7px;
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .lang-switcher {
+      display: flex;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #041226;
+    }
+
+    /* Security / Authenticity Notice Box */
+    .trust-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-radius: 14px;
+      padding: 14px 18px;
+    }
+
+    .trust-icon-wrap {
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 8px var(--green);
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
     }
 
-    h1 {
-      font-size: 1.65rem;
+    .trust-content h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #10b981;
+      margin-bottom: 2px;
+    }
+
+    .trust-content p {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    /* Hero / Explanation */
+    .hero-text h1 {
+      font-size: clamp(1.4rem, 4vw, 1.85rem);
       font-weight: 800;
       letter-spacing: -0.03em;
       color: #ffffff;
       line-height: 1.25;
+      margin-bottom: 10px;
     }
 
     .gradient-text {
@@ -136,150 +185,435 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .desc-block {
-      color: var(--text-muted);
-      font-size: 0.95rem;
+    .why-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
+      gap: 10px;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .why-item strong {
+      color: #e2e8f0;
+    }
+
+    .why-bullet {
+      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    /* Destination URL display */
+    .target-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .target-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .target-url-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: #040812;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+
+    .target-url-text {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--accent);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ssl-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    /* Countdown & Progress bar */
+    .progress-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8 0%, #10b981 100%);
+      border-radius: 999px;
+      transition: width 0.1s linear;
+    }
+
+    .progress-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .status-counter strong {
+      color: #ffffff;
+    }
+
+    /* Action Buttons */
+    .action-group {
+      display: grid;
+      grid-template-columns: 1fr auto;
       gap: 12px;
     }
 
-    .desc-block strong {
-      color: var(--text);
+    @media (max-width: 520px) {
+      .action-group {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .target-url-box {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 10px 16px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.88rem;
-      color: var(--accent);
-      word-break: break-all;
-    }
-
-    .cta-button {
+    .btn-proceed {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      width: 100%;
       background: linear-gradient(135deg, #0284c7 0%, #059669 100%);
       color: #ffffff;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      padding: 14px 24px;
+      padding: 13px 22px;
       border-radius: 12px;
       text-decoration: none;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
+      border: none;
+      cursor: pointer;
     }
 
-    .cta-button:hover {
+    .btn-proceed:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 30px rgba(2, 132, 199, 0.5);
     }
 
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      flex-wrap: wrap;
+    .btn-pause {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      margin-top: 8px;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 13px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
     }
 
-    .footer-links a {
+    .btn-pause:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    /* Footer Meta */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .card-footer a {
       color: var(--text-muted);
       text-decoration: none;
       transition: color 0.15s ease;
     }
 
-    .footer-links a:hover {
+    .card-footer a:hover {
       color: var(--accent);
     }
 
-    .spinner {
-      width: 16px;
-      height: 16px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-top-color: #ffffff;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+    /* Language toggles */
+    .lang-en { display: none; }
+    html[lang="en"] .lang-en { display: inline-block; }
+    html[lang="en"] .lang-de { display: none; }
+    html[lang="en"] div.lang-en, html[lang="en"] p.lang-en { display: block; }
+    html[lang="de"] div.lang-en, html[lang="de"] p.lang-en { display: none; }
   </style>
 </head>
 <body>
 
-  <main class="redirect-card">
-    <div class="logo-wrap">
-      <img src="assets/jb-logo.png" alt="Jeremy Benz Logo" class="logo-img">
-    </div>
+  <div class="container">
+    <main class="redirect-card">
+      
+      <!-- Topbar with Logo and Language Selector -->
+      <div class="card-topbar">
+        <div class="brand-meta">
+          <img src="assets/jb-logo.png" alt="Jeremy Benz Logo" class="brand-logo-img">
+          <div>
+            <div class="brand-title">Jeremy Benz</div>
+            <div class="brand-sub">
+              <span class="lang-de">Offizielles Web-Portal</span>
+              <span class="lang-en">Official Web Portal</span>
+            </div>
+          </div>
+        </div>
+        <div class="lang-switcher" role="group" aria-label="Sprachauswahl">
+          <button type="button" class="lang-btn active" id="btnDe" onclick="setLanguage('de')">DE</button>
+          <button type="button" class="lang-btn" id="btnEn" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
 
-    <span class="badge">
-      <span class="pulse-dot"></span>
-      Infrastruktur-Umzug / Relocated
-    </span>
+      <!-- Trust & Security Reassurance Banner -->
+      <div class="trust-notice" role="alert">
+        <div class="trust-icon-wrap" aria-hidden="true">🛡️</div>
+        <div class="trust-content">
+          <h3 class="lang-de">Kein Hacker-Angriff · Offizieller Systemumzug</h3>
+          <h3 class="lang-en">Official Infrastructure Relocation · Verified Safe</h3>
+          <p class="lang-de">
+            Du wirst <strong>nicht</strong> umgeleitet, weil die Seite kompromittiert wurde. Diese Weiterleitung ist von <strong>Jeremy Benz</strong> autorisiert, um alle Dienste auf unsere eigene, private Server-Hardware umzuziehen.
+          </p>
+          <p class="lang-en">
+            You are <strong>not</strong> being hijacked or compromised. This relocation is officially authorized by <strong>Jeremy Benz</strong> to host all services directly on private dedicated hardware.
+          </p>
+        </div>
+      </div>
 
-    <h1>
-      Website umgezogen zu<br>
-      <span class="gradient-text">pi5.darter-basking.ts.net</span>
-    </h1>
+      <!-- Main Headline & Explanation -->
+      <div class="hero-text">
+        <h1 class="lang-de">
+          Website umgezogen zu<br>
+          <span class="gradient-text">pi5.darter-basking.ts.net</span>
+        </h1>
+        <h1 class="lang-en">
+          Website relocated to<br>
+          <span class="gradient-text">pi5.darter-basking.ts.net</span>
+        </h1>
 
-    <div class="desc-block">
-      <p>
-        Die offizielle Web-Präsenz, alle Downloads und Projekt-Wikis von <strong>Jeremy Benz</strong> laufen nun exklusiv auf unserer privaten <strong>Raspberry Pi 5</strong> Infrastruktur.
-      </p>
-      <p style="font-size: 0.85rem; color: #64748b;">
-        The official web presence, downloads, and project wikis of Jeremy Benz are now hosted exclusively on our private Raspberry Pi 5 server.
-      </p>
-    </div>
+        <!-- Why are you being redirected box -->
+        <div class="why-box">
+          <div class="why-item">
+            <span class="why-bullet">✦</span>
+            <div class="lang-de">
+              <strong>Warum der Wechsel?</strong> Statt fremde US-Cloud-Plattformen zu nutzen, betreiben wir alle Websites, APIs, Projekt-Wikis und PC-Downloads aus Überzeugung auf unserem privaten <strong>Raspberry Pi 5</strong> (100% Local-First &amp; Zero-Telemetry).
+            </div>
+            <div class="lang-en">
+              <strong>Why the move?</strong> Instead of third-party US commercial cloud hosts, all our websites, APIs, project wikis, and downloads run on our dedicated <strong>Raspberry Pi 5</strong> server (100% local-first &amp; zero-telemetry).
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-bullet">✦</span>
+            <div class="lang-de">
+              <strong>Sichere Verbindung:</strong> Die neue Domain wird über ein sicheres, verschlüsseltes TLS-Gateway (Tailscale Funnel) mit vollständiger SSL-Zertifizierung bereitgestellt.
+            </div>
+            <div class="lang-en">
+              <strong>Encrypted Connection:</strong> The new domain is powered by a high-security encrypted TLS gateway (Tailscale Funnel) with full SSL verification.
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="target-url-box" id="targetDisplay">
-      https://pi5.darter-basking.ts.net/
-    </div>
+      <!-- Target URL Box -->
+      <div class="target-box">
+        <span class="target-label lang-de">Verifiziertes Ziel</span>
+        <span class="target-label lang-en">Verified Destination</span>
+        <div class="target-url-container">
+          <span class="target-url-text" id="targetDisplay">https://pi5.darter-basking.ts.net/</span>
+          <span class="ssl-badge">🔒 TLS / HTTPS</span>
+        </div>
+      </div>
 
-    <a href="https://pi5.darter-basking.ts.net/" class="cta-button" id="ctaBtn">
-      <span class="spinner"></span>
-      <span>Jetzt zur neuen Website wechseln ↗</span>
-    </a>
+      <!-- Progress Section & Countdown -->
+      <div class="progress-section">
+        <div class="progress-bar-bg" aria-hidden="true">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-status">
+          <span class="status-counter" id="statusMessage">
+            <span class="lang-de">Automatische Weiterleitung in <strong id="secondsLeft">5</strong> Sekunden...</span>
+            <span class="lang-en">Redirecting automatically in <strong id="secondsLeftEn">5</strong> seconds...</span>
+          </span>
+          <span id="pausedIndicator" style="display:none; color: var(--amber); font-weight: 600;">
+            <span class="lang-de">⏸️ Pausiert</span>
+            <span class="lang-en">⏸️ Paused</span>
+          </span>
+        </div>
+      </div>
 
-    <div class="footer-links">
-      <a href="https://whatsapp.com/channel/0029VbD4nDU5K3zUW0QQzE45" target="_blank" rel="noopener noreferrer">📢 WhatsApp-Kanal</a>
-      <span>&bull;</span>
-      <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">📦 GitHub Profile</a>
-    </div>
-  </main>
+      <!-- Buttons -->
+      <div class="action-group">
+        <a href="https://pi5.darter-basking.ts.net/" class="btn-proceed" id="proceedBtn">
+          <span>🚀</span>
+          <span class="lang-de">Direkt zur Website wechseln</span>
+          <span class="lang-en">Proceed to New Website</span>
+        </a>
+        <button type="button" class="btn-pause" id="pauseBtn" onclick="togglePause()">
+          <span id="pauseBtnIcon">⏸️</span>
+          <span id="pauseBtnText" class="lang-de">Pausieren</span>
+          <span id="pauseBtnTextEn" class="lang-en">Pause</span>
+        </button>
+      </div>
+
+      <!-- Footer Info & Socials -->
+      <footer class="card-footer">
+        <div>
+          <span>© 2026 Jeremy Benz</span> &bull; 
+          <span class="lang-de">Freudenberg (NRW)</span>
+          <span class="lang-en">Germany</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://whatsapp.com/channel/0029VbD4nDU5K3zUW0QQzE45" target="_blank" rel="noopener noreferrer">📢 WhatsApp-Kanal</a>
+          <span>&bull;</span>
+          <a href="https://github.com/benzjeremy" target="_blank" rel="noopener noreferrer">📦 GitHub Profile</a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
 
   <script>
-    (function() {
-      var targetBase = 'https://pi5.darter-basking.ts.net';
-      var path = window.location.pathname;
-      var search = window.location.search;
-      var hash = window.location.hash;
+    // Language Controller
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.getElementById('btnDe').classList.toggle('active', lang === 'de');
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+      try { localStorage.setItem('redirect_lang', lang); } catch (e) {}
+    }
 
-      if (path === '/index.html' || path === '/index.htm') {
-        path = '/';
+    // Initialize Language from Browser or Storage
+    (function initLang() {
+      var saved = localStorage.getItem('redirect_lang');
+      if (saved === 'en' || saved === 'de') {
+        setLanguage(saved);
+      } else {
+        var userLang = (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'de';
+        setLanguage(userLang);
       }
-
-      var fullUrl = targetBase + path + search + hash;
-      var display = document.getElementById('targetDisplay');
-      var btn = document.getElementById('ctaBtn');
-
-      if (display) display.textContent = fullUrl;
-      if (btn) btn.href = fullUrl;
-
-      // Fallback timer redirect after 250ms
-      setTimeout(function() {
-        window.location.replace(fullUrl);
-      }, 250);
     })();
+
+    // URL Resolver & Deep Link Logic
+    var targetBase = 'https://pi5.darter-basking.ts.net';
+    var path = window.location.pathname;
+    var search = window.location.search;
+    var hash = window.location.hash;
+
+    if (path === '/index.html' || path === '/index.htm' || path === '/404.html' || path === '/404') {
+      path = '/';
+    }
+
+    var fullTargetUrl = targetBase + path + search + hash;
+    document.getElementById('targetDisplay').textContent = fullTargetUrl;
+    document.getElementById('proceedBtn').href = fullTargetUrl;
+
+    // Countdown & Progress Bar Controller (5 seconds duration)
+    var totalTimeMs = 5000;
+    var startTime = Date.now();
+    var isPaused = false;
+    var pauseTime = 0;
+    var timerId = null;
+
+    var progressFill = document.getElementById('progressFill');
+    var secDe = document.getElementById('secondsLeft');
+    var secEn = document.getElementById('secondsLeftEn');
+    var pausedIndicator = document.getElementById('pausedIndicator');
+    var pauseBtnIcon = document.getElementById('pauseBtnIcon');
+    var pauseBtnText = document.getElementById('pauseBtnText');
+    var pauseBtnTextEn = document.getElementById('pauseBtnTextEn');
+
+    function updateTick() {
+      if (isPaused) return;
+
+      var elapsed = Date.now() - startTime;
+      var remaining = Math.max(0, totalTimeMs - elapsed);
+      var progress = Math.min(100, (elapsed / totalTimeMs) * 100);
+
+      progressFill.style.width = progress + '%';
+
+      var seconds = Math.ceil(remaining / 1000);
+      secDe.textContent = seconds;
+      secEn.textContent = seconds;
+
+      if (remaining <= 0) {
+        window.location.replace(fullTargetUrl);
+      } else {
+        timerId = requestAnimationFrame(updateTick);
+      }
+    }
+
+    function togglePause() {
+      if (!isPaused) {
+        isPaused = true;
+        cancelAnimationFrame(timerId);
+        pauseTime = Date.now();
+        pausedIndicator.style.display = 'inline-block';
+        pauseBtnIcon.textContent = '▶️';
+        pauseBtnText.textContent = 'Fortsetzen';
+        pauseBtnTextEn.textContent = 'Resume';
+      } else {
+        isPaused = false;
+        var pausedDuration = Date.now() - pauseTime;
+        startTime += pausedDuration;
+        pausedIndicator.style.display = 'none';
+        pauseBtnIcon.textContent = '⏸️';
+        pauseBtnText.textContent = 'Pausieren';
+        pauseBtnTextEn.textContent = 'Pause';
+        timerId = requestAnimationFrame(updateTick);
+      }
+    }
+
+    // Start timer on page load
+    timerId = requestAnimationFrame(updateTick);
   </script>
 </body>
 </html>
