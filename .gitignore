@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Scratch / Media
+media/
+scratch/
+*.tmp
+*.log
